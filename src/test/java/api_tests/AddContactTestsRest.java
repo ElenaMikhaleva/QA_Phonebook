@@ -12,7 +12,7 @@ import org.testng.asserts.SoftAssert;
 import static utils.RandomUtils.generateEmail;
 import static utils.RandomUtils.generateString;
 
-public class AddContactsTestsRest extends ContactController {
+public class AddContactTestsRest extends ContactController {
     SoftAssert softAssert = new SoftAssert();
 
     @Test

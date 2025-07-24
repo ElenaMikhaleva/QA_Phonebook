@@ -2,9 +2,9 @@ package api_tests;
 
 import dto.Contact;
 import dto.ResponseMessageDto;
+import dto.TokenDto;
 import io.restassured.response.Response;
 import manager.ContactController;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -12,7 +12,8 @@ import static utils.RandomUtils.generateEmail;
 import static utils.RandomUtils.generateString;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
-public class UpdateContactTestsRest extends ContactController {
+
+public class DeleteContactByIdTests extends ContactController {
 
     Contact contact;
 
@@ -35,22 +36,28 @@ public class UpdateContactTestsRest extends ContactController {
             responseMessageDto = response.body().as(ResponseMessageDto.class);
             contact.setId(responseMessageDto.getMessage().split("ID: ")[1]);
         }
-
     }
 
     @Test
-    public void updateContact() {
-        System.out.println(contact.toString());
-        contact.setName("New Name");
-        Response response = updateContactRequest(contact, tokenDto);
-        System.out.println(response.getStatusLine());
+    public void deleteContactById_PositiveTest() {
+        Response response = deleteContactById(contact, tokenDto);
         response
-                .then() // return Object Validatable Response
-                .log().all() // logging
-                .statusCode(200) // check status code. if not 200, test will fail
+                .then()
+                .log().ifValidationFails()
+                .statusCode(200)
                 .body(matchesJsonSchemaInClasspath("ResponseMessageDtoSchema.json"))
+                ;
+    }
+
+    @Test
+    public void deleteContactById_NegativeTest401_invalidToken() {
+        TokenDto tokenDto1 = TokenDto.builder().token("invalid").build();
+        Response response = deleteContactById(contact, tokenDto1);
+        response
+                .then()
+                .log().all()
+                .statusCode(200)
+                .body(matchesJsonSchemaInClasspath("ErrorMessageDtoSchema.json"))
         ;
-        ResponseMessageDto responseMessageDto = response.body().as(ResponseMessageDto.class);
-        Assert.assertTrue(responseMessageDto.getMessage().contains("Contact was updated"));
     }
 }
