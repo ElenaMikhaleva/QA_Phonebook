@@ -29,7 +29,7 @@ public class RegistrationTests extends ApplicationManager {
         // @BeforeMethod(ApplicationManager -> @BeforeMethod(RegistrationTests) -> @Test -> @AfterMethod(RegistrationTests) -> @ApplicationManager
     }
 
-    @Test(retryAnalyzer = RetryAnalyzer.class)
+    @Test(retryAnalyzer = RetryAnalyzer.class, groups = "smoke")
     public void regPositiveTest() {
         UserLombok user = UserLombok.builder()
                 .username(generateEmail(5))

@@ -23,7 +23,7 @@ public class LogInTests extends ApplicationManager {
     HomePage homePage;
     LoginPage loginPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void goToLogInPage() {
         homePage = new HomePage(getDriver());
         homePage.clickBtnHeaderLogin();
@@ -31,7 +31,7 @@ public class LogInTests extends ApplicationManager {
         // @BeforeMethod(ApplicationManager -> @BeforeMethod(RegistrationTests) -> @Test -> @AfterMethod(RegistrationTests) -> @ApplicationManager
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void loginPositiveTest(Method method) {
         logger.info("start method " + method.getName());
         User user = new User("elenam@gmail.com", "Password$1");

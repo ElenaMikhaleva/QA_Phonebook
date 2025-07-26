@@ -33,7 +33,7 @@ public class ApplicationManager {
         driver = new EventFiringDecorator<>(webDriverListener).decorate(driver);
     }
 
-    @AfterMethod
+    @AfterMethod(enabled = true, alwaysRun = true)
     public void tearDown() {
 //        logger.info("Stop test -----------------------");
         if (driver != null) {

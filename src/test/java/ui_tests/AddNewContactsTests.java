@@ -28,7 +28,7 @@ public class AddNewContactsTests extends ApplicationManager {
     int sizeBeforeAdd;
     String existingPhone;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
 //        User user = new User("pippin@mail.com", "WhatAbout#2Breakfast");
         User user = new User(getProperty("login.properties", "email"), getProperty("login.properties", "password"));
