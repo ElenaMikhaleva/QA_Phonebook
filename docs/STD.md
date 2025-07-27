@@ -4,6 +4,12 @@
 **Date Created:**	30/06/2025<br>
 **Version:**    v1.0<br>
 
+# Content
+* Test Cases Summary
+  * Registration API
+  * Log in API
+* Detailed Test Cases
+
 # Test Cases Summary
 
 ## Registration API
@@ -73,7 +79,7 @@ API-REG-FRM-N-002	API call with malformed JSON body
 ## Log in API
 
 ### API-TS8	Log in with valid data - Positive
-API-LOG-ALL-P-001	Log in with registered Email and correct Password
+API-LOG-ALL-P-001	Log in with registered Email
 ### API-TS9	Log in with wrong Email - Negative
 API-LOG-EML-N-001	Log in with unregistered Email  
 API-LOG-EML-N-002	Log in with empty Email  
@@ -86,7 +92,7 @@ API-LOG-PWD-N-003	Log in with blank Password
 API-LOG-FRM-N-001	API call with invalid Content-Type header  
 API-LOG-FRM-N-002	API call with malformed JSON body
 
-# Detailed Test Cases 
+# Detailed Test Cases (Registration API)
 all data is example, actual data is generated
 
 ## API-TS1	Register with valid Email - Positive
@@ -97,7 +103,7 @@ all data is example, actual data is generated
 **Steps:**  
 Send POST request
     ``{
-        "email": "pippintook@gmail.com",
+        "username": "pippintook@gmail.com",
         "password": "#2Breakfast!"
     }``  
 **Expected Result:**  
@@ -114,7 +120,7 @@ Send POST request
 **Steps:**  
 Send POST request
    ``{
-        "email": "upperPippin@gmail.com",
+        "username": "upperPippin@gmail.com",
         "password": "#2Breakfast!"
    }``  
 **Expected Result:**  
@@ -130,7 +136,7 @@ Expected result is assumed based on RFC 1035
 **Steps:**  
 Send POST request
    ``{
-        "email": "upperTook@gmail.com",
+        "username": "upperTook@gmail.com",
         "password": "#2Breakfast!"
    }``  
 **Expected Result:**  
@@ -146,7 +152,7 @@ Expected result is assumed based on RFC 1035
 **Steps:**  
 Send POST request with email: [local_part=64 char]@[domain_part=189 char] where total = 254 char
     ``{
-        "email": "12345weryuii6789123asdfsa4567890kjh45670assd1234567lkjnvb8901234@abcdefghijklmweiurweoijklmasdasodifuapwoeiruekpfksdthgwesjldkjslkfjfljasdpfasdfoijaskldvlzxcvkjcnopqrstuvwxyzabefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz.com",
+        "username": "12345weryuii6789123asdfsa4567890kjh45670assd1234567lkjnvb8901234@abcdefghijklmweiurweoijklmasdasodifuapwoeiruekpfksdthgwesjldkjslkfjfljasdpfasdfoijaskldvlzxcvkjcnopqrstuvwxyzabefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz.com",
         "password": "5LongBreakfast!"
     }``  
 **Expected Result:**  
@@ -162,7 +168,7 @@ Expected result is assumed based on RFC 3696
 **Steps:**  
 Send POST request  
     ``{
-        "email": "pippin@hyphen-hobbiton.com",
+        "username": "pippin@hyphen-hobbiton.com",
         "password": "#2Breakfast!"
     }``  
 **Expected Result:**  
@@ -178,7 +184,7 @@ Expected result is assumed based on RFC 1035
 **Steps:**  
 Send POST request  
     ``{
-        "email": "subdomain@hobbiton.shire.com",
+        "username": "subdomain@hobbiton.shire.com",
         "password": "#2Breakfast!"
     }``  
 **Expected Result:**  
@@ -209,7 +215,7 @@ Send POST request
 **Steps:**  
 Send POST request  
 ``{
-"email": "",
+"username": "",
 "password": "#2Breakfast!"
 }  ``  
 **Expected Result:**  
@@ -223,7 +229,7 @@ Send POST request
 **Steps:**  
 Send POST request  
 ``{
-"email": "!!!@gmail.com",
+"username": "!!!@gmail.com",
 "password": "#2Breakfast!"
 }  ``  
 **Expected Result:**  
@@ -237,7 +243,7 @@ Expected result is assumed to avoid ambiguity, security risks, and delivery issu
 **Steps:**  
 Send POST request  
 ``{
-"email": "woatsigngmail.com",
+"username": "woatsigngmail.com",
 "password": "#2Breakfast!"
 }  ``  
 **Expected Result:**  
@@ -250,7 +256,7 @@ Send POST request
 **Steps:**  
 Send POST request  
 ``{
-"email": "two@atsigns@gmail.com",
+"username": "two@atsigns@gmail.com",
 "password": "#2Breakfast!"
 }  ``  
 **Expected Result:**  
@@ -263,7 +269,7 @@ Send POST request
 **Steps:**  
 Send POST request  
 ``{
-"email": "@gmail.com",
+"username": "@gmail.com",
 "password": "#2Breakfast!"
 }  ``  
 **Expected Result:**  
@@ -276,7 +282,7 @@ Send POST request
 **Steps:**  
 Send POST request  
 ``{
-"email": "nodomain@",
+"username": "nodomain@",
 "password": "#2Breakfast!"
 }  ``  
 **Expected Result:**  
@@ -289,7 +295,7 @@ Send POST request
 **Steps:**  
 Send POST request  
 ``{
-"email": "nodot@gmailcom",
+"username": "nodot@gmailcom",
 "password": "#2Breakfast!"
 }  ``  
 **Expected Result:**  
@@ -303,7 +309,7 @@ Expected result is assumed since it's rejected by most API.
 **Steps:**  
 Send POST request  
 ``{
-"email": "nodot@gmailcom",
+"username": "nodot@gmailcom",
 "password": "#2Breakfast!"
 }  ``  
 **Expected Result:**  
@@ -317,7 +323,7 @@ Expected result is assumed based on RFC 1035
 **Steps:**  
 Send POST request
 ``{
-  "email": "afterdot@gmail.",
+  "username": "afterdot@gmail.",
   "password": "0Symbols("
 }``   
 **Expected Result:**  
@@ -331,7 +337,7 @@ Expected result is assumed based on RFC 1035
 **Steps:**  
 Send POST request
 ``{
-  "email": "пиппин@gmail.com",
+  "username": "пиппин@gmail.com",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -344,7 +350,7 @@ Send POST request
 **Steps:**  
 Send POST request
 ``{
-  "email": "pïppiñtŏk@gmail.com",
+  "username": "pïppiñtŏk@gmail.com",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -357,7 +363,7 @@ Send POST request
 **Steps:**  
 Send POST request
 ``{
-  "email": " leadspace@gmail.com",
+  "username": " leadspace@gmail.com",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -371,7 +377,7 @@ Expected result is assumed based on RFC 5322
 **Steps:**  
 Send POST request
 ``{
-  "email": "white space@gmail.com",
+  "username": "white space@gmail.com",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -385,7 +391,7 @@ Expected result is assumed based on RFC 5322
 **Steps:**  
 Send POST request
 ``{
-  "email": "trailspace@gmail.com ",
+  "username": "trailspace@gmail.com ",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -400,7 +406,7 @@ Expected result is assumed based on RFC 5322
 **Steps:**  
 Send POST request
 ``{
-  "email": "dot..dot@gmail.com",
+  "username": "dot..dot@gmail.com",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -415,7 +421,7 @@ Expected result is assumed based on RFC 5322
 **Steps:**  
 Send POST request
 ``{
-  "email": "hyphen@gmail-.com",
+  "username": "hyphen@gmail-.com",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -430,7 +436,7 @@ Expected result is assumed based on RFC 1035
 **Steps:**  
 Send POST request
 ``{
-  "email": "emo😈ji@gmail.com",
+  "username": "emo😈ji@gmail.com",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -445,7 +451,7 @@ Expected result is assumed based on RFC 5322
 **Steps:**  
 Send POST request
 ``{
-  "email": "new  
+  "username": "new  
 line@gmail.com",
   "password": "#2Breakfast!"
 }``   
@@ -461,7 +467,7 @@ Expected result is assumed based on RFC 5322
 **Steps:**  
 Send POST request
 ``{
-  "email": "has     tab@gmail.com",
+  "username": "has     tab@gmail.com",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -475,7 +481,7 @@ Expected result is assumed based on RFC 5322
 **Steps:**  
 Send POST request with email [local_part>=64 char]@[domain_part>=189 char] where total = 255 char<br>
 ``{
-  "email": "12345weryuii6789123asdfs5a4567890kjh45670assd1234567lkjnvb8901234@abcdefghijklmweiurweoijklmasdasodifuapwoeiruekpfksdthgwesjldkjslkfjfljasdpfasdfoijaskldvlzxcvkjcnopqrstuvwxyzabefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz.com",
+  "username": "12345weryuii6789123asdfs5a4567890kjh45670assd1234567lkjnvb8901234@abcdefghijklmweiurweoijklmasdasodifuapwoeiruekpfksdthgwesjldkjslkfjfljasdpfasdfoijaskldvlzxcvkjcnopqrstuvwxyzabefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz.com",
   "password": "#2Breakfast!"
 }``   
 **Expected Result:**  
@@ -491,7 +497,7 @@ Expected result is assumed based on RFC 3696
 **Steps:**<br>
 Send POST request with password length 8 symbols
 ``{
-  "email": "minpassword@gmail.com",
+  "username": "minpassword@gmail.com",
   "password": "8Symbol-"
 }``<br>
 **Expected Result:**<br>
@@ -505,7 +511,7 @@ Send POST request with password length 8 symbols
 **Steps:**<br>
 Send POST request with password length 15 symbols
 ``{
-  "email": "maxpassword@gmail.com",
+  "username": "maxpassword@gmail.com",
   "password": "15^SymbolsHere!"
 }``<br>
 **Expected Result:**<br>
@@ -520,7 +526,7 @@ Send POST request with password length 15 symbols
 **Steps:**<br>
 Send POST request with password that has special characters @$#^&*!
 ``{
-  "email": "specialspassword@gmail.com",
+  "username": "specialspassword@gmail.com",
   "password": "4Char@$#^&*!"
 }``<br>
 
@@ -535,7 +541,7 @@ Send POST request with password that has special characters @$#^&*!
 **Steps:**<br>
 Send POST request with password that has one of special characters @$#^&*!
 ``{
-  "email": "specialpassword@gmail.com",
+  "username": "specialpassword@gmail.com",
   "password": "1Character@"
 }``<br>
 **Expected Result:**<br>
@@ -552,7 +558,7 @@ Send POST request with password that has one of special characters @$#^&*!
 **Steps:**<br>
 Send POST request without password
 ``{
-  "email": "pippinpassword@gmail.com"
+  "username": "pippinpassword@gmail.com"
 }``<br>
 **Expected Result:**<br>
 1. API returns 400 (requirement T7)
@@ -565,7 +571,7 @@ Send POST request without password
 **Steps:**<br>
 Send POST request with blank password
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": ""
 }``<br>
 **Expected Result:**<br>
@@ -579,7 +585,7 @@ Send POST request with blank password
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "lowletters7^"
 }``<br>
 **Expected Result:**
@@ -593,7 +599,7 @@ Send POST request
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "UPLETTERS6#"
 }``<br>
 **Expected Result:**
@@ -606,7 +612,7 @@ Send POST request
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "NoNumbers^"
 }``<br>
 **Expected Result:**
@@ -619,7 +625,7 @@ Send POST request
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "NoSpecials5"
 }``<br>
 **Expected Result:**
@@ -633,7 +639,7 @@ Send POST request
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "6^יאללה2"
 }``<br>
 **Expected Result:**
@@ -647,7 +653,7 @@ Send POST request
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "`Pass/"",.:;<>8"
 }``<br>
 **Expected Result:**
@@ -660,7 +666,7 @@ Behavior is undefined in requirements. These special characters are not listed a
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "P@ss w0rd"
 }``<br>
 **Expected Result:**
@@ -672,7 +678,7 @@ Behavior undefined in requirements.
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "P@ss
 w0rd"
 }``<br>
@@ -688,7 +694,7 @@ Expected result is assumed for security reasons.
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "P@ss
 w0rd"
 }``<br>
@@ -704,7 +710,7 @@ Expected result is assumed for security reasons.
 **Steps:**<br>
 Send POST request with password length 7 symbols
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "P@sw0rd"
 }``<br>
 **Expected Result:**
@@ -718,7 +724,7 @@ Send POST request with password length 7 symbols
 **Steps:**<br>
 Send POST request with password length 16 symbols
 ``{
-  "email": "pippinpassword@gmail.com",
+  "username": "pippinpassword@gmail.com",
   "password": "P@ssw0rdRightHer"
 }``<br>
 **Expected Result:**
@@ -734,7 +740,7 @@ Send POST request with password length 16 symbols
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "samepassword@gmail.com",
+  "username": "samepassword@gmail.com",
   "password": "P@ssw0rd"
 }``<br>
 **Expected Result:**
@@ -753,7 +759,7 @@ Expected result is assumed.
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "samecredentials@gmail.com",
+  "username": "samecredentials@gmail.com",
   "password": "P@ssw0rd1"
 }``<br>
 **Expected Result:**
@@ -767,7 +773,7 @@ Send POST request
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "sameupemail@gmail.com",
+  "username": "sameupemail@gmail.com",
   "password": "P@ssw0rd2"
 }``<br>
 **Expected Result:**
@@ -781,7 +787,7 @@ Send POST request
 **Steps:**<br>
 Send POST request
 ``{
-  "email": "sameemail@gmail.com",
+  "username": "sameemail@gmail.com",
   "password": "P@ssw0rd3"
 }``<br>
 **Expected Result:**
@@ -799,7 +805,7 @@ Send POST request<br>
 ``Header: Content-Type: text/plain``<br>
 ``Body:
 {
-  "email": "wrongheader@gmail.com",
+  "username": "wrongheader@gmail.com",
   "password": "P@ssw0rd"
 }``<br>
 **Expected Result:**
@@ -813,9 +819,150 @@ Send POST request<br>
 **Steps:**<br>
 Send POST request with malformed JSON (without ',')
 ``{
-  "email": "wrongheader@gmail.com"
+  "username": "wrongheader@gmail.com"
   "password": "P@ssw0rd"
 }``<br>
 **Expected Result:**
 1. API returns 400 (assumed)
 2. Error message
+
+# Detailed Test Cases (Log in API)
+
+## API-TS8	Log in with valid data - Positive
+
+### API-LOG-ALL-P-001	Log in with registered Email
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** User is registered with email pippinlogin@gmail.com, password #2Breakfast!<br>
+**Steps:**<br>
+Send POST request
+``{
+  "username": "pippinlogin@gmail.com"
+  "password": "#0Breakfast!"
+}``<br>
+**Expected Result:**
+1. API returns 200
+2. API returns token
+3. API doesn't return password in body or headers.
+4. Cookies do not contain password.
+
+## API-TS9	Log in with wrong Email - Negative
+
+### API-LOG-EML-N-001	Log in with unregistered Email
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** None<br>
+**Steps:**<br>
+Send POST request
+``{
+  "username": "nonexisting@gmail.com"
+  "password": "#0Breakfast!"
+}``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
+### API-LOG-EML-N-002	Log in with empty Email
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** None<br>
+**Steps:**<br>
+Send POST request without email
+``{
+  "password": "#0Breakfast!"
+}``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
+### API-LOG-EML-N-003	Log in with blank Email
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** None<br>
+**Steps:**<br>
+Send POST request with blank email
+``{
+  "username": "",
+  "password": "#0Breakfast!"
+}``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
+## API-TS10	Log in with wrong Password - Negative
+
+### API-LOG-PWD-N-001	Log in with existing Email but incorrect Password
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** User is registered with email wrongpassword@gmail.com, password #0Breakfast!<br>
+**Steps:**<br>
+Send POST request
+``{
+  "username": "wrongpassword@gmail.com",
+  "password": "#0Breakfast!"
+}``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
+### API-LOG-PWD-N-002	Log in with empty Password
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** User is registered with email emptypassword@gmail.com and password #0Breakfast!<br>
+**Steps:**<br>
+Send POST request without password
+``{
+  "username": "wrongpassword@gmail.com"
+}``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
+### API-LOG-PWD-N-003	Log in with blank Password
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** User is registered with email blankpassword@gmail.com and password #0Breakfast!<br>
+**Steps:**<br>
+Send POST request with blank password
+``{
+  "username": "wrongpassword@gmail.com",
+  "password": ""
+}``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
+## API-TS11	API Request Format Validation - Negative
+
+### API-LOG-FRM-N-001	API call with invalid Content-Type header
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** User is registered with email header@gmail.com and password #0Breakfast!<br>
+**Steps:**<br>
+Send POST request<br>
+   ``Header: Content-Type: text/plain``<br>
+    ``Body: 
+    {
+     "username": "header@gmail.com",
+     "password": "#0Breakfast!"
+   }``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
+### API-LOG-FRM-N-002	API call with malformed JSON body
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** User is registered with email json@gmail.com and password #0Breakfast!<br>
+**Steps:**<br>
+Send POST request with malformed JSON (without ', ')
+``{
+  "username": "json@gmail.com"
+  "password": "#0Breakfast!"
+}``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
+# Test Coverage Notes
+* Passwords are not returned in responses or logs. - covered by TC API-REG-EML-P-001, API-LOG-ALL-P-001
