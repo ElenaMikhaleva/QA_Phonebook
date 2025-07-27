@@ -86,7 +86,8 @@ API-LOG-PWD-N-003	Log in with blank Password
 API-LOG-FRM-N-001	API call with invalid Content-Type header  
 API-LOG-FRM-N-002	API call with malformed JSON body
 
-# Detailed Test Cases (all data is example, actual data is generated)
+# Detailed Test Cases 
+all data is example, actual data is generated
 
 ## API-TS1	Register with valid Email - Positive
 
@@ -472,7 +473,7 @@ Expected result is assumed based on RFC 5322
 **Endpoint:** /v1/user/registration/usernamepassword  
 **Preconditions:** user is not registered  
 **Steps:**  
-Send POST request with email [local_part>=64 char]@[domain_part>=189 char] where total = 255 char
+Send POST request with email [local_part>=64 char]@[domain_part>=189 char] where total = 255 char<br>
 ``{
   "email": "12345weryuii6789123asdfs5a4567890kjh45670assd1234567lkjnvb8901234@abcdefghijklmweiurweoijklmasdasodifuapwoeiruekpfksdthgwesjldkjslkfjfljasdpfasdfoijaskldvlzxcvkjcnopqrstuvwxyzabefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz.com",
   "password": "#2Breakfast!"
