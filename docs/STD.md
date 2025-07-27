@@ -8,7 +8,10 @@
 * Test Cases Summary
   * Registration API
   * Log in API
-* Detailed Test Cases
+* Detailed Test Cases (Registration API)
+* Detailed Test Cases (Log in API)
+* Test Coverage Notes
+* Questions
 
 # Test Cases Summary
 
@@ -966,3 +969,34 @@ Send POST request with malformed JSON (without ', ')
 
 # Test Coverage Notes
 * Passwords are not returned in responses or logs. - covered by TC API-REG-EML-P-001, API-LOG-ALL-P-001
+
+# Questions
+
+1. In Swagger it is said, for duplicate user API returns 409, for any other registration error 400; for all log in error 401. Shouldn't API responses be more specific? <br>
+2. What API response should be for invalid Content-Type header? TC API-REG-EXS-N-001 <br>
+3. What API response should be for malformed JSON? TC API-REG-EXS-N-002
+
+## Registration
+
+1. If empty and blank is not allowed in the field, is " " allowed? <br>
+2. Is email case-sensitive? Assumed no: TC API-REG-EML-P-002, API-REG-EML-P-003 <br>
+3. What is email max length? Assumed 254 symbols: TC API-REG-EML-P-004, API-REG-EML-N-021 <br>
+4. Can email contain hyphen in domain? Assumed yes: TC API-REG-EML-P-005 <br>
+5. Can email contain subdomains? Assumed, yes: TC API-REG-EML-P-006 <br>
+6. Can email have no dots in domain? Assumed, no: TC API-REG-EML-N-008 <br>
+7. Can email have no symbols before dot in domain? Assumed, no: TC API-REG-EML-N-009 <br>
+8. Can email have no symbols after dot in domain? Assumed, no: TC API-REG-EML-N-010 <br>
+9. Can email have whitespaces? Assumed, no: TC API-REG-EML-N-013, API-REG-EML-N-014, API-REG-EML-N-015 <br>
+10. Can email have multiple dots? Assumed, no: TC API-REG-EML-N-016 <br>
+11. What is invalid placement for hyphen in domain? TC API-REG-EML-N-017 <br>
+12. Can email have emoji? Assumed, no: TC API-REG-EML-N-018 <br>
+13. Can email have newline character? Assumed, no: TC API-REG-EML-N-019 <br>
+14. Can email have tabulatioin? Assumed, no: TC API-REG-EML-N-020 <br>
+15. In passwords only @$#^&*! are allowed, as said in requirements? Not other special characters that are used often? (?%) Characters that might worsen security? ('/""\,.:;<>|): TC API-REG-PWD-N-008 <br>
+    If yes, add information for users. If no, change requirements. <br>
+    In practice user can register with % in password <br>
+16. Can password contain emoji? <br>
+17. Can password contain whitespace? TC API-REG-PWD-N-009 <br>
+18. Can password have newline character? Assumed no: TC API-REG-PWD-N-010 <br>
+19. Can password have tabulation? Assumed no: TC API-REG-PWD-N-011 <br>
+20. User can register with new email but existing password? Assumed yes: TC API-REG-EXS-P-001 <br>

@@ -1,0 +1,624 @@
+{
+	"info": {
+		"_postman_id": "b35c4d2d-5d85-4077-9d00-4485b40fa1da",
+		"name": "Phonebook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40984271",
+		"_collection_link": "https://qa4699.postman.co/workspace/QA46_Mikhaleva~77255145-9d1f-46b6-a4ea-49d036de8f04/collection/40984271-b35c4d2d-5d85-4077-9d00-4485b40fa1da?action=share&source=collection_link&creator=40984271"
+	},
+	"item": [
+		{
+			"name": "Authentification Controller",
+			"item": [
+				{
+					"name": "Registration",
+					"item": [
+						{
+							"name": "API-REG-EML-P-001 [200]",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const timestamp = Date.now();\r",
+											"const email = `testuser${timestamp}@mail.com`;\r",
+											"const password = \"Test1234$\";\r",
+											"\r",
+											"pm.environment.set(\"test_email\", email);\r",
+											"pm.environment.set(\"test_password\", password);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body is valid\", function () {\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(json).to.have.property(\"token\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{test_email}}\",\r\n  \"password\": \"{{test_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/registration/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"registration",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API-REG-EML-P-001 Log in",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body is valid\", function () {\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(json).to.have.property(\"token\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"packages": {},
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{test_email}}\",\r\n  \"password\": \"{{test_password}}\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/login/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API-REG-EML-N-001 [400]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body is valid\", function () {\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(json.message.username).to.eql(\"must not be blank\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"{{test_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/registration/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"registration",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API-REG-EML-N-012 [400]",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const timestamp = Date.now();\r",
+											"const email = `testusèr${timestamp}@mail.com`;\r",
+											"const password = \"Test1234$\";\r",
+											"\r",
+											"pm.environment.set(\"test_email\", email);\r",
+											"pm.environment.set(\"test_password\", password);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body is valid\", function () {\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(json.message.username).to.eql(\"must be a well-formed email address\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"testusèr534@gmail.com\",\r\n  \"password\": \"{{test_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/registration/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"registration",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API-REG-EML-N-018 [400]",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const timestamp = Date.now();\r",
+											"const email = `test😈${timestamp}@mail.com`;\r",
+											"const password = \"Test1234$\";\r",
+											"\r",
+											"pm.environment.set(\"test_email\", email);\r",
+											"pm.environment.set(\"test_password\", password);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body is valid\", function () {\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(json.message.username).to.eql(\"must be a well-formed email address\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{test_email}}\",\r\n  \"password\": \"{{test_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/registration/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"registration",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API-REG-FRM-N-002 [400]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Body is valid\", function () {\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(json).to.have.property(\"malformed JSON\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{test_email}}\"\r\n  \"password\": \"{{test_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/registration/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"registration",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Log In",
+					"item": [
+						{
+							"name": "API-LOG-PWD-N-001 Reg",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const timestamp = Date.now();\r",
+											"const email = `testuser${timestamp}@mail.com`;\r",
+											"const password = \"Test1234$\";\r",
+											"\r",
+											"pm.environment.set(\"test_email\", email);\r",
+											"pm.environment.set(\"test_password\", password);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{test_email}}\",\r\n  \"password\": \"{{test_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/registration/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"registration",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API-LOG-PWD-N-001 [401]",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is valid\", function () {\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(json.message).to.eql(\"Login or Password incorrect\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{test_email}}\",\r\n  \"password\": \"{{test_password}}#3\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/login/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API-LOG-EML-N-003 [401]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Message is valid\", function () {\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(json.message).to.eql(\"Login or Password incorrect\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"\",\r\n  \"password\": \"{{test_password}}\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/login/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "API-LOG-FRM-N-001 [400]",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{test_email}}\",\r\n  \"password\": \"{{test_password}}\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v1/user/login/usernamepassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"user",
+										"login",
+										"usernamepassword"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "Tests for registration, log in"
+		}
+	]
+}
