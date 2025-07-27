@@ -483,3 +483,18 @@ Expected result is assumed based on RFC 3696
 1. API returns 400
 2. Error
 
+## API-TS3	Register with valid Password - Positive	
+
+### API-REG-PWD-P-001	Register with min length Password
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "8Symbol-"
+}``<br>
+**Expected Result:**<br>
+1. API returns 200 (requirement T14).
+2. API returns token.
+3. User can log in with the same credentials
