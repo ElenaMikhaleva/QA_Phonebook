@@ -46,7 +46,7 @@ API-REG-PWD-P-002	Register with max length Password that has 15 symbols
 API-REG-PWD-P-003	Register with Password that has special characters @$#^&*!  
 API-REG-PWD-P-004	Register with Password that has one special character
 
-### API-TS4	Register with invalid Password (missing requirements) - Negative
+### API-TS4	Register with invalid Password - Negative
 API-REG-PWD-N-001	Register with empty Password  
 API-REG-PWD-N-002	Register with blank Password  
 API-REG-PWD-N-003	Register with Password that has no uppercase letters  
@@ -214,7 +214,7 @@ Send POST request
 }  ``  
 **Expected Result:**  
 1. API returns 400 (requirement T2)
-2. Error
+2. Error message
 
 ### API-REG-EML-N-003	Register with Email that has only special symbols before @
 
@@ -229,7 +229,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed to avoid ambiguity, security risks, and delivery issues.
 1. API returns 400 (requirement T2)
-2. Error
+2. Error message
 
 ### API-REG-EML-N-004	Register with Email without @
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -242,7 +242,7 @@ Send POST request
 }  ``  
 **Expected Result:**  
 1. API returns 400 (requirement T3)
-2. Error
+2. Error message
 
 ### API-REG-EML-N-005	Register with Email with more than one @
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -255,7 +255,7 @@ Send POST request
 }  ``  
 **Expected Result:**  
 1. API returns 400 (requirement T3)
-2. Error
+2. Error message
 
 ### API-REG-EML-N-006	Register with Email with no symbols before @
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -268,7 +268,7 @@ Send POST request
 }  ``  
 **Expected Result:**  
 1. API returns 400 (requirement T3)
-2. Error
+2. Error message
 
 ### API-REG-EML-N-007	Register with Email with no symbols after @
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -281,7 +281,7 @@ Send POST request
 }  ``  
 **Expected Result:**  
 1. API returns 400 (requirement T5)
-2. Error
+2. Error message
 
 ### API-REG-EML-N-008	Register with Email with no dot in domain
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -295,7 +295,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed since it's rejected by most API.
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-009	Register with Email with no symbols before dot in domain
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -309,7 +309,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed based on RFC 1035
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-010	Register with Email with no symbols after dot in domain
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -323,7 +323,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed based on RFC 1035
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-011	Register with Email with Russian letters
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -336,7 +336,7 @@ Send POST request
 }``   
 **Expected Result:**  
 1. API returns 400 (requirement T6)
-2. Error
+2. Error message
 
 ### API-REG-EML-N-012	Register with Email with diacritic letters (è)
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -349,7 +349,7 @@ Send POST request
 }``   
 **Expected Result:**  
 1. API returns 400 (requirement T6)
-2. Error
+2. Error message
 
 ### API-REG-EML-N-013	Register with Email with leading whitespace
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -363,7 +363,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed based on RFC 5322
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-014	Register with Email with whitespace inside the email
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -377,7 +377,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed based on RFC 5322
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-015	Register with Email with trailing whitespace
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -391,7 +391,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed based on RFC 5322
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-016	Register with Email that has multiple dots
 
@@ -406,7 +406,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed based on RFC 5322
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-017	Register with Email with invalid hyphen in domain placement
 
@@ -421,7 +421,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed based on RFC 1035
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-018	Register with Email that has unicode emoji
 
@@ -436,7 +436,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed based on RFC 5322
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-019	Register with Email that has newline character \n
 
@@ -452,7 +452,7 @@ line@gmail.com",
 **Expected Result:**  
 Expected result is assumed based on RFC 5322
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-020	Register with Email that has tab \t
 
@@ -467,7 +467,7 @@ Send POST request
 **Expected Result:**  
 Expected result is assumed based on RFC 5322
 1. API returns 400
-2. Error
+2. Error message
 
 ### API-REG-EML-N-021	Register with Email exceeding max length
 **Endpoint:** /v1/user/registration/usernamepassword  
@@ -481,7 +481,7 @@ Send POST request with email [local_part>=64 char]@[domain_part>=189 char] where
 **Expected Result:**  
 Expected result is assumed based on RFC 3696
 1. API returns 400
-2. Error
+2. Error message
 
 ## API-TS3	Register with valid Password - Positive	
 
@@ -489,12 +489,333 @@ Expected result is assumed based on RFC 3696
 **Endpoint:** /v1/user/registration/usernamepassword<br>
 **Preconditions:** user is not registered<br>
 **Steps:**<br>
-Send POST request
+Send POST request with password length 8 symbols
 ``{
-  "email": "pippinpassword@gmail.com",
+  "email": "minpassword@gmail.com",
   "password": "8Symbol-"
 }``<br>
 **Expected Result:**<br>
 1. API returns 200 (requirement T14).
 2. API returns token.
 3. User can log in with the same credentials
+
+### API-REG-PWD-P-002	Register with max length Password
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request with password length 15 symbols
+``{
+  "email": "maxpassword@gmail.com",
+  "password": "15^SymbolsHere!"
+}``<br>
+**Expected Result:**<br>
+1. API returns 200 (requirement T15).
+2. API returns token.
+3. User can log in with the same credentials
+
+### API-REG-PWD-P-003	Register with Password that has special characters
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request with password that has special characters @$#^&*!
+``{
+  "email": "specialspassword@gmail.com",
+  "password": "4Char@$#^&*!"
+}``<br>
+
+1. API returns 200 (requirement T9).
+2. API returns token.
+3. User can log in with the same credentials
+
+### API-REG-PWD-P-004	Register with Password that has one special character
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request with password that has one of special characters @$#^&*!
+``{
+  "email": "specialpassword@gmail.com",
+  "password": "1Character@"
+}``<br>
+**Expected Result:**<br>
+1. API returns 200 (requirement T9).
+2. API returns token.
+3. User can log in with the same credentials.
+
+## API-TS4	Register with invalid Password - Negative
+
+### API-REG-PWD-N-001	Register with empty Password
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request without password
+``{
+  "email": "pippinpassword@gmail.com"
+}``<br>
+**Expected Result:**<br>
+1. API returns 400 (requirement T7)
+2. Error message
+
+### API-REG-PWD-N-002	Register with blank Password
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request with blank password
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": ""
+}``<br>
+**Expected Result:**<br>
+1. API returns 400 (requirement T8)
+2. Error message
+
+### API-REG-PWD-N-003	Register with Password that has no uppercase letters
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "lowletters7^"
+}``<br>
+**Expected Result:**
+1. API returns 400 (requirement T11)
+2. Error message
+
+### API-REG-PWD-N-004	Register with Password that has no lowercase letters
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "UPLETTERS6#"
+}``<br>
+**Expected Result:**
+1. API returns 400 (requirement T12)
+2. Error message
+
+### API-REG-PWD-N-005	Register with Password that has no numbers
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "NoNumbers^"
+}``<br>
+**Expected Result:**
+1. API returns 400 (requirement T13)
+2. Error message
+
+### API-REG-PWD-N-006	Register with Password without special characters
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "NoSpecials5"
+}``<br>
+**Expected Result:**
+1. API returns 400 (requirement T14)
+2. Error message
+
+### API-REG-PWD-N-007	Register with Password that has Hebrew letters
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "6^יאללה2"
+}``<br>
+**Expected Result:**
+1. API returns 400 (requirement T10)
+2. Error message
+
+### API-REG-PWD-N-008	Register with Password that has '/"\,.:;<>|
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "`Pass/"",.:;<>8"
+}``<br>
+**Expected Result:**
+Behavior is undefined in requirements. These special characters are not listed as allowed, but could be used if handled safely.
+
+### API-REG-PWD-N-009	Register with Password that has whitespace
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "P@ss w0rd"
+}``<br>
+**Expected Result:**
+Behavior undefined in requirements.
+
+### API-REG-PWD-N-010	Register with Password that has newline character
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "P@ss
+w0rd"
+}``<br>
+**Expected Result:**
+Expected result is assumed for security reasons.
+1. API returns 400
+2. Error message
+
+### API-REG-PWD-N-011	Register with Password that has tab
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "P@ss
+w0rd"
+}``<br>
+**Expected Result:**
+Expected result is assumed for security reasons.
+1. API returns 400
+2. Error message
+
+### API-REG-PWD-N-012	Register with too short Password
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request with password length 7 symbols
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "P@sw0rd"
+}``<br>
+**Expected Result:**
+1. API returns 400 (requirement T14)
+2. Error message
+
+### API-REG-PWD-N-013	Register with too long Password
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request with password length 16 symbols
+``{
+  "email": "pippinpassword@gmail.com",
+  "password": "P@ssw0rdRightHer"
+}``<br>
+**Expected Result:**
+1. API returns 400 (requirement T15)
+2. Error message
+
+## API-TS5	Register with valid duplicate credentials - Positive
+
+### API-REG-EXS-P-001	Register with existing Password
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** User is registered with different email (password@gmail.com) and same password(P@ssw0rd)<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "samepassword@gmail.com",
+  "password": "P@ssw0rd"
+}``<br>
+**Expected Result:**
+Expected result is assumed.
+1. API returns 200.
+2. API returns token.
+3. User is successfully registered.
+4. User can log in with the same credentials
+
+## API-TS6	Register with invalid duplicate credentials - Negative
+
+### API-REG-EXS-N-001	Register with existing Email and existing Password
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** User is registered with the same email (samecredentials@gmail.com) and password (P@ssw0rd1)<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "samecredentials@gmail.com",
+  "password": "P@ssw0rd1"
+}``<br>
+**Expected Result:**
+1. API returns 409
+2. Error message
+
+### API-REG-EXS-N-002	Register with existing Email without uppercase letters
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** User is registered with the same email with uppercase letters (sameUpEmail@gmail.com)<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "sameupemail@gmail.com",
+  "password": "P@ssw0rd2"
+}``<br>
+**Expected Result:**
+1. API returns 409
+2. Error message
+
+### API-REG-EXS-N-003	Register with existing Email and new valid Password
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** User is registered with the same email (sameemail@gmail.com) and password (P@ssw0rd4)<br>
+**Steps:**<br>
+Send POST request
+``{
+  "email": "sameemail@gmail.com",
+  "password": "P@ssw0rd3"
+}``<br>
+**Expected Result:**
+1. API returns 409
+2. Error message
+
+## API-TS7	API Request Format Validation - Negative
+
+### API-REG-FRM-N-001	API call with invalid Content-Type header
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** User is not registered<br>
+**Steps:**<br>
+Send POST request<br>
+``Header: Content-Type: text/plain``<br>
+``Body:
+{
+  "email": "wrongheader@gmail.com",
+  "password": "P@ssw0rd"
+}``<br>
+**Expected Result:**
+1. API returns 415 (assumed)
+2. Error message
+
+### API-REG-FRM-N-002	API call with malformed JSON body
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** User is not registered<br>
+**Steps:**<br>
+Send POST request with malformed JSON (without ',')
+``{
+  "email": "wrongheader@gmail.com"
+  "password": "P@ssw0rd"
+}``<br>
+**Expected Result:**
+1. API returns 400 (assumed)
+2. Error message
