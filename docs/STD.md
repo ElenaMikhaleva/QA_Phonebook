@@ -660,7 +660,7 @@ Send POST request
   "password": "`Pass/"",.:;<>8"
 }``<br>
 **Expected Result:**
-Behavior is undefined in requirements. These special characters are not listed as allowed, but could be used if handled safely.
+Behavior is undefined in requirements. These special characters are not listed as allowed, so must response 400, or handle them safely.
 
 ### API-REG-PWD-N-009	Register with Password that has whitespace
 
@@ -718,7 +718,7 @@ Send POST request with password length 7 symbols
 }``<br>
 **Expected Result:**
 1. API returns 400 (requirement T14)
-2. Error message
+2. Error message contains "At least 8 characters"
 
 ### API-REG-PWD-N-013	Register with too long Password
 
@@ -992,9 +992,8 @@ Send POST request with malformed JSON (without ', ')
 12. Can email have emoji? Assumed, no: TC API-REG-EML-N-018 <br>
 13. Can email have newline character? Assumed, no: TC API-REG-EML-N-019 <br>
 14. Can email have tabulatioin? Assumed, no: TC API-REG-EML-N-020 <br>
-15. In passwords only @$#^&*! are allowed, as said in requirements? Not other special characters that are used often? (?%) Characters that might worsen security? ('/""\,.:;<>|): TC API-REG-PWD-N-008 <br>
-    If yes, add information for users. If no, change requirements. <br>
-    In practice user can register with % in password <br>
+15. Requirements say: "T9 Customer password – One of special characters are required [@,$,#,^,&,*,!]". Are other commonly used special characters are allowed? (?%) Are characters that might threaten the security allowed? ('/""\,.:;<>|)<br>
+    In practice, user can register with % in password, if it contains one of allowed special characters. ['/""\,.:;<>|] are not allowed (API-REG-PWD-N-008). <br>
 16. Can password contain emoji? <br>
 17. Can password contain whitespace? TC API-REG-PWD-N-009 <br>
 18. Can password have newline character? Assumed no: TC API-REG-PWD-N-010 <br>

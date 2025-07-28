@@ -5,7 +5,8 @@
     </listeners>
     <test name="STR_v1_tests">
         <classes>
-            <class name="api_tests.RegistrationTests"/>
+            <class name="api_tests.RegistrationTestsRest"/>
+            <class name="api_tests.LoginTestsRest"/>
         </classes>
     </test>
 </suite>
