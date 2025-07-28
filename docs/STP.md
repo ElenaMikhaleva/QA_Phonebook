@@ -1,7 +1,7 @@
 
 # Overview
 
-**STP Identifier:** PHONEBOOK-STP-v1.0-30-06-2025  
+**STP Identifier:** STP-v1  
 **Project Name:** Phonebook Testing  
 **Date Created:** 30/06/2025  
 **Version:** v1.0  
