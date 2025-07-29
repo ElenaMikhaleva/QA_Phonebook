@@ -31,6 +31,14 @@ Chosen tests for execution.
 | API-LOG-PWD-N-001 | Log in with existing Email but incorrect Password | Postman, Java | Included for practice                | Passed |        |
 | API-LOG-FRM-N-001 | API call with invalid Content-Type header         | Postman       | Included for practice of API headers | Failed |        |
 
+## Get All Contacts API
+
+| TC ID             | Title                                      | Tools   | Reason for Inclusion | Status | Bug ID |
+|-------------------|--------------------------------------------|---------|----------------------|--------|--------|
+| API-CON-ALL-P-001 | Get all contacts when user has no contacts | Postman | Edge case            |        |        |
+| API-CON-ALL-P-002 | Get all contacts when user has contacts    | Java    | Core functional test |        |        |
+| API-CON-ALL-N-001 | Get all contacts without authentification  | Postman | Security, practice   |        |        |
+| API-CON-ALL-N-002 | Get all contacts with invalid token        | Postman | Security, practice   |        |        |
 
 # Execution Summary
 

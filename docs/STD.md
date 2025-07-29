@@ -8,8 +8,9 @@
 * Test Cases Summary
   * Registration API
   * Log in API
-* Detailed Test Cases (Registration API)
-* Detailed Test Cases (Log in API)
+  * Get All Contacts API
+  * Create New Contact API
+* Detailed Test Cases
 * Test Coverage Notes
 * Questions
 
@@ -95,8 +96,17 @@ API-LOG-PWD-N-003	Log in with blank Password
 API-LOG-FRM-N-001	API call with invalid Content-Type header  
 API-LOG-FRM-N-002	API call with malformed JSON body
 
-# Detailed Test Cases (Registration API)
-all data is example, actual data is generated
+## Get All Contacts API
+
+### API-TS12	Get All Contacts - Positive
+API-CON-ALL-P-001	Get all contacts when user has no contacts
+API-CON-ALL-P-002	Get all contacts when user has contacts
+### API-TS13	Get Contacts with invalid token - Negative
+API-CON-ALL-N-001	Get all contacts without authentification
+API-CON-ALL-N-002	Get all contacts with invalid token
+
+# Detailed Test Cases
+All data is example, actual data is generated
 
 ## API-TS1	Register with valid Email - Positive
 
@@ -829,8 +839,6 @@ Send POST request with malformed JSON (without ',')
 1. API returns 400 (assumed)
 2. Error message
 
-# Detailed Test Cases (Log in API)
-
 ## API-TS8	Log in with valid data - Positive
 
 ### API-LOG-ALL-P-001	Log in with registered Email
@@ -966,6 +974,42 @@ Send POST request with malformed JSON (without ', ')
 **Expected Result:**
 1. API returns 401
 2. Error message
+
+## API-TS12	Get All Contacts - Positive
+
+### API-CON-ALL-P-001	Get all contacts when user has no contacts
+**Endpoint:** /v1/contacts<br>
+**Preconditions:** User is registered. No contacts are created in user's profile.<br>
+**Steps:**<br>
+Send GET request<br>
+**Expected Result:**
+1. Response code 200.
+2. Emtpy list is returned, not null.
+
+### API-CON-ALL-P-002	Get all contacts when user has contacts
+**Endpoint:** /v1/contacts<br>
+**Preconditions:** User is registered. User's profile has contacts.<br>
+**Steps:**
+Send GET requets<br>
+**Expected Result:**
+1. Response code 200
+2. List of contacts returned
+
+## API-TS13	Get Contacts with invalid token - Negative
+
+### API-CON-ALL-N-001	Get all contacts without authentification
+**Endpoint:** /v1/contacts<br>
+**Steps:**
+Send GET without Authorization header<br>
+**Expected Result:**
+Response code 401
+
+### API-CON-ALL-N-002	Get all contacts with invalid token
+**Endpoint:** /v1/contacts<br>
+**Steps:**
+Send GET with Authorization: Bearer invalid_token<br>
+**Expected Result:**
+Response code 401
 
 # Test Coverage Notes
 * Passwords are not returned in responses or logs. - covered by TC API-REG-EML-P-001, API-LOG-ALL-P-001
