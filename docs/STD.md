@@ -28,7 +28,9 @@ API-REG-EML-P-005	Register with Email with hyphen in domain
 API-REG-EML-P-006	Register with Email with subdomains  
 
 ### API-TS2	Register with invalid Email - Negative
-API-REG-EML-N-001	Register with empty Email  
+
+API-REG-EML-N-001	Register with empty Email
+API-REG-EML-N-0011  Register with Null Email (inserted between API-REG-EML-N-001 and API-REG-EML-N-002)
 API-REG-EML-N-002	Register with blank Email  
 API-REG-EML-N-003	Register with Email that has only special symbols before @  
 API-REG-EML-N-004	Register with Email without @  
@@ -57,7 +59,9 @@ API-REG-PWD-P-003	Register with Password that has special characters @$#^&*!
 API-REG-PWD-P-004	Register with Password that has one special character
 
 ### API-TS4	Register with invalid Password - Negative
-API-REG-PWD-N-001	Register with empty Password  
+
+API-REG-PWD-N-001	Register with empty Password
+API-REG-PWD-N-0011  Register with Null Password (inserted between API-REG-PWD-N-001 and API-REG-PWD-N-002)
 API-REG-PWD-N-002	Register with blank Password  
 API-REG-PWD-N-003	Register with Password that has no uppercase letters  
 API-REG-PWD-N-004	Register with Password that has no lowercase letters  
@@ -70,29 +74,44 @@ API-REG-PWD-N-010	Register with Password that has newline character
 API-REG-PWD-N-011	Register with Password that has tab  
 API-REG-PWD-N-012	Register with too short Password  
 API-REG-PWD-N-013	Register with too long Password  
-API-TS5	Register with valid duplicate credentials - Positive  
-API-REG-EXS-P-001	Register with existing Password  
+
+### API-TS5	Register with valid duplicate credentials - Positive  
+
+API-REG-EXS-P-001	Register with existing Password
+
 ### API-TS6	Register with invalid duplicate credentials - Negative
+
 API-REG-EXS-N-001	Register with existing Email and existing Password  
 API-REG-EXS-N-002	Register with existing Email without uppercase letters  
 API-REG-EXS-N-003	Register with existing Email and new valid Password
+
 ### API-TS7	API Request Format Validation - Negative
+
 API-REG-FRM-N-001	API call with invalid Content-Type header  
 API-REG-FRM-N-002	API call with malformed JSON body
 
 ## Log in API
 
 ### API-TS8	Log in with valid data - Positive
+
 API-LOG-ALL-P-001	Log in with registered Email
+
 ### API-TS9	Log in with wrong Email - Negative
+
 API-LOG-EML-N-001	Log in with unregistered Email  
-API-LOG-EML-N-002	Log in with empty Email  
+API-LOG-EML-N-002	Log in with empty Email
+API-LOG-EML-N-0021  Log in with Null Email (inserted between API-LOG-EML-N-002 and API-LOG-EML-N-003)
 API-LOG-EML-N-003	Log in with blank Email
+
 ### API-TS10	Log in with wrong Password - Negative
+
 API-LOG-PWD-N-001	Log in with existing Email but incorrect Password  
-API-LOG-PWD-N-002	Log in with empty Password  
+API-LOG-PWD-N-002	Log in with empty Password
+API-LOG-PWD-N-0021  Log in with Null Password (inserted between API-LOG-PWD-N-002 and API-LOG-PWD-N-003)
 API-LOG-PWD-N-003	Log in with blank Password
+
 ### API-TS11	API Request Format Validation - Negative
+
 API-LOG-FRM-N-001	API call with invalid Content-Type header  
 API-LOG-FRM-N-002	API call with malformed JSON body
 
@@ -220,6 +239,20 @@ Send POST request
 **Expected Result:**  
 1. API returns 400 (requirement T1)
 2. Message '"username": "must not be blank"'  
+
+### API-REG-EML-N-0011	Register with Null Email
+
+**Endpoint:** /v1/user/registration/usernamepassword  
+**Preconditions:** user is not registered  
+**Steps:**  
+Send POST request  
+``{
+"username": null,
+"password": "#2Breakfast!"
+}  ``  
+**Expected Result:**
+1. API returns 400 (requirement T2)
+2. Error message
 
 ### API-REG-EML-N-002	Register with blank Email
 
@@ -577,6 +610,20 @@ Send POST request without password
 1. API returns 400 (requirement T7)
 2. Error message
 
+### API-REG-PWD-N-0011	Register with Null Password
+
+**Endpoint:** /v1/user/registration/usernamepassword<br>
+**Preconditions:** user is not registered<br>
+**Steps:**<br>
+Send POST request with blank password
+``{
+  "username": null,
+  "password": ""
+}``<br>
+**Expected Result:**<br>
+1. API returns 400 (requirement T8)
+2. Error message
+
 ### API-REG-PWD-N-002	Register with blank Password
 
 **Endpoint:** /v1/user/registration/usernamepassword<br>
@@ -886,6 +933,20 @@ Send POST request without email
 1. API returns 401
 2. Error message
 
+### API-LOG-EML-N-0021	Log in with Null Email
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** None<br>
+**Steps:**<br>
+Send POST request without email
+``{
+  "username": null,
+  "password": "#0Breakfast!"
+}``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
 ### API-LOG-EML-N-003	Log in with blank Email
 
 **Endpoint:** /v1/user/login/usernamepassword<br>
@@ -924,6 +985,20 @@ Send POST request
 Send POST request without password
 ``{
   "username": "wrongpassword@gmail.com"
+}``<br>
+**Expected Result:**
+1. API returns 401
+2. Error message
+
+### API-LOG-PWD-N-0021	Log in with blank Password
+
+**Endpoint:** /v1/user/login/usernamepassword<br>
+**Preconditions:** User is registered with email blankpassword@gmail.com and password #0Breakfast!<br>
+**Steps:**<br>
+Send POST request with blank password
+``{
+  "username": "wrongpassword@gmail.com",
+  "password": null
 }``<br>
 **Expected Result:**
 1. API returns 401
