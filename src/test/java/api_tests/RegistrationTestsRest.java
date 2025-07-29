@@ -45,6 +45,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str")
     public void API_REG_EML_P_004_200() {
+        // Bug found: returns 400
         logger.info("TC: Register with Email of max length");
 
         User user = User.builder()
@@ -115,6 +116,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str")
     public void API_REG_PWD_N_013_400() {
+        // Bug found: returns 200
         logger.info("TC: Register with too long Password");
 
         User user = User.builder()
@@ -136,6 +138,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str")
     public void API_REG_EXS_N_001_409() {
+        // Bug found: invalid Schema
         logger.info("TC: Register with existing Email and existing Password");
 
         User user = User.builder()

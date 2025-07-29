@@ -1,22 +1,22 @@
 {
-	"id": "1e3320b9-b260-4af2-8cf9-93ec294cf8a8",
+	"id": "05761e42-f2e1-4355-a268-0fe961b82be4",
 	"name": "Phonebook",
-	"timestamp": "2025-07-28T12:44:48.565Z",
+	"timestamp": "2025-07-29T17:26:52.457Z",
 	"collection_id": "40984271-b35c4d2d-5d85-4077-9d00-4485b40fa1da",
-	"folder_id": "40984271-e57c8667-5efc-4ae4-9da3-a7c778c6766a",
+	"folder_id": "40984271-5b1bae7b-c4c3-4d97-991b-1f7af286e64f",
 	"environment_id": "40984271-e2e6600c-a91f-4c64-b976-3dd42e31b918",
-	"totalPass": 24,
+	"totalPass": 16,
 	"delay": 0,
 	"persist": true,
 	"status": "finished",
-	"startedAt": "2025-07-28T12:44:43.438Z",
-	"totalFail": 5,
+	"startedAt": "2025-07-29T17:26:48.706Z",
+	"totalFail": 4,
 	"results": [
 		{
 			"id": "baf3593c-fbea-4485-9cc1-d31b20e8cf81",
 			"name": "API-REG-EML-P-001 [200]",
 			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword",
-			"time": 910,
+			"time": 921,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -41,7 +41,7 @@
 				}
 			},
 			"times": [
-				910
+				921
 			],
 			"allTests": [
 				{
@@ -55,7 +55,7 @@
 			"id": "582308a1-063c-480c-bee8-0ed2a3c5a2e3",
 			"name": "API-REG-EML-P-001 Log in",
 			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword",
-			"time": 258,
+			"time": 256,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -80,7 +80,7 @@
 				}
 			},
 			"times": [
-				258
+				256
 			],
 			"allTests": [
 				{
@@ -94,7 +94,7 @@
 			"id": "225734b1-de8d-486e-9286-3d74c9b022be",
 			"name": "API-REG-EML-N-001 [400]",
 			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword",
-			"time": 160,
+			"time": 157,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -119,7 +119,7 @@
 				}
 			},
 			"times": [
-				160
+				157
 			],
 			"allTests": [
 				{
@@ -133,7 +133,7 @@
 			"id": "c8f52f80-db4e-493e-aa52-8d42054a103e",
 			"name": "API-REG-EML-N-012 [400]",
 			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword",
-			"time": 299,
+			"time": 289,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -158,7 +158,7 @@
 				}
 			},
 			"times": [
-				299
+				289
 			],
 			"allTests": [
 				{
@@ -172,7 +172,7 @@
 			"id": "4292b5bb-33b1-40d7-8cb0-a853c4946f90",
 			"name": "API-REG-EML-N-018 [400]",
 			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword",
-			"time": 158,
+			"time": 154,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -197,7 +197,7 @@
 				}
 			},
 			"times": [
-				158
+				154
 			],
 			"allTests": [
 				{
@@ -211,7 +211,7 @@
 			"id": "80f42a45-9a0b-40a9-97f9-0fd2f393e21f",
 			"name": "API-REG-PWD-N-008 [400]",
 			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword",
-			"time": 158,
+			"time": 155,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -231,7 +231,7 @@
 				}
 			},
 			"times": [
-				158
+				155
 			],
 			"allTests": [
 				{
@@ -278,148 +278,10 @@
 					"Response time is less than 2000ms": true
 				}
 			]
-		},
-		{
-			"id": "ec18dfc2-b814-4a7f-882a-fe3e45cfe049",
-			"name": "API-LOG-PWD-N-001 Reg",
-			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword",
-			"time": 297,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				297
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "ad6601bb-7a20-4c82-aaf8-862dac7513de",
-			"name": "API-LOG-PWD-N-001 [401]",
-			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword",
-			"time": 363,
-			"responseCode": {
-				"code": 401,
-				"name": "Unauthorized"
-			},
-			"tests": {
-				"Status code is 401": true,
-				"Message is valid": true,
-				"Response time is less than 2000ms": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Message is valid": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response time is less than 2000ms": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				363
-			],
-			"allTests": [
-				{
-					"Status code is 401": true,
-					"Message is valid": true,
-					"Response time is less than 2000ms": true
-				}
-			]
-		},
-		{
-			"id": "7f0ebbfa-6fed-45e5-b6c8-665d1e035389",
-			"name": "API-LOG-EML-N-003 [401]",
-			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword",
-			"time": 362,
-			"responseCode": {
-				"code": 401,
-				"name": "Unauthorized"
-			},
-			"tests": {
-				"Status code is 401": true,
-				"Message is valid": true,
-				"Response time is less than 2000ms": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Message is valid": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Response time is less than 2000ms": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				362
-			],
-			"allTests": [
-				{
-					"Status code is 401": true,
-					"Message is valid": true,
-					"Response time is less than 2000ms": true
-				}
-			]
-		},
-		{
-			"id": "cec04629-a830-428c-967c-070e1e6225f5",
-			"name": "API-LOG-FRM-N-001 [400]",
-			"url": "https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword",
-			"time": 262,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 400": false,
-				"Response time is less than 2000ms": true
-			},
-			"testPassFailCounts": {
-				"Status code is 400": {
-					"pass": 0,
-					"fail": 1
-				},
-				"Response time is less than 2000ms": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				262
-			],
-			"allTests": [
-				{
-					"Status code is 400": false,
-					"Response time is less than 2000ms": true
-				}
-			]
 		}
 	],
 	"count": 1,
-	"totalTime": 3385,
+	"totalTime": 2090,
 	"collection": {
 		"requests": [
 			{
@@ -448,22 +310,6 @@
 			},
 			{
 				"id": "d7d43756-eda7-4c68-81c1-cd43e4101d48",
-				"method": "POST"
-			},
-			{
-				"id": "ec18dfc2-b814-4a7f-882a-fe3e45cfe049",
-				"method": "POST"
-			},
-			{
-				"id": "ad6601bb-7a20-4c82-aaf8-862dac7513de",
-				"method": "POST"
-			},
-			{
-				"id": "7f0ebbfa-6fed-45e5-b6c8-665d1e035389",
-				"method": "POST"
-			},
-			{
-				"id": "cec04629-a830-428c-967c-070e1e6225f5",
 				"method": "POST"
 			}
 		]

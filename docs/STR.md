@@ -9,27 +9,27 @@ Chosen tests for execution.
 
 ## Registration API
 
-| TC ID             | Title                                              | Tools         | Reason for Inclusion              | Status | Bug ID         |
-|-------------------|----------------------------------------------------|---------------|-----------------------------------|--------|----------------|
-| API-REG-EML-P-001 | Register with valid credentials                    | Postman, Java | Basic functional flow (+ log in)  | Passed |                |
-| API-REG-EML-P-004 | Register with Email of max length                  | Java          | Boundary testing                  | Failed | BUG-API-REG-01 |
-| API-REG-EML-N-001 | Register with empty Email                          | Postman       | Error handling                    | Passed |                |
-| API-REG-EML-N-012 | Register with Email with diacritic letters         | Postman       | Error handling                    | Failed | BUG-API-REG-02 |
-| API-REG-EML-N-018 | Register with Email that has unicode emoji         | Postman       | Input validation edge             | Passed |                |
-| API-REG-EML-N-021 | Register with Email exceeding max length           | Java          | Boundary testing                  | Passed |                |
-| API-REG-PWD-N-008 | Register with Password that has '/"\,.:;<>         | Postman       | Exploratory testing, security     | Passed |                |
-| API-REG-PWD-N-012 | Register with too short Password                   | Java          | Boundary testing                  | Passed |                |
-| API-REG-PWD-N-013 | Register with too long Password                    | Java          | Boundary testing                  | Passed |                |
-| API-REG-EXS-N-001 | Register with existing Email and existing Password | Java          | Included for practice             | Passed |                |
-| API-REG-FRM-N-002 | API call with malformed JSON body                  | Postman       | Included for practice of API body | Failed |                |
+| TC ID             | Title                                              | Tools         | Reason for Inclusion             | Status | Bug ID         |
+|-------------------|----------------------------------------------------|---------------|----------------------------------|--------|----------------|
+| API-REG-EML-P-001 | Register with valid credentials                    | Postman, Java | Basic functional flow (+ log in) | Passed |                |
+| API-REG-EML-P-004 | Register with Email of max length                  | Java          | Boundary testing                 | Failed | BUG-API-REG-01 |
+| API-REG-EML-N-001 | Register with empty Email                          | Postman       | Error handling                   | Passed |                |
+| API-REG-EML-N-012 | Register with Email with diacritic letters         | Postman       | Error handling                   | Failed | BUG-API-REG-02 |
+| API-REG-EML-N-018 | Register with Email that has unicode emoji         | Postman       | Input validation edge            | Passed |                |
+| API-REG-EML-N-021 | Register with Email exceeding max length           | Java          | Boundary testing                 | Passed |                |
+| API-REG-PWD-N-008 | Register with Password that has '/"\,.:;<>         | Postman       | Exploratory testing, security    | Passed |                |
+| API-REG-PWD-N-012 | Register with too short Password                   | Java          | Boundary testing                 | Passed |                |
+| API-REG-PWD-N-013 | Register with too long Password                    | Java          | Boundary testing                 | Failed | BUG-API-REG-03 |
+| API-REG-EXS-N-001 | Register with existing Email and existing Password | Java          | Included for practice            | Failed | BUG-API-REG-04 |
+| API-REG-FRM-N-002 | API call with malformed JSON body                  | Postman       | Included for practice            | Failed | BUG-API-REG-05 |
 
 ## Log in API
 
 | TC ID             | Title                                             | Tools         | Reason for Inclusion                 | Status | Bug ID |
 |-------------------|---------------------------------------------------|---------------|--------------------------------------|--------|--------|
-| API-LOG-EML-N-003 | Log in with blank Email                           | Postman       | Error handling                       | Passed |        |
-| API-LOG-PWD-N-001 | Log in with existing Email but incorrect Password | Postman, Java | Included for practice                | Passed |        |
-| API-LOG-FRM-N-001 | API call with invalid Content-Type header         | Postman       | Included for practice of API headers | Failed |        |
+| API-LOG-EML-N-003 | Log in with blank Email                           | Postman       | Error handling                       |        |        |
+| API-LOG-PWD-N-001 | Log in with existing Email but incorrect Password | Postman, Java | Included for practice                |        |        |
+| API-LOG-FRM-N-001 | API call with invalid Content-Type header         | Postman       | Included for practice of API headers |        |        |
 
 ## Get All Contacts API
 
@@ -42,7 +42,7 @@ Chosen tests for execution.
 
 # Execution Summary
 
-14 tests executed, 10 passed, 4 failed
+11 tests executed, 6 passed, 5 failed
 
 Test Artifacts:
 * Postman collection: src/test/postman/postman_collection.json
@@ -80,9 +80,10 @@ Test Artifacts:
 2. User is not registered<br>
 
 **Attachments:**<br>
-* test_logs/log-20250728T144206.log
+* test_logs/log-20250729T213419.log
 
 ## BUG-API-REG-02
+
 **Title:** API accepts email with diacritic character (è) — should return 400 Bad Request<br>
 **Environment:** Postman<br>
 **Severity:** Medium<br>
@@ -99,7 +100,7 @@ Test Artifacts:
    ```
 **Expected Result:**<br>
 1. API returns 400 Bad Request
-2. Response body contains:
+2. Response body is:
     ```
     { "username": "must be a well-formed email address" }
     ```
@@ -110,8 +111,100 @@ Test Artifacts:
 2. Token is issued.
 3. User is registered<br>
 
-**Attachments:**
-* Collection run results: src/test/postman/postman_test_run.json
+**Attachments:**<br>
+* Collection run results: src/test/postman/reg_test_run.json
 
+## BUG-API-REG-03
 
+**Title:** Register with too long Password<br>
+**Environment:** Java, RestAssured<br>
+**Severity:** Medium<br>
+**Component:** Registration API<br>
+**Test Case ID:** API-REG-PWD-N-013<br>
+**Requirement Reference:** requirement T15<br>
+**Steps:**<br>
+Send POST request with password length 16 symbols
+``{
+  "username": "pippinpassword@gmail.com",
+  "password": "P@ssw0rdRightHer"
+}``<br>
 
+**Expected Result:**<br>
+1. API returns 400
+2. Error message
+
+**Actual Result:**<br>
+1. API returns 200 OK
+2. Token is issued
+
+**Attachments:**<br>
+* test_logs/log-20250729T213419.log
+
+## BUG-API-REG-04
+
+**Title:** Register with existing Email and existing Password
+**Environment:** Java, RestAssured<br>
+**Severity:** Medium<br>
+**Component:** Registration API<br>
+**Test Case ID:** API-REG-EXS-N-001<br>
+**Requirement Reference:** Swagger<br>
+**Steps:**<br>
+Send POST request
+``{
+  "username": "samecredentials@gmail.com",
+  "password": "P@ssw0rd1"
+}``<br>
+
+**Expected Result:**
+1. API returns 409
+2. Error message with schema
+``
+{
+  "timestamp": "2025-07-29T13:33:48.596Z",
+  "status": 0,
+  "error": "string",
+  "message": {},
+  "path": "string"
+}
+``<br>
+
+**Actual Result:**<br>
+1. API returns 409 Conflict
+2. Message field in JSON is String, not object
+``
+{
+  "timestamp":"2025-07-29T18:34:28",
+  "status":409,
+  "error":"Conflict",
+  "message":"User already exists",
+  "path":"/v1/user/registration/usernamepassword"
+}
+``
+
+**Attachments:**<br>
+* test_logs/log-20250729T213419.log
+
+## BUG-API-REG-05
+
+**Title:** API call with malformed JSON body<br>
+**Environment:** Postman<br>
+**Severity:** Medium<br>
+**Component:** Registration API<br>
+**Test Case ID:** API-REG-FRM-N-002<br>
+**Requirement Reference:** assumed<br>
+**Steps:**<br>
+Send POST request with malformed JSON (without ',')
+``{
+  "username": "wrongheader@gmail.com"
+  "password": "P@ssw0rd"
+}``<br>
+
+**Expected Result:**<br>
+1. API returns 400
+2. Error message
+
+**Actual Result:**
+1. API returns 500 Internal Server Error
+
+**Attachments:**<br>
+* Collection run results: src/test/postman/reg_test_run.json

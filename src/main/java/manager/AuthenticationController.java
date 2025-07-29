@@ -5,6 +5,9 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.asserts.SoftAssert;
 import utils.BaseAPI;
 
 import static io.restassured.RestAssured.given;
@@ -13,6 +16,7 @@ import static utils.PropertiesReader.getProperty;
 public class AuthenticationController implements BaseAPI {
 
     public Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
+
 
     public void logResponse(Response response) {
         logger.info("Response status: {}", response.getStatusLine());

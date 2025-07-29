@@ -31,6 +31,12 @@ test {
 
 task STR_v1_tests(type: Test){
     useTestNG() {
-        suites 'src/test/resources/STR_v1_tests.xml'
+        suites 'src/test/resources/str_v1_tests.xml'
+    }
+}
+
+task str_reg_tests(type: Test){
+    useTestNG() {
+        suites 'src/test/resources/str_reg_tests.xml'
     }
 }

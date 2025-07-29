@@ -882,7 +882,7 @@ Send POST request with malformed JSON (without ',')
   "username": "wrongheader@gmail.com"
   "password": "P@ssw0rd"
 }``<br>
-**Expected Result:**
+**Expected Result:**<br>
 1. API returns 400 (assumed)
 2. Error message
 
