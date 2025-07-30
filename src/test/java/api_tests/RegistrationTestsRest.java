@@ -1,8 +1,6 @@
 package api_tests;
 
-import dto.ErrorMessageDto;
-import dto.TokenDto;
-import dto.User;
+import dto.*;
 import io.restassured.response.Response;
 import manager.AuthenticationController;
 import org.testng.Assert;
@@ -23,8 +21,8 @@ public class RegistrationTestsRest extends AuthenticationController implements B
     SoftAssert softAssert = new SoftAssert();
 
     @Test(groups="str")
-    public void API_REG_EML_P_001_200() {
-        logger.info("TC: Register with valid credentials");
+    public void API_REG_EML_P_01() {
+        logger.info("Register with valid credentials [200]");
 
         User user = User.builder()
                 .username(generateEmail(14))
@@ -45,7 +43,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str")
     public void API_REG_EML_P_004_200() {
-        // Bug found: returns 400
+        // Bug found: returns 400, BUG-API-REG-01
         logger.info("TC: Register with Email of max length");
 
         User user = User.builder()
@@ -116,7 +114,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str")
     public void API_REG_PWD_N_013_400() {
-        // Bug found: returns 200
+        // Bug found: returns 200, BUG-API-REG-03
         logger.info("TC: Register with too long Password");
 
         User user = User.builder()
@@ -138,7 +136,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str")
     public void API_REG_EXS_N_001_409() {
-        // Bug found: invalid Schema
+        // Bug found: invalid Schema, BUG-API-REG-04
         logger.info("TC: Register with existing Email and existing Password");
 
         User user = User.builder()

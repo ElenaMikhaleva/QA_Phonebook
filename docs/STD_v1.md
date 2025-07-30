@@ -18,9 +18,9 @@
 
 ## Registration API
 
-### API-TS1	Register with valid Email - Positive
+### API_TS1	Register with valid Email - Positive
 
-API-REG-EML-P-001	Register with valid credentials  
+API_REG_EML_P_01	Register with valid credentials  
 API-REG-EML-P-002	Register with Email with capitalized letters (log in works with caps)  
 API-REG-EML-P-003	Register with Email with capitalized letters (log in works without caps)  
 API-REG-EML-P-004	Register with Email of max length  
@@ -127,9 +127,10 @@ API-CON-ALL-N-002	Get all contacts with invalid token
 # Detailed Test Cases
 All data is example, actual data is generated
 
-## API-TS1	Register with valid Email - Positive
+## API_TS1	Register with valid Email - Positive
 
-### API-REG-EML-P-001	Register with valid credentials
+### API_REG_EML_P_01	Register with valid credentials
+
 **Endpoint:** /v1/user/registration/usernamepassword  
 **Preconditions:** user is not registered   
 **Steps:**  

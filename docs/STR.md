@@ -11,7 +11,7 @@ Chosen tests for execution.
 
 | TC ID             | Title                                              | Tools         | Reason for Inclusion             | Status | Bug ID         |
 |-------------------|----------------------------------------------------|---------------|----------------------------------|--------|----------------|
-| API-REG-EML-P-001 | Register with valid credentials                    | Postman, Java | Basic functional flow (+ log in) | Passed |                |
+| API_REG_EML_P_01 | Register with valid credentials                    | Postman, Java | Basic functional flow (+ log in) | Passed |                |
 | API-REG-EML-P-004 | Register with Email of max length                  | Java          | Boundary testing                 | Failed | BUG-API-REG-01 |
 | API-REG-EML-N-001 | Register with empty Email                          | Postman       | Error handling                   | Passed |                |
 | API-REG-EML-N-012 | Register with Email with diacritic letters         | Postman       | Error handling                   | Failed | BUG-API-REG-02 |
@@ -25,11 +25,11 @@ Chosen tests for execution.
 
 ## Log in API
 
-| TC ID             | Title                                             | Tools         | Reason for Inclusion                 | Status | Bug ID |
-|-------------------|---------------------------------------------------|---------------|--------------------------------------|--------|--------|
-| API-LOG-EML-N-003 | Log in with blank Email                           | Postman       | Error handling                       |        |        |
-| API-LOG-PWD-N-001 | Log in with existing Email but incorrect Password | Postman, Java | Included for practice                |        |        |
-| API-LOG-FRM-N-001 | API call with invalid Content-Type header         | Postman       | Included for practice of API headers |        |        |
+| TC ID             | Title                                             | Tools         | Reason for Inclusion  | Status | Bug ID |
+|-------------------|---------------------------------------------------|---------------|-----------------------|--------|--------|
+| API-LOG-EML-N-003 | Log in with blank Email                           | Postman       | Error handling        |        |        |
+| API-LOG-PWD-N-001 | Log in with existing Email but incorrect Password | Postman, Java | Included for practice |        |        |
+| API-LOG-FRM-N-001 | API call with invalid Content-Type header         | Postman       | Included for practice |        |        |
 
 ## Get All Contacts API
 
