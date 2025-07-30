@@ -6,6 +6,50 @@ public class RandomUtils {
 
     static Random random = new Random();
 
+    public static String generateUpperLetters(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        char[] randomString = new char[length];
+        int index;
+        for (int i = 0; i<length; i++) {
+            index = random.nextInt(characters.length());
+            randomString[i] = characters.charAt(index);
+        }
+        return new String(randomString);
+    }
+
+    public static String generateLowerLetters(int length) {
+        String characters = "abcdefghijklmnopqrstuvwxyz";
+        char[] randomString = new char[length];
+        int index;
+        for (int i = 0; i<length; i++) {
+            index = random.nextInt(characters.length());
+            randomString[i] = characters.charAt(index);
+        }
+        return new String(randomString);
+    }
+
+    public static String generateDigits(int length) {
+        String characters = "0123456789";
+        char[] randomString = new char[length];
+        int index;
+        for (int i = 0; i<length; i++) {
+            index = random.nextInt(characters.length());
+            randomString[i] = characters.charAt(index);
+        }
+        return new String(randomString);
+    }
+
+    public static String generateSpecials(int length) {
+        String characters = "@$#^&*!";
+        char[] randomString = new char[length];
+        int index;
+        for (int i = 0; i<length; i++) {
+            index = random.nextInt(characters.length());
+            randomString[i] = characters.charAt(index);
+        }
+        return new String(randomString);
+    }
+
     public static String generateLettersDigits(int length) {
         String characters = "abcdefghijklmnopqrstuvwxyz0123456789";
         char[] randomString = new char[length];
@@ -24,16 +68,12 @@ public class RandomUtils {
     }
 
     public static String generatePassword(int length) {
-        String upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String lowerChar = "abcdefghijklmnopqrstuvwxyz";
-        String digits = "0123456789";
-        String specialChar = "@$#^&*!";
         String allChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@$#^&*!";
         char[] randomString = new char[length];
-        randomString[0] = upperChar.charAt(random.nextInt(upperChar.length()));
-        randomString[1] = lowerChar.charAt(random.nextInt(lowerChar.length()));
-        randomString[2] = digits.charAt(random.nextInt(digits.length()));
-        randomString[3] = specialChar.charAt(random.nextInt(specialChar.length()));
+        randomString[0] = generateUpperLetters(1).charAt(0);
+        randomString[1] = generateLowerLetters(1).charAt(0);
+        randomString[2] = generateDigits(1).charAt(0);
+        randomString[3] = generateSpecials(1).charAt(0);
         int index;
         for (int i = 0; i<length; i++) {
             index = random.nextInt(allChar.length());
