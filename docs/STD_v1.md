@@ -6,7 +6,7 @@
 
 # Content
 * Test Cases Summary
-  * Registration API
+  * Registration API 
   * Log in API
   * Get All Contacts API
   * Create New Contact API
