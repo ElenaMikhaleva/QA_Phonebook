@@ -21,7 +21,7 @@ Chosen tests for execution.
 | EXP_API_REG_01 | Register with Capitalized Email   | Java    | Practice             |        |           |
 | EXP_API_REG_02 | Register with Long Email          | Java    | Practice             |        |           |
 | EXP_API_REG_03 | Register with Various Emails      | Java    | Edge cases           |        |           |
-| EXP_API_REG_04 | Registe`r with Various Passwords  | Postman | Edge cases, security |        |           |
+| EXP_API_REG_04 | Register with Various Passwords   | Postman | Edge cases, security |        |           |
 | EXP_API_REG_05 | Register with Invalid Header      | Postman | Format errors        |        |           |
 | EXP_API_REG_06 | Register with Malformed JSON Body | Postman | Format errors        |        |           |
 
