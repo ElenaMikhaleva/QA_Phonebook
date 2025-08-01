@@ -18,16 +18,15 @@ public class AuthenticationController implements BaseAPI {
     public Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
 
 
-    public void logResponse(Response response) {
+    public void logResponse(Response response, User user, String descr) {
+        logger.info(descr + ", Request data: {}", user);
         logger.info("Response status: {}", response.getStatusLine());
-        logger.info("Response headers:\n{}", response.getHeaders());
         logger.info("Response body:\n{}", response.getBody().asString());
     }
 
     public boolean isLoginWGivenCredentialsSuccessful(User user) {
         Response response = requestRegLogin(user, LOGIN_URL);
-        logger.info("\n------> LOG IN with given credentials");
-        logResponse(response);
+        logResponse(response, user, "LOG IN with given credentials");
         return (response.getStatusCode()==200 && response.getBody().asString().contains("token"));
     }
 

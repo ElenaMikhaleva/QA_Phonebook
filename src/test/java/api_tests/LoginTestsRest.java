@@ -10,8 +10,8 @@ import utils.BaseAPI;
 
 import java.time.LocalDate;
 
-import static utils.RandomUtils.generateEmail;
-import static utils.RandomUtils.generatePassword;
+import static utils.RandomUtils.genEmail;
+import static utils.RandomUtils.genPassword;
 
 public class LoginTestsRest extends AuthenticationController implements BaseAPI {
 
@@ -22,15 +22,15 @@ public class LoginTestsRest extends AuthenticationController implements BaseAPI 
         logger.info("TC: Log in with existing Email but incorrect Password");
 
         User user = User.builder()
-                .username(generateEmail(14))
-                .password(generatePassword(12))
+                .username(genEmail(14))
+                .password(genPassword(12))
                 .build();
         requestRegLogin(user, REGISTRATION_URL);
         logger.info("Registration request payload: {}", user);
-        user.setPassword(generatePassword(12));
+        user.setPassword(genPassword(12));
         Response response = requestRegLogin(user, LOGIN_URL);
         logger.info("Log in request payload: {}", user);
-        logResponse(response);
+        logResponse(response, user, "");
         ErrorMessageDto errorMessageDto = response.body().as(ErrorMessageDto.class);
         softAssert.assertEquals(response.getStatusCode(), 401, "API_LOG_PWD_N_001_401(), status code");
         softAssert.assertEquals(LocalDate.now().toString(), errorMessageDto.getTimestamp().substring(0, 10), "API_LOG_PWD_N_001_401(), timestamp");

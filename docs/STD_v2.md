@@ -27,10 +27,11 @@ API_REG_P_02   Register with existing Password<br>
 
 ### Negative tests
 
-API_REG_N_01   Register with Missing Fields<br>
-API_REG_N_02   Register with Invalid Email<br>
-API_REG_N_03   Register with Invalid Password<br>
-API_REG_N_04   Register with Duplicate Email<br>
+API_REG_N_01   Register with Missing Email<br>
+API_REG_N_02   Register with Missing Password<br>
+API_REG_N_03   Register with Invalid Email<br>
+API_REG_N_04   Register with Invalid Password<br>
+API_REG_N_05   Register with Duplicate Email<br>
 
 # Detailed TCs
 
@@ -50,8 +51,7 @@ API_REG_N_04   Register with Duplicate Email<br>
 - **Expected Result:**
   1. API returns 200. (requirements T9, T14, T15, Swagger)
   2. API returns token.
-  3. API doesn't return password in body or headers.
-  4. Cookies do not contain password.
+  3. API doesn't return password.
   5. User is successfully registered.
   6. User can log in with the same credentials.
 
@@ -70,7 +70,7 @@ API_REG_N_04   Register with Duplicate Email<br>
   3. User is successfully registered.
   4. User can log in with the same credentials
 
-### API_REG_N_01   Register with Missing Fields
+### API_REG_N_01   Register with Missing Email
 
 - **Endpoint:** `/v1/user/registration/usernamepassword`
 - **Preconditions:** user is not registered
@@ -79,16 +79,26 @@ API_REG_N_04   Register with Duplicate Email<br>
   2. ``{ "username": null, "password": "#2Breakfast!" }`` - invalid data type of email
   3. ``{ "username": "", "password": "#2Breakfast!" }`` - empty String instead of email
   4. ``{ "username": " ", "password": "#2Breakfast!" }`` - whitespace instead of email
-  5. ``{ "username": "passwo@gmail.com" }`` - without password
-  6. ``{ "username": "passnull@gmail.com", "password": null }`` - invalid data type of password
-  7. ``{ "username": "passempty@gmail.com", "password": "" }`` - empty String instead of password
-  8. ``{ "username": "passspace@gmail.com", "password": " " }`` - whitespace instead of password
 - **Steps:** send POST request for each email
 - **Expected Result:**
-  1. API returns 400 (requirement T1, T2, T7, T8, Swagger)
+  1. API returns 400 (requirement T1, T2, Swagger)
   2. Message '"username": "must not be blank"'.
 
-### API_REG_N_02   Register with Invalid Email
+### API_REG_N_02   Register with Missing Password
+
+- **Endpoint:** `/v1/user/registration/usernamepassword`
+- **Preconditions:** user is not registered
+- **Test Data:**
+  1. ``{ "username": "passwo@gmail.com" }`` - without password
+  2. ``{ "username": "passnull@gmail.com", "password": null }`` - invalid data type of password
+  3. ``{ "username": "passempty@gmail.com", "password": "" }`` - empty String instead of password
+  4. ``{ "username": "passspace@gmail.com", "password": " " }`` - whitespace instead of password
+- **Steps:** send POST request for each email
+- **Expected Result:**
+  1. API returns 400 (requirement T7, T8, Swagger)
+  2. Message '"password": "must not be blank"'.
+
+### API_REG_N_03   Register with Invalid Email
 
 - **Endpoint:** `/v1/user/registration/usernamepassword`
 - **Preconditions:** user is not registered
@@ -105,7 +115,7 @@ API_REG_N_04   Register with Duplicate Email<br>
   1. API returns 400 (requirements T3, T4, T5, T6)
   2. Error message
 
-### API_REG_N_03   Register with Invalid Password
+### API_REG_N_04   Register with Invalid Password
 
 - **Endpoint:** `/v1/user/registration/usernamepassword`
 - **Preconditions:** user is not registered
@@ -114,9 +124,9 @@ API_REG_N_04   Register with Duplicate Email<br>
   2. UPLETTERS6# - no lowercase letters
   3. NoNumbers^ - no numbers
   4. NoSpecials5 - no special characters
-  6. 6Плохо^2! - non-English letters
-  7. P@sw0rd - too short (7 symbols)
-  8. P@sw0rdRightHere - too long (16 symbols)
+  5. 6Плохо^2! - non-English letters
+  6. P@sw0rd - too short (7 symbols)
+  7. P@sw0rdRightHere - too long (16 symbols)
 - **Steps:** send POST request
   ``{ "username": "<generated email>", "password": "<password>" }``
 - **Expected Result:**
@@ -125,10 +135,10 @@ API_REG_N_04   Register with Duplicate Email<br>
 - **Notes:**
   - password length must be from 8 to 15 symbols
 
-### API_REG_N_04  Register with Duplicate Email
+### API_REG_N_05  Register with Duplicate Email
 
 - **Endpoint:** `/v1/user/registration/usernamepassword`
-- **Preconditions:** user is registered with email (samecredentials@gmail.com) and password (P@ssw0rd1)
+- **Preconditions:** user is registered with the same email (samecredentials@gmail.com) and password (P@ssw0rd1)
 - **Test Data (Password):**
   1. P@ssw0rd1 - same password
   2. P@ssw0rd2 - new password
@@ -160,11 +170,10 @@ EXP_API_REG_06 Register with Malformed JSON Body<br>
 - **Preconditions:** user is not registered
 - **Steps:**
    1. send POST request ``{ "username": "upperPippin@gmail.com", "password": "#2Breakfast!" }``
-   2. if registration is successful, attempt to log in using:
-      - `upperPippin@gmail.com` (original casing)
+   2. if registration is successful, attempt to register using:
       - `upperpippin@gmail.com` (lowercase)
       - `UPPERPIPPIN@GMAIL.COM` (uppercase)
-   3. attempt to register with different casing (`upperpippin@gmail.com` - lowercase, instead of original)
+   3. attempt to log in with different casing (`Upperpippin@gmail.com`)
 - **Exploration Focus:**
    * Does registration succeed with capitalized email?
    * Do all login attempts succeed regardless of casing?
@@ -253,13 +262,11 @@ EXP_API_REG_06 Register with Malformed JSON Body<br>
     Confirm whether the system accepts and processes these formats correctly.
 - **Preconditions:** user is not registered
 - **Test Data (Password):**
-  1. Passw0rd? - no allowed special characters but with not listed special character
-  2. P@ssw0rd? - allowed special character and also not listed special character
-  3. Pas'"\/<>``;8 - no allowed special characters but with '"\/<>`;
-  4. P@s'"\/<>``;8 - allowed special characters and '"\/<>`;
-  5. P@ss w0rd - whitespace
-  6. P@ss\nw0rd - new line character
-  7. P@ss     w0rd - tabulation
+  1. P@ssw0rd? - allowed special character and also not listed special character
+  2. P@s'"\/<>``;8 - allowed special characters and '"\/<>`;
+  3. P@ss w0rd - whitespace
+  4. P@ss\nw0rd - new line character
+  5. P@ss     w0rd - tabulation
 - **Steps** for each password:
   1. send a POST request
      ``
