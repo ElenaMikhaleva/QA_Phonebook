@@ -1,0 +1,12 @@
+1pippin@hyphen-hobbiton.com,RingBearer42!,[1] hyphen in domain
+1subdomain@hobbiton.shire.com,RingBearer42!,[2] email with subdomains
+1nodot@gmailcom,RingBearer42!,[3] no dot in domain
+1beforedot@.com,RingBearer42!,[4] no char before dot in domain
+1afterdot@gmail.,RingBearer42!,[5] no char after dot in domain
+1dot..dot@gmail.com,RingBearer42!,[6] multiple dots
+ 1leadspace@gmail.com,RingBearer42!,[7] leading whitespace
+1white space@gmail.com,RingBearer42!,[8] internal whitespace
+1trailspace@gmail.com ,RingBearer42!,[9] trailing whitespace
+1emo😈ji@gmail.com,RingBearer42!,[10] emoji
+1new\nline@gmail.com,RingBearer42!,[11] new line character
+1has\ttab@gmail.com,RingBearer42!,[12] tabulation

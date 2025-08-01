@@ -1,6 +1,14 @@
 package data_providers;
 
+import dto.User;
 import org.testng.annotations.DataProvider;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static utils.RandomUtils.*;
 
@@ -36,5 +44,33 @@ public class UserDP {
                 { "samePassword" },
                 { "newPassword"}
         };
+    }
+
+    @DataProvider(name = "longEmail")
+    public Object[][] EXP_API_REG_02_data() {
+        return new Object[][] {
+                { genLettersDigits(64) + "@" + genLowerCase(185) + ".com", genPassword(12), "[1] email 254 characters length " },
+                { genLettersDigits(65) + "@" + genLowerCase(185) + ".com", genPassword(12), "[2] email 255 characters length " },
+        };
+    }
+
+    @DataProvider(name = "differentEmails")
+    public Iterator<Object[]> EXP_API_REG_03_data() {
+        List<Object[]> list = new ArrayList<>();
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/data_provider/EXP_API_REG_03_data.csv"))) {
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                String[] splitArray = line.split(",");
+                User user = User.builder()
+                        .username(splitArray[0])
+                        .password(splitArray[1])
+                        .build();
+                list.add(new Object[]{user, splitArray[2]});
+                line = bufferedReader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list.listIterator();
     }
 }

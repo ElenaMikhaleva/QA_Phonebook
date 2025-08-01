@@ -34,7 +34,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
         softAssert.assertTrue(tokenDto.toString().contains("token"), "API_REG_P_01(), token");
         softAssert.assertFalse(response.getBody().asString().contains("password"), "API_REG_P_01(), no password");
         if (response.getBody().asString().contains("token")) {
-            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user));
+            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "LOG IN with valid credentials"));
         }
         softAssert.assertAll();
     }
@@ -83,59 +83,63 @@ public class RegistrationTestsRest extends AuthenticationController implements B
         softAssert.assertTrue(errorMessageDto.getPath().equals("/v1/user/registration/usernamepassword"), "API_REG_N_05(), path");
         softAssert.assertAll();
     }
-//
-//    @Test(groups="str")
-//    public void API_REG_EML_P_004_200() {
-//        // Bug found: returns 400, BUG-API-REG-01
-//        logger.info("TC: Register with Email of max length");
-//
-//        User user = User.builder()
-//                .username( generateLettersDigits(64) + "@" + generateLettersDigits(185) + ".com")
-//                .password("Password$123")
-//                .build();
-//        logger.info("Request data: {}", user);
-//        Response response = requestRegLogin(user, REGISTRATION_URL);
-//        if (user.getUsername().length() != 254) {
-//            Assert.fail("Email with wrong length " + user.getUsername().length());
-//        } else {
-//            logResponse(response);
-//            TokenDto tokenDto = response.body().as(TokenDto.class);
-//            softAssert.assertEquals(response.getStatusCode(), 200, "API_REG_EML_P_004_200(), code");
-//            softAssert.assertTrue(tokenDto.toString().contains("token"), "API_REG_EML_P_004_200(), token");
-//            if (tokenDto.toString().contains("token")) {
-//                softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user));
-//            }
-//            softAssert.assertAll();
-//        }
-//    }
-//
-//    @Test(groups="str")
-//    public void API_REG_EML_N_021_400() {
-//        logger.info("TC: Register with Email exceeding max length");
-//
-//        User user = User.builder()
-//                .username( generateLettersDigits(65) + "@" + generateLettersDigits(185) + ".com")
-//                .password("Password$123")
-//                .build();
-//        logger.info("Request data: {}", user);
-//        Response response = requestRegLogin(user, REGISTRATION_URL);
-//        if (user.getUsername().length() != 255) {
-//            Assert.fail("Wrong email with length " + user.getUsername().length());
-//        } else {
-//            logResponse(response);
-//            ErrorMessageDto errorMessageDto = response.body().as(ErrorMessageDto.class);
-//            softAssert.assertEquals(response.getStatusCode(), 400, "API_REG_EML_N_021_400(), code");
-//            softAssert.assertEquals(LocalDate.now().toString(), errorMessageDto.getTimestamp().substring(0, 10), "API_REG_EML_N_021_400(), timestamp");
-//            softAssert.assertEquals(errorMessageDto.getStatus(), 400, "API_REG_EML_N_021_400(), code body");
-//            softAssert.assertTrue(errorMessageDto.getError().equals("Bad Request"), "API_REG_EML_N_021_400(), status line body");
-//            softAssert.assertEquals(errorMessageDto.getMessage().get("username"),("must be a well-formed email address"), "API_REG_EML_N_021_400(), message");
-//            softAssert.assertTrue(errorMessageDto.getPath().equals("/v1/user/registration/usernamepassword"), "API_REG_EML_N_021_400(), path");
-//            softAssert.assertAll();
-//        }
-//    }
-//
-//
-//
 
+    @Test(groups="str")
+    public void EXP_API_REG_01() {
+        logger.info("Register with Capitalized Email");
+
+        User user = User.builder()
+                .username(genUpperCase(4) + genLowerCase(4) + "@gmail.com")
+                .password(genPassword(12))
+                .build();
+        Response response = requestRegLogin(user, REGISTRATION_URL);
+        logResponse(response, user, "[1] email with original casing");
+
+        if (response.getBody().asString().contains("token")) {
+            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.1] LOG IN with original casing"));
+        }
+
+        user.setUsername(user.getUsername().substring(0,5).toLowerCase() + user.getUsername().substring(5,8) + "@gmail.com");
+        if (response.getBody().asString().contains("token")) {
+            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with different casing"));
+        }
+
+        user.setUsername(user.getUsername().substring(0,8).toLowerCase() + "@gmail.com");
+        Response response2 = requestRegLogin(user, REGISTRATION_URL);
+        logResponse(response2, user, "[2.1] email with all lowercase letters");
+
+        user.setUsername(user.getUsername().substring(0,8).toUpperCase() + "@gmail.com");
+        Response response3 = requestRegLogin(user, REGISTRATION_URL);
+        logResponse(response3, user, "[2.2] email with all uppercase letters");
+    }
+
+    @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "longEmail")
+    public void EXP_API_REG_02(String email, String password, String descr) {
+        logger.info("Register with Long Email");
+
+        User user = User.builder()
+                .username(email)
+                .password(password)
+                .build();
+        if (user.getUsername().length()==254 || user.getUsername().length()==255) {
+            System.out.println("length" + user.getUsername().length());
+            Response response = requestRegLogin(user, REGISTRATION_URL);
+            logResponse(response, user, descr);
+            if (response.getBody().asString().contains("token")) {
+                softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with the same credentials"));
+            }
+        } else System.out.println("Wrong email length: " + user.getUsername().length());
+    }
+
+    @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "differentEmails")
+    public void EXP_API_REG_03(User user, String descr) {
+        logger.info("Register with Various Emails");
+
+        Response response = requestRegLogin(user, REGISTRATION_URL);
+        logResponse(response, user, descr);
+        if (response.getBody().asString().contains("token")) {
+            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "LOG IN with the same credentials"));
+        }
+    }
 
 }

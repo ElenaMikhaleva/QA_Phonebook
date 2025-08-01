@@ -24,9 +24,9 @@ public class AuthenticationController implements BaseAPI {
         logger.info("Response body:\n{}", response.getBody().asString());
     }
 
-    public boolean isLoginWGivenCredentialsSuccessful(User user) {
+    public boolean isLoginWGivenCredentialsSuccessful(User user, String descr) {
         Response response = requestRegLogin(user, LOGIN_URL);
-        logResponse(response, user, "LOG IN with given credentials");
+        logResponse(response, user, descr);
         return (response.getStatusCode()==200 && response.getBody().asString().contains("token"));
     }
 

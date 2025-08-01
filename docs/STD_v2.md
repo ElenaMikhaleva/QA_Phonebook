@@ -171,14 +171,15 @@ EXP_API_REG_06 Register with Malformed JSON Body<br>
 - **Steps:**
    1. send POST request ``{ "username": "upperPippin@gmail.com", "password": "#2Breakfast!" }``
    2. if registration is successful, attempt to register using:
-      - `upperpippin@gmail.com` (lowercase)
-      - `UPPERPIPPIN@GMAIL.COM` (uppercase)
-   3. attempt to log in with different casing (`Upperpippin@gmail.com`)
+      1. `upperpippin@gmail.com` (lowercase)
+      2. `UPPERPIPPIN@GMAIL.COM` (uppercase)
+   3. attempt to log in with
+      1. `upperPippin@gmail.com` (original casing)
+      2. `Upperpippin@gmail.com` (different casing)
 - **Exploration Focus:**
-   * Does registration succeed with capitalized email?
-   * Do all login attempts succeed regardless of casing?
-   - Are tokens or session results consistent across cases?
-   - Are duplicates with different email casings allowed?
+  - Are duplicates with different email casings allowed? 
+  - Do all login attempts succeed regardless of casing? 
+  - Are tokens or session results consistent across cases?
 - **Notes:**
    - RFC 5321 and 5322 specify that email local parts are technically case-sensitive, but in practice most systems treat them as case-insensitive.
 
@@ -188,8 +189,8 @@ EXP_API_REG_06 Register with Malformed JSON Body<br>
 - **Purpose:** explore how the system handles long email addresses.
 - **Preconditions:** user is not registered
 - **Test Data:**
-  - email 254 characters length
-  - email 255 characters length
+  1. email 254 characters length 
+  2. email 255 characters length
 - **Steps:**
    1. send a POST request to the registration endpoint with an email structured as:
       ```
@@ -216,7 +217,7 @@ EXP_API_REG_06 Register with Malformed JSON Body<br>
    - whitespaces placement
    - emoji
    - control characters<br>
-  Confirm whether the system accepts and processes these format     s correctly during both registration and login.
+  Confirm whether the system accepts and processes these formats correctly during both registration and login.
 - **Preconditions:** user is not registered
 - **Test Data (Email):**
   1. pippin@hyphen-hobbiton.com - hyphen in domain
