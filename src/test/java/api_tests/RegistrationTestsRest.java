@@ -62,6 +62,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "duplicateEmail")
     public void API_REG_N_05(String passwordVar) {
+        // Bug found: Schema Validation
         logger.info("Register with Duplicate Email, 409 Conflict");
 
         User user = User.builder()
