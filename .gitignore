@@ -17,6 +17,8 @@ out/
 !**/src/test/**/out/
 login.properties
 test_logs
+BaseAPI.java
+postman
 
 ### Eclipse ###
 .apt_generated

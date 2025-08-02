@@ -29,9 +29,9 @@ test {
     useTestNG()
 }
 
-task STR_v1_tests(type: Test){
+task str_tests(type: Test){
     useTestNG() {
-        suites 'src/test/resources/str_v1_tests.xml'
+        suites 'src/test/resources/str_tests.xml'
     }
 }
 

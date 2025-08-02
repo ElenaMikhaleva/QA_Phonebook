@@ -73,7 +73,7 @@ public class RandomUtils {
     }
 
     public static String genEmail(int length) {
-        String[] domains = {"@mail.com", "@yahoo.com", "@gmail.com", "@yandex.ru"};
+        String[] domains = {"@example.com", "@test.com"};
         String domain = domains[random.nextInt(domains.length)];
         return genLettersDigits(length-domain.length()) + domain;
     }

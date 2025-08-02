@@ -51,26 +51,26 @@ public class UserDP {
         return new Object[][] {
                 { genLettersDigits(64) + "@" + genLowerCase(185) + ".com", genPassword(12), "[1] email 254 characters length " },
                 { genLettersDigits(65) + "@" + genLowerCase(185) + ".com", genPassword(12), "[2] email 255 characters length " },
+                { genEmail(75), genPassword(12), "[add] email 75 characters length " },
+                { genEmail(74), genPassword(12), "[add] email 74 characters length " }
         };
     }
 
     @DataProvider(name = "differentEmails")
-    public Iterator<Object[]> EXP_API_REG_03_data() {
-        List<Object[]> list = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/data_provider/EXP_API_REG_03_data.csv"))) {
-            String line = bufferedReader.readLine();
-            while (line != null) {
-                String[] splitArray = line.split(",");
-                User user = User.builder()
-                        .username(splitArray[0])
-                        .password(splitArray[1])
-                        .build();
-                list.add(new Object[]{user, splitArray[2]});
-                line = bufferedReader.readLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return list.listIterator();
+    public Object[][] EXP_API_REG_03_data() {
+        return new Object[][] {
+                { genLowerCase(5) + "@test-example.com", genPassword(12), "[1] hyphen in domain" },
+                { genLowerCase(5) + "@test.example.com", genPassword(12), "[2] email with subdomains" },
+                { genLowerCase(5) + "@examplecom", genPassword(12), "[3] no dot in domain" },
+                { genLowerCase(5) + "@.com", genPassword(12), "[4] no char before dot in domain" },
+                { genLowerCase(5) + "@example.", genPassword(12), "[5] no char after dot in domain" },
+                { genLowerCase(2) + ".." + genLowerCase(2) + "@example.com", genPassword(12), "[6] multiple dots" },
+                { " " + genLowerCase(5) + "@example.com", genPassword(12), "[7] leading whitespace" },
+                { genLowerCase(2) + " " + genLowerCase(2) + "@example.com", genPassword(12), "[8] internal whitespace" },
+                { genLowerCase(5) + "@example.com ", genPassword(12), "[9] trailing whitespace" },
+                { genLowerCase(5) + "\uD83D\uDE08" + "@example.com", genPassword(12), "[10] emoji unicode" },
+                { genLowerCase(2) + "\n" + genLowerCase(2) + "@example.com", genPassword(12), "[11] new line character" },
+                { genLowerCase(2) + "\t" + genLowerCase(2) + "@example.com", genPassword(12), "[12] tabulation" }
+        };
     }
 }

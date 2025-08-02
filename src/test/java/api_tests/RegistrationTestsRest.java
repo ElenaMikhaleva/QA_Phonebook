@@ -41,6 +41,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "invalidPassword")
     public void API_REG_N_04(String email, String password, String descr) {
+        // Bug found with data: [5] non-English letters, [7] too long (16 symbols)
         logger.info("Register with Invalid Password, 400 Bad Request");
 
         User user = User.builder()
@@ -64,11 +65,11 @@ public class RegistrationTestsRest extends AuthenticationController implements B
         logger.info("Register with Duplicate Email, 409 Conflict");
 
         User user = User.builder()
-                .username(genEmail(12))
+                .username(genEmail(16))
                 .password(genPassword(12))
                 .build();
         Response response = requestRegLogin(user, REGISTRATION_URL);
-        logResponse(response, user, passwordVar);
+        logResponse(response, user, "first request");
         if (passwordVar.equals("newPassword")) {
             user.setPassword(genPassword(12)); // set a new password
         }
@@ -89,7 +90,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
         logger.info("Register with Capitalized Email");
 
         User user = User.builder()
-                .username(genUpperCase(4) + genLowerCase(4) + "@gmail.com")
+                .username(genUpperCase(4) + genLowerCase(4) + "@example.com")
                 .password(genPassword(12))
                 .build();
         Response response = requestRegLogin(user, REGISTRATION_URL);
@@ -99,18 +100,24 @@ public class RegistrationTestsRest extends AuthenticationController implements B
             softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.1] LOG IN with original casing"));
         }
 
-        user.setUsername(user.getUsername().substring(0,5).toLowerCase() + user.getUsername().substring(5,8) + "@gmail.com");
+        user.setUsername(user.getUsername().substring(0,5).toLowerCase() + user.getUsername().substring(5,8).toUpperCase() + "@example.com");
         if (response.getBody().asString().contains("token")) {
             softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with different casing"));
         }
 
-        user.setUsername(user.getUsername().substring(0,8).toLowerCase() + "@gmail.com");
+        user.setUsername(user.getUsername().substring(0,5) + user.getUsername().substring(5,8).toLowerCase() + "@example.com");
+        if (response.getBody().asString().contains("token")) {
+            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with different casing"));
+        }
+
+        user.setUsername(user.getUsername().substring(0,8).toLowerCase() + "@example.com");
         Response response2 = requestRegLogin(user, REGISTRATION_URL);
         logResponse(response2, user, "[2.1] email with all lowercase letters");
 
-        user.setUsername(user.getUsername().substring(0,8).toUpperCase() + "@gmail.com");
+        user.setUsername(user.getUsername().substring(0,8).toUpperCase() + "@example.com");
         Response response3 = requestRegLogin(user, REGISTRATION_URL);
         logResponse(response3, user, "[2.2] email with all uppercase letters");
+        softAssert.assertAll();
     }
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "longEmail")
@@ -121,25 +128,29 @@ public class RegistrationTestsRest extends AuthenticationController implements B
                 .username(email)
                 .password(password)
                 .build();
-        if (user.getUsername().length()==254 || user.getUsername().length()==255) {
-            System.out.println("length" + user.getUsername().length());
-            Response response = requestRegLogin(user, REGISTRATION_URL);
-            logResponse(response, user, descr);
-            if (response.getBody().asString().contains("token")) {
-                softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with the same credentials"));
-            }
-        } else System.out.println("Wrong email length: " + user.getUsername().length());
+        System.out.println("length" + user.getUsername().length());
+        Response response = requestRegLogin(user, REGISTRATION_URL);
+        logResponse(response, user, descr);
+        if (response.getBody().asString().contains("token")) {
+            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with the same credentials"));
+        }
+        softAssert.assertAll();
     }
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "differentEmails")
-    public void EXP_API_REG_03(User user, String descr) {
+    public void EXP_API_REG_03(String email, String password, String descr) {
         logger.info("Register with Various Emails");
 
+        User user = User.builder()
+                .username(email)
+                .password(password)
+                .build();
         Response response = requestRegLogin(user, REGISTRATION_URL);
         logResponse(response, user, descr);
         if (response.getBody().asString().contains("token")) {
             softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "LOG IN with the same credentials"));
         }
+        softAssert.assertAll();
     }
 
 }
