@@ -1,8 +1,8 @@
 # Overview
 
-**STD Identifier:** STD-v2<br>
-**Date Created:** 30/07/2025<br>
-**Version:** v2.0<br>
+**STD Identifier:** STD-v3<br>
+**Date Created:** 03/08/2025<br>
+**Version:** v3.0<br>
 All data is example, actual data is generated for each execution.
 
 # Content
@@ -10,12 +10,13 @@ All data is example, actual data is generated for each execution.
 1. Summary of TCs<br>
   1.1 Registration API<br>
   1.2 Log in API<br>
+  1.3 Get All Contacts API<br>
 2. Detailed TCs<br>
   2.1 Registration API<br>
   2.2 Log in API<br>
 3. Summary of Exploratory Tests<br>
   3.1 Registration API<br>
-  3.2 Log in API<br>
+  3.2 Get All Contacts API<br>
 4. Detailed Exploratory Tests<br>
   4.1 Registration API<br>
 
@@ -38,7 +39,7 @@ API_REG_N_05   Register with Duplicate Email<br>
 
 ## Log in API
 
-Detailed test cases are written not for all Log in API tests to avoid duplication.<br>
+Detailed test cases are written not for all tests to avoid duplication.<br>
 
 ### Positive tests
 
@@ -50,6 +51,20 @@ API_LOG_N_01  Log in with Unregistered Email<br>
 API_LOG_N_02  Log in with Registered Email but Incorrect Password<br>
 API_LOG_N_03  Log in with Missing Email<br>
 API_LOG_N_04  Log in with Missing Password<br>
+
+## Get All Contacts API
+
+### Positive tests
+
+API_ALL_P_01  Get all contacts when user has no contacts<br>
+API_ALL_P_02  Get all contacts when user has exactly 1 contact<br>
+API_ALL_P_03  Get all contacts when user has 20 contacts<br>
+API_ALL_P_04  Get all contacts with special characters (e.g. non-ASCII names)<br>
+
+### Negative tests
+
+API_ALL_N_01  Get all contacts without authentication<br>
+API_ALL_N_02  Get all contacts with invalid token<br>
 
 # Detailed TCs
 
@@ -224,10 +239,11 @@ EXP_API_REG_04 Register with Various Passwords<br>
 EXP_API_REG_05 Register with Invalid Header<br>
 EXP_API_REG_06 Register with Malformed JSON Body<br>
 
-## Log in API
+## Get All Contacts API
 
-EXP_API_LOG_01  Log in with Invalid Header<br>
-EXP_API_LOG_02  Log in with Malformed JSON body<br>
+EXP_API_ALL_01  Get all contacts using invalid HTTP method (e.g. POST instead of GET)<br>
+EXP_API_ALL_02  Get all contacts with Invalid Header<br>
+EXP_API_ALL_03  Get all contacts with invalid query parameters<br>
 
 # Detailed Exploratory Tests
 

@@ -1,15 +1,16 @@
 
 # Overview
 
-**STP Identifier:** STP-v1  
+**STP Identifier:** STP-v2  
 **Project Name:** Phonebook Testing  
-**Date Created:** 30/06/2025  
-**Version:** v1.0  
+**Date Created:** 03/08/2025  
+**Version:** v2.0  
 **Responsibilities:** Creation of STP, STD, test execution, STR — Elena Mikhaleva
 
 ## Test Objectives
 - Validate Registration API
 - Validate Log in API
+- Validate Get All Contacts API
 
 ## Scope of Testing
 - API-level validation rules (email format, password complexity, required fields)
@@ -39,10 +40,10 @@
 - No open blockers or critical defects
 
 ## Schedule
-1. Planning: 30/06/2025
-2. Test Design: 17/07/2025
-3. First Test Session: 27/07/2025
-4. Reports & Delivery: 10/08/2025
+1. Planning: 03/08/2025
+2. Test Design: 07/08/2025
+3. First Test Session: 14/08/2025
+4. Reports & Delivery: 21/08/2025
 
 ## Risks
 - Insufficient product requirements

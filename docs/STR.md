@@ -1,12 +1,12 @@
 # Overview
 
-**STR identifier:**	STR_v2<br>
-**Date created:** 30/07/2025<br>
-**Version:** v2.0<br>
+**STR identifier:**	STR_v3<br>
+**Date created:** 03/08/2025<br>
+**Version:** v3.0<br>
 
 # Test Scope
 Chosen tests for execution.<br>
-Focused on the Registration and Log in API testing, including exploratory tests using Java and Postman tools.<br>
+Focused on testing the Registration, Login, and Get All Contacts APIs, including exploratory testing performed using Java and Postman.<br>
 
 ## Registration API
 
@@ -17,7 +17,7 @@ Focused on the Registration and Log in API testing, including exploratory tests 
 | API_REG_N_04 | Register with Invalid Password  | Java    | Functional flow                | Failed #5, #7 | BUG_API_01 |
 | API_REG_N_05 | Register with Duplicate Email   | Java    | Functional flow                | Failed        | BUG_API_02 |
 
-| TC ID          | Title                             | Tools   | Reason for Inclusion | Report ID      | Bug ID     |
+| Test ID        | Title                             | Tools   | Reason for Inclusion | Report ID      | Bug ID     |
 |----------------|-----------------------------------|---------|----------------------|----------------|------------|
 | EXP_API_REG_01 | Register with Capitalized Email   | Java    | Practice             | EXP_RPT_API_01 | BUG_API_03 |
 | EXP_API_REG_02 | Register with Long Email          | Java    | Practice             | EXP_RPT_API_02 |            |
@@ -34,11 +34,26 @@ Focused on the Registration and Log in API testing, including exploratory tests 
 | API_LOG_N_01 | Log in with Unregistered Email                      | Java  | Functional flow      | Failed | BUG_API_07 |
 | API_LOG_N_02 | Log in with Registered Email but Incorrect Password | Java  | Functional flow      | Failed | BUG_API_07 |
 
+## Get All Contacts API
+
+| TC ID        | Title                                            | Tools   | Reason for Inclusion | Status | Bug ID |
+|--------------|--------------------------------------------------|---------|----------------------|--------|--------|
+| API_ALL_P_01 | Get all contacts when user has no contacts       | Postman | Edge case            |        |        |
+| API_ALL_P_02 | Get all contacts when user has exactly 1 contact | Java    | Edge case            |        |        |
+| API_ALL_P_04 | Get all contacts with special characters         | Java    | Character encoding   |        |        |
+| API_ALL_N_01 | Get all contacts without authentication          | Postman | Security             |        |        |
+| API_ALL_N_02 | Get all contacts with invalid token              | Postman | Security             |        |        |
+
+| Test ID        | Title                                          | Tools   | Reason for Inclusion | Report ID | Bug ID |
+|----------------|------------------------------------------------|---------|----------------------|-----------|--------|
+| EXP_API_ALL_01 | Get all contacts using invalid HTTP method     | Java    | Format error         |           |        |
+| EXP_API_ALL_03 | Get all contacts with invalid query parameters | Postman | Format error         |           |        |
+
 # Summary
 
-- **Total tests planned:** 13
-  - 7 test cases
-  - 6 exploratory tests
+- **Total tests planned:** 20
+  - 12 test cases
+  - 8 exploratory tests
 - **Tests executed:** 13 tests
   - 7 test cases
   - 6 exploratory tests
@@ -48,7 +63,7 @@ Focused on the Registration and Log in API testing, including exploratory tests 
   - test case API_REG_N_05 failed due to 2 out of 2 data sets failing
   - test case API_REG_N_01 failed due to 1 out of 4 data sets failing
   - 4 bugs are found during execution of exploratory tests
-- **Skipped:** 0 tests
+- **Skipped:** 7 tests
 
 **Notes:**
 - The Registration API has critical issues around password validation and email casing that may impact security and user experience. 
