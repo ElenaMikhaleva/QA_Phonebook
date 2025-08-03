@@ -18,7 +18,6 @@ All data is example, actual data is generated for each execution.
   3.2 Log in API<br>
 4. Detailed Exploratory Tests<br>
   4.1 Registration API<br>
-  4.2 Log in API<br>
 
 # Summary of TCS
 
@@ -71,8 +70,8 @@ API_LOG_N_04  Log in with Missing Password<br>
   1. API returns 200. (requirements T9, T14, T15, Swagger)
   2. API returns token.
   3. API doesn't return password.
-  5. User is successfully registered.
-  6. User can log in with the same credentials.
+  4. User is successfully registered.
+  5. User can log in with the same credentials.
 
 ### API_REG_P_02   Register with existing Password
 
@@ -177,27 +176,26 @@ API_LOG_N_04  Log in with Missing Password<br>
 - **Steps:**<br>
   1. Send POST request
     ``{
-      "username": "pippinlogin@test.com"
+      "username": "pippinlogin@test.com",
       "password": "#0Breakfast!"
     }``
 - **Expected Result:**
   1. API returns 200
   2. API returns token
   3. API doesn't return password in body or headers.
-  4. Cookies do not contain password.
-
+  
 ## API_LOG_N_01  Log in with Unregistered Email
 
 - **Endpoint:** log in
 - **Steps:**<br>
   1. Send POST request
     ``{
-      "username": "nonexisting@test.com"
+      "username": "nonexisting@test.com",
       "password": "#0Breakfast!"
     }``
 - **Expected Result:**
   1. API returns 401
-  2. Error message
+  2. Error message "Login or Password incorrect"
 
 ## API_LOG_N_02 Log in with Registered Email but Incorrect Password
 
@@ -206,7 +204,7 @@ API_LOG_N_04  Log in with Missing Password<br>
 - **Steps:**<br>
   1. Send POST request
      ``{
-       "username": "wrongpassword@test.com"
+       "username": "wrongpassword@test.com",
        "password": "#1Breakfast!"
      }``
 - **Expected Result:**

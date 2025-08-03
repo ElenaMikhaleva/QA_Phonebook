@@ -10,7 +10,7 @@
             </run>
         </groups>
         <classes>
-            <class name="api_tests.RegistrationTestsRest"/>
+            <class name="api_tests.RegistrationRestTests"/>
         </classes>
     </test>
 </suite>

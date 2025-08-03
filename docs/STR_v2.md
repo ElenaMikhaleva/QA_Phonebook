@@ -28,28 +28,27 @@ Focused on the Registration and Log in API testing, including exploratory tests 
 
 ## Log in API
 
-| TC ID        | Title                                               | Tools | Reason for Inclusion | Status | Bug ID |
-|--------------|-----------------------------------------------------|-------|----------------------|--------|--------|
-| API_LOG_P_01 | Log in with Registered Email                        |       | Functional flow      |        |        |
-| API_LOG_N_01 | Log in with Unregistered Email                      |       | Functional flow      |        |        |
-| API_LOG_N_02 | Log in with Registered Email but Incorrect Password |       | Functional flow      |        |        |
-
+| TC ID        | Title                                               | Tools | Reason for Inclusion | Status | Bug ID     |
+|--------------|-----------------------------------------------------|-------|----------------------|--------|------------|
+| API_LOG_P_01 | Log in with Registered Email                        | Java  | Functional flow      | Pass   |            |
+| API_LOG_N_01 | Log in with Unregistered Email                      | Java  | Functional flow      | Failed | BUG_API_07 |
+| API_LOG_N_02 | Log in with Registered Email but Incorrect Password | Java  | Functional flow      | Failed | BUG_API_07 |
 
 # Summary
 
 - **Total tests planned:** 13
   - 7 test cases
   - 6 exploratory tests
-- **Tests executed:** 10 tests
-  - 4 test cases
+- **Tests executed:** 13 tests
+  - 7 test cases
   - 6 exploratory tests
-- **Passed:** 1 test case
-- **Failed:** 3 test cases
-  - TC API_REG_N_04 failed due to 2 out of 7 data sets failing
-  - TC API_REG_N_05 failed due to 2 out of 2 data sets failing
-  - TC API_REG_N_01 failed due to 1 out of 4 data sets failing
+- **Passed:** 2 test case
+- **Failed:** 5 test cases
+  - test case API_REG_N_04 failed due to 2 out of 7 data sets failing
+  - test case API_REG_N_05 failed due to 2 out of 2 data sets failing
+  - test case API_REG_N_01 failed due to 1 out of 4 data sets failing
   - 4 bugs are found during execution of exploratory tests
-- **Skipped:** 3 tests
+- **Skipped:** 0 tests
 
 **Notes:**
 - The Registration API has critical issues around password validation and email casing that may impact security and user experience. 
@@ -59,12 +58,13 @@ Focused on the Registration and Log in API testing, including exploratory tests 
 **Test Artifacts:**
 - **Test Cases and Data:** docs/STD_v2.md
 - **Test Scripts:**
-  - src/test/java/api_tests/RegistrationTestsRest.java
-  - src/test/java/api_tests/LoginTestsRest.java
+  - src/test/java/api_tests/RegistrationRestTests.java
+  - src/test/java/api_tests/LoginRestTests.java
 - **Test Execution Logs:** 
   - Automated Tests Logs:
     - test_logs/log-20250802T191609.log
     - test_logs/log-20250802T194313.log
+    - test_logs/log-20250803T142445.log
 - **Postman Runs:**
   - src/test/postman/postman_reg_test_run.json
 
@@ -190,11 +190,10 @@ Focused on the Registration and Log in API testing, including exploratory tests 
 
 ## BUG_API_06 Register with Malformed JSON Body
 
-- **Environment:** :Postman
+- **Environment:** Postman
 - **Severity:** Medium
 - **Component:** Registration API
 - **Test ID:** bug is found while executing EXP_API_REG_06
-- **Purpose:** examine API behavior when receiving improperly formatted JSON.
 - **Steps:**
   1. Send POST request with malformed JSON (without comma) ``{ "username": "Giovani39@example.com" "password": "P@ssw0rd" }``
 - **Expected Result:**
@@ -204,6 +203,49 @@ Focused on the Registration and Log in API testing, including exploratory tests 
   1. API returns 500 Internal Server Error
   2. Message "JSON parse error: Unexpected character ('\"' (code 34)): was expecting comma to separate Object entries"
 - **Attachments:** src/test/postman/postman_reg_test_run.json
+
+## BUG_API_07 Log in with Unregistered Email
+
+- **Environment:** Java, RestAssured
+- **Severity:** Medium
+- **Component:** Log in API
+- **Test ID:** API_LOG_N_01
+- **Test info:** automated test method `API_LOG_N_01()`
+- **Steps:**<br>
+  1. Send POST request
+     ``{
+       "username": "vht@example.com",
+       "password": "Wx4^A#$F!AQ4"
+     }``
+- **Expected Result:**
+  1. API returns 401
+  2. Error message as Object with text "Login or Password incorrect"
+- **Actual result:**
+  1. API returns 401 Unauthorized
+  2. Error message as String "Login or Password incorrect"
+- **Attachments:** test_logs/log-20250803T142445.log
+
+## BUG_API_08 Log in with Registered Email but Incorrect Password
+
+- **Environment:** Java, RestAssured
+- **Severity:** Medium
+- **Component:** Log in API
+- **Test ID:** API_LOG_N_02
+- **Test info:** automated test method `API_LOG_N_02()`
+- **Preconditions:** send POST request to registration endpoint ``{ "username": "eug@example.com", "password": "Qu5#MFf64NGJ" }``
+- **Steps:**<br>
+  1. Send POST request to log in endpoint
+     ``{
+       "username": "eug@example.com"
+       "password": "Ea6!^w5hJQWt"
+     }``
+- **Expected Result:**
+  1. API returns 401
+  2. Error message as Object with text "Login or Password incorrect"
+- **Actual result:**
+  1. API returns 401 Unauthorized
+  2. Error message as String "Login or Password incorrect"
+- **Attachments:** test_logs/log-20250803T142445.log
 
 # Exploratory Test Reports
 

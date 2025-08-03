@@ -15,7 +15,7 @@ import java.time.LocalDate;
 
 @Listeners(TestNGListener.class)
 
-public class RegistrationTestsRest extends AuthenticationController implements BaseAPI {
+public class RegistrationRestTests extends AuthenticationController implements BaseAPI {
 
     SoftAssert softAssert = new SoftAssert();
 
@@ -41,7 +41,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "invalidPassword")
     public void API_REG_N_04(String email, String password, String descr) {
-        // Bug found with data: [5] non-English letters, [7] too long (16 symbols)
+        // Bug found with data: [5] non-English letters, [7] too long (16 symbols), BUG_API_01
         logger.info("Register with Invalid Password, 400 Bad Request");
 
         User user = User.builder()
@@ -62,7 +62,7 @@ public class RegistrationTestsRest extends AuthenticationController implements B
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "duplicateEmail")
     public void API_REG_N_05(String passwordVar) {
-        // Bug found: Schema Validation
+        // Bug found: Schema Validation, BUG_API_02
         logger.info("Register with Duplicate Email, 409 Conflict");
 
         User user = User.builder()

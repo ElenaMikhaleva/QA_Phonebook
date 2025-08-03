@@ -40,3 +40,9 @@ task str_reg_tests(type: Test){
         suites 'src/test/resources/str_reg_tests.xml'
     }
 }
+
+task str_log_tests(type: Test){
+    useTestNG() {
+        suites 'src/test/resources/str_log_tests.xml'
+    }
+}
