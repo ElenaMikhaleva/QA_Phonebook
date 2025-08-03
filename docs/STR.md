@@ -56,7 +56,7 @@ Focused on the Registration and Log in API testing, including exploratory tests 
 - Some functional and validation requirements (EXP_RPT_API_01, EXP_API_REG_03) are not fully defined, leading to ambiguity in expected behavior.
 
 **Test Artifacts:**
-- **Test Cases and Data:** docs/STD_v2.md
+- **Test Cases and Data:** docs/STD.md
 - **Test Scripts:**
   - src/test/java/api_tests/RegistrationRestTests.java
   - src/test/java/api_tests/LoginRestTests.java
