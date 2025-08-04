@@ -11,14 +11,18 @@ All data is example, actual data is generated for each execution.
   1.1 Registration API<br>
   1.2 Log in API<br>
   1.3 Get All Contacts API<br>
+  1.4 Add Contact API<br>
 2. Detailed TCs<br>
   2.1 Registration API<br>
   2.2 Log in API<br>
+  2.3 Get All Contacts API<br>
 3. Summary of Exploratory Tests<br>
   3.1 Registration API<br>
   3.2 Get All Contacts API<br>
+  3.3 Add Contact API<br>
 4. Detailed Exploratory Tests<br>
   4.1 Registration API<br>
+  4.2 Get All Contacts API<br>
 
 # Summary of TCS
 
@@ -65,6 +69,54 @@ API_ALL_P_04  Get all contacts with special characters (e.g. non-ASCII names)<br
 
 API_ALL_N_01  Get all contacts without authentication<br>
 API_ALL_N_02  Get all contacts with invalid token<br>
+
+## Add Contact API
+
+### Positive tests
+
+API_ADD_P_01  Add Contact with Valid Fields<br>
+  - required fields
+  - all fields
+API_ADD_P_02  Add Contact with Existing Name<br>
+API_ADD_P_03  Add Contact with Valid Name<br>
+  - with Number 
+  - with Special Character
+API_ADD_P_04  Add Contact with Existing Last Name<br>
+API_ADD_P_05  Add Contact with Valid Last Name<br>
+  - with Number
+  - with Special Character
+API_ADD_P_06  Add Contact with Valid Email<br>
+  - 1 char before @
+  - 1 char after @
+
+### Negative tests
+
+API_ADD_N_01  Add Contact without Authentication<br>
+API_ADD_N_02  Add Contact with Malformed Token<br>
+API_ADD_N_03  Add Contact with Duplicate ID<br>
+API_ADD_N_04  Add Contact with Unsupported Field in Body<br>
+API_ADD_N_05  Add Contact without Name<br>
+  - empty
+  - null
+  - blank
+  - whitespace
+API_ADD_N_06  Add Contact without Last Name<br>
+  - empty
+  - null
+  - blank
+  - whitespace
+API_ADD_N_07  Add Contact with Existing Email<br>
+API_ADD_N_08  Add Contact without Email<br>
+  - empty
+  - null
+  - blank
+  - whitespace
+API_ADD_N_09  Add Contact with Invalid Email<br>
+  - without @
+  - with @@
+  - no char before @
+  - no char after @
+  - non-English
 
 # Detailed TCs
 
@@ -298,6 +350,12 @@ EXP_API_REG_06 Register with Malformed JSON Body<br>
 EXP_API_ALL_01  Get all contacts using invalid HTTP method (e.g. POST instead of GET)<br>
 EXP_API_ALL_02  Get all contacts with Invalid Header<br>
 EXP_API_ALL_03  Get all contacts with invalid query parameters<br>
+
+## Add Contact API
+
+EXP_API_ADD_01  Add Contact with Long Name<br>
+EXP_API_ADD_02  Add Contact with Long Last Name<br>
+EXP_API_ADD_03  Add Contact with Long Email<br>
 
 # Detailed Exploratory Tests
 
