@@ -226,6 +226,60 @@ API_ALL_N_02  Get all contacts with invalid token<br>
   1. API returns 401
   2. Error message
 
+## API_ALL_P_01 Get all contacts when user has no contacts
+
+- **Endpoint:** get contacts
+- **Preconditions:**
+  - User is logged in
+  - User has no contacts
+- **Steps:**
+  1. Send GET request with token
+- **Expected Result:**
+  1. Status code 200 OK
+  2. JSON `{ "contacts": [] }`
+
+## API_ALL_P_02 Get all contacts when user has exactly 1 contact
+
+- **Endpoint:** get contacts
+- **Preconditions:**
+  - User is logged in
+  - User has 1 contact
+- **Steps:**
+  1. Send GET request with token
+- **Expected Result:**
+  1. Status code 200 OK
+  2. JSON `{ "contacts": [] }`
+
+## API_ALL_P_03 Get all contacts with special characters
+
+- **Endpoint:** get contacts
+- **Preconditions:**
+  - User is logged in
+  - User has contacts with special characters
+- **Steps:**
+  1. Send GET request with token
+- **Expected Result:**
+  1. Status code 200 OK
+  2. JSON `{ "contacts": [] }`
+
+## API_ALL_N_01 Get all contacts without authentication
+
+- **Endpoint:** get contacts
+- **Steps:**
+  1. Send GET request without token
+- **Expected Result:**
+  1. Status code 401 Unauthorized
+  2. Error message
+
+## API_ALL_N_02 Get all contacts with invalid token
+
+- **Endpoint:** get contacts
+- **Steps:**
+  1. Send GET request with wrong token
+- **Expected Result:**
+  1. Status code 401 Unauthorized
+  2. Error message
+
 # Summary of Exploratory Tests
 
 Detailed exploratory tests are written not for all tests to avoid duplication.
@@ -395,3 +449,24 @@ EXP_API_ALL_03  Get all contacts with invalid query parameters<br>
   - Does the API detect and handle malformed JSON? 
   - What HTTP status code is returned (e.g., 400 Bad Request)? 
   - Does the API provide a meaningful error message?
+
+### EXP_API_ALL_01 Get all contacts using invalid HTTP method
+
+- **Endpoint:** get all contacts
+- **Purpose:** examine API behavior when receiving invalid HTTP method
+- **Steps:**
+  1. Send DELETE request
+- **Exploration Focus:**
+  - What HTTP status code is returned
+  - Does API provide a meaningful error message?
+
+### EXP_API_ALL_03 Get all contacts with invalid query parameters
+
+- **Endpoint:** get all contacts
+- **Purpose:** examine API behavior when receiving request with invalid query parameters
+- **Precondition:** user is registered
+- **Steps:**
+  1. Send GET request
+- **Exploration Focus:**
+  - What HTTP status code is returned
+  - Does API provide a meaningful error message?

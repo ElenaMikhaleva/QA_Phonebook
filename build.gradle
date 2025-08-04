@@ -29,20 +29,23 @@ test {
     useTestNG()
 }
 
-task str_tests(type: Test){
-    useTestNG() {
+tasks.register('str_tests', Test) {
+    useTestNG {
         suites 'src/test/resources/str_tests.xml'
     }
 }
-
-task str_reg_tests(type: Test){
+tasks.register('str_reg_tests', Test) {
     useTestNG() {
         suites 'src/test/resources/str_reg_tests.xml'
     }
 }
-
-task str_log_tests(type: Test){
+tasks.register('str_log_tests', Test) {
     useTestNG() {
         suites 'src/test/resources/str_log_tests.xml'
+    }
+}
+task.register('str_all_contacts_tests', Test) {
+    useTestNG() {
+        suites 'src/test/resources/str_all_contacts_tests.xml'
     }
 }

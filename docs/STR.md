@@ -38,9 +38,9 @@ Focused on testing the Registration, Login, and Get All Contacts APIs, including
 
 | TC ID        | Title                                            | Tools   | Reason for Inclusion | Status | Bug ID |
 |--------------|--------------------------------------------------|---------|----------------------|--------|--------|
-| API_ALL_P_01 | Get all contacts when user has no contacts       | Postman | Edge case            |        |        |
+| API_ALL_P_01 | Get all contacts when user has no contacts       | Postman | Edge case            | Pass   |        |
 | API_ALL_P_02 | Get all contacts when user has exactly 1 contact | Java    | Edge case            |        |        |
-| API_ALL_P_04 | Get all contacts with special characters         | Java    | Character encoding   |        |        |
+| API_ALL_P_04 | Get all contacts with special characters         | Postman | Character encoding   |        |        |
 | API_ALL_N_01 | Get all contacts without authentication          | Postman | Security             |        |        |
 | API_ALL_N_02 | Get all contacts with invalid token              | Postman | Security             |        |        |
 

@@ -3,15 +3,13 @@
     <listeners>
         <listener class-name="utils.TestNGListener"/>
     </listeners>
-    <test name="STR_v1_tests">
+    <test name="STR_reg_tests">
         <groups>
             <run>
                 <include name="str"/>
             </run>
         </groups>
         <classes>
-            <class name="api_tests.RegistrationRestTests"/>
-            <class name="api_tests.LoginRestTests"/>
             <class name="api_tests.GetContactsRestTests"/>
         </classes>
     </test>

@@ -14,7 +14,6 @@ public class AuthenticationController implements BaseAPI {
 
     public Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
 
-
     public void logResponse(Response response, User user, String descr) {
         logger.info(descr + ", Request data: {}", user);
         logger.info("Response status: {}", response.getStatusLine());
@@ -33,9 +32,9 @@ public class AuthenticationController implements BaseAPI {
                 .contentType(ContentType.JSON) // Content-Type: application/json
                 .accept(ContentType.JSON)
                 .body(user)
-                .when()
+            .when()
                 .post(url)
-                .thenReturn()
-                ;
+            .thenReturn()
+            ;
     }
 }
