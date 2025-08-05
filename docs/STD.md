@@ -80,14 +80,36 @@ API_ADD_P_01  Add Contact with Valid Fields<br>
 API_ADD_P_02  Add Contact with Existing Name<br>
 API_ADD_P_03  Add Contact with Valid Name<br>
   - with Number 
-  - with Special Character
+  - with Special Character <> (<b>Anna</b>)
+  - with " ("John")
+  - with ' ('John')
+  - with + (John+Smith)
+  - with apostrophe (O'Connor)
+  - with hyphen (Anne-Marie)
+  - with dot (Dr.Smith)
+  - with at sign (Jack&Jill)
+  - with whitespace (Dr Smith)
+  - with 1 symbol
+  - non-English (Hebrew)
 API_ADD_P_04  Add Contact with Existing Last Name<br>
 API_ADD_P_05  Add Contact with Valid Last Name<br>
   - with Number
   - with Special Character
+  - with 1 symbol
 API_ADD_P_06  Add Contact with Valid Email<br>
   - 1 char before @
   - 1 char after @
+API_ADD_P_07  Add Contact with Existing Address<br>
+API_ADD_P_08  Add Contact with Valid Address<br>
+  - with Number
+  - with Special Character
+  - with 1 symbol
+  - with 10 symbols
+  - with 15 symbols
+API_ADD_P_09  Add Contact with Existing Description<br>
+API_ADD_P_10  Add Contact with Valid Description<br>
+  - with numbers
+  - with special characters
 
 ### Negative tests
 
@@ -117,6 +139,21 @@ API_ADD_N_09  Add Contact with Invalid Email<br>
   - no char before @
   - no char after @
   - non-English
+API_ADD_N_10  Add Contact without Address<br>
+  - empty
+  - null
+  - blank
+  - whitespace
+API_ADD_N_11  Add Contact without Phone<br>
+  - empty
+  - null
+  - blank
+  - whitespace
+API_ADD_N_12  Add Contact with Existing Phone<br>
+API_ADD_N_13  Add Contact with invalid Phone<br>
+  - not only digits
+  - with 9 symbols
+  - with 16 symbols
 
 # Detailed TCs
 
@@ -354,8 +391,15 @@ EXP_API_ALL_03  Get all contacts with invalid query parameters<br>
 ## Add Contact API
 
 EXP_API_ADD_01  Add Contact with Long Name<br>
-EXP_API_ADD_02  Add Contact with Long Last Name<br>
-EXP_API_ADD_03  Add Contact with Long Email<br>
+EXP_API_ADD_02  Add Contact with Various Names<br>
+  - with emoji
+  - with leading whitespace
+  - with trailing whitespace
+  - newline character
+  - tabulation
+EXP_API_ADD_03  Add Contact with Long Last Name<br>
+EXP_API_ADD_04  Add Contact with Long Email<br>
+EXP_API_ADD_05  Add Contact with Long Address<br>
 
 # Detailed Exploratory Tests
 

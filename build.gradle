@@ -44,7 +44,7 @@ tasks.register('str_log_tests', Test) {
         suites 'src/test/resources/str_log_tests.xml'
     }
 }
-task.register('str_all_contacts_tests', Test) {
+tasks.register('str_all_contacts_tests', Test) {
     useTestNG() {
         suites 'src/test/resources/str_all_contacts_tests.xml'
     }
