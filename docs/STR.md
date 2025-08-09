@@ -49,6 +49,23 @@ Focused on testing the Registration, Login, and Get All Contacts APIs, including
 | EXP_API_ALL_01 | Get all contacts using invalid HTTP method     | Java    | Format error         |           |        |
 | EXP_API_ALL_03 | Get all contacts with invalid query parameters | Postman | Format error         |           |        |
 
+## Add Contact API
+
+| TC ID         | Title                              | Tools    | Reason for Inclusion   | Status | Bug ID |
+|---------------|------------------------------------|----------|------------------------|--------|--------|
+| API_ADD_P_01  | Add Contact with Valid Fields      | Postman  | Functional flow        | Pass   |        |
+| API_ADD_P_03  | Add Contact with Valid Name        | Java     | Valid Input Variations |        |        |
+| API_ADD_P_08  | Add Contact with Valid Address     | Java     | Valid Input Variation  |        |        |
+| API_ADD_N_01  | Add Contact without Authentication | Java     | Security               |        |        |
+| API_ADD_N_021 | Add Contact with Outdated Token    | Postmant | Security               |        |        |
+| API_ADD_N_03  | Add Contact with Duplicate ID      | Java     | Duplicate Entry Check  |        |        |
+| API_ADD_N_12  | Add Contact with Existing Phone    | Java     | Duplicate Entry Check  |        |        |
+
+| Test ID        | Title                              | Tools   | Reason for Inclusion | Report ID | Bug ID |
+|----------------|------------------------------------|---------|----------------------|-----------|--------|
+| EXP_API_ADD_08 | Add Contact with Various Addresses | Postman | Practice             |           |        |
+| EXP_API_ADD_09 | Add Contact with Long Description  | Java    | Large input handling |           |        |
+
 # Summary
 
 - **Total tests planned:** 20
@@ -437,3 +454,7 @@ Focused on testing the Registration, Login, and Get All Contacts APIs, including
 - **Results**:
   1. API returns 500 Internal Server Error - BUG_API_06
 - **Attachments:** src/test/postman/postman_reg_test_run.json
+
+# Questions & Notes
+
+1. Adding contact with API requires ID. Why it created contact with a new ID system gives? TC API_ADD_P_01

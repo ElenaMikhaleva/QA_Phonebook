@@ -75,8 +75,6 @@ API_ALL_N_02  Get all contacts with invalid token<br>
 ### Positive tests
 
 API_ADD_P_01  Add Contact with Valid Fields<br>
-  - required fields
-  - all fields
 API_ADD_P_02  Add Contact with Existing Name<br>
 API_ADD_P_03  Add Contact with Valid Name<br>
   - with Number 
@@ -87,14 +85,22 @@ API_ADD_P_03  Add Contact with Valid Name<br>
   - with apostrophe (O'Connor)
   - with hyphen (Anne-Marie)
   - with dot (Dr.Smith)
-  - with at sign (Jack&Jill)
+  - with ampersand (Jack&Jill)
   - with whitespace (Dr Smith)
   - with 1 symbol
   - non-English (Hebrew)
 API_ADD_P_04  Add Contact with Existing Last Name<br>
 API_ADD_P_05  Add Contact with Valid Last Name<br>
   - with Number
-  - with Special Character
+  - with Special Character <> (<b>Anna</b>)
+  - with " ("John")
+  - with ' ('John')
+  - with + (John+Smith)
+  - with apostrophe (O'Connor)
+  - with hyphen (Anne-Marie)
+  - with dot (Dr.Smith)
+  - with at sign (Jack&Jill)
+  - with whitespace (Dr Smith)  
   - with 1 symbol
 API_ADD_P_06  Add Contact with Valid Email<br>
   - 1 char before @
@@ -102,7 +108,18 @@ API_ADD_P_06  Add Contact with Valid Email<br>
 API_ADD_P_07  Add Contact with Existing Address<br>
 API_ADD_P_08  Add Contact with Valid Address<br>
   - with Number
-  - with Special Character
+  - with Special Characters dots (St.Paul)
+  - with hyphens (12-14 Main St)
+  - with apostrophe (O'Hara Ave)
+  - hash (Apt #504)
+  - slash (Unit 5/12 Elm Rd)
+  - comma (123 King St, Apt 2B)
+  - ampersand (Broadway&5th)
+  - with ""
+  - with ''
+  - with () (Suite (North))
+  - : (Dock 4: back entrance)
+  - ; (Dock 4; back entrance)
   - with 1 symbol
   - with 10 symbols
   - with 15 symbols
@@ -110,11 +127,15 @@ API_ADD_P_09  Add Contact with Existing Description<br>
 API_ADD_P_10  Add Contact with Valid Description<br>
   - with numbers
   - with special characters
+  - with blank descr
+  - with null
+  - with whitespace instead of descr
 
 ### Negative tests
 
 API_ADD_N_01  Add Contact without Authentication<br>
 API_ADD_N_02  Add Contact with Malformed Token<br>
+API_ADD_N_021 Add Contact with Outdated Token<br>
 API_ADD_N_03  Add Contact with Duplicate ID<br>
 API_ADD_N_04  Add Contact with Unsupported Field in Body<br>
 API_ADD_N_05  Add Contact without Name<br>
@@ -138,7 +159,7 @@ API_ADD_N_09  Add Contact with Invalid Email<br>
   - with @@
   - no char before @
   - no char after @
-  - non-English
+  - non-English letters
 API_ADD_N_10  Add Contact without Address<br>
   - empty
   - null
@@ -151,9 +172,13 @@ API_ADD_N_11  Add Contact without Phone<br>
   - whitespace
 API_ADD_N_12  Add Contact with Existing Phone<br>
 API_ADD_N_13  Add Contact with invalid Phone<br>
-  - not only digits
+  - with letters
+  - with plus (+15551234567)
   - with 9 symbols
   - with 16 symbols
+  - with leading whitespace
+  - with trailing whitespace
+  - with internal whitespace
 
 # Detailed TCs
 
@@ -319,7 +344,7 @@ API_ADD_N_13  Add Contact with invalid Phone<br>
 
 - **Endpoint:** get contacts
 - **Preconditions:**
-  - User is logged in
+  - User is registered
   - User has no contacts
 - **Steps:**
   1. Send GET request with token
@@ -331,7 +356,7 @@ API_ADD_N_13  Add Contact with invalid Phone<br>
 
 - **Endpoint:** get contacts
 - **Preconditions:**
-  - User is logged in
+  - User is registered
   - User has 1 contact
 - **Steps:**
   1. Send GET request with token
@@ -343,7 +368,7 @@ API_ADD_N_13  Add Contact with invalid Phone<br>
 
 - **Endpoint:** get contacts
 - **Preconditions:**
-  - User is logged in
+  - User is registered
   - User has contacts with special characters
 - **Steps:**
   1. Send GET request with token
@@ -368,6 +393,33 @@ API_ADD_N_13  Add Contact with invalid Phone<br>
 - **Expected Result:**
   1. Status code 401 Unauthorized
   2. Error message
+
+## API_ADD_P_01 Add Contact with Valid Fields
+
+- **Endpoint:** add contact
+- **Data:**
+  1. required fields ``{
+    "id": "4e8b-b69b-d4d5b3e6b8de",
+    "name": "Merry",
+    "lastName": "Brandybuck",
+    "email": "merry.brandybuck@shiremail.com",
+    "phone": "070371709101",
+    "address": "Brandy Hall, Buckland, The Shire",
+    "description": ""
+    }``
+  2. all fields ``{
+    "id": "5k9s-b69b-d4d5b3e6b8ed",
+    "name": "Sam",
+    "lastName": "Gamgee",
+    "email": "sam.gamgee@shiremail.com",
+    "phone": "070371709102",
+    "address": "3 Bagshot Row, Hobbiton, The Shire",
+    "description": "Brave soul"
+    }``
+- **Preconditions:** user is registered
+- **Expected Result:**
+  1. Status code 200
+  2. Message
 
 # Summary of Exploratory Tests
 
@@ -397,9 +449,45 @@ EXP_API_ADD_02  Add Contact with Various Names<br>
   - with trailing whitespace
   - newline character
   - tabulation
+  - <>\/`@=
 EXP_API_ADD_03  Add Contact with Long Last Name<br>
-EXP_API_ADD_04  Add Contact with Long Email<br>
-EXP_API_ADD_05  Add Contact with Long Address<br>
+EXP_API_ADD_04  Add Contact with Various Last Names<br>
+  - emoji
+  - with leading whitespace
+  - with trailing whitespace
+  - newline character
+  - tabulation
+  - <>\/`@=
+EXP_API_ADD_05  Add Contact with Long Email<br>
+EXP_API_ADD_06  Add Contact with Various Emails<br>
+  - with capitalized letters
+  - without @
+  - with @@
+  - without local part
+  - without domain 
+  - with leading whitespace 
+  - with trailing whitespace 
+  - newline character 
+  - tabulation
+  - <>\/`@=
+EXP_API_ADD_07  Add Contact with Long Address<br>
+EXP_API_ADD_08  Add Contact with Various Addresses<br>
+  - emoji
+  - <>\/`@= 
+  - with leading whitespace 
+  - with trailing whitespace 
+  - newline character 
+  - tabulation
+  - non-English (Arabic)
+EXP_API_ADD_09  Add Contact with Long Description<br>
+EXP_API_ADD_10  Add Contact with Various Descriptions<br>
+  - non-English (Hebrew)
+  - emoji
+  - <>\/`@= 
+  - with leading whitespace 
+  - with trailing whitespace 
+  - newline character 
+  - tabulation
 
 # Detailed Exploratory Tests
 
