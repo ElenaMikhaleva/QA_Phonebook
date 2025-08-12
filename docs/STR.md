@@ -4,35 +4,41 @@
 **Date created:** 12/08/2025<br>
 **Version:** v4.0<br>
 
+# Content
+1. Test Scope
+  1.1 Scenario Test Cases<br>
+  1.2 Exploratory Tests<br>
+2. Summary
+3. Test Artifacts
+4. Bug Reports
+5. Exploratory Test Reports
+
 # Test Scope
 Chosen tests for execution.<br>
 Focused on testing the Registration and Login, including exploratory testing performed using Java and Postman.<br>
 
-## Registration API
+## Scenario Test Cases
 
-| TC ID        | Title                           | Tools   | Reason for Inclusion           | Status        | Bug ID     |
-|--------------|---------------------------------|---------|--------------------------------|---------------|------------|
-| API_REG_P_01 | Register with Valid Credentials | Java    | Functional flow                | Pass          |            |
-| API_REG_N_01 | Register with Missing Email     | Postman | Functional flow, format errors | Failed #4     | BUG_API_04 |
-| API_REG_N_04 | Register with Invalid Password  | Java    | Functional flow                | Failed #5, #7 | BUG_API_01 |
-| API_REG_N_05 | Register with Duplicate Email   | Java    | Functional flow                | Failed        | BUG_API_02 |
+| ID           | Title                                               | Level | Component    | Tools   | Status        | Bug ID     |
+|--------------|-----------------------------------------------------|-------|--------------|---------|---------------|------------|
+| API_REG_P_01 | Register with Valid Credentials                     | API   | Registration | Java    | Pass          |            |
+| API_REG_N_01 | Register with Missing Email                         | API   | Registration | Postman | Failed #4     | BUG_API_04 |
+| API_REG_N_04 | Register with Invalid Password                      | API   | Registration | Java    | Failed #5, #7 | BUG_API_01 |
+| API_REG_N_05 | Register with Duplicate Email                       | API   | Registration | Java    | Failed        | BUG_API_02 |
+| API_LOG_P_01 | Log in with Registered Email                        | API   | Login        | Java    | Pass          |            |
+| API_LOG_N_01 | Log in with Unregistered Email                      | API   | Login        | Java    | Failed        | BUG_API_07 |
+| API_LOG_N_02 | Log in with Registered Email but Incorrect Password | API   | Login        | Java    | Failed        | BUG_API_08 |
 
-| Test ID        | Title                             | Tools   | Reason for Inclusion | Report ID      | Bug ID     |
-|----------------|-----------------------------------|---------|----------------------|----------------|------------|
-| EXP_API_REG_01 | Register with Capitalized Email   | Java    | Practice             | EXP_RPT_API_01 | BUG_API_03 |
-| EXP_API_REG_02 | Register with Long Email          | Java    | Practice             | EXP_RPT_API_02 |            |
-| EXP_API_REG_03 | Register with Various Emails      | Java    | Edge cases           | EXP_RPT_API_03 |            |
-| EXP_API_REG_04 | Register with Various Passwords   | Postman | Edge cases, security | EXP_RPT_API_04 | BUG_API_04 |
-| EXP_API_REG_05 | Register with Invalid Header      | Postman | Format errors        | EXP_RPT_API_05 | BUG_API_05 |
-| EXP_API_REG_06 | Register with Malformed JSON Body | Postman | Format errors        | EXP_RPT_API_06 | BUG_API_06 |
+## Exploratory Tests
 
-## Log in API
-
-| TC ID        | Title                                               | Tools | Reason for Inclusion | Status | Bug ID     |
-|--------------|-----------------------------------------------------|-------|----------------------|--------|------------|
-| API_LOG_P_01 | Log in with Registered Email                        | Java  | Functional flow      | Pass   |            |
-| API_LOG_N_01 | Log in with Unregistered Email                      | Java  | Functional flow      | Failed | BUG_API_07 |
-| API_LOG_N_02 | Log in with Registered Email but Incorrect Password | Java  | Functional flow      | Failed | BUG_API_07 |
+| ID             | Title                             | Level | Component    | Tools   | Report ID      | Bug ID     |
+|----------------|-----------------------------------|-------|--------------|---------|----------------|------------|
+| EXP_API_REG_01 | Register with Capitalized Email   | API   | Registration | Java    | EXP_RPT_API_01 | BUG_API_03 |
+| EXP_API_REG_02 | Register with Long Email          | API   | Registration | Java    | EXP_RPT_API_02 |            |
+| EXP_API_REG_03 | Register with Various Emails      | API   | Registration | Java    | EXP_RPT_API_03 |            |
+| EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Postman | EXP_RPT_API_04 | BUG_API_04 |
+| EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Postman | EXP_RPT_API_05 | BUG_API_05 |
+| EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Postman | EXP_RPT_API_06 | BUG_API_06 |
 
 # Summary
 
@@ -55,7 +61,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 - Response schema need alignment with specifications to ensure consistency.
 - Some functional and validation requirements (EXP_RPT_API_01, EXP_API_REG_03) are not fully defined, leading to ambiguity in expected behavior.
 
-**Test Artifacts:**
+# Test Artifacts
 - **Test Cases and Data:** docs/STD.md
 - **Test Scripts:**
   - src/test/java/api_tests/RegistrationRestTests.java
@@ -422,7 +428,3 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Results**:
   1. API returns 500 Internal Server Error - BUG_API_06
 - **Attachments:** src/test/postman/postman_reg_test_run.json
-
-# Questions & Notes
-
-1. Adding contact with API requires ID. Why it created contact with a new ID system gives? TC API_ADD_P_01
