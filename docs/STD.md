@@ -1,8 +1,8 @@
 # Overview
 
-**STD Identifier:** STD-v3<br>
-**Date Created:** 03/08/2025<br>
-**Version:** v3.0<br>
+**STD Identifier:** STD-v4<br>
+**Date Created:** 12/08/2025<br>
+**Version:** v4.0<br>
 All data is example, actual data is generated for each execution.
 
 # Content
@@ -10,19 +10,13 @@ All data is example, actual data is generated for each execution.
 1. Summary of TCs<br>
   1.1 Registration API<br>
   1.2 Log in API<br>
-  1.3 Get All Contacts API<br>
-  1.4 Add Contact API<br>
 2. Detailed TCs<br>
   2.1 Registration API<br>
   2.2 Log in API<br>
-  2.3 Get All Contacts API<br>
 3. Summary of Exploratory Tests<br>
   3.1 Registration API<br>
-  3.2 Get All Contacts API<br>
-  3.3 Add Contact API<br>
 4. Detailed Exploratory Tests<br>
   4.1 Registration API<br>
-  4.2 Get All Contacts API<br>
 
 # Summary of TCS
 
@@ -56,133 +50,7 @@ API_LOG_N_02  Log in with Registered Email but Incorrect Password<br>
 API_LOG_N_03  Log in with Missing Email<br>
 API_LOG_N_04  Log in with Missing Password<br>
 
-## Get All Contacts API
-
-### Positive tests
-
-API_ALL_P_01  Get all contacts when user has no contacts<br>
-API_ALL_P_02  Get all contacts when user has exactly 1 contact<br>
-API_ALL_P_03  Get all contacts when user has 20 contacts<br>
-API_ALL_P_04  Get all contacts with special characters (e.g. non-ASCII names)<br>
-
-### Negative tests
-
-API_ALL_N_01  Get all contacts without authentication<br>
-API_ALL_N_02  Get all contacts with invalid token<br>
-
-## Add Contact API
-
-### Positive tests
-
-API_ADD_P_01  Add Contact with Valid Fields<br>
-API_ADD_P_02  Add Contact with Existing Name<br>
-API_ADD_P_03  Add Contact with Valid Name<br>
-  - with Number 
-  - with Special Character <> (<b>Anna</b>)
-  - with " ("John")
-  - with ' ('John')
-  - with + (John+Smith)
-  - with apostrophe (O'Connor)
-  - with hyphen (Anne-Marie)
-  - with dot (Dr.Smith)
-  - with ampersand (Jack&Jill)
-  - with whitespace (Dr Smith)
-  - with 1 symbol
-  - non-English (Hebrew)
-API_ADD_P_04  Add Contact with Existing Last Name<br>
-API_ADD_P_05  Add Contact with Valid Last Name<br>
-  - with Number
-  - with Special Character <> (<b>Anna</b>)
-  - with " ("John")
-  - with ' ('John')
-  - with + (John+Smith)
-  - with apostrophe (O'Connor)
-  - with hyphen (Anne-Marie)
-  - with dot (Dr.Smith)
-  - with at sign (Jack&Jill)
-  - with whitespace (Dr Smith)  
-  - with 1 symbol
-API_ADD_P_06  Add Contact with Valid Email<br>
-  - 1 char before @
-  - 1 char after @
-API_ADD_P_07  Add Contact with Existing Address<br>
-API_ADD_P_08  Add Contact with Valid Address<br>
-  - with Number
-  - with Special Characters dots (St.Paul)
-  - with hyphens (12-14 Main St)
-  - with apostrophe (O'Hara Ave)
-  - hash (Apt #504)
-  - slash (Unit 5/12 Elm Rd)
-  - comma (123 King St, Apt 2B)
-  - ampersand (Broadway&5th)
-  - with ""
-  - with ''
-  - with () (Suite (North))
-  - : (Dock 4: back entrance)
-  - ; (Dock 4; back entrance)
-  - with 1 symbol
-  - with 10 symbols
-  - with 15 symbols
-API_ADD_P_09  Add Contact with Existing Description<br>
-API_ADD_P_10  Add Contact with Valid Description<br>
-  - with numbers
-  - with special characters
-  - with blank descr
-  - with null
-  - with whitespace instead of descr
-
-### Negative tests
-
-API_ADD_N_01  Add Contact without Authentication<br>
-API_ADD_N_02  Add Contact with Malformed Token<br>
-API_ADD_N_021 Add Contact with Outdated Token<br>
-API_ADD_N_03  Add Contact with Duplicate ID<br>
-API_ADD_N_04  Add Contact with Unsupported Field in Body<br>
-API_ADD_N_05  Add Contact without Name<br>
-  - empty
-  - null
-  - blank
-  - whitespace
-API_ADD_N_06  Add Contact without Last Name<br>
-  - empty
-  - null
-  - blank
-  - whitespace
-API_ADD_N_07  Add Contact with Existing Email<br>
-API_ADD_N_08  Add Contact without Email<br>
-  - empty
-  - null
-  - blank
-  - whitespace
-API_ADD_N_09  Add Contact with Invalid Email<br>
-  - without @
-  - with @@
-  - no char before @
-  - no char after @
-  - non-English letters
-API_ADD_N_10  Add Contact without Address<br>
-  - empty
-  - null
-  - blank
-  - whitespace
-API_ADD_N_11  Add Contact without Phone<br>
-  - empty
-  - null
-  - blank
-  - whitespace
-API_ADD_N_12  Add Contact with Existing Phone<br>
-API_ADD_N_13  Add Contact with invalid Phone<br>
-  - with letters
-  - with plus (+15551234567)
-  - with 9 symbols
-  - with 16 symbols
-  - with leading whitespace
-  - with trailing whitespace
-  - with internal whitespace
-
 # Detailed TCs
-
-## Registration API
 
 ### API_REG_P_01    Register with Valid Credentials
 
@@ -296,8 +164,6 @@ API_ADD_N_13  Add Contact with invalid Phone<br>
   2. Body with "message" field type Object
   3. Error message "User already exists"
 
-## Log in API
-
 ### API_LOG_P_01  Log in with Registered Email
 
 - **Endpoint:** log in
@@ -340,87 +206,6 @@ API_ADD_N_13  Add Contact with invalid Phone<br>
   1. API returns 401
   2. Error message
 
-## API_ALL_P_01 Get all contacts when user has no contacts
-
-- **Endpoint:** get contacts
-- **Preconditions:**
-  - User is registered
-  - User has no contacts
-- **Steps:**
-  1. Send GET request with token
-- **Expected Result:**
-  1. Status code 200 OK
-  2. JSON `{ "contacts": [] }`
-
-## API_ALL_P_02 Get all contacts when user has exactly 1 contact
-
-- **Endpoint:** get contacts
-- **Preconditions:**
-  - User is registered
-  - User has 1 contact
-- **Steps:**
-  1. Send GET request with token
-- **Expected Result:**
-  1. Status code 200 OK
-  2. JSON `{ "contacts": [] }`
-
-## API_ALL_P_03 Get all contacts with special characters
-
-- **Endpoint:** get contacts
-- **Preconditions:**
-  - User is registered
-  - User has contacts with special characters
-- **Steps:**
-  1. Send GET request with token
-- **Expected Result:**
-  1. Status code 200 OK
-  2. JSON `{ "contacts": [] }`
-
-## API_ALL_N_01 Get all contacts without authentication
-
-- **Endpoint:** get contacts
-- **Steps:**
-  1. Send GET request without token
-- **Expected Result:**
-  1. Status code 401 Unauthorized
-  2. Error message
-
-## API_ALL_N_02 Get all contacts with invalid token
-
-- **Endpoint:** get contacts
-- **Steps:**
-  1. Send GET request with wrong token
-- **Expected Result:**
-  1. Status code 401 Unauthorized
-  2. Error message
-
-## API_ADD_P_01 Add Contact with Valid Fields
-
-- **Endpoint:** add contact
-- **Data:**
-  1. required fields ``{
-    "id": "4e8b-b69b-d4d5b3e6b8de",
-    "name": "Merry",
-    "lastName": "Brandybuck",
-    "email": "merry.brandybuck@shiremail.com",
-    "phone": "070371709101",
-    "address": "Brandy Hall, Buckland, The Shire",
-    "description": ""
-    }``
-  2. all fields ``{
-    "id": "5k9s-b69b-d4d5b3e6b8ed",
-    "name": "Sam",
-    "lastName": "Gamgee",
-    "email": "sam.gamgee@shiremail.com",
-    "phone": "070371709102",
-    "address": "3 Bagshot Row, Hobbiton, The Shire",
-    "description": "Brave soul"
-    }``
-- **Preconditions:** user is registered
-- **Expected Result:**
-  1. Status code 200
-  2. Message
-
 # Summary of Exploratory Tests
 
 Detailed exploratory tests are written not for all tests to avoid duplication.
@@ -434,64 +219,7 @@ EXP_API_REG_04 Register with Various Passwords<br>
 EXP_API_REG_05 Register with Invalid Header<br>
 EXP_API_REG_06 Register with Malformed JSON Body<br>
 
-## Get All Contacts API
-
-EXP_API_ALL_01  Get all contacts using invalid HTTP method (e.g. POST instead of GET)<br>
-EXP_API_ALL_02  Get all contacts with Invalid Header<br>
-EXP_API_ALL_03  Get all contacts with invalid query parameters<br>
-
-## Add Contact API
-
-EXP_API_ADD_01  Add Contact with Long Name<br>
-EXP_API_ADD_02  Add Contact with Various Names<br>
-  - with emoji
-  - with leading whitespace
-  - with trailing whitespace
-  - newline character
-  - tabulation
-  - <>\/`@=
-EXP_API_ADD_03  Add Contact with Long Last Name<br>
-EXP_API_ADD_04  Add Contact with Various Last Names<br>
-  - emoji
-  - with leading whitespace
-  - with trailing whitespace
-  - newline character
-  - tabulation
-  - <>\/`@=
-EXP_API_ADD_05  Add Contact with Long Email<br>
-EXP_API_ADD_06  Add Contact with Various Emails<br>
-  - with capitalized letters
-  - without @
-  - with @@
-  - without local part
-  - without domain 
-  - with leading whitespace 
-  - with trailing whitespace 
-  - newline character 
-  - tabulation
-  - <>\/`@=
-EXP_API_ADD_07  Add Contact with Long Address<br>
-EXP_API_ADD_08  Add Contact with Various Addresses<br>
-  - emoji
-  - <>\/`@= 
-  - with leading whitespace 
-  - with trailing whitespace 
-  - newline character 
-  - tabulation
-  - non-English (Arabic)
-EXP_API_ADD_09  Add Contact with Long Description<br>
-EXP_API_ADD_10  Add Contact with Various Descriptions<br>
-  - non-English (Hebrew)
-  - emoji
-  - <>\/`@= 
-  - with leading whitespace 
-  - with trailing whitespace 
-  - newline character 
-  - tabulation
-
 # Detailed Exploratory Tests
-
-## Registration API
 
 ### EXP_API_REG_01 Register with Capitalized Email
 
@@ -640,23 +368,3 @@ EXP_API_ADD_10  Add Contact with Various Descriptions<br>
   - What HTTP status code is returned (e.g., 400 Bad Request)? 
   - Does the API provide a meaningful error message?
 
-### EXP_API_ALL_01 Get all contacts using invalid HTTP method
-
-- **Endpoint:** get all contacts
-- **Purpose:** examine API behavior when receiving invalid HTTP method
-- **Steps:**
-  1. Send DELETE request
-- **Exploration Focus:**
-  - What HTTP status code is returned
-  - Does API provide a meaningful error message?
-
-### EXP_API_ALL_03 Get all contacts with invalid query parameters
-
-- **Endpoint:** get all contacts
-- **Purpose:** examine API behavior when receiving request with invalid query parameters
-- **Precondition:** user is registered
-- **Steps:**
-  1. Send GET request
-- **Exploration Focus:**
-  - What HTTP status code is returned
-  - Does API provide a meaningful error message?

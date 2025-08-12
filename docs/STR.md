@@ -1,12 +1,12 @@
 # Overview
 
-**STR identifier:**	STR_v3<br>
-**Date created:** 03/08/2025<br>
-**Version:** v3.0<br>
+**STR identifier:**	STR_v4<br>
+**Date created:** 12/08/2025<br>
+**Version:** v4.0<br>
 
 # Test Scope
 Chosen tests for execution.<br>
-Focused on testing the Registration, Login, and Get All Contacts APIs, including exploratory testing performed using Java and Postman.<br>
+Focused on testing the Registration and Login, including exploratory testing performed using Java and Postman.<br>
 
 ## Registration API
 
@@ -33,38 +33,6 @@ Focused on testing the Registration, Login, and Get All Contacts APIs, including
 | API_LOG_P_01 | Log in with Registered Email                        | Java  | Functional flow      | Pass   |            |
 | API_LOG_N_01 | Log in with Unregistered Email                      | Java  | Functional flow      | Failed | BUG_API_07 |
 | API_LOG_N_02 | Log in with Registered Email but Incorrect Password | Java  | Functional flow      | Failed | BUG_API_07 |
-
-## Get All Contacts API
-
-| TC ID        | Title                                            | Tools   | Reason for Inclusion | Status | Bug ID |
-|--------------|--------------------------------------------------|---------|----------------------|--------|--------|
-| API_ALL_P_01 | Get all contacts when user has no contacts       | Postman | Edge case            | Pass   |        |
-| API_ALL_P_02 | Get all contacts when user has exactly 1 contact | Java    | Edge case            |        |        |
-| API_ALL_P_04 | Get all contacts with special characters         | Postman | Character encoding   |        |        |
-| API_ALL_N_01 | Get all contacts without authentication          | Postman | Security             |        |        |
-| API_ALL_N_02 | Get all contacts with invalid token              | Postman | Security             |        |        |
-
-| Test ID        | Title                                          | Tools   | Reason for Inclusion | Report ID | Bug ID |
-|----------------|------------------------------------------------|---------|----------------------|-----------|--------|
-| EXP_API_ALL_01 | Get all contacts using invalid HTTP method     | Java    | Format error         |           |        |
-| EXP_API_ALL_03 | Get all contacts with invalid query parameters | Postman | Format error         |           |        |
-
-## Add Contact API
-
-| TC ID         | Title                              | Tools    | Reason for Inclusion   | Status | Bug ID |
-|---------------|------------------------------------|----------|------------------------|--------|--------|
-| API_ADD_P_01  | Add Contact with Valid Fields      | Postman  | Functional flow        | Pass   |        |
-| API_ADD_P_03  | Add Contact with Valid Name        | Java     | Valid Input Variations |        |        |
-| API_ADD_P_08  | Add Contact with Valid Address     | Java     | Valid Input Variation  |        |        |
-| API_ADD_N_01  | Add Contact without Authentication | Java     | Security               |        |        |
-| API_ADD_N_021 | Add Contact with Outdated Token    | Postmant | Security               |        |        |
-| API_ADD_N_03  | Add Contact with Duplicate ID      | Java     | Duplicate Entry Check  |        |        |
-| API_ADD_N_12  | Add Contact with Existing Phone    | Java     | Duplicate Entry Check  |        |        |
-
-| Test ID        | Title                              | Tools   | Reason for Inclusion | Report ID | Bug ID |
-|----------------|------------------------------------|---------|----------------------|-----------|--------|
-| EXP_API_ADD_08 | Add Contact with Various Addresses | Postman | Practice             |           |        |
-| EXP_API_ADD_09 | Add Contact with Long Description  | Java    | Large input handling |           |        |
 
 # Summary
 

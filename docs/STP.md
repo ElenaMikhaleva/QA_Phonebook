@@ -1,10 +1,10 @@
 
 # Overview
 
-**STP Identifier:** STP-v2  
+**STP Identifier:** STP-v3 
 **Project Name:** Phonebook Testing  
-**Date Created:** 03/08/2025  
-**Version:** v2.0  
+**Date Created:** 12/08/2025  
+**Version:** v3.0  
 **Responsibilities:** Creation of STP, STD, test execution, STR — Elena Mikhaleva
 
 ## Test Objectives
@@ -40,10 +40,10 @@
 - No open blockers or critical defects
 
 ## Schedule
-1. Planning: 03/08/2025
-2. Test Design: 07/08/2025
-3. First Test Session: 14/08/2025
-4. Reports & Delivery: 21/08/2025
+1. Planning: 12/08/2025
+2. Test Design: 15/08/2025
+3. First Test Session: 22/08/2025
+4. Reports & Delivery: 25/08/2025
 
 ## Risks
 - Insufficient product requirements
@@ -58,7 +58,7 @@
 
 # What will be tested
 - Registration flow with valid and invalid data
-- Log in flow with valid and invalid data
+- Login flow with valid and invalid data
 - Boundary testing (email and password fields)
 - Error handling and validation messages 
 - Secure handling of user data
