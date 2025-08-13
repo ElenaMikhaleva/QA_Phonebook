@@ -3,31 +3,58 @@
 
 ## Scenario Test Cases
 
-| ID           | Title                                           | Test Type | Level | Component    | Version         | Status            |
-|--------------|-------------------------------------------------|-----------|-------|--------------|-----------------|-------------------|
-| API_REG_P_01 | Register with Valid Credentials                 | Positive  | API   | Registration | Details below   | Executed 02/08/25 |
-| API_REG_P_02 | Register with Existing Password                 | Positive  | API   | Registration | Details below   | Not Executed      |
-| API_REG_N_01 | Register with Missing Email                     | Negative  | API   | Registration | Details below   | Executed 02/08/25 |
-| API_REG_N_02 | Register with Missing Password                  | Negative  | API   | Registration | Details below   | Not Executed      |
-| API_REG_N_03 | Register with Invalid Email                     | Negative  | API   | Registration | Details below   | Not Executed      |
-| API_REG_N_04 | Register with Invalid Password                  | Negative  | API   | Registration | Details below   | Executed 02/08/25 |
-| API_REG_N_05 | Register with Duplicate Email                   | Negative  | API   | Registration | Details below   | Executed 02/08/25 |
-| API_LOG_P_01 | Log in with Registered Email                    | Positive  | API   | Login        | Details below   | Executed 03/08/25 |
-| API_LOG_N_01 | Log in with Unregistered Email                  | Negative  | API   | Login        | Details below   | Executed 03/08/25 |
-| API_LOG_N_02 | Log in with Registered Email but Wrong Password | Negative  | API   | Login        | Details below   | Executed 03/08/25 |
-| API_LOG_N_03 | Log in with Missing Email                       | Negative  | API   | Login        | High-level only | Not Executed      |
-| API_LOG_N_04 | Log in with Missing Password                    | Negative  | API   | Login        | High-level only | Not Executed      |
+| ID           | Title                           | Test Type | Level | Component    | Version         | Status            |
+|--------------|---------------------------------|-----------|-------|--------------|-----------------|-------------------|
+| API_REG_P_01 | Register with Valid Credentials | Positive  | API   | Registration | Details below   | Executed 02/08/25 |
+| API_REG_P_02 | Register with Existing Password | Positive  | API   | Registration | Details below   | Not Executed      |
+| API_REG_N_01 | Register with Missing Email     | Negative  | API   | Registration | Details below   | Executed 02/08/25 |
+| API_REG_N_02 | Register with Missing Password  | Negative  | API   | Registration | Details below   | Not Executed      |
+| API_REG_N_03 | Register with Invalid Email     | Negative  | API   | Registration | Details below   | Not Executed      |
+| API_REG_N_04 | Register with Invalid Password  | Negative  | API   | Registration | Details below   | Executed 02/08/25 |
+| API_REG_N_05 | Register with Duplicate Email   | Negative  | API   | Registration | Details below   | Executed 02/08/25 |
+| API_LOG_P_01 | Log in with Registered Email    | Positive  | API   | Login        | Details below   | Executed 03/08/25 |
+| API_LOG_N_01 | Log in with Unregistered Email  | Negative  | API   | Login        | Details below   | Executed 03/08/25 |
+| API_LOG_N_02 | Log in with Wrong Password      | Negative  | API   | Login        | Details below   | Executed 03/08/25 |
+| API_LOG_N_03 | Log in with Missing Email       | Negative  | API   | Login        | High-level only | Not Executed      |
+| API_LOG_N_04 | Log in with Missing Password    | Negative  | API   | Login        | High-level only | Not Executed      |
+| UI_NAV_P_01  | Open Home Page from Navigation  | Positive  | UI    | Navigation   | High-level only | Not Executed      |
+| UI_NAV_P_02  | Open About Page from Navigation | Positive  | UI    | Navigation   | High-level only | Not Executed      |
+| UI_NAV_P_03  | Open Login Page from Navigation | Positive  | UI    | Navigation   | High-level only | Not Executed      |
+| UI_REG_P_01  | Register with Valid Credentials | Positive  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_P_02  | Register with Copy-Paste        | Positive  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_P_03  | Register with Autofill          | Positive  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_N_01  | Register with Missing Email     | Negative  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_N_02  | Register with Missing Password  | Negative  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_N_03  | Register with All Empty Fields  | Negative  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_N_04  | Register with Invalid Email     | Negative  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_N_05  | Register with Invalid Password  | Negative  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_N_06  | Register with Duplicate Email   | Negative  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_N_07  | Register with Rapid Clicking    | Negative  | UI    | Registration | High-level only | Not Executed      |
+| UI_LOG_P_01  | Log in with Valid Credentials   | Positive  | UI    | Login        | High-level only | Not Executed      |
+| UI_LOG_P_02  | Log in with with Copy-Paste     | Positive  | UI    | Login        | High-level only | Not Executed      |
+| UI_LOG_P_03  | Log in with with Autofill       | Positive  | UI    | Login        | High-level only | Not Executed      |
+| UI_LOG_N_01  | Log in with Unregistered Email  | Negative  | UI    | Login        | High-level only | Not Executed      |
+| UI_LOG_N_02  | Log in with Missing Email       | Negative  | UI    | Login        | High-level only | Not Executed      |
+| UI_LOG_N_03  | Log in with Missing Password    | Negative  | UI    | Login        | High-level only | Not Executed      |
+| UI_LOG_N_04  | Log in with Rapid Clicking      | Negative  | UI    | Login        | High-level only | Not Executed      |
 
 ## Exploratory Tests
 
-| ID             | Title                             | Level | Component    | Version       | Status            |
-|----------------|-----------------------------------|-------|--------------|---------------|-------------------|
-| EXP_API_REG_01 | Register with Capitalized Email   | API   | Registration | Details below | Executed 02/08/25 |
-| EXP_API_REG_02 | Register with Long Email          | API   | Registration | Details below | Executed 02/08/25 |
-| EXP_API_REG_03 | Register with Various Emails      | API   | Registration | Details below | Executed 02/08/25 |
-| EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Details below | Executed 02/08/25 |
-| EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Details below | Executed 02/08/25 |
-| EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Details below | Executed 02/08/25 |
+| ID             | Title                             | Level | Component    | Version         | Status            |
+|----------------|-----------------------------------|-------|--------------|-----------------|-------------------|
+| EXP_API_REG_01 | Register with Capitalized Email   | API   | Registration | Details below   | Executed 02/08/25 |
+| EXP_API_REG_02 | Register with Long Email          | API   | Registration | Details below   | Executed 02/08/25 |
+| EXP_API_REG_03 | Register with Various Emails      | API   | Registration | Details below   | Executed 02/08/25 |
+| EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Details below   | Executed 02/08/25 |
+| EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Details below   | Executed 02/08/25 |
+| EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Details below   | Executed 02/08/25 |
+| EXP_UI_NAV_01  | Navigate Using Keyboard           | UI    | Navigation   | High-level only | Not Executed      |
+| EXP_UI_REG_01  | Fill and Submit Using Keyboard    | UI    | Registration | High-level only | Not Executed      |
+| EXP_UI_REG_02  | Register with Various Emails      | UI    | Registration | High-level only | Not Executed      |
+| EXP_UI_REG_03  | Register with Various Passwords   | UI    | Registration | High-level only | Not Executed      |
+| EXP_UI_LOG_01  | Fill and Submit Using Keyboard    | UI    | Login        | High-level only | Not Executed      |
+| EXP_UI_LOG_02  | Log in with Various Emails        | UI    | Login        | High-level only | Not Executed      |
+| EXP_UI_LOG_03  | Log in with Various Passwords     | UI    | Login        | High-level only | Not Executed      |
 
 # Detailed Tests
 
