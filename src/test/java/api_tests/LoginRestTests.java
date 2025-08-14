@@ -19,7 +19,7 @@ public class LoginRestTests extends AuthenticationController implements BaseAPI 
     SoftAssert softAssert = new SoftAssert();
 
     @Test(groups="str")
-    public void API_LOG_P_01() {
+    public void API_LOG_P_01_test() {
         logger.info("Log in with Registered Email, 200 OK");
 
         User user = User.builder()
@@ -38,7 +38,7 @@ public class LoginRestTests extends AuthenticationController implements BaseAPI 
     }
 
     @Test(groups="str")
-    public void API_LOG_N_01() {
+    public void API_LOG_N_01_test() {
         // Bug found: Schema Validation, BUG_API_07
         logger.info("Log in with Unregistered Email, 401 Unauthorized");
 
@@ -59,7 +59,7 @@ public class LoginRestTests extends AuthenticationController implements BaseAPI 
     }
 
     @Test(groups="str")
-    public void API_LOG_N_02() {
+    public void API_LOG_N_02_test() {
         // Bug found: Schema Validation, BUG_API_08
         logger.info("Log in with Registered Email but Incorrect Password, 401 Unauthorized");
 

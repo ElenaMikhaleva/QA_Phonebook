@@ -21,21 +21,21 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 | ID           | Title                           | Level | Component    | Automation       | Status        | Bug ID     |
 |--------------|---------------------------------|-------|--------------|------------------|---------------|------------|
-| API_REG_P_01 | Register with Valid Credentials | API   | Registration | Automated (Java) | Pass          |            |
+| API_REG_P_01 | Register with Valid Credentials | API   | Registration | Automated        | Pass          |            |
 | API_REG_N_01 | Register with Missing Email     | API   | Registration | Manual (Postman) | Failed #4     | BUG_API_04 |
-| API_REG_N_04 | Register with Invalid Password  | API   | Registration | Automated (Java) | Failed #5, #7 | BUG_API_01 |
-| API_REG_N_05 | Register with Duplicate Email   | API   | Registration | Automated (Java) | Failed        | BUG_API_02 |
-| API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated (Java) | Pass          |            |
-| API_LOG_N_01 | Log in with Unregistered Email  | API   | Login        | Automated (Java) | Failed        | BUG_API_07 |
-| API_LOG_N_02 | Log in with Wrong Password      | API   | Login        | Automated (Java) | Failed        | BUG_API_08 |
+| API_REG_N_04 | Register with Invalid Password  | API   | Registration | Automated        | Failed #5, #7 | BUG_API_01 |
+| API_REG_N_05 | Register with Duplicate Email   | API   | Registration | Automated        | Failed        | BUG_API_02 |
+| API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Pass          |            |
+| API_LOG_N_01 | Log in with Unregistered Email  | API   | Login        | Automated        | Failed        | BUG_API_07 |
+| API_LOG_N_02 | Log in with Wrong Password      | API   | Login        | Automated        | Failed        | BUG_API_08 |
 
 ## Exploratory Tests
 
 | ID             | Title                             | Level | Component    | Automation       | Report ID      | Bug ID     |
 |----------------|-----------------------------------|-------|--------------|------------------|----------------|------------|
-| EXP_API_REG_01 | Register with Capitalized Email   | API   | Registration | Automated (Java) | EXP_RPT_API_01 | BUG_API_03 |
-| EXP_API_REG_02 | Register with Long Email          | API   | Registration | Automated (Java) | EXP_RPT_API_02 |            |
-| EXP_API_REG_03 | Register with Various Emails      | API   | Registration | Automated (Java) | EXP_RPT_API_03 |            |
+| EXP_API_REG_01 | Register with Capitalized Email   | API   | Registration | Automated        | EXP_RPT_API_01 | BUG_API_03 |
+| EXP_API_REG_02 | Register with Long Email          | API   | Registration | Automated        | EXP_RPT_API_02 |            |
+| EXP_API_REG_03 | Register with Various Emails      | API   | Registration | Automated        | EXP_RPT_API_03 |            |
 | EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Manual (Postman) | EXP_RPT_API_04 | BUG_API_04 |
 | EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Manual (Postman) | EXP_RPT_API_05 | BUG_API_05 |
 | EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Manual (Postman) | EXP_RPT_API_06 | BUG_API_06 |

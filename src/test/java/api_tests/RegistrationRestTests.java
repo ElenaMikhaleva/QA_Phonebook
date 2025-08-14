@@ -21,7 +21,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
     SoftAssert softAssert = new SoftAssert();
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "validCredentials")
-    public void API_REG_P_01(String email, String password, String descr) {
+    public void API_REG_P_01_test(String email, String password, String descr) {
         logger.info("Register with valid credentials, 200 OK");
 
         User user = User.builder()
@@ -41,7 +41,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
     }
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "invalidPassword")
-    public void API_REG_N_04(String email, String password, String descr) {
+    public void API_REG_N_04_test(String email, String password, String descr) {
         // Bug found with data: [5] non-English letters, [7] too long (16 symbols), BUG_API_01
         logger.info("Register with Invalid Password, 400 Bad Request");
 
@@ -62,7 +62,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
     }
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "duplicateEmail")
-    public void API_REG_N_05(String passwordVar) {
+    public void API_REG_N_05_test(String passwordVar) {
         // Bug found: Schema Validation, BUG_API_02
         logger.info("Register with Duplicate Email, 409 Conflict");
 
@@ -88,7 +88,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
     }
 
     @Test(groups="str")
-    public void EXP_API_REG_01() {
+    public void EXP_API_REG_01_test() {
         logger.info("Register with Capitalized Email");
 
         User user = User.builder()
@@ -123,7 +123,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
     }
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "longEmail")
-    public void EXP_API_REG_02(String email, String password, String descr) {
+    public void EXP_API_REG_02_test(String email, String password, String descr) {
         logger.info("Register with Long Email");
 
         User user = User.builder()
@@ -140,7 +140,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
     }
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "differentEmails")
-    public void EXP_API_REG_03(String email, String password, String descr) {
+    public void EXP_API_REG_03_test(String email, String password, String descr) {
         logger.info("Register with Various Emails");
 
         User user = User.builder()

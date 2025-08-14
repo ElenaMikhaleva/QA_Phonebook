@@ -20,9 +20,8 @@
 | UI_NAV_P_01  | Open Home Page from Navigation  | Positive  | UI    | Navigation   | High-level only | Not Executed      |
 | UI_NAV_P_02  | Open About Page from Navigation | Positive  | UI    | Navigation   | High-level only | Not Executed      |
 | UI_NAV_P_03  | Open Login Page from Navigation | Positive  | UI    | Navigation   | High-level only | Not Executed      |
-| UI_REG_P_01  | Register with Valid Credentials | Positive  | UI    | Registration | High-level only | Not Executed      |
-| UI_REG_P_02  | Register with Copy-Paste        | Positive  | UI    | Registration | High-level only | Not Executed      |
-| UI_REG_P_03  | Register with Autofill          | Positive  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_P_01  | Register with Valid Credentials | Positive  | UI    | Registration | Details below   | Not Executed      |
+| UI_REG_P_02  | Register with Copy-Paste        | Positive  | UI    | Registration | Details below   | Not Executed      |
 | UI_REG_N_01  | Register with Missing Email     | Negative  | UI    | Registration | High-level only | Not Executed      |
 | UI_REG_N_02  | Register with Missing Password  | Negative  | UI    | Registration | High-level only | Not Executed      |
 | UI_REG_N_03  | Register with All Empty Fields  | Negative  | UI    | Registration | High-level only | Not Executed      |
@@ -185,7 +184,7 @@
     2. API returns token
     3. API doesn't return password in body or headers.
 
-## API_LOG_N_01  Log in with Unregistered Email
+### API_LOG_N_01  Log in with Unregistered Email
 
 - **Endpoint:** log in
 - **Steps:**<br>
@@ -198,7 +197,7 @@
     1. API returns 401
     2. Error message "Login or Password incorrect"
 
-## API_LOG_N_02 Log in with Registered Email but Incorrect Password
+### API_LOG_N_02 Log in with Registered Email but Incorrect Password
 
 - **Endpoint:** log in
 - **Preconditions:** User is registered with email wrongpassword@test.com, password #0Breakfast!
@@ -211,6 +210,35 @@
 - **Expected Result:**
     1. API returns 401
     2. Error message
+
+### UI_REG_P_01 Register with Valid Credentials
+
+- **Test Type:** UI
+- **Component:** Registration
+- **Precondition:** home page is opened
+- **Steps:**<br>
+  1. Click on Login Button in the header
+  2. Enter valid email
+  3. Enter valid password
+  4. Click on Registration Button
+- **Expected Result:**
+  1. User is registered successfully
+  2. User is redirected to Contacts Page
+  3. User has no contacts on Contacts Page
+  4. User can click on Contacts and Add Buttons in the header (user-only pages)
+
+### UI_REG_P_02 Register with Copy-Paste
+
+- **Test Type:** UI
+- **Component:** Registration
+- **Precondition:** authentication page is opened
+- **Steps:**<br>
+  1. Copy valid email from another source
+  2. Paste into email field
+  3. Copy valid password from another source
+  4. Paste into password field
+  5. Click on Registration Button
+- **Expected Result:** user is registered successfully
 
 ### EXP_API_REG_01 Register with Capitalized Email
 

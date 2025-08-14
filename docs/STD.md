@@ -10,8 +10,12 @@ All data is example, actual data is generated for each execution.
 1. Summary of TCs<br>
   1.1 Scenario Test Cases<br>
   1.2 Exploratory Tests<br>
+2. Test Environment<br>
 
 # Summary of TCS
+
+All UI tests marked as "Automated" are first executed manually to explore the page and verify elements. After that, the automated script is executed.
+So, every test marked as "Automated" is executed manually and automatically.
 
 ## Scenario Test Cases
 
@@ -24,7 +28,6 @@ All data is example, actual data is generated for each execution.
 | API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Functional flow                     |
 | API_LOG_N_01 | Log in with Unregistered Email  | API   | Login        | Automated        | Functional flow                     |
 | API_LOG_N_02 | Log in with Wrong Password      | API   | Login        | Automated        | Functional flow                     |
-| UI_NAV_P_01  | Open Home Page from Navigation  | UI    | Navigation   | Automated        | Basic navigation link               |
 | UI_REG_P_01  | Register with Valid Credentials | UI    | Registration | Automated        | Functional flow                     |
 | UI_REG_P_02  | Register with Copy-Paste        | UI    | Registration | Manual           | Functional flow                     |
 | UI_REG_N_01  | Register with Missing Email     | UI    | Registration | Manual           | Missing of the key field            |
@@ -50,3 +53,52 @@ All data is example, actual data is generated for each execution.
 | EXP_UI_REG_02  | Register with Various Emails      | UI    | Registration | Manual           | Edge cases           |
 | EXP_UI_LOG_01  | Fill and Submit Using Keyboard    | UI    | Login        | Automated        | Practice             |
 | EXP_UI_LOG_03  | Log in with Various Passwords     | UI    | Login        | Manual           | Edge cases           |
+
+# Test Environment
+
+Desktop:
+- Google Chrome version 139.0.7258.127 (Official Build) (64-bit)
+- Mozilla Firefox version 141.0.3
+- Microsoft Edge version 139.0.3405.86 (Official build) (64-bit)
+
+Mobile (browser version):
+- Real Android Device:
+  - Google Pixel 7, Chrome Mobile
+- Emulated Android Devices (Android Studio):
+  - Google Pixel 5 (small screen)
+  - Galaxy S23 Ultra (large screen)
+- Simulated iOS Devices (Chrome DevTools):
+  - iPhone 15
+  - iPhone SE
+
+# Coverage Matrix
+
+## Desktop Browsers
+
+| ID          | Chrome | Firefox | Edge |
+|-------------|--------|---------|------|
+| UI_REG_P_01 | yes    | yes     | yes  |
+| UI_REG_P_02 | yes    | -       | -    |
+| UI_REG_N_01 | yes    | -       | -    |
+| UI_REG_N_03 | yes    | -       | -    |
+| UI_REG_N_04 | yes    | yes     | yes  |
+| UI_REG_N_06 | yes    | yes     | yes  |
+| UI_REG_N_07 | yes    | -       | -    |
+| UI_LOG_P_01 | yes    | yes     | yes  |
+| UI_LOG_P_03 | yes    | -       | -    |
+| UI_LOG_N_01 | yes    | yes     | yes  |
+
+## Mobile Browsers
+
+| ID          | Pixel 7 (real) | Pixel 5 (emulator) | Galaxy S23 (emulator) | iPhone 15 (DevTools) | iPhone SE (DevTools) |
+|-------------|----------------|--------------------|-----------------------|----------------------|----------------------|
+| UI_REG_P_01 | yes            | yes                | yes                   | yes                  | yes                  |
+| UI_REG_P_02 | yes            | -                  | -                     | -                    | -                    |
+| UI_REG_N_01 | yes            | -                  | -                     | -                    | -                    |
+| UI_REG_N_03 | yes            | yes                | yes                   | yes                  | yes                  |
+| UI_REG_N_04 | yes            | yes                | yes                   | yes                  | yes                  |
+| UI_REG_N_06 | yes            | yes                | yes                   | yes                  | yes                  |
+| UI_REG_N_07 | yes            | -                  | -                     | -                    | -                    |
+| UI_LOG_P_01 | yes            | yes                | yes                   | yes                  | yes                  |
+| UI_LOG_P_03 | yes            | -                  | -                     | -                    | -                    |
+| UI_LOG_N_01 | yes            | yes                | yes                   | yes                  | yes                  |

@@ -84,6 +84,7 @@
 
 ## Environments
 - Publicly accessible site
+- Google Chrome version 139.0.7258.127 (Official Build) (64-bit)
 - Postman version 11.55.5
 - Java version 17.0.12
 - IntelliJ IDEA 2025.1.1.1 (Community Edition)
