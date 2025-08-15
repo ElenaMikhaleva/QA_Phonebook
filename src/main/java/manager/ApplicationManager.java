@@ -32,10 +32,12 @@ public class ApplicationManager {
     public void setup() {
 //        switch (browser.toLowerCase()){
 //            case "firefox":
+//                System.setProperty("webdriver.gecko.driver", "C:\\Tools\\geckodriver.exe");
 //                driver = new FirefoxDriver();
 //                logger.info("Start test in browser Firefox");
 //                break;
 //            case "edge":
+//                System.setProperty("webdriver.edge.driver", "C:\\Tools\\msedgedriver.exe");
 //                driver = new EdgeDriver();
 //                logger.info("Start test in browser Edge");
 //                break;
@@ -44,8 +46,8 @@ public class ApplicationManager {
 //                logger.info("Start test in browser Chrome");
 //                break;
 //        }
-        System.setProperty("webdriver.gecko.driver", "C:\\Tools\\geckodriver.exe");
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.edge.driver", "C:\\Tools\\msedgedriver.exe");
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         WebDriverListener webDriverListener = new WDListener();

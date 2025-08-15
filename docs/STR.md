@@ -19,15 +19,25 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Scenario Test Cases
 
-| ID           | Title                           | Level | Component    | Automation       | Status        | Bug ID     |
-|--------------|---------------------------------|-------|--------------|------------------|---------------|------------|
-| API_REG_P_01 | Register with Valid Credentials | API   | Registration | Automated        | Passed        |            |
-| API_REG_N_01 | Register with Missing Email     | API   | Registration | Manual (Postman) | Failed #4     | BUG_API_04 |
-| API_REG_N_04 | Register with Invalid Password  | API   | Registration | Automated        | Failed #5, #7 | BUG_API_01 |
-| API_REG_N_05 | Register with Duplicate Email   | API   | Registration | Automated        | Failed        | BUG_API_02 |
-| API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Passed        |            |
-| API_LOG_N_01 | Log in with Unregistered Email  | API   | Login        | Automated        | Failed        | BUG_API_07 |
-| API_LOG_N_02 | Log in with Wrong Password      | API   | Login        | Automated        | Failed        | BUG_API_08 |
+| ID           | Title                           | Level | Component    | Automation       | Status          | Bug ID     |
+|--------------|---------------------------------|-------|--------------|------------------|-----------------|------------|
+| API_REG_P_01 | Register with Valid Credentials | API   | Registration | Automated        | Passed          |            |
+| API_REG_N_01 | Register with Missing Email     | API   | Registration | Manual (Postman) | Failed #4       | BUG_API_04 |
+| API_REG_N_04 | Register with Invalid Password  | API   | Registration | Automated        | Failed #5, #7   | BUG_API_01 |
+| API_REG_N_05 | Register with Duplicate Email   | API   | Registration | Automated        | Failed          | BUG_API_02 |
+| API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Passed          |            |
+| API_LOG_N_01 | Log in with Unregistered Email  | API   | Login        | Automated        | Failed          | BUG_API_07 |
+| API_LOG_N_02 | Log in with Wrong Password      | API   | Login        | Automated        | Failed          | BUG_API_08 |
+| UI_REG_P_01  | Register with Valid Credentials | UI    | Registration | Automated        | Failed (mobile) | BUG_UI_02  |
+| UI_REG_P_02  | Register with Copy-Paste        | UI    | Registration | Manual           | Passed          |            |
+| UI_REG_N_01  | Register with Missing Email     | UI    | Registration | Manual           | Failed          |            |
+| UI_REG_N_03  | Register with All Empty Fields  | UI    | Registration | Manual           | Passed          |            |
+| UI_REG_N_04  | Register with Invalid Email     | UI    | Registration | Automated        |                 |            |
+| UI_REG_N_06  | Register with Duplicate Email   | UI    | Registration | Automated        |                 |            |
+| UI_REG_N_07  | Register with Rapid Clicking    | UI    | Registration | Manual           |                 |            |
+| UI_LOG_P_01  | Log in with Valid Credentials   | UI    | Login        | Automated        |                 |            |
+| UI_LOG_P_03  | Log in with with Autofill       | UI    | Login        | Manual           |                 |            |
+| UI_LOG_N_01  | Log in with Unregistered Email  | UI    | Login        | Automated        |                 |            |
 
 ## Exploratory Tests
 
@@ -39,6 +49,10 @@ Focused on testing the Registration and Login, including exploratory testing per
 | EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Manual (Postman) | EXP_RPT_API_04 | BUG_API_04 |
 | EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Manual (Postman) | EXP_RPT_API_05 | BUG_API_05 |
 | EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Manual (Postman) | EXP_RPT_API_06 | BUG_API_06 |
+| EXP_UI_NAV_01  | Navigate Using Keyboard           | UI    | Navigation   | Automated        |                |            |
+| EXP_UI_REG_02  | Register with Various Emails      | UI    | Registration | Manual           |                |            |
+| EXP_UI_LOG_01  | Fill and Submit Using Keyboard    | UI    | Login        | Automated        |                |            |
+| EXP_UI_LOG_03  | Log in with Various Passwords     | UI    | Login        | Manual           |                |            |
 
 # Summary
 
@@ -255,10 +269,10 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## BUG_UI_01 Empty contacts list message misaligned on non-full window
 
-- **Environment:** Google Chrome
+- **Environment:** Google Chrome, Desktop
 - **Severity:** Low
-- **Component:** All Contacts Page UI
-- **Test ID:** found during executing UI_REG_P_01
+- **Component:** All Contacts Page
+- **Test ID:** found while executing UI_REG_P_01
 - **Preconditions:** login page is opened
 - **Steps:**
   1. Register
@@ -267,6 +281,39 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Expected Result:** the empty list message should be vertically and horizontally centered.
 - **Actual result:** "Add new by clicking on Add in NavBar!" is aligned to the right.
 - **Attachments:** src/test/screenshots/BUG_UI_01.png
+
+## BUG_UI_02 Mobile Web Version is Misaligned
+
+- **Environment:** Google Chrome, Mobile Version
+- **Severity:** Medium (the layout is fine in landscape mode)
+- **Component:** Home Page
+- **Test ID:** found while executing UI_REG_P_01
+- **Steps:**
+  1. Open Home Page
+- **Expected Result:** the layout is valid
+- **Actual result:** the layout in portrait mode is hugely misaligned and not centered, Login Button is not available.
+- **Attachments:** src/test/screenshots/BUG_UI_02.png
+
+## BUG_UI_03 Registration request is sent without email input
+
+- **Environment:** Google Chrome, Desktop
+- **Severity:** Medium
+- **Component:** Registration
+- **Test ID:** UI_REG_N_01
+- **Precondition:** login page is opened
+- **Steps:**
+  1. Do not touch email field
+  2. Enter valid password
+  3. Click on Registration Button
+- **Expected Result:** 
+  1. User is not registered
+  2. Error message "Wrong email or password"
+- **Actual result:**
+  1. User is not registered
+  2. Error message is displayed as popup message
+  3. Message "Registration failed with code 400" above the registration form, that user is not supposed to see
+  4. Request is sent to the server
+- **Attachments:** src/test/screenshots/BUG_UI_03.png
 
 # Exploratory Test Reports
 

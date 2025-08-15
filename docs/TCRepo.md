@@ -20,11 +20,11 @@
 | UI_NAV_P_01  | Open Home Page from Navigation  | Positive  | UI    | Navigation   | High-level only | Not Executed      |
 | UI_NAV_P_02  | Open About Page from Navigation | Positive  | UI    | Navigation   | High-level only | Not Executed      |
 | UI_NAV_P_03  | Open Login Page from Navigation | Positive  | UI    | Navigation   | High-level only | Not Executed      |
-| UI_REG_P_01  | Register with Valid Credentials | Positive  | UI    | Registration | Details below   | Not Executed      |
-| UI_REG_P_02  | Register with Copy-Paste        | Positive  | UI    | Registration | Details below   | Not Executed      |
-| UI_REG_N_01  | Register with Missing Email     | Negative  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_P_01  | Register with Valid Credentials | Positive  | UI    | Registration | Details below   | Executed 15/08/25 |
+| UI_REG_P_02  | Register with Copy-Paste        | Positive  | UI    | Registration | Details below   | Executed 15/08/25 |
+| UI_REG_N_01  | Register with Missing Email     | Negative  | UI    | Registration | Details below   | Executed 15/08/25 |
 | UI_REG_N_02  | Register with Missing Password  | Negative  | UI    | Registration | High-level only | Not Executed      |
-| UI_REG_N_03  | Register with All Empty Fields  | Negative  | UI    | Registration | High-level only | Not Executed      |
+| UI_REG_N_03  | Register with All Empty Fields  | Negative  | UI    | Registration | Details below   | Executed 15/08/25 |
 | UI_REG_N_04  | Register with Invalid Email     | Negative  | UI    | Registration | High-level only | Not Executed      |
 | UI_REG_N_05  | Register with Invalid Password  | Negative  | UI    | Registration | High-level only | Not Executed      |
 | UI_REG_N_06  | Register with Duplicate Email   | Negative  | UI    | Registration | High-level only | Not Executed      |
@@ -239,6 +239,35 @@
   4. Paste into password field
   5. Click on Registration Button
 - **Expected Result:** user is registered successfully
+
+### UI_REG_N_01 Register with Missing Email
+
+- **Test Type:** UI
+- **Component:** Registration
+- **Test Data (Email):**
+  1. no email
+  2. blank email
+  3. whitespace
+- **Precondition:** login page is opened
+- **Steps:**<br>
+  1. Enter email as in test data
+  2. Enter valid password
+  3. Click on Registration Button
+- **Expected Result:**
+  1. User is not registered
+  2. Error message "Wrong email or password" (requirement F1)
+
+### UI_REG_N_03 Register with All Empty Fields
+
+- **Test Type:** UI
+- **Component:** Registration
+- **Precondition:** login page is opened
+- **Steps:**<br>
+  1. Do not touch any fields
+  2. Click on Registration Button
+- **Expected Result:**
+  1. User is not registered
+  2. Error message "Wrong email or password" (requirement F1)
 
 ### EXP_API_REG_01 Register with Capitalized Email
 
