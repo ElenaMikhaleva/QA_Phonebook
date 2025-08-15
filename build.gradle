@@ -29,6 +29,7 @@ test {
     useTestNG()
 }
 
+
 tasks.register('str_tests', Test) {
     useTestNG {
         suites 'src/test/resources/str_tests.xml'

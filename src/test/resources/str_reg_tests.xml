@@ -11,6 +11,7 @@
         </groups>
         <classes>
             <class name="api_tests.RegistrationRestTests"/>
+            <class name="ui_tests.RegistrationTests"/>
         </classes>
     </test>
 </suite>

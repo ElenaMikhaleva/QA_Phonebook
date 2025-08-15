@@ -1,4 +1,18 @@
 package ui_tests;
 
-public class HomeTests {
+import manager.ApplicationManager;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import pages.HomePage;
+import utils.TestNGListener;
+
+@Listeners(TestNGListener.class)
+
+public class HomeTests extends ApplicationManager {
+
+    @Test
+    public void openHome_test() {
+        logger.info("Open Home Page");
+        HomePage homePage = new HomePage(getDriver());
+    }
 }

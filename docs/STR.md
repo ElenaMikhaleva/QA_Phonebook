@@ -21,11 +21,11 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 | ID           | Title                           | Level | Component    | Automation       | Status        | Bug ID     |
 |--------------|---------------------------------|-------|--------------|------------------|---------------|------------|
-| API_REG_P_01 | Register with Valid Credentials | API   | Registration | Automated        | Pass          |            |
+| API_REG_P_01 | Register with Valid Credentials | API   | Registration | Automated        | Passed        |            |
 | API_REG_N_01 | Register with Missing Email     | API   | Registration | Manual (Postman) | Failed #4     | BUG_API_04 |
 | API_REG_N_04 | Register with Invalid Password  | API   | Registration | Automated        | Failed #5, #7 | BUG_API_01 |
 | API_REG_N_05 | Register with Duplicate Email   | API   | Registration | Automated        | Failed        | BUG_API_02 |
-| API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Pass          |            |
+| API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Passed        |            |
 | API_LOG_N_01 | Log in with Unregistered Email  | API   | Login        | Automated        | Failed        | BUG_API_07 |
 | API_LOG_N_02 | Log in with Wrong Password      | API   | Login        | Automated        | Failed        | BUG_API_08 |
 
@@ -252,6 +252,21 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. API returns 401 Unauthorized
   2. Error message as String "Login or Password incorrect"
 - **Attachments:** test_logs/log-20250803T142445.log
+
+## BUG_UI_01 Empty contacts list message misaligned on non-full window
+
+- **Environment:** Google Chrome
+- **Severity:** Low
+- **Component:** All Contacts Page UI
+- **Test ID:** found during executing UI_REG_P_01
+- **Preconditions:** login page is opened
+- **Steps:**
+  1. Register
+  2. Resize the browser window to half width
+  3. Observe the empty list message
+- **Expected Result:** the empty list message should be vertically and horizontally centered.
+- **Actual result:** "Add new by clicking on Add in NavBar!" is aligned to the right.
+- **Attachments:** src/test/screenshots/BUG_UI_01.png
 
 # Exploratory Test Reports
 
