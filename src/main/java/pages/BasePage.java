@@ -34,4 +34,8 @@ public class BasePage {
     public boolean validateTextInElement(WebElement element, String text) {
         return element.getText().equals(text);
     }
+
+    public boolean validateElementPresent (WebElement element) {
+        return element.isDisplayed();
+    }
 }

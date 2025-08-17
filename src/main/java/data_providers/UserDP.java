@@ -39,7 +39,7 @@ public class UserDP {
     }
 
     @DataProvider(name = "duplicateEmail")
-    public Object[][] API_REG_N_05_data() {
+    public Object[][] duplicate_email_data() {
         return new Object[][] {
                 { "samePassword" },
                 { "newPassword"}
@@ -71,6 +71,15 @@ public class UserDP {
                 { genLowerCase(5) + "\uD83D\uDE08" + "@example.com", genPassword(12), "[10] emoji unicode" },
                 { genLowerCase(2) + "\n" + genLowerCase(2) + "@example.com", genPassword(12), "[11] new line character" },
                 { genLowerCase(2) + "\t" + genLowerCase(2) + "@example.com", genPassword(12), "[12] tabulation" }
+        };
+    }
+
+    @DataProvider(name = "invalidEmail")
+    public Object[][] UI_REG_N_04_data() {
+        return new Object[][] {
+                { genLowerCase(10) + ".com", genPassword(12), "[1] without @" },
+                { genRussianString(10) + "@example.com", genPassword(12), "[2] Cyrillic characters" },
+                { genDiacriticString(7) + "@example.com", genPassword(12), "[3] diacritic characters" }
         };
     }
 }

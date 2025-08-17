@@ -46,15 +46,15 @@ public class ApplicationManager {
 //                logger.info("Start test in browser Chrome");
 //                break;
 //        }
-        System.setProperty("webdriver.edge.driver", "C:\\Tools\\msedgedriver.exe");
-        driver = new EdgeDriver();
+        System.setProperty("webdriver.gecko.driver", "C:\\Tools\\geckodriver.exe");
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         WebDriverListener webDriverListener = new WDListener();
         driver = new EventFiringDecorator<>(webDriverListener).decorate(driver);
     }
 
-    @AfterMethod(enabled = false)
+    @AfterMethod(enabled = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();

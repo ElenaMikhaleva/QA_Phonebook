@@ -15,9 +15,14 @@ public class ContactsPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='contact-page_message__2qafk']/h1")
     WebElement messageNoContacts;
+    @FindBy(css = "div.contact-item_card__2SOIM")
+    WebElement divContact;
 
     public boolean validateNoContacts() {
         System.out.println(messageNoContacts.getText());
         return validateTextInElement(messageNoContacts, "No Contacts here!");
+    }
+    public boolean validateContactsPresent() {
+        return validateElementPresent(divContact);
     }
 }
