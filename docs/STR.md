@@ -43,11 +43,12 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Exploratory Tests
 
-| ID             | Title                             | Level | Component    | Automation       | Report ID      | Bug ID                                         |
-|----------------|-----------------------------------|-------|--------------|------------------|----------------|------------------------------------------------|
-| EXP_API_REG_01 | Register with Capitalized Email   | API   | Registration | Automated        | EXP_RPT_API_01 | BUG_LOG_API_01                                 |
-| EXP_API_REG_02 | Register with Long Email          | API   | Registration | Automated        | EXP_RPT_API_02 |                                                |
-| EXP_API_REG_03 | Register with Various Emails      | API   | Registration | Automated        | EXP_RPT_API_03 |                                                |
+| ID          | Title                                            | Component           | Bug ID         |
+|-------------|--------------------------------------------------|---------------------|----------------|
+| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login | BUG_LOG_API_01 |
+| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login |                |
+| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login |                |
+
 | EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Manual (Postman) | EXP_RPT_API_04 | BUG_REG_API_05, BUG_REG_API_06, BUG_REG_API_07 |
 | EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Manual (Postman) | EXP_RPT_API_05 | BUG_REG_API_08                                 |
 | EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Manual (Postman) | EXP_RPT_API_06 | BUG_REG_API_09                                 |
@@ -433,18 +434,18 @@ Focused on testing the Registration and Login, including exploratory testing per
 ## BUG_LOG_API_01 Login API Fails with Uppercase Letters in Email
 
 - **Severity:** Medium
-- **Test ID:** EXP_API_REG_01
+- **Test ID:** EXP_AUTH_01
 - **Environment:** Java, RestAssured
 - **Component:** Login API
-- **Test info:** automated test method `EXP_API_REG_01()`
+- **Test info:** automated test method `EXP_AUTH_01_test()`
 - **Steps:**
   1. send POST request to registration endpoint: ``{ "username": "KUVFqtnb@example.com", "password": "Tf8&NvXs&zhL" }``
   2. send POST request to login endpoint: ``{ "username": "KUVFqtnb@example.com", "password": "Tf8&NvXs&zhL" }``
 - **Expected Result:**
-  1. Registration API returns 200
-  2. Log in API returns 200
+  1. Registration API returns 2xx or 4xx
+  2. Login API returns the same code
 - **Actual Result:**
-  - Log in API returns 401 Unauthorized
+  - Registration API returns 200, log in API returns 401 Unauthorized
   - only login with fully lowercase email succeeds (`kuvfqtnb@example.com`)
 - **Attachments:** test_logs/log-20250802T191609.log
 
@@ -513,118 +514,142 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Actual result:** "Add new by clicking on Add in NavBar!" is aligned to the right.
 - **Attachments:** src/test/screenshots/BUG_UI_01.png
 
-# Exploratory Test Reports
+# Test Reports for Exploratory Sessions
 
-## EXP_RPT_API_01 Register with Capitalized Email
+## EXP_AUTH_01 Authentication with Capitalized Letters in Email
 
-- **Environment:** Java, RestAssured
-- **Component:** Registration API
-- **Test ID:** EXP_API_REG_01
-- **Purpose:**  investigate whether the API treats email addresses as case-sensitive or case-insensitive, and if consistent login behavior is maintained.
-- **Test info:** automated test method `EXP_API_REG_01()`
-- **Steps:**
-  1. send POST request ``{ "username": "KUVFqtnb@example.com", "password": "Jm6$C4sOAV!J" }`` to registration endpoint
-  2. if registration is successful, attempt to log in with
-     1. ``{ "username": "KUVFqtnb@example.com", "password": "Jm6$C4sOAV!J" }``
-     2. ``{ "username": "kuvfqTNB@example.com", "password": "Jm6$C4sOAV!J" }``
-     3. ``{ "username": "kuvfqtnb@example.com", "password": "Jm6$C4sOAV!J" }``
-  3. if registration is successful, attempt to register using:
-     1. ``{ "username": "kuvfqtnb@example.com", "password": "Jm6$C4sOAV!J" }``
-     2. ``{ "username": "KUVFQTNB@example.com", "password": "Jm6$C4sOAV!J" }``
+- **Session goal:** investigate whether the API treats email addresses as case-sensitive or case-insensitive, and if consistent login behavior is maintained.
+- **Scope:**
+  - API Registration, email field
+  - API Login, email field
+  - UI Registration, email field
+  - UI Login, email field
+- **Time:** 30 minutes
+- **Environment:**
+  - Postman for API
+  - Chrome Desktop
+  - Java for Automated Tests (for practice)
+- **Test Ideas:**
+  1. registration request with email with uppercase letters (`KUVFqtnb@example.com`)
+  2. registration request with the same email, but different casing (`kuvfqtnb@example.com` - lowercase, `KUVFQTNB@example.com` - uppercase)
+  3. login request (`KUVFqtnb@example.com` - original casing, `kuvfqtnb@example.com`- different casing)
+- **Test info:** automated test method `EXP_AUTH_01_test()`
 - **Results:**
   - email with casing is registered
   - the system normalizes email addresses to lowercase internally
-  - login with original casing fails even though it was the email used during registration - BUG_API_03
   - only login with fully lowercase email succeeded
   - attempts to re-register the same email in any casing were correctly blocked
 
-  | Step | Action   | Email                | Result           | Token                         |
-  |------|----------|----------------------|------------------|-------------------------------|
-  | 1    | Register | KUVFqtnb@example.com | 200 OK           | "sub": "kuvfqtnb@example.com" |
-  | 2.1  | Log in   | kuvfqTNB@example.com | 401 Unauthorized |                               |
-  | 2.2  | Log in   | kuvfqTNB@example.com | 401 Unauthorized |                               |
-  | 2.3  | Log in   | kuvfqtnb@example.com | 200 OK           | "sub": "kuvfqtnb@example.com" |
-  | 3.1  | Register | kuvfqtnb@example.com | 409 Conflict     |                               |
-  | 3.2  | Register | KUVFQTNB@example.com | 409 Conflict     |                               |
-
+  | Level | Action   | Email                | Result               | Token                         |
+  |-------|----------|----------------------|----------------------|-------------------------------|
+  | API   | Register | KUVFqtnb@example.com | 200 OK               | "sub": "kuvfqtnb@example.com" |
+  | API   | Register | kuvfqtnb@example.com | 409 Conflict         |                               |
+  | API   | Register | KUVFQTNB@example.com | 409 Conflict         |                               |
+  | API   | Log in   | KUVFqtnb@example.com | 401 Unauthorized     |                               |
+  | API   | Log in   | kuvfqTNB@example.com | 401 Unauthorized     |                               |
+  | API   | Log in   | kuvfqtnb@example.com | 200 OK               | "sub": "kuvfqtnb@example.com" |
+  | UI    | Register | JGHxbhu@example.com  | Success              | "sub": "jghxbhu@example.com"  |
+  | UI    | Register | jghxbhu@example.com  | Failed (user exists) |                               |
+  | UI    | Register | JGHXBHU@example.com  | Failed (user exists) |                               |
+  | UI    | Log in   | JGHxbhu@example.com  | Failed               |                               |
+  | UI    | Log in   | jghxbhu@example.com  | Success              | "sub": "jghxbhu@example.com"  |
+- **Bugs:**
+  - login with original casing fails even though it was the email used during registration - BUG_LOG_API_01
 - **Notes:**
   - results suggest that email casing is normalized for registration and conflict detection, but not for login authentication
   - results are inconsistent, likely a usability issue.
+  - RFC 5321 and 5322 specify that email local parts are technically case-sensitive, but in practice most systems treat them as case-insensitive.
 - **Attachments:** test_logs/log-20250802T191609.log
 
-## EXP_RPT_API_02 Register with Long Email
+### EXP_AUTH_02 Authentication with Long Email
 
-- **Environment:** Java, RestAssured
-- **Component:** Registration API
-- **Test ID:** EXP_API_REG_02
-- **Purpose:** explore how the system handles long email addresses.
-- **Test info:** automated test method `EXP_API_REG_02()`
-- **Test data:**
-  1. ``{ "username": "kk6fcwzxk8owyf0y7qk7rzd8xh2wlj7td38mb7r35ct54c05vuer0gmsldglppvv@iwddioqvisamtqexvdxanuhrwolsueunsqdpaffqcwlixwjkbsbuudnvahhouxojghybajrfzaibrtuwinyigzilvhmywuolgfakchbeynzgcdujyhlmzbdgkcqjrnwzehadrlojslgqkzwpzaojmkqzywlbtnfbvjasbngymuvnlodlwigcigskp.com", "password": "Dr7$v79@6605" }``- email 254 characters length
-  2. ``{ "username": "t7plysw8eg1qzpf9ewclcm2oklg4plkmxc3kgl18sc7h1gvwlpnv5o76rm57ydq3b@myfdiyslbbtrzlzihhpowxdedwzmnnbrkoacrykbibhodkfsayhqckcljwqryffvgldvnsylnctgrzsdawsxlfwtznekpccrtkunwgbyvmbjlmmfxxdznloruwmtcrnrsnjndsmaifozwwrbesufvhechbqvqjerkgcbrgxodjdkhedxitlhdcixt.com", "password": "Gb8!O^U&bN*a" }`` - email 255 characters length<br>
-  additional test data:<br>
-  3. ``{ "username": "kvv68jwx0b4ab5lqdcqo5iw0ulawxybmr23bpy7kufpwksjmusvdib0xihh1zlzn29@test.com", "password": "Ma3#!Y1kP$Yc" }`` - email 75 characters length
-  4. ``{ "username": "h9ukof1xo7n9wab82nzbtgjduz5nw6z3gsqewjby2joje19syt5rqa994rvr9n@example.com", "password": "Rp8!!s0cc0@c" }`` - email 74 characters length
-- **Steps:**
-  1. send a POST request to the registration endpoint
-  2. if registration was successful try to log in using the same credentials
+- **Session goal:** explore system behavior with long email addresses during registration and login, and verify that the UI remains stable.
+- **Scope:**
+  - API Registration, email field
+  - API Login, email field
+  - UI Registration, email field
+  - UI Login, email field
+- **Time:** 30 minutes
+- **Environment:**
+  - Postman for API
+  - Chrome Desktop
+  - Java for Automated Tests (for practice)
+- **Test Ideas:**
+  1. registration and login with email length 254 characters
+  2. registration and login with email length 255 characters
+- **Test info:** automated test method `EXP_AUTH_02_test()`
 - **Results:**
-  - registration with email 254, 255 and 75 characters long fail with 400 Bad Request and message `"username":"must be a well-formed email address"`
-  - registration with email 74 characters long is successful
-  - log in with email 74 characters long is successful
+    
+  | Level | Action   | Email Length | Result                                                                      |
+  |-------|----------|--------------|-----------------------------------------------------------------------------|
+  | API   | Register | 254 char.    | 400 Bad Request, message `"username":"must be a well-formed email address"` |
+  | UI    | Register | 254 char.    | Message "Wrong email or password", UI is not broken                         |
+  | API   | Register | 255 char.    | 400 Bad Request, message `"username":"must be a well-formed email address"` |
+  | API   | Register | 75 char.     | 400 Bad Request, message `"username":"must be a well-formed email address"` |
+  | API   | Register | 50 char.     | 200 OK                                                                      |
+  | API   | Register | 65 char.     | 200 OK                                                                      |
+  | API   | Register | 70 char.     | 200 OK                                                                      |
+  | API   | Register | 74 char.     | 400 Bad Request, message `"username":"must be a well-formed email address"` |
+  | API   | Register | 73 char.     | 200 OK, "sub" in token is valid                                             |
+  | API   | Login    | 73 char.     | 200 OK, "sub" in token is valid                                             |
+  | UI    | Register | 73 char.     | 200 OK                                                                      |
+  | UI    | Login    | 73 char.     | 200 OK                                                                      |
 - **Notes:**
-  - the system enforces an email length limit below 75 characters, which does not align with common standards (e.g., 254-character limit per RFC).
+  * RFC 3696 states that the max email length is 254 characters. Local part length can be up to 64 characters, domain length (including dots) can be 189 characters.
+  - the system enforces an email length limit below 74 characters, which does not align with common standards (e.g., 254-character limit per RFC).
   - The maximum allowed email length is not defined in the current requirements, making it unclear whether this behavior is intended or a validation defect.
 - **Attachments:** test_logs/log-20250802T191609.log
 
-## EXP_RPT_API_03 Register with Various Emails
+### EXP_AUTH_03 Authentication with Various Emails
 
-- **Environment:** Java, RestAssured
-- **Component:** Registration API
-- **Test ID:** EXP_API_REG_03
-- **Purpose:** explore how the system handles registration with different emails. Confirm whether the system accepts and processes these formats correctly during both registration and login.
-- **Test info:** automated test method `EXP_API_REG_03()`
-- **Test data:**
-  1. ``{ "username": "ouryx@test-example.com", "password": "Zb9*@7GsLgnE" }`` - hyphen in domain
-  2. ``{ "username": "ujscl@test.example.com", "password": "Ke6@5Dx@vBQG" }`` - email with subdomains
-  3. ``{ "username": "qkbjd@examplecom", "password": "Hs9$vHSDhfo9" }`` - no dot in domain
-  4. ``{ "username": "mthlq@.com", "password": "Ez2@aIYhL3BO" }`` - no char before dot in domain
-  5. ``{ "username": "lqlzu@example.", "password": "Eg7$0zjyxREi" }`` - no char after dot in domain
-  6. ``{ "username": "bm..hf@example.com", "password": "Qx6!Ceyv03kA" }`` - multiple dots
-  7. ``{ "username": " vxdnr@example.com", "password": "Wi1@&FtCoqQp" }`` - leading whitespace
-  8. ``{ "username": "my zp@example.com", "password": "Wc0$ifE2F3pG" }`` - internal whitespace
-  9. ``{ "username": "krnxb@example.com ", "password": "Pu4&uB0ZSIFu" }`` - trailing whitespace
-  10. ``{ "username": "opnlg😈@example.com", "password": "Yo8$!sDCCrln" }`` - emoji
-  11. ``{ "username": "vm\nvl@example.com", "password": "Ak6!WRsE&!0n" }`` - new line character
-  12. ``{ "username": "cy\tei@example.com", "password": "Fo4$AoeiIb2c" }`` - tabulation
-- **Steps:**
-  1. send a POST request to the registration endpoint
-  2. if registration was successful try to log in using the same credentials
+- **Session goal:** explore how the system handles registration and login with emails, containing special characters, emoji, control characters
+- **Scope:**
+  - API Registration, email field
+  - API Login, email field
+  - UI Registration, email field
+  - UI Login, email field
+- **Time:** 30 minutes
+- **Environment:**
+  - Postman for API
+  - Chrome Desktop
+  - Java for Automated Tests (for practice)
+- **Test Ideas:**
+  1. hyphen (`pippin@hyphen-hobbiton.com`, `pippin@-hobbiton.com`, `pippin@hobbiton-.com`)
+  2. dot placement (`subdomain@hobbiton.shire.com`, `nodot@examplecom`, `beforedot@.com`, `afterdot@example.`, `dot..dot@example.com`)
+  3. whitespace (` leadspace@example.com`, `white space@example.com`, `trailspace@example.com `)
+  4. emoji (`emo😈ji@example.com - emoji`)
+  5. control characters (`new\nline@example.com`, `has     tab@example.com`)
+- **Test info:** automated test method `EXP_AUTH_03_test()`
 - **Results:**
-  - data sets 1, 2 are accepted by the system. They are also valid according to RFC 1035
-  - data set 3 is accepted, although most API reject email with no dot in domain
-  - data sets 4, 5, 7, 8 are rejected. They are also prohibited by RFC 1035
-  - data sets 6, 11, 12 are rejected. They are also prohibited by RFC 5322
-  - no login attempt was made for failed registrations — as expected
 
-    | Data | Email                  | Result          | Log in |
-    |------|------------------------|-----------------|--------|
-    | 1    | ouryx@test-example.com | 200 OK          | 200 OK |
-    | 2    | ujscl@test.example.com | 200 OK          | 200 OK |
-    | 3    | qkbjd@examplecom       | 200 OK          | 200 OK |
-    | 4    | mthlq@.com             | 400 Bad Request |        |
-    | 5    | lqlzu@example.         | 400 Bad Request |        |
-    | 6    | bm..hf@example.com     | 400 Bad Request |        |
-    | 7    | vxdnr@example.com      | 400 Bad Request |        |
-    | 8    | my zp@example.com      | 400 Bad Request |        |
-    | 9    | krnxb@example.com      | 400 Bad Request |        |
-    | 10   | opnlg😈@example.com    | 400 Bad Request |        |
-    | 11   | vm\nvl@example.com     | 400 Bad Request |        |
-    | 12   | cy\tei@example.com     | 400 Bad Request |        |
-
+  | Email                                | API Reg         | UI Reg | API Login                         | UI Login |
+  |--------------------------------------|-----------------|--------|-----------------------------------|----------|
+  | ouryx@test-example.com               | 200 OK          | 200 OK | Success                           | Success  |
+  | ouryx@-example.com                   | 400 Bad Request | -      | Failed, request is sent to server | -        |
+  | ouryx@example-.com                   | 400 Bad Request | -      | Failed, request is sent to server | -        |
+  | ujscl@test.example.com               | 200 OK          | 200 OK | Success                           | Success  |
+  | qkbjd@examplecom                     | 200 OK          | 200 OK | Success                           | Success  |
+  | mthlq@.com                           | 400 Bad Request | -      | -                                 | -        |
+  | lqlzu@example.                       | 400 Bad Request | -      | -                                 | -        |
+  | bm..hf@example.com                   | 400 Bad Request | -      | -                                 | -        |
+  | vxdnr@example.com (lead. whitespace) | 400 Bad Request | -      | Failed, request is sent to server | -        |
+  | my zp@example.com                    | 400 Bad Request | -      | -                                 | -        |
+  | krnxb@example.com (trail. whitespace | 400 Bad Request | -      | -                                 | -        |
+  | opnlg😈@example.com                  | 400 Bad Request | -      | Failed, request is sent to server | -        |
+  | vm\nvl@example.com                   | 400 Bad Request | -      | Failed, request is sent to server | -        |
+  | cy\tei@example.com                   | 400 Bad Request | -      | Failed, request is sent to server | -        |
 - **Notes:**
+  - RFC 1035 allows hyphens in domain names (except at the start/end of a label). The system behaviour is the same.
+  - RFC 1035 allows subdomains. The system behaviour is the same.
+  - most API reject email with no dot in domain. The system allows it.
+  - RFC 1035 states that domain label must contain at least one alphanumeric character before and after the dot. The system behaviour is the same.
+  - RFC 5322 does not allow unescaped whitespaces. The system behaviour is the same.
+  - RFC 5322 does not allow dots in unquoted local-parts of an email address. The system behaviour is the same.
+  - RFC 5322 does not allow control characters (\n, \t). The system behaviour is the same.
   - System behavior is partly aligned with RFCs, but expected rules for email validation are not documented.
 - **Attachments:** test_logs/log-20250802T194313.log
+
+
 
 ## EXP_RPT_API_04 Register with Various Passwords
 

@@ -88,8 +88,8 @@ public class RegistrationRestTests extends AuthenticationController implements B
     }
 
     @Test(groups="str")
-    public void EXP_API_REG_01_test() {
-        logger.info("Register with Capitalized Email");
+    public void EXP_AUTH_01_test() {
+        logger.info("Authentication with Capitalized Letters in Email");
 
         User user = User.builder()
                 .username(genUpperCase(4) + genLowerCase(4) + "@example.com")
@@ -123,8 +123,8 @@ public class RegistrationRestTests extends AuthenticationController implements B
     }
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "longEmail")
-    public void EXP_API_REG_02_test(String email, String password, String descr) {
-        logger.info("Register with Long Email");
+    public void EXP_AUTH_02_test(String email, String password, String descr) {
+        logger.info("Authentication with Long Email");
 
         User user = User.builder()
                 .username(email)
@@ -140,7 +140,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
     }
 
     @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "differentEmails")
-    public void EXP_API_REG_03_test(String email, String password, String descr) {
+    public void EXP_AUTH_03_test(String email, String password, String descr) {
         logger.info("Register with Various Emails");
 
         User user = User.builder()

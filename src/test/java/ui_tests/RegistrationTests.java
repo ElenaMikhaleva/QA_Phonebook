@@ -2,6 +2,7 @@ package ui_tests;
 
 import data_providers.UserDP;
 import dto.User;
+import io.restassured.response.Response;
 import manager.ApplicationManager;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -12,8 +13,8 @@ import pages.LoginPage;
 import utils.HeaderItems;
 
 import static pages.BasePage.clickHeaderItem;
-import static utils.RandomUtils.genEmail;
-import static utils.RandomUtils.genPassword;
+import static utils.RandomUtils.*;
+import static utils.RandomUtils.genLowerCase;
 
 public class RegistrationTests extends ApplicationManager {
 

@@ -43,11 +43,12 @@ So, every test marked as "Automated" is executed manually and automatically.
 
 ## Exploratory Tests
 
-| ID             | Title                             | Level | Component    | Automation       | Reason for Inclusion |
-|----------------|-----------------------------------|-------|--------------|------------------|----------------------|
-| EXP_API_REG_01 | Register with Capitalized Email   | API   | Registration | Automated        | Practice             |
-| EXP_API_REG_02 | Register with Long Email          | API   | Registration | Automated        | Practice             |
-| EXP_API_REG_03 | Register with Various Emails      | API   | Registration | Automated        | Edge cases           |
+| ID          | Title                                            | Component           | Reason for Inclusion |
+|-------------|--------------------------------------------------|---------------------|----------------------|
+| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login | Practice             |
+| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login | Practice             |
+| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login | Edge cases           |
+
 | EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Manual (Postman) | Edge cases, security |
 | EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Manual (Postman) | Format errors        |
 | EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Manual (Postman) | Format errors        |

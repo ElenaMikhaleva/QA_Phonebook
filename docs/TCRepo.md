@@ -37,23 +37,18 @@
 | UI_LOG_N_03  | Log in with Missing Password    | Negative  | UI    | Login        | High-level only | Not Executed              |
 | UI_LOG_N_04  | Log in with Rapid Clicking      | Negative  | UI    | Login        | High-level only | Not Executed              |
 
-## Exploratory Tests
+## Exploratory Sessions
 
-| ID             | Title                             | Level | Component    | Version         | Status            |
-|----------------|-----------------------------------|-------|--------------|-----------------|-------------------|
-| EXP_API_REG_01 | Register with Capitalized Email   | API   | Registration | Details below   | Executed 02/08/25 |
-| EXP_API_REG_02 | Register with Long Email          | API   | Registration | Details below   | Executed 02/08/25 |
-| EXP_API_REG_03 | Register with Various Emails      | API   | Registration | Details below   | Executed 02/08/25 |
-| EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Details below   | Executed 02/08/25 |
-| EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Details below   | Executed 02/08/25 |
-| EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Details below   | Executed 02/08/25 |
-| EXP_UI_NAV_01  | Navigate Using Keyboard           | UI    | Navigation   | High-level only | Not Executed      |
-| EXP_UI_REG_01  | Fill and Submit Using Keyboard    | UI    | Registration | High-level only | Not Executed      |
-| EXP_UI_REG_02  | Register with Various Emails      | UI    | Registration | High-level only | Not Executed      |
-| EXP_UI_REG_03  | Register with Various Passwords   | UI    | Registration | High-level only | Not Executed      |
-| EXP_UI_LOG_01  | Fill and Submit Using Keyboard    | UI    | Login        | High-level only | Not Executed      |
-| EXP_UI_LOG_02  | Log in with Various Emails        | UI    | Login        | High-level only | Not Executed      |
-| EXP_UI_LOG_03  | Log in with Various Passwords     | UI    | Login        | High-level only | Not Executed      |
+| EXP_API_REG_04 | Register with Various Passwords                  | API                 | Registration  | Details below      | Executed 02/08/25 |
+| EXP_API_REG_05 | Register with Invalid Header                     | API                 | Registration  | Details below      | Executed 02/08/25 |
+| EXP_API_REG_06 | Register with Malformed JSON Body                | API                 | Registration  | Details below      | Executed 02/08/25 |
+| EXP_UI_NAV_01  | Navigate Using Keyboard                          | UI                  | Navigation    | High-level only    | Not Executed      |
+| EXP_UI_REG_01  | Fill and Submit Using Keyboard                   | UI                  | Registration  | High-level only    | Not Executed      |
+| EXP_UI_REG_02  | Register with Various Emails                     | UI                  | Registration  | High-level only    | Not Executed      |
+| EXP_UI_REG_03  | Register with Various Passwords                  | UI                  | Registration  | High-level only    | Not Executed      |
+| EXP_UI_LOG_01  | Fill and Submit Using Keyboard                   | UI                  | Login         | High-level only    | Not Executed      |
+| EXP_UI_LOG_02  | Log in with Various Emails                       | UI                  | Login         | High-level only    | Not Executed      |
+| EXP_UI_LOG_03  | Log in with Various Passwords                    | UI                  | Login         | High-level only    | Not Executed      |
 
 # Detailed Tests
 
@@ -375,96 +370,9 @@
   1. User is not logged in
   2. Error message "Wrong email or password" (requirement F4)
 
-### EXP_API_REG_01 Register with Capitalized Email
 
-- **Endpoint:** registration
-- **Purpose:**  investigate whether the API treats email addresses as case-sensitive or case-insensitive, and if consistent login behavior is maintained.
-- **Preconditions:** user is not registered
-- **Steps:**
-    1. send POST request ``{ "username": "upperPippin@example.com", "password": "#2Breakfast!" }``
-    2. attempt to log in with
-        1. `upperPippin@example.com` (original casing)
-        2. `Upperpippin@example.com` (different casing)
-    3. if registration is successful, attempt to register using:
-        1. `upperpippin@example.com` (lowercase)
-        2. `UPPERPIPPIN@example.com` (uppercase)
 
-- **Exploration Focus:**
-    - Are duplicates with different email casings allowed?
-    - Do all login attempts succeed regardless of casing?
-    - Are tokens or session results consistent across cases?
-- **Notes:**
-    - RFC 5321 and 5322 specify that email local parts are technically case-sensitive, but in practice most systems treat them as case-insensitive.
 
-### EXP_API_REG_02 Register with Long Email
-
-- **Endpoint:** registration
-- **Purpose:** explore how the system handles long email addresses.
-- **Preconditions:** user is not registered
-- **Test Data:**
-    1. email 254 characters length
-    2. email 255 characters length
-- **Steps:**
-    1. send a POST request to the registration endpoint with an email structured as:
-       ```
-       {  
-           "username": "<email>",  
-           "password": "5LongBreakfast!"  
-       }
-       ```
-    2. after registration attempt to log in using the same credentials.
-- **Exploration Focus:**
-    - Does registration with max-length email succeed?
-    - Is the user stored and retrievable afterward?
-    - Is login successful with this email?
-- **Notes:**
-    * RFC 3696 states that the max email length is 254 characters. Local part length can be up to 64 characters, domain length (including dots) can be 189 characters.
-
-### EXP_API_REG_03 Register with Various Emails
-
-- **Endpoint:** registration
-- **Purpose:** explore how the system handles registration with different emails, including emails with:
-    - hyphen placement
-    - subdomains
-    - dot placement
-    - whitespaces placement
-    - emoji
-    - control characters<br>
-      Confirm whether the system accepts and processes these formats correctly during both registration and login.
-- **Preconditions:** user is not registered
-- **Test Data (Email):**
-    1. pippin@hyphen-hobbiton.com - hyphen in domain
-    2. subdomain@hobbiton.shire.com - email with subdomains
-    3. nodot@examplecom - no dot in domain
-    4. beforedot@.com - no char before dot in domain
-    5. afterdot@example. - no char after dot in domain
-    6. dot..dot@example.com - multiple dots
-    7. leadspace@example.com - leading whitespace
-    8. white space@example.com - internal whitespace
-    9. trailspace@example.com - trailing whitespace
-    10. emo😈ji@example.com - emoji
-    11. new\nline@example.com - new line character
-    12. has     tab@example.com - tabulation
-- **Steps** for each email:
-    1. send a POST request
-       ``
-       {  
-           "username": "<email>",  
-           "password": "RingBearer42!"  
-       }
-       ``
-    2. after registration attempt to log in using the same credentials.
-- **Exploration Focus:**
-    - Does registration succeed?
-    - Does login succeed afterward with the same credentials?
-- **Notes:**
-    * RFC 1035 allows hyphens in domain names (except at the start/end of a label)
-    * RFC 1035 allows subdomains
-    * most API reject email with no dot in domain
-    * RFC 1035 states that domain label must contain at least one alphanumeric character before and after the dot
-    * RFC 5322 does not allow unescaped whitespaces
-    * RFC 5322 does not allow dots in unquoted local-parts of an email address
-    * RFC 5322 does not allow control characters (\n, \t)
 
 ### EXP_API_REG_04 Register with Various Passwords
 
