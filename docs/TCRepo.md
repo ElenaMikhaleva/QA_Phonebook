@@ -1,6 +1,8 @@
 
 # Summary
 
+Exploratory sessions are kept in STD, STR.
+
 ## Scenario Test Cases
 
 | ID           | Title                           | Test Type | Level | Component    | Version         | Status                         |
@@ -36,8 +38,6 @@
 | UI_LOG_N_02  | Log in with Missing Email       | Negative  | UI    | Login        | High-level only | Not Executed                   |
 | UI_LOG_N_03  | Log in with Missing Password    | Negative  | UI    | Login        | High-level only | Not Executed                   |
 | UI_LOG_N_04  | Log in with Rapid Clicking      | Negative  | UI    | Login        | High-level only | Not Executed                   |
-
-Exploratory sessions are written in STD, STR.
 
 # Detailed Tests
 
