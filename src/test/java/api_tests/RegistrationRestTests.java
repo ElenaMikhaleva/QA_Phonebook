@@ -122,7 +122,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
         softAssert.assertAll();
     }
 
-    @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "longEmail")
+    @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "EXP_AUTH_02_data")
     public void EXP_AUTH_02_test(String email, String password, String descr) {
         logger.info("Authentication with Long Email");
 
@@ -139,9 +139,9 @@ public class RegistrationRestTests extends AuthenticationController implements B
         softAssert.assertAll();
     }
 
-    @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "differentEmails")
+    @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "EXP_AUTH_03_data")
     public void EXP_AUTH_03_test(String email, String password, String descr) {
-        logger.info("Register with Various Emails");
+        logger.info("Authentication with Various Emails");
 
         User user = User.builder()
                 .username(email)
@@ -155,4 +155,19 @@ public class RegistrationRestTests extends AuthenticationController implements B
         softAssert.assertAll();
     }
 
+    @Test(groups="str", dataProviderClass = UserDP.class, dataProvider = "differentPasswords")
+    public void EXP_AUTH_04_test(String email, String password, String descr) {
+        logger.info("Authentication with Various Passwords");
+
+        User user = User.builder()
+                .username(email)
+                .password(password)
+                .build();
+        Response response = requestRegLogin(user, REGISTRATION_URL);
+        logResponse(response, user, descr);
+        if (response.getBody().asString().contains("token")) {
+            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "LOG IN with the same credentials"));
+        }
+        softAssert.assertAll();
+    }
 }

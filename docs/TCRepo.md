@@ -3,52 +3,41 @@
 
 ## Scenario Test Cases
 
-| ID           | Title                           | Test Type | Level | Component    | Version         | Status                    |
-|--------------|---------------------------------|-----------|-------|--------------|-----------------|---------------------------|
-| API_REG_P_01 | Register with Valid Credentials | Positive  | API   | Registration | Details below   | Executed 02/08/25         |
-| API_REG_P_02 | Register with Existing Password | Positive  | API   | Registration | Details below   | Not Executed              |
-| API_REG_N_01 | Register with Missing Email     | Negative  | API   | Registration | Details below   | Executed 02/08/25         |
-| API_REG_N_02 | Register with Missing Password  | Negative  | API   | Registration | Details below   | Not Executed              |
-| API_REG_N_03 | Register with Invalid Email     | Negative  | API   | Registration | Details below   | Executed 17/08/25         |
-| API_REG_N_04 | Register with Invalid Password  | Negative  | API   | Registration | Details below   | Executed 02/08/25         |
-| API_REG_N_05 | Register with Duplicate Email   | Negative  | API   | Registration | Details below   | Executed 02/08/25         |
-| API_LOG_P_01 | Log in with Registered Email    | Positive  | API   | Login        | Details below   | Executed 03/08/25         |
-| API_LOG_N_01 | Log in with Unregistered Email  | Negative  | API   | Login        | Details below   | Executed 03/08/25         |
-| API_LOG_N_02 | Log in with Wrong Password      | Negative  | API   | Login        | Details below   | Executed 03/08/25         |
-| API_LOG_N_03 | Log in with Missing Email       | Negative  | API   | Login        | High-level only | Not Executed              |
-| API_LOG_N_04 | Log in with Missing Password    | Negative  | API   | Login        | High-level only | Not Executed              |
-| UI_NAV_P_01  | Open Home Page from Navigation  | Positive  | UI    | Navigation   | High-level only | Not Executed              |
-| UI_NAV_P_02  | Open About Page from Navigation | Positive  | UI    | Navigation   | High-level only | Not Executed              |
-| UI_NAV_P_03  | Open Login Page from Navigation | Positive  | UI    | Navigation   | High-level only | Executed with Login Tests |
-| UI_REG_P_01  | Register with Valid Credentials | Positive  | UI    | Registration | Details below   | Executed 15/08/25         |
-| UI_REG_P_02  | Register with Copy-Paste        | Positive  | UI    | Registration | Details below   | Executed 15/08/25         |
-| UI_REG_N_01  | Register with Missing Email     | Negative  | UI    | Registration | Details below   | Executed 15/08/25         |
-| UI_REG_N_02  | Register with Missing Password  | Negative  | UI    | Registration | High-level only | Not Executed              |
-| UI_REG_N_03  | Register with All Empty Fields  | Negative  | UI    | Registration | Details below   | Executed 15/08/25         |
-| UI_REG_N_04  | Register with Invalid Email     | Negative  | UI    | Registration | Details below   | Executed 17/08/25         |
-| UI_REG_N_05  | Register with Invalid Password  | Negative  | UI    | Registration | Details below   | Executed 17/08/25         |
-| UI_REG_N_06  | Register with Duplicate Email   | Negative  | UI    | Registration | Details below   | Executed 17/08/25         |
-| UI_REG_N_07  | Register with Rapid Clicking    | Negative  | UI    | Registration | Details below   | Executed 17/08/25         |
-| UI_LOG_P_01  | Log in with Valid Credentials   | Positive  | UI    | Login        | Details below   | Executed 17/08/25         |
-| UI_LOG_P_02  | Log in with with Copy-Paste     | Positive  | UI    | Login        | High-level only | Not Executed              |
-| UI_LOG_P_03  | Log in with with Autofill       | Positive  | UI    | Login        | Details below   | Executed 17/08/25         |
-| UI_LOG_N_01  | Log in with Unregistered Email  | Negative  | UI    | Login        | Details below   | Executed 17/08/25         |
-| UI_LOG_N_02  | Log in with Missing Email       | Negative  | UI    | Login        | High-level only | Not Executed              |
-| UI_LOG_N_03  | Log in with Missing Password    | Negative  | UI    | Login        | High-level only | Not Executed              |
-| UI_LOG_N_04  | Log in with Rapid Clicking      | Negative  | UI    | Login        | High-level only | Not Executed              |
+| ID           | Title                           | Test Type | Level | Component    | Version         | Status                         |
+|--------------|---------------------------------|-----------|-------|--------------|-----------------|--------------------------------|
+| API_REG_P_01 | Register with Valid Credentials | Positive  | API   | Registration | Details below   | Executed 02/08/25              |
+| API_REG_P_02 | Register with Existing Password | Positive  | API   | Registration | Details below   | Not Executed                   |
+| API_REG_N_01 | Register with Missing Email     | Negative  | API   | Registration | Details below   | Executed 02/08/25              |
+| API_REG_N_02 | Register with Missing Password  | Negative  | API   | Registration | Details below   | Not Executed                   |
+| API_REG_N_03 | Register with Invalid Email     | Negative  | API   | Registration | Details below   | Executed 17/08/25              |
+| API_REG_N_04 | Register with Invalid Password  | Negative  | API   | Registration | Details below   | Executed 02/08/25              |
+| API_REG_N_05 | Register with Duplicate Email   | Negative  | API   | Registration | Details below   | Executed 02/08/25              |
+| API_LOG_P_01 | Log in with Registered Email    | Positive  | API   | Login        | Details below   | Executed 03/08/25              |
+| API_LOG_N_01 | Log in with Unregistered Email  | Negative  | API   | Login        | Details below   | Executed 03/08/25              |
+| API_LOG_N_02 | Log in with Wrong Password      | Negative  | API   | Login        | Details below   | Executed 03/08/25              |
+| API_LOG_N_03 | Log in with Missing Email       | Negative  | API   | Login        | High-level only | Not Executed                   |
+| API_LOG_N_04 | Log in with Missing Password    | Negative  | API   | Login        | High-level only | Not Executed                   |
+| UI_NAV_P_01  | Open Home Page from Navigation  | Positive  | UI    | Navigation   | High-level only | Executed with Navigation Tests |
+| UI_NAV_P_02  | Open About Page from Navigation | Positive  | UI    | Navigation   | High-level only | Executed with Navigation Tests |
+| UI_NAV_P_03  | Open Login Page from Navigation | Positive  | UI    | Navigation   | High-level only | Executed with Login Tests      |
+| UI_REG_P_01  | Register with Valid Credentials | Positive  | UI    | Registration | Details below   | Executed 15/08/25              |
+| UI_REG_P_02  | Register with Copy-Paste        | Positive  | UI    | Registration | Details below   | Executed 15/08/25              |
+| UI_REG_N_01  | Register with Missing Email     | Negative  | UI    | Registration | Details below   | Executed 15/08/25              |
+| UI_REG_N_02  | Register with Missing Password  | Negative  | UI    | Registration | High-level only | Not Executed                   |
+| UI_REG_N_03  | Register with All Empty Fields  | Negative  | UI    | Registration | Details below   | Executed 15/08/25              |
+| UI_REG_N_04  | Register with Invalid Email     | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
+| UI_REG_N_05  | Register with Invalid Password  | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
+| UI_REG_N_06  | Register with Duplicate Email   | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
+| UI_REG_N_07  | Register with Rapid Clicking    | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
+| UI_LOG_P_01  | Log in with Valid Credentials   | Positive  | UI    | Login        | Details below   | Executed 17/08/25              |
+| UI_LOG_P_02  | Log in with with Copy-Paste     | Positive  | UI    | Login        | High-level only | Not Executed                   |
+| UI_LOG_P_03  | Log in with with Autofill       | Positive  | UI    | Login        | Details below   | Executed 17/08/25              |
+| UI_LOG_N_01  | Log in with Unregistered Email  | Negative  | UI    | Login        | Details below   | Executed 17/08/25              |
+| UI_LOG_N_02  | Log in with Missing Email       | Negative  | UI    | Login        | High-level only | Not Executed                   |
+| UI_LOG_N_03  | Log in with Missing Password    | Negative  | UI    | Login        | High-level only | Not Executed                   |
+| UI_LOG_N_04  | Log in with Rapid Clicking      | Negative  | UI    | Login        | High-level only | Not Executed                   |
 
-## Exploratory Sessions
-
-| EXP_API_REG_04 | Register with Various Passwords                  | API                 | Registration  | Details below      | Executed 02/08/25 |
-| EXP_API_REG_05 | Register with Invalid Header                     | API                 | Registration  | Details below      | Executed 02/08/25 |
-| EXP_API_REG_06 | Register with Malformed JSON Body                | API                 | Registration  | Details below      | Executed 02/08/25 |
-| EXP_UI_NAV_01  | Navigate Using Keyboard                          | UI                  | Navigation    | High-level only    | Not Executed      |
-| EXP_UI_REG_01  | Fill and Submit Using Keyboard                   | UI                  | Registration  | High-level only    | Not Executed      |
-| EXP_UI_REG_02  | Register with Various Emails                     | UI                  | Registration  | High-level only    | Not Executed      |
-| EXP_UI_REG_03  | Register with Various Passwords                  | UI                  | Registration  | High-level only    | Not Executed      |
-| EXP_UI_LOG_01  | Fill and Submit Using Keyboard                   | UI                  | Login         | High-level only    | Not Executed      |
-| EXP_UI_LOG_02  | Log in with Various Emails                       | UI                  | Login         | High-level only    | Not Executed      |
-| EXP_UI_LOG_03  | Log in with Various Passwords                    | UI                  | Login         | High-level only    | Not Executed      |
+Exploratory sessions are written in STD, STR.
 
 # Detailed Tests
 
@@ -369,63 +358,3 @@
 - **Expected Result:**
   1. User is not logged in
   2. Error message "Wrong email or password" (requirement F4)
-
-
-
-
-
-### EXP_API_REG_04 Register with Various Passwords
-
-- **Endpoint:** registration
-- **Purpose:** explore how the system handles registration using various passwords, including password with:
-    - special characters that are not listed in requirements<br>
-    - whitespaces
-    - control characters
-      Confirm whether the system accepts and processes these formats correctly.
-- **Preconditions:** user is not registered
-- **Test Data (Password):**
-    1. P@ssw0rd? - allowed special character and also not listed special character
-    2. P@s'"\/<>``;8 - allowed special characters and '"\/<>`;
-    3. P@ss w0rd - whitespace
-    4. P@ss\nw0rd - new line character
-    5. P@ss     w0rd - tabulation
-- **Steps** for each password:
-    1. send a POST request
-       ``
-       {  
-           "username": "<generated email>",  
-           "password": "<password>"  
-       }
-       ``
-    2. after registration attempt to log in using the same credentials.
-- **Exploration Focus:**
-    - Does registration succeed?
-    - Does login succeed afterward with the same credentials?
-- **Notes:**
-    - requirements that one of listed special characters (@$#^&*!) is required in password
-    - special characters ('"\/<>`;) can lead to SQL injection, JSON injection, HTML injection, or Cross-Site Scripting (XSS) if input is not properly sanitized or escaped.
-
-### EXP_API_REG_05 Register with Invalid Header
-
-- **Endpoint:** registration
-- **Purpose:** investigate how the API handles an invalid Content-Type header.
-- **Preconditions:** user is not registered
-- **Steps**
-    1. send POST request
-        * Header: ``Content-Type: text/plain``
-        * Body: ``{ "username": "wrongheader@example.com", "password": "P@ssw0rd" }``
-- **Exploration Focus:**
-    - Does the API reject non-application/json content types?
-    - What HTTP status code is returned (e.g., 415 Unsupported Media Type)?
-    - Is the error message clear and specific?
-
-### EXP_API_REG_06 Register with Malformed JSON Body
-
-- **Endpoint:** registration
-- **Purpose:** examine API behavior when receiving improperly formatted JSON.
-- **Preconditions:** user is not registered
-- **Steps:** send POST request with malformed JSON (without comma) ``{ "username": "wrongheader@example.com" "password": "P@ssw0rd" }``
-- **Exploration Focus:**
-    - Does the API detect and handle malformed JSON?
-    - What HTTP status code is returned (e.g., 400 Bad Request)?
-    - Does the API provide a meaningful error message?

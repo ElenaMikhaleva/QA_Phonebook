@@ -29,6 +29,9 @@ So, every test marked as "Automated" is executed manually and automatically.
 | API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Functional flow                             |
 | API_LOG_N_01 | Log in with Unregistered Email  | API   | Login        | Automated        | Functional flow                             |
 | API_LOG_N_02 | Log in with Wrong Password      | API   | Login        | Automated        | Functional flow                             |
+| UI_NAV_P_01  | Open Home Page from Navigation  | UI    | Navigation   | Manual           | Execution with EXP_NAV_01                   |
+| UI_NAV_P_02  | Open About Page from Navigation | UI    | Navigation   | Manual           | Execution with EXP_NAV_01                   |
+| UI_NAV_P_03  | Open Login Page from Navigation | UI    | Navigation   | Manual           | Execution with UI_LOG_P_01                  |
 | UI_REG_P_01  | Register with Valid Credentials | UI    | Registration | Automated        | Functional flow                             |
 | UI_REG_P_02  | Register with Copy-Paste        | UI    | Registration | Manual           | Functional flow                             |
 | UI_REG_N_01  | Register with Missing Email     | UI    | Registration | Manual           | Missing of the key field                    |
@@ -41,21 +44,16 @@ So, every test marked as "Automated" is executed manually and automatically.
 | UI_LOG_P_03  | Log in with with Autofill       | UI    | Login        | Manual           | Functional flow                             |
 | UI_LOG_N_01  | Log in with Unregistered Email  | UI    | Login        | Automated        | Error handling                              |
 
-## Exploratory Tests
+## Exploratory Sessions
 
-| ID          | Title                                            | Component           | Reason for Inclusion |
-|-------------|--------------------------------------------------|---------------------|----------------------|
-| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login | Practice             |
-| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login | Practice             |
-| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login | Edge cases           |
-
-| EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Manual (Postman) | Edge cases, security |
-| EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Manual (Postman) | Format errors        |
-| EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Manual (Postman) | Format errors        |
-| EXP_UI_NAV_01  | Navigate Using Keyboard           | UI    | Navigation   | Automated        | Practice             |
-| EXP_UI_REG_02  | Register with Various Emails      | UI    | Registration | Manual           | Edge cases           |
-| EXP_UI_LOG_01  | Fill and Submit Using Keyboard    | UI    | Login        | Automated        | Practice             |
-| EXP_UI_LOG_03  | Log in with Various Passwords     | UI    | Login        | Manual           | Edge cases           |
+| ID          | Title                                            | Component                                              | Reason for Inclusion |
+|-------------|--------------------------------------------------|--------------------------------------------------------|----------------------|
+| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login                                    | Practice             |
+| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login                                    | Practice             |
+| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login                                    | Edge cases           |
+| EXP_AUTH_04 | Authentication with Various Passwords            | Registration, Login                                    | Edge cases, security |
+| EXP_AUTH_05 | Authentication API with Invalid Request Format   | Registration, Login                                    | Format errors        |
+| EXP_NAV_01  | Navigate Using Keyboard                          | Navigation, Registration, Login, Contacts, Add Contact | Practice             |
 
 # Test Environment
 

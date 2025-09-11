@@ -6,6 +6,16 @@ public class RandomUtils {
 
     static Random random = new Random();
 
+    public static String genAnything(int length, String characters) {
+        char[] randomString = new char[length];
+        int index;
+        for (int i = 0; i<length; i++) {
+            index = random.nextInt(characters.length());
+            randomString[i] = characters.charAt(index);
+        }
+        return new String(randomString);
+    }
+
     public static String genDiacriticString(int length) {
         String characters = "áàäéèêëíîïóôöúûüç";
         char[] randomString = new char[length];

@@ -21,62 +21,79 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 | ID           | Title                           | Level | Component    | Automation       | Status          | Bug ID                         |
 |--------------|---------------------------------|-------|--------------|------------------|-----------------|--------------------------------|
-| API_REG_P_01 | Register with Valid Credentials | API   | Registration | Automated        | Passed          |                                |
+| API_REG_P_01 | Register with Valid Credentials | API   | Registration | Automated        | Passed          | -                              |
 | API_REG_N_01 | Register with Missing Email     | API   | Registration | Manual (Postman) | Failed #4       | BUG_REG_API_04                 |
 | API_REG_N_03 | Register with Invalid Email     | API   | Registration | Manual (Postman) | Failed #2, #3   | BUG_REG_API_10, BUG_REG_API_11 |
 | API_REG_N_04 | Register with Invalid Password  | API   | Registration | Automated        | Failed #5, #7   | BUG_REG_API_01, BUG_REG_API_02 |
 | API_REG_N_05 | Register with Duplicate Email   | API   | Registration | Automated        | Failed          | BUG_REG_API_03                 |
-| API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Passed          |                                |
+| API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Passed          | -                              |
 | API_LOG_N_01 | Log in with Unregistered Email  | API   | Login        | Automated        | Failed          | BUG_LOG_API_02                 |
 | API_LOG_N_02 | Log in with Wrong Password      | API   | Login        | Automated        | Failed          | BUG_LOG_API_02                 |
+| UI_NAV_P_01  | Open Home Page from Navigation  | UI    | Navigation   | Manual           | Passed          |                                |
+| UI_NAV_P_02  | Open About Page from Navigation | UI    | Navigation   | Manual           | Passed          |                                |
+| UI_NAV_P_03  | Open Login Page from Navigation | UI    | Navigation   | Manual           | Passed          |                                |
 | UI_REG_P_01  | Register with Valid Credentials | UI    | Registration | Automated        | Failed (mobile) | BUG_HOM_UI_01                  |
-| UI_REG_P_02  | Register with Copy-Paste        | UI    | Registration | Manual           | Passed          |                                |
+| UI_REG_P_02  | Register with Copy-Paste        | UI    | Registration | Manual           | Passed          | -                              |
 | UI_REG_N_01  | Register with Missing Email     | UI    | Registration | Manual           | Failed          | BUG_REG_UI_03                  |
-| UI_REG_N_03  | Register with All Empty Fields  | UI    | Registration | Manual           | Passed          |                                |
+| UI_REG_N_03  | Register with All Empty Fields  | UI    | Registration | Manual           | Passed          | -                              |
 | UI_REG_N_04  | Register with Invalid Email     | UI    | Registration | Automated        | Failed #2, #3   | BUG_REG_UI_05, BUG_REG_UI_06   |
 | UI_REG_N_05  | Register with Invalid Password  | UI    | Registration | Manual           | Failed #5, #7   | BUG_REG_UI_01, BUG_REG_UI_02   |
 | UI_REG_N_06  | Register with Duplicate Email   | UI    | Registration | Automated        | Failed          | BUG_REG_UI_08                  |
-| UI_REG_N_07  | Register with Rapid Clicking    | UI    | Registration | Manual           | Passed          |                                |
-| UI_LOG_P_01  | Log in with Valid Credentials   | UI    | Login        | Automated        | Passed          |                                |
-| UI_LOG_P_03  | Log in with with Autofill       | UI    | Login        | Manual           | Passed          |                                |
-| UI_LOG_N_01  | Log in with Unregistered Email  | UI    | Login        | Automated        | Passed          |                                |
+| UI_REG_N_07  | Register with Rapid Clicking    | UI    | Registration | Manual           | Passed          | -                              |
+| UI_LOG_P_01  | Log in with Valid Credentials   | UI    | Login        | Automated        | Passed          | -                              |
+| UI_LOG_P_03  | Log in with with Autofill       | UI    | Login        | Manual           | Passed          | -                              |
+| UI_LOG_N_01  | Log in with Unregistered Email  | UI    | Login        | Automated        | Passed          | -                              |
 
 ## Exploratory Tests
 
-| ID          | Title                                            | Component           | Bug ID         |
-|-------------|--------------------------------------------------|---------------------|----------------|
-| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login | BUG_LOG_API_01 |
-| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login |                |
-| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login |                |
-
-| EXP_API_REG_04 | Register with Various Passwords   | API   | Registration | Manual (Postman) | EXP_RPT_API_04 | BUG_REG_API_05, BUG_REG_API_06, BUG_REG_API_07 |
-| EXP_API_REG_05 | Register with Invalid Header      | API   | Registration | Manual (Postman) | EXP_RPT_API_05 | BUG_REG_API_08                                 |
-| EXP_API_REG_06 | Register with Malformed JSON Body | API   | Registration | Manual (Postman) | EXP_RPT_API_06 | BUG_REG_API_09                                 |
-| EXP_UI_NAV_01  | Navigate Using Keyboard           | UI    | Navigation   | Automated        |                |                                                |
-| EXP_UI_REG_02  | Register with Various Emails      | UI    | Registration | Manual           |                |                                                |
-| EXP_UI_LOG_01  | Fill and Submit Using Keyboard    | UI    | Login        | Automated        |                |                                                |
-| EXP_UI_LOG_03  | Log in with Various Passwords     | UI    | Login        | Manual           |                |                                                |
+| ID          | Title                                            | Component                                              | Bug ID         |
+|-------------|--------------------------------------------------|--------------------------------------------------------|----------------|
+| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login                                    | BUG_LOG_API_01 |
+| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login                                    | -              |
+| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login                                    | -              |
+| EXP_AUTH_04 | Authentication with Various Passwords            | Registration, Login                                    | BUG_REG_API_12 |
+| EXP_AUTH_05 | Authentication API with Invalid Request Format   | Registration, Login                                    | BUG_REG_API_12 |
+| EXP_NAV_01  | Navigate Using Keyboard                          | Navigation, Registration, Login, Contacts, Add Contact | -              |
 
 # Summary
 
-- **Total tests planned:** 20
-  - 12 test cases
-  - 8 exploratory tests
-- **Tests executed:** 13 tests
-  - 7 test cases
-  - 6 exploratory tests
-- **Passed:** 2 test case
-- **Failed:** 5 test cases
-  - test case API_REG_N_04 failed due to 2 out of 7 data sets failing
-  - test case API_REG_N_05 failed due to 2 out of 2 data sets failing
-  - test case API_REG_N_01 failed due to 1 out of 4 data sets failing
-  - 4 bugs are found during execution of exploratory tests
-- **Skipped:** 7 tests
+## Tests
+
+- **Total Tests Written (Repository):** 31 tests
+- **Tests Planned for Execution:** 22 tests
+- **Tests Executed:** 22 tests
+  - Passed: 11 tests
+  - Failed: 11 tests
+  - Pass Rate: 50%
+- Automated Tests: 11 tests (all tests are executed manually first)
+
+- **Exploratory Sessions Planned for Execution:** 6 sessions
+- Bugs Found During Exploratory Sessions: 3 bugs
+
+## Bugs
+
+- **Total Bugs Found:** 26 bugs
+  - Critical: 1 bug
+  - High: 2 bugs
+  - Medium: 18 bugs
+  - Low: 5 bugs
+- **Bugs Density:**
+  - Home Page: 1 bug
+  - Navigation: 0 bugs
+  - Registration: 20 bugs
+  - Login: 4 bugs
+  - Contact List: 1 bug
+
+## Coverage
+
+- **Requirements Covered by Tests:** 19%
+- **Modules Covered:** Navigation, Registration, Login
+- **Untested Areas:** All Contacts, Add Contact, Delete Contact, Update Contact, Sign out, Security, Interruption Testing
 
 **Notes:**
-- The Registration API has critical issues around password validation and email casing that may impact security and user experience. 
+- The Registration API has critical issues around password validation and email casing that may impact security and user experience. Some requests result in 500 Response.
 - Response schema need alignment with specifications to ensure consistency.
-- Some functional and validation requirements (EXP_RPT_API_01, EXP_API_REG_03) are not fully defined, leading to ambiguity in expected behavior.
+- Some functional and validation requirements are not fully defined, leading to ambiguity in expected behavior.
 
 # Test Artifacts
 - **Test Cases and Data:** docs/STD.md
@@ -94,8 +111,9 @@ Focused on testing the Registration and Login, including exploratory testing per
     - test_logs/log-20250817T145357.log
     - test_logs/log-20250817T150058.log
     - test_logs/log-20250817T150148.log
-- **Postman Runs:**
-  - src/test/postman/postman_reg_test_run.json
+    - test_logs/log-20250911T202458.log
+  - Postman Runs:
+    - src/test/postman/postman_reg_test_run.json
 
 # Bug Reports
 
@@ -189,53 +207,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   2. No message in the body of JSON
 - **Attachments:** src/test/postman/postman_reg_test_run.json
 
-## BUG_REG_API_05 Registration API Fails with Special Characters in Password (500 Error)
 
-- **Severity:** Medium (frontend handles the characters, user registers successfully and can log in after)
-- **Test ID:** EXP_RPT_API_04
-- **Environment:** Postman
-- **Component:** Registration API
-- **Steps:**
-  1. send POST request to registration endpoint with allowed special characters and '"\/<>`<br>
-    ``{ "username": "test1754163739867@mail.com", "password": "P@s'"\/<>`;8" }``
-- **Expected Result:**
-  1. API returns 200 OK or 400 Bad Request
-  2. Password is handled safely
-- **Actual Result:**
-  1. API returns 500 Internal Server Error
-- **Attachments:** src/test/postman/postman_reg_test_run.json
-
-## BUG_REG_API_06 Registration API Fails with \n in Password (500 Error)
-
-- **Severity:** Medium (frontend handles it, user registers successfully and can log in after)
-- **Test ID:** EXP_RPT_API_04
-- **Environment:** Postman
-- **Component:** Registration API
-- **Steps:**
-  1. send POST request to registration endpoint with new line character in password<br>
-     ``{ "username": "test1754164036005@mail.com", "password": "P@ss\nw0rd" }``
-- **Expected Result:**
-  1. API returns 200 OK or 400 Bad Request
-  2. Password is handled safely
-- **Actual Result:**
-  1. API returns 500 Internal Server Error
-- **Attachments:** src/test/postman/postman_reg_test_run.json
-
-## BUG_REG_API_07 Registration API Fails with \t in Password (500 Error)
-
-- **Severity:** Medium (frontend handles it, user registers successfully and can log in after)
-- **Test ID:** EXP_RPT_API_04
-- **Environment:** Postman
-- **Component:** Registration API
-- **Steps:**
-  1. send POST request to registration endpoint with tabulation in password<br>
-     ``{ "username": "test1754164138206@mail.com", "password": "P@ss\tw0rd" }``
-- **Expected Result:**
-  1. API returns 200 OK or 400 Bad Request
-  2. Password is handled safely
-- **Actual Result:**
-  1. API returns 500 Internal Server Error
-- **Attachments:** src/test/postman/postman_reg_test_run.json
 
 ## BUG_REG_API_08 Registration API Fails with Invalid Header (500 Error)
 
@@ -294,9 +266,31 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Component:** Registration API
 - **Requirements Reference:** requirement T3
 - **Steps:**<br>
-  1. Enter JSON with email without @ ``{ "username": "hjzmdldxwt.com", "password": "Sc7^2F8YRu7K" }``
+  1. Send JSON with email without @ ``{ "username": "hjzmdldxwt.com", "password": "Sc7^2F8YRu7K" }``
 - **Expected Result:** user is not registered
 - **Actual Result:** user is registered
+
+## BUG_REG_API_12 Registration API returns 500 Error
+
+- **Severity:** High
+- - **Test ID:** EXP_AUTH_04
+- **Environment:** Postman
+- **Component:** Registration API
+- **Test Data:**
+  1. password with characters `'"\/<>;`: PCyv53/`, AHwd99&&/<
+  2. password with new line character: Fl3!Q6mibn\n
+  3. password with tabulation: Ej7#8EdQew\t
+  4. header `Content-Type: text/plain`, JSON in body
+  5. header `Content-Type: text/plain`, plain text "not a json" in body
+  6. no Content-Type header
+  7. no comma in body: `{ "username": "Giovani39@example.com" "password": "P@ssw0rd" }`
+  8. "email" instead of "username": `{ "email": "Giovani39@example.com", "password": "P@ssw0rd" }`
+  9. new "state" key: `{ "username": "elena65748@gmail.com", "password": "P@ssw0rd", "state": "CA" }`
+- **Steps:**<br>
+  1. Send JSON with test data
+- **Expected Result:** Response Code < 500
+- **Actual Result:** 500 Internal Server Error
+- **Attributes:** src/test/postman/postman_reg_test_run.json
 
 ## BUG_REG_UI_01 Registration UI Accepts Passwords with Non-English Letters
 
@@ -602,7 +596,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ### EXP_AUTH_03 Authentication with Various Emails
 
-- **Session goal:** explore how the system handles registration and login with emails, containing special characters, emoji, control characters
+- **Session goal:** explore how the system handles registration and login with emails, containing special characters, emoji, control characters.
 - **Scope:**
   - API Registration, email field
   - API Login, email field
@@ -613,31 +607,33 @@ Focused on testing the Registration and Login, including exploratory testing per
   - Postman for API
   - Chrome Desktop
   - Java for Automated Tests (for practice)
-- **Test Ideas:**
+- **Test Ideas (Email):**
   1. hyphen (`pippin@hyphen-hobbiton.com`, `pippin@-hobbiton.com`, `pippin@hobbiton-.com`)
   2. dot placement (`subdomain@hobbiton.shire.com`, `nodot@examplecom`, `beforedot@.com`, `afterdot@example.`, `dot..dot@example.com`)
   3. whitespace (` leadspace@example.com`, `white space@example.com`, `trailspace@example.com `)
-  4. emoji (`emo😈ji@example.com - emoji`)
+  4. emoji (`emo😈ji@example.com`)
   5. control characters (`new\nline@example.com`, `has     tab@example.com`)
 - **Test info:** automated test method `EXP_AUTH_03_test()`
 - **Results:**
 
-  | Email                                | API Reg         | UI Reg | API Login                         | UI Login |
-  |--------------------------------------|-----------------|--------|-----------------------------------|----------|
-  | ouryx@test-example.com               | 200 OK          | 200 OK | Success                           | Success  |
-  | ouryx@-example.com                   | 400 Bad Request | -      | Failed, request is sent to server | -        |
-  | ouryx@example-.com                   | 400 Bad Request | -      | Failed, request is sent to server | -        |
-  | ujscl@test.example.com               | 200 OK          | 200 OK | Success                           | Success  |
-  | qkbjd@examplecom                     | 200 OK          | 200 OK | Success                           | Success  |
-  | mthlq@.com                           | 400 Bad Request | -      | -                                 | -        |
-  | lqlzu@example.                       | 400 Bad Request | -      | -                                 | -        |
-  | bm..hf@example.com                   | 400 Bad Request | -      | -                                 | -        |
-  | vxdnr@example.com (lead. whitespace) | 400 Bad Request | -      | Failed, request is sent to server | -        |
-  | my zp@example.com                    | 400 Bad Request | -      | -                                 | -        |
-  | krnxb@example.com (trail. whitespace | 400 Bad Request | -      | -                                 | -        |
-  | opnlg😈@example.com                  | 400 Bad Request | -      | Failed, request is sent to server | -        |
-  | vm\nvl@example.com                   | 400 Bad Request | -      | Failed, request is sent to server | -        |
-  | cy\tei@example.com                   | 400 Bad Request | -      | Failed, request is sent to server | -        |
+  | Email                                 | API Reg         | API Login | UI Reg                              | UI Login |
+  |---------------------------------------|-----------------|-----------|-------------------------------------|----------|
+  | ouryx@test-example.com                | 200 OK          | 200 OK    | Accepted                            | Accepted |
+  | ouryx@-example.com                    | 400 Bad Request | -         | Declined, request is sent to server | -        |
+  | ouryx@example-.com                    | 400 Bad Request | -         | Declined, request is sent to server | -        |
+  | ujscl@test.example.com                | 200 OK          | 200 OK    | Accepted                            | Accepted |
+  | qkbjd@examplecom                      | 200 OK          | 200 OK    | Accepted                            | Accepted |
+  | mthlq@.com                            | 400 Bad Request | -         | -                                   | -        |
+  | lqlzu@example.                        | 400 Bad Request | -         | -                                   | -        |
+  | bm..hf@example.com                    | 400 Bad Request | -         | -                                   | -        |
+  | vxdnr@example.com (lead. whitespace)  | 400 Bad Request | -         | Declined, request is sent to server | -        |
+  | my zp@example.com                     | 400 Bad Request | -         | -                                   | -        |
+  | krnxb@example.com (trail. whitespace) | 400 Bad Request | -         | -                                   | -        |
+  | opnlg😈@example.com                   | 400 Bad Request | -         | Declined, request is sent to server | -        |
+  | vm\nvl@example.com                    | 400 Bad Request | -         | Declined, request is sent to server | -        |
+  | cy\tei@example.com                    | 400 Bad Request | -         | Declined, request is sent to server | -        |
+
+  System behavior is partly aligned with RFCs, but expected rules for email validation are not documented.
 - **Notes:**
   - RFC 1035 allows hyphens in domain names (except at the start/end of a label). The system behaviour is the same.
   - RFC 1035 allows subdomains. The system behaviour is the same.
@@ -646,70 +642,104 @@ Focused on testing the Registration and Login, including exploratory testing per
   - RFC 5322 does not allow unescaped whitespaces. The system behaviour is the same.
   - RFC 5322 does not allow dots in unquoted local-parts of an email address. The system behaviour is the same.
   - RFC 5322 does not allow control characters (\n, \t). The system behaviour is the same.
-  - System behavior is partly aligned with RFCs, but expected rules for email validation are not documented.
 - **Attachments:** test_logs/log-20250802T194313.log
 
+### EXP_AUTH_04 Authentication with Various Passwords
 
-
-## EXP_RPT_API_04 Register with Various Passwords
-
-- **Environment:** :Postman
-- **Component:** Registration API
-- **Test ID:** EXP_API_REG_04
-- **Purpose:** explore how the system handles registration using various passwords
-- **Test info:** automated test method `EXP_API_REG_04()`
-- **Test data:**
-  1. ``{ "username": "test1754157208522@example.com", "password": "P@ssw0rd?" }`` - allowed special character (@$#^&*!) and also not listed special character
-  2. ``{ "username": "test1754163739867@example.com", "password": "P@s'"\/<>`;8" }`` - allowed special characters and '"\/<>`
-  3. ``{ "username": "test1754163901212@example.com", "password": "P@ss w0rd" }`` - whitespace
-  4. ``{ "username": "test1754164036005@example.com", "password": "P@ss\nw0rd" }`` - new line character
-  5. ``{ "username": "test1754164138206@example.com", "password": "P@ss\tw0rd" }`` - tabulation
-  6. ``{ "username": "test1754164301962@example.com", "password": "Passw0rd?" }`` - [add] not listed special characters without allowed special characters
-
-- **Steps:**
-  1. send a POST request to the registration endpoint
-  2. if registration was successful try to log in using the same credentials
+- **Session goal:** explore how the system handles registration using various passwords, including password with special characters that are not listed in requirements, whitespaces, control characters.
+- **Scope:**
+  - API Registration, password field
+  - API Login, password field
+  - UI Registration, password field
+  - UI Login, password field
+- **Time:** 30 minutes
+- **Environment:**
+  - Postman for API
+  - Chrome Desktop
+  - Java for Automated Tests (for practice)
+- **Test Ideas (Password):**
+  1. allowed special characters (`P@ssw0rd`)
+  2. characters that are not listed in allowed special characters (`Passw0rd?`, `P@ssw0rd?`, `Pas'"\/<>``;8`, `P@s'"\/<>``;8`)
+  3. whitespace (` P@ssw0rd`, `P@ss w0rd`, `P@ssw0rd `)
+  4. control characters (`P@ss\nw0rd`, `P@ss\tw0rd`)
+  5. emoji (`P@ss😈w0rd`)
+- **Test info:** automated test method `EXP_AUTH_04_test()`
 - **Results:**
-  - data sets 1, 3 are accepted for registration and log in
-  - data sets 2, 4, 5 cause server error - BUG_API_04
-  - data set 6 is rejected
 
-  | Data | Password     | Result                    | Log in |
-  |------|--------------|---------------------------|--------|
-  | 1    | P@ssw0rd?    | 200 OK                    | 200 OK |
-  | 2    | P@s'"\/<>`;8 | 500 Internal Server Error |        |
-  | 3    | P@ss w0rd    | 200 OK                    | 200 OK |
-  | 4    | P@ss\nw0rd   | 500 Internal Server Error |        |
-  | 5    | P@ss\tw0rd   | 500 Internal Server Error |        |
-  | 6    | Passw0rd?    | 400 Bad Request           |        |
+  | Password (API)                 | API Reg                   | API Login | Password(UI) | UI Reg                                                           | UI Login    |
+  |--------------------------------|---------------------------|-----------|--------------|------------------------------------------------------------------|-------------|
+  | Ij8@0aWzyX                     | 200 OK                    | 200 OK    | Ij8@0aWzy    | Accepted                                                         | Accepted    |
+  | PZDthk238~_                    | 400 Bad Request           | -         | PZDthk238~   | Declined, request is sent to the server                          | -           |
+  | KMos78$!%%                     | 200 OK                    | -         | KMos78$!%    | Accepted                                                         | Accepted    |
+  | PCyv53/`                       | 500 Internal Server Error | -         | PCyv53/`     | Declined, request is sent to the server                          | -           |
+  | AHwd99&&/<                     | 500 Internal Server Error | -         | Hwd99&&/<    | Declined, request is sent to the server                          | Accepted    |
+  | Js2&^9!Zoe (lead. whitespace)  | 200 OK                    | 200 OK    | Js2&^9!Zo    | Accepted                                                         | Accepted    |
+  | Cn1@f Pa5$t                    | 200 OK                    | 200 OK    | n1@f Pa5$t   | Accepted                                                         | Accepted    |
+  | Eq4#t@hmPE (trail. whitespace) | 200 OK                    | 200 OK    | Eq4#t@hmP    | Accepted                                                         | Accepted    |
+  | Fl3!Q6mibn\n                   | 500 Internal Server Error | -         | Al3!Q6mibn\n | Declined for copy-paste, keyboard input. Success for typing "\n" | Same as Reg |
+  | Ej7#8EdQew\t                   | 500 Internal Server Error | -         | j7#8EdQew\t  | Declined for copy-paste, keyboard input. Success for typing "\t" | Same as Reg |
+  | Tr4&dj2tgJ😈                   | 200 OK                    | 200 OK    | r4&dj2tgJ😈  | Accepted                                                         | Accepted    |
 
+  System doesn't register passwords that do not contain characters listed in requirements, but allows other special symbols (emoji), including potentially dangerous (`'"\/<>;`).
+  Frontend doesn't allow new line character and tabulation as copy-paste and keyboard input, but allows typing.
+  API returns server error for some special characters and control characters (BUG_REG_API_12).
+  Expected behaviour is not documented.
 - **Notes:**
-  - Error handling should be reviewed — the API must not return server errors for invalid input.
-  - Requirements should explicitly cover allowed and not allowed special characters
+  - requirements state that one of listed special characters (@$#^&*!) is required in password
+    special characters (`'"\/<>;`) can lead to SQL injection, JSON injection, HTML injection, or Cross-Site Scripting (XSS) if input is not properly sanitized or escaped.
+- **Attachments:**
+  - src/test/postman/postman_reg_test_run.json
+  - test_logs/log-20250911T202458.log
+
+## EXP_AUTH_05 Authentication with Invalid Request Format
+
+- **Session goal:** investigate how the API handles an invalid Content-Type header.
+- **Scope:**
+  - API Registration
+  - API Login
+- **Time:** 30 minutes
+- **Environment:**
+  - Postman for API
+ **Test Ideas (Password):**
+  1. wrong header (`Content-Type: text/plain`)
+  2. no header
+  3. no comma in body (`{ "username": "Giovani39@example.com" "password": "P@ssw0rd" }`)
+  4. invalid key in body ("email" instead of "username": `{ "email": "Giovani39@example.com", "password": "P@ssw0rd" }`; new "state" key: `{ "username": "elena65748@gmail.com", "password": "P@ssw0rd", "state": "CA" }`)
+ **Results:**
+  
+  | Request                                        | Component    | Response                                                                            |
+  |------------------------------------------------|--------------|-------------------------------------------------------------------------------------|
+  | `Content-Type: text/plain`, JSON in body       | Registration | 500 Internal Server Error                                                           |
+  | `Content-Type: text/plain`, plain text in body | Registration | 500 Internal Server Error                                                           |
+  | No Content-Type Header                         | Registration | 500 Internal Server Error                                                           |
+  | Malformed JSON Body (without comma)            | Registration | 500 Internal Server Error                                                           |
+  | Invalid Key in Body                            | Registration | 500 Internal Server Error, message "JSON parse error: Unrecognized field \'email\'" |
+  | Unexpected Key in Body                         | Registration | 500 Internal Server Error, message "JSON parse error: Unrecognized field \'email\'" |
+  | `Content-Type: text/plain`, JSON in body       | Login        | 200 OK                                                                              |
+  | `Content-Type: text/plain`, plain text in body | Login        | 400 Bad Request, message "Wrong format Credential Object"                           |
+  | No Content-Type Header                         | Login        | 200 OK                                                                              |
+  | Malformed JSON Body (without comma)            | Login        | 400 Bad Request, message "Wrong format Credential Object"                           |
+  | Invalid Key in Body                            | Login        | 400 Bad Request, message "Wrong format Credential Object"                           |
+  | Unexpected Key in Body                         | Login        | 400 Bad Request, message "Wrong format Credential Object"                           |
+
+  Registration API returns server error for some requests (BUG_REG_API_12)
 - **Attachments:** src/test/postman/postman_reg_test_run.json
 
-## EXP_RPT_API_05 Register with Invalid Header
+## EXP_NAV_01 Navigate Using Keyboard
 
-- **Environment:** :Postman
-- **Component:** Registration API
-- **Test ID:** EXP_API_REG_05
-- **Purpose:** investigate how the API handles an invalid Content-Type header.
-- **Steps**
-  1. send POST request to registration endpoint
-    * Header: ``Content-Type: text/plain``
-    * Body: ``{ "username": "Dudley_Steuber@example.com", "password": "P@ssw0rd" }``
-- **Results**:
-  1. API returns 500 Internal Server Error - BUG_API_05
-- **Attachments:** src/test/postman/postman_reg_test_run.json
-
-## EXP_RPT_API_06 Register with Malformed JSON Body
-
-- **Environment:** :Postman
-- **Component:** Registration API
-- **Test ID:** EXP_API_REG_06
-- **Purpose:** examine API behavior when receiving improperly formatted JSON.
-- **Steps:** 
-  1. Send POST request with malformed JSON (without comma) ``{ "username": "Giovani39@example.com" "password": "P@ssw0rd" }``
-- **Results**:
-  1. API returns 500 Internal Server Error - BUG_API_06
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Session goal:** investigate how navigation using keyboard works.
+- **Scope:**
+  - UI Header
+  - UI Registration
+  - UI Login
+- **Time:** 30 minutes
+- **Environment:**
+  - Desktop Browser
+- **Test Ideas:**
+  - go through header pages and authentication form using Tab and Enter
+  - register and log in using Tab, Enter, Shift+Enter, Ctrl+Enter
+**Results:**
+  - User can go through Header pages, Authentication form, Add Contact form using Tab and Enter. 
+  - Cannot open contact card on Contacts Page using keyboard.
+  - Expected Behaviour is not documented.
+- **Potential Issues**: keyboard cannot open contact card.

@@ -1,14 +1,6 @@
 package data_providers;
 
-import dto.User;
 import org.testng.annotations.DataProvider;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 import static utils.RandomUtils.*;
 
@@ -46,8 +38,17 @@ public class UserDP {
         };
     }
 
+    @DataProvider(name = "invalidEmail")
+    public Object[][] UI_REG_N_04_data() {
+        return new Object[][] {
+                { genLowerCase(10) + ".com", genPassword(12), "[1] without @" },
+                { genRussianString(10) + "@example.com", genPassword(12), "[2] Cyrillic characters" },
+                { genDiacriticString(7) + "@example.com", genPassword(12), "[3] diacritic characters" }
+        };
+    }
+
     @DataProvider(name = "longEmail")
-    public Object[][] EXP_API_REG_02_data() {
+    public Object[][] EXP_AUTH_02_data() {
         return new Object[][] {
                 { genLettersDigits(64) + "@" + genLowerCase(185) + ".com", genPassword(12), "[1] email 254 characters length " },
                 { genLettersDigits(65) + "@" + genLowerCase(185) + ".com", genPassword(12), "[2] email 255 characters length " },
@@ -57,7 +58,7 @@ public class UserDP {
     }
 
     @DataProvider(name = "differentEmails")
-    public Object[][] EXP_API_REG_03_data() {
+    public Object[][] EXP_AUTH_03_data() {
         return new Object[][] {
                 { genLowerCase(5) + "@test-example.com", genPassword(12), "[1] hyphen in domain" },
                 { genLowerCase(5) + "@test.example.com", genPassword(12), "[2] email with subdomains" },
@@ -74,12 +75,20 @@ public class UserDP {
         };
     }
 
-    @DataProvider(name = "invalidEmail")
-    public Object[][] UI_REG_N_04_data() {
+    @DataProvider(name = "differentPasswords")
+    public Object[][] EXP_AUTH_04_data() {
         return new Object[][] {
-                { genLowerCase(10) + ".com", genPassword(12), "[1] without @" },
-                { genRussianString(10) + "@example.com", genPassword(12), "[2] Cyrillic characters" },
-                { genDiacriticString(7) + "@example.com", genPassword(12), "[3] diacritic characters" }
+                { genEmail(14), genPassword(10), "[1] allowed special characters" },
+                { genEmail(14), genUpperCase(3)+genLowerCase(3)+genDigits(3)+genAnything(2, "%_?~"), "[2] not listed special characters" },
+                { genEmail(14), genUpperCase(2)+genLowerCase(2)+genDigits(2)+genSpecials(2)+genAnything(2, "%_?~"), "[3] not listed special chars + listed special chars" },
+                { genEmail(14), genUpperCase(2)+genLowerCase(2)+genDigits(2)+genAnything(2, "'\"\\/<>`;"), "[4] potentially dangerous chars" },
+                { genEmail(14), genUpperCase(2)+genLowerCase(2)+genDigits(2)+genSpecials(2)+genAnything(2, "'\"\\/<>`;"), "[5] potentially dangerous chars + listed special chars" },
+                { genEmail(14), " "+genPassword(10), "[6] leading whitespace" },
+                { genEmail(14), genPassword(5)+" "+genPassword(5), "[7] internal whitespace" },
+                { genEmail(14), genPassword(10)+" ", "[8] trailing whitespace" },
+                { genEmail(14), genPassword(10)+"\n", "[9] new line character" },
+                { genEmail(14), genPassword(10)+"\t", "[10] tabulation character" },
+                { genEmail(14), genPassword(10)+"\uD83D\uDE08", "[11] emoji" }
         };
     }
 }

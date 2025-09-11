@@ -2,6 +2,7 @@ package pages;
 
 import dto.User;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,8 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
     }
 
+    @FindBy(xpath = "//a[text()='LOGIN']")
+    WebElement btnHeaderLogin;
     @FindBy(xpath = "//input[@name='email']")
     WebElement inputEmail;
     @FindBy(xpath = "//input[@name='password']")
@@ -28,6 +31,11 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//button[@name='login']")
     WebElement btnLogin;
 
+    public boolean validateHeaderLogin() {
+        btnHeaderLogin.sendKeys(Keys.TAB);
+        btnHeaderLogin.sendKeys(Keys.ENTER);
+        return validateElementPresent(btnRegistration);
+    }
     public void fillAuthenticationForm(User user) {
         inputEmail.sendKeys(user.getUsername());
         inputPassword.sendKeys(user.getPassword());
