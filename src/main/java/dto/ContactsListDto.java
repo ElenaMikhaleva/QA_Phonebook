@@ -7,7 +7,8 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class ContactsDto {
+public class ContactsListDto {
 
     private Contact[] contacts;
+
 }

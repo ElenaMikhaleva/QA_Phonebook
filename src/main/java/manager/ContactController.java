@@ -1,6 +1,7 @@
 package manager;
 
 import dto.Contact;
+import dto.ContactsListDto;
 import dto.TokenDto;
 import dto.User;
 import io.restassured.http.ContentType;
@@ -18,14 +19,24 @@ public class ContactController implements BaseAPI {
     public Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
     protected TokenDto tokenDto;
 
-    public void logResponseChangedContact(Response response, Contact contact, String descr) {
-        logger.info(descr + ", Request data: {}", contact);
-        logger.info("Response status: {}", response.getStatusLine());
-        logger.info("Response body:\n{}", response.getBody().asString());
+    public boolean validateContactInContacts(String id, Contact contact) {
+        Response response = requestGetContacts();
+        ContactsListDto contactsListDto = response.body().as(ContactsListDto.class);
+        boolean result = false;
+        for (Contact c : contactsListDto.getContacts()) {
+            System.out.println(c);
+            if (c.getId().equals(id)) {
+                if (c.getName().equals(contact.getName()) && c.getLastName().equals(contact.getLastName()) &&
+                        c.getEmail().equals(contact.getEmail()) && c.getPhone().equals(contact.getPhone()) &&
+                        c.getAddress().equals(contact.getAddress()) && c.getDescription().equals(contact.getDescription())) {
+                    result = true;
+                }
+            }
+        }
+        return result;
     }
-
-    public void logResponse(Response response, String descr) {
-        logger.info(descr);
+    public void logResponseContact(Response response, Contact contact, String descr) {
+        logger.info(descr + ", Request data: {}", contact);
         logger.info("Response status: {}", response.getStatusLine());
         logger.info("Response body:\n{}", response.getBody().asString());
     }
@@ -51,26 +62,16 @@ public class ContactController implements BaseAPI {
             .thenReturn()
             ;
     }
-
     public Response requestCreateContact(Contact contact) {
         return given()
                 .baseUri(getProperty("login.properties", "baseUri"))
+                .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .header("Authorization", tokenDto.getToken())
                 .body(contact)
             .when()
-                .get(ADD_CONTACT_URL)
+                .post(ADD_CONTACT_URL)
             .thenReturn()
             ;
-    }
-
-    public Response requestDeleteAllContacts() {
-        return given()
-                .baseUri(getProperty("login.properties", "baseUri"))
-                .accept(ContentType.JSON)
-                .header("Authorization", tokenDto.getToken())
-                .delete(DELETE_ALL_CONTACTS_URL)
-                .thenReturn()
-                ;
     }
 }

@@ -1,18 +1,20 @@
 
 # Overview
 
-**STP Identifier:** STP-v3 
+**STP Identifier:** STP-v4
 **Project Name:** Phonebook Testing Authentication Testing
 **Date Created:** 12/08/2025  
-**Version:** v3.0  
+**Version:** v4.0  
 **Responsibilities:** creation of STP, STD, test execution, STR — Elena Mikhaleva
 
 ## Test Objectives
+- Validate navigation and page transitions
 - Validate registration and login APIs
 - Validate registration and login flows through the UI
-- Validate navigation and page transitions in authentication flow
+- Validate contact creation and contact list retrieval APIs
+- Validate UI flows for adding and displaying contacts
 - Validate correct integration between UI and API
-- Testing limited to the subset of test cases selected for this cycle, prioritizing critical scenarios and tests valuable for practice and learning
+- Test cases selected for this cycle prioritize critical scenarios and tests valuable for practice and learning
 
 ## Scope of Testing
 - API Level: validation rules (email format, password complexity, required fields), functional and boundary testing 
@@ -73,10 +75,10 @@
 - No open blockers or critical defects
 
 ## Schedule
-1. Planning: 12/08/2025
-2. Test Design: 15/08/2025
-3. First Test Session: 22/08/2025
-4. Reports & Delivery: 25/08/2025
+1. Planning: 12/09/2025
+2. Test Design: 20/09/2025
+3. First Test Session: 30/09/2025
+4. Reports & Delivery: 15/10/2025
 
 ## Risks
 - Incomplete product requirements
@@ -95,6 +97,10 @@
 - Login flow API with valid and invalid data
 - Registration UI flow with valid and invalid data
 - Login UI flow with valid and invalid data
+- Contact creation API with valid and invalid data
+- Contact list retrieval API with/without contacts
+- Contact creation UI flow with valid and invalid data
+- Contact list UI flow with/without contacts
 - Boundary testing for email and password fields
 - Error handling and validation messages 
 - Secure handling of user data

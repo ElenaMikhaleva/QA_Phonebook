@@ -19,41 +19,58 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Scenario Test Cases
 
-| ID           | Title                           | Level | Component    | Automation       | Status          | Bug ID                         |
-|--------------|---------------------------------|-------|--------------|------------------|-----------------|--------------------------------|
-| API_REG_P_01 | Register with Valid Credentials | API   | Registration | Automated        | Passed          | -                              |
-| API_REG_N_01 | Register with Missing Email     | API   | Registration | Manual (Postman) | Failed #4       | BUG_REG_API_04                 |
-| API_REG_N_03 | Register with Invalid Email     | API   | Registration | Manual (Postman) | Failed #2, #3   | BUG_REG_API_10, BUG_REG_API_11 |
-| API_REG_N_04 | Register with Invalid Password  | API   | Registration | Automated        | Failed #5, #7   | BUG_REG_API_01, BUG_REG_API_02 |
-| API_REG_N_05 | Register with Duplicate Email   | API   | Registration | Automated        | Failed          | BUG_REG_API_03                 |
-| API_LOG_P_01 | Log in with Registered Email    | API   | Login        | Automated        | Passed          | -                              |
-| API_LOG_N_01 | Log in with Unregistered Email  | API   | Login        | Automated        | Failed          | BUG_LOG_API_02                 |
-| API_LOG_N_02 | Log in with Wrong Password      | API   | Login        | Automated        | Failed          | BUG_LOG_API_02                 |
-| UI_NAV_P_01  | Open Home Page from Navigation  | UI    | Navigation   | Manual           | Passed          |                                |
-| UI_NAV_P_02  | Open About Page from Navigation | UI    | Navigation   | Manual           | Passed          |                                |
-| UI_NAV_P_03  | Open Login Page from Navigation | UI    | Navigation   | Manual           | Passed          |                                |
-| UI_REG_P_01  | Register with Valid Credentials | UI    | Registration | Automated        | Failed (mobile) | BUG_HOM_UI_01                  |
-| UI_REG_P_02  | Register with Copy-Paste        | UI    | Registration | Manual           | Passed          | -                              |
-| UI_REG_N_01  | Register with Missing Email     | UI    | Registration | Manual           | Failed          | BUG_REG_UI_03                  |
-| UI_REG_N_03  | Register with All Empty Fields  | UI    | Registration | Manual           | Passed          | -                              |
-| UI_REG_N_04  | Register with Invalid Email     | UI    | Registration | Automated        | Failed #2, #3   | BUG_REG_UI_05, BUG_REG_UI_06   |
-| UI_REG_N_05  | Register with Invalid Password  | UI    | Registration | Manual           | Failed #5, #7   | BUG_REG_UI_01, BUG_REG_UI_02   |
-| UI_REG_N_06  | Register with Duplicate Email   | UI    | Registration | Automated        | Failed          | BUG_REG_UI_08                  |
-| UI_REG_N_07  | Register with Rapid Clicking    | UI    | Registration | Manual           | Passed          | -                              |
-| UI_LOG_P_01  | Log in with Valid Credentials   | UI    | Login        | Automated        | Passed          | -                              |
-| UI_LOG_P_03  | Log in with with Autofill       | UI    | Login        | Manual           | Passed          | -                              |
-| UI_LOG_N_01  | Log in with Unregistered Email  | UI    | Login        | Automated        | Passed          | -                              |
+| ID           | Title                                                                               | Automation       | Status          | Bug ID                         |
+|--------------|-------------------------------------------------------------------------------------|------------------|-----------------|--------------------------------|
+| API_REG_P_01 | Register with Valid Credentials                                                     | Automated        | Passed          | -                              |
+| API_REG_N_01 | Register with Missing Email                                                         | Manual (Postman) | Failed #4       | BUG_REG_API_04                 |
+| API_REG_N_03 | Register with Invalid Email                                                         | Manual (Postman) | Failed #2, #3   | BUG_REG_API_10, BUG_REG_API_11 |
+| API_REG_N_04 | Register with Invalid Password                                                      | Automated        | Failed #5, #7   | BUG_REG_API_01, BUG_REG_API_02 |
+| API_REG_N_05 | Register with Duplicate Email                                                       | Automated        | Failed          | BUG_REG_API_03                 |
+| API_LOG_P_01 | Log in with Registered Email                                                        | Automated        | Passed          | -                              |
+| API_LOG_N_01 | Log in with Unregistered Email                                                      | Automated        | Failed          | BUG_LOG_API_02                 |
+| API_LOG_N_02 | Log in with Wrong Password                                                          | Automated        | Failed          | BUG_LOG_API_02                 |
+| UI_NAV_P_01  | Open Home Page from Navigation                                                      | Manual           | Passed          |                                |
+| UI_NAV_P_02  | Open About Page from Navigation                                                     | Manual           | Passed          |                                |
+| UI_NAV_P_03  | Open Login Page from Navigation                                                     | Manual           | Passed          |                                |
+| UI_REG_P_01  | Register with Valid Credentials                                                     | Automated        | Failed (mobile) | BUG_HOM_UI_01                  |
+| UI_REG_P_02  | Register with Copy-Paste                                                            | Manual           | Passed          | -                              |
+| UI_REG_N_01  | Register with Missing Email                                                         | Manual           | Failed          | BUG_REG_UI_03                  |
+| UI_REG_N_03  | Register with All Empty Fields                                                      | Manual           | Passed          | -                              |
+| UI_REG_N_04  | Register with Invalid Email                                                         | Automated        | Failed #2, #3   | BUG_REG_UI_05, BUG_REG_UI_06   |
+| UI_REG_N_05  | Register with Invalid Password                                                      | Manual           | Failed #5, #7   | BUG_REG_UI_01, BUG_REG_UI_02   |
+| UI_REG_N_06  | Register with Duplicate Email                                                       | Automated        | Failed          | BUG_REG_UI_08                  |
+| UI_REG_N_07  | Register with Rapid Clicking                                                        | Manual           | Passed          | -                              |
+| UI_LOG_P_01  | Log in with Valid Credentials                                                       | Automated        | Passed          | -                              |
+| UI_LOG_P_03  | Log in with with Autofill                                                           | Manual           | Passed          | -                              |
+| UI_LOG_N_01  | Log in with Unregistered Email                                                      | Automated        | Passed          | -                              |
+| API_ADD_P_01 | Add Contact with Valid Data                                                         | Automated        | Passed          |                                |
+| API_ADD_P_02 | Add Contact with Existing Name                                                      | Automated        | Passed          |                                |
+| API_ADD_P_03 | Add Contact with Valid Name                                                         | Automated        |                 |                                |
+| API_ADD_P_08 | Add Contact with Valid Address                                                      | Automated        |                 |                                |
+| API_ADD_P_11 | Add Contact without Description                                                     | Automated        |                 |                                |
+| API_ADD_N_01 | Add Contact without Authentication                                                  | Automated        |                 |                                |
+| API_ADD_N_02 | Add Contact with Invalid Token                                                      | Automated        |                 |                                |
+| API_ADD_N_13 | Add Contact with Invalid Phone                                                      | Automated        |                 |                                |
+| UI_ADD_P_01  | Add Contact with Valid Data                                                         | Automated        |                 |                                |
+| UI_ADD_P_02  | Add Contact with Data with Non-English Letters (Hebrew, Arabic, Diacritic, Russian) | Manual           |                 |                                |
+| UI_ADD_P_03  | Add Contact with Special Characters (HTML-tags <b>Anna<b>, ", ', +, emoji)          | Manual           |                 |                                |
+| UI_ADD_P_04  | Add Contact with Copy-Paste Input                                                   | Manual           |                 |                                |
+| UI_ADD_N_01  | Add Contact with Missing Fields                                                     | Automated        |                 |                                |
 
 ## Exploratory Tests
 
-| ID          | Title                                            | Component                                              | Bug ID         |
-|-------------|--------------------------------------------------|--------------------------------------------------------|----------------|
-| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login                                    | BUG_LOG_API_01 |
-| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login                                    | -              |
-| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login                                    | -              |
-| EXP_AUTH_04 | Authentication with Various Passwords            | Registration, Login                                    | BUG_REG_API_12 |
-| EXP_AUTH_05 | Authentication API with Invalid Request Format   | Registration, Login                                    | BUG_REG_API_12 |
-| EXP_NAV_01  | Navigate Using Keyboard                          | Navigation, Registration, Login, Contacts, Add Contact | -              |
+| ID          | Title                                            | Bug ID         |
+|-------------|--------------------------------------------------|----------------|
+| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | BUG_LOG_API_01 |
+| EXP_AUTH_02 | Authentication with Long Email                   | -              |
+| EXP_AUTH_03 | Authentication with Various Emails               | -              |
+| EXP_AUTH_04 | Authentication with Various Passwords            | BUG_REG_API_12 |
+| EXP_AUTH_05 | Authentication API with Invalid Request Format   | BUG_REG_API_12 |
+| EXP_NAV_01  | Navigate Using Keyboard                          | -              |
+| EXP_NAV_02  | Actions Using Outdated Token                     |                |
+| EXP_ADD_01  | Add Contact with Given ID                        |                |
+| EXP_ADD_02  | Add Contact with Long Data                       |                |
+| EXP_ADD_03  | Add Contact with Various Data                    |                |
 
 # Summary
 
@@ -207,42 +224,6 @@ Focused on testing the Registration and Login, including exploratory testing per
   2. No message in the body of JSON
 - **Attachments:** src/test/postman/postman_reg_test_run.json
 
-
-
-## BUG_REG_API_08 Registration API Fails with Invalid Header (500 Error)
-
-- **Severity:** Medium
-- **Test ID:** EXP_API_REG_05
-- **Environment:** Postman
-- **Component:** Registration API
-- **Steps**
-  1. send POST request to registration endpoint
-     Header: ``Content-Type: text/plain``<br>
-     Body: ``{ "username": "Dudley_Steuber@gmail.com", "password": "P@ssw0rd" }``
-- **Expected Result:**
-  1. API returns code < 500 (e.g., 415 Unsupported Media Type)
-  2. Clear error message
-- **Actual result:**
-  1. API returns 500 Internal Server Error
-  2. Message "Content type 'text/plain;charset=UTF-8' not supported"
-- **Attachments:** src/test/postman/postman_reg_test_run.json
-
-## BUG_REG_API_09 Registration API Fails with Malformed JSON Body (500 Error)
-
-- **Severity:** Medium
-- **Test ID:** EXP_API_REG_06
-- **Environment:** Postman
-- **Component:** Registration API
-- **Steps:**
-  1. Send POST request with malformed JSON (without comma) ``{ "username": "Giovani39@example.com" "password": "P@ssw0rd" }``
-- **Expected Result:**
-  1. API returns code < 500
-  2. Clear error message
-- **Actual result:**
-  1. API returns 500 Internal Server Error
-  2. Message "JSON parse error: Unexpected character ('\"' (code 34)): was expecting comma to separate Object entries"
-- **Attachments:** src/test/postman/postman_reg_test_run.json
-
 ## BUG_REG_API_10 Registration API Allows Non-English Letters in Email
 
 - **Severity:** High
@@ -251,7 +232,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Component:** Registration API
 - **Requirements Reference:** requirement T6
 - **Data Sets:**
-  1. ``{ "username": "цаСсЫётРРф@example.com", "password": "Xx1*!yg21Auz" }`` - email contains Cyrillic characters
+  1. ``{ "username": "цаСсЫетРРф@example.com", "password": "Xx1*!yg21Auz" }`` - email contains Cyrillic characters
   2. ``{ "username": "ëçööçûï@example.com", "password": "Pz9!$pi2nn7G" }`` - email contains diacritic characters
 - **Steps:**<br>
   1. Send JSON from test data

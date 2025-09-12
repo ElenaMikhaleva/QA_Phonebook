@@ -36,7 +36,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
         softAssert.assertTrue(tokenDto.toString().contains("token"), "API_REG_P_01(), token");
         softAssert.assertFalse(response.getBody().asString().contains("password"), "API_REG_P_01(), no password");
         if (response.getBody().asString().contains("token")) {
-            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "LOG IN with valid credentials"));
+            softAssert.assertTrue(validateLoginWGivenCredentialsSuccessful(user, "LOG IN with valid credentials"));
         }
         softAssert.assertAll();
     }
@@ -108,17 +108,17 @@ public class RegistrationRestTests extends AuthenticationController implements B
         logResponse(response, user, "[1] email with original casing");
 
         if (response.getBody().asString().contains("token")) {
-            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.1] LOG IN with original casing"));
+            softAssert.assertTrue(validateLoginWGivenCredentialsSuccessful(user, "[3.1] LOG IN with original casing"));
         }
 
         user.setUsername(user.getUsername().substring(0,5).toLowerCase() + user.getUsername().substring(5,8).toUpperCase() + "@example.com");
         if (response.getBody().asString().contains("token")) {
-            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with different casing"));
+            softAssert.assertTrue(validateLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with different casing"));
         }
 
         user.setUsername(user.getUsername().substring(0,5) + user.getUsername().substring(5,8).toLowerCase() + "@example.com");
         if (response.getBody().asString().contains("token")) {
-            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with different casing"));
+            softAssert.assertTrue(validateLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with different casing"));
         }
 
         user.setUsername(user.getUsername().substring(0,8).toLowerCase() + "@example.com");
@@ -143,7 +143,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
         Response response = requestRegLogin(user, REGISTRATION_URL);
         logResponse(response, user, descr);
         if (response.getBody().asString().contains("token")) {
-            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with the same credentials"));
+            softAssert.assertTrue(validateLoginWGivenCredentialsSuccessful(user, "[3.2] LOG IN with the same credentials"));
         }
         softAssert.assertAll();
     }
@@ -159,7 +159,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
         Response response = requestRegLogin(user, REGISTRATION_URL);
         logResponse(response, user, descr);
         if (response.getBody().asString().contains("token")) {
-            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "LOG IN with the same credentials"));
+            softAssert.assertTrue(validateLoginWGivenCredentialsSuccessful(user, "LOG IN with the same credentials"));
         }
         softAssert.assertAll();
     }
@@ -175,7 +175,7 @@ public class RegistrationRestTests extends AuthenticationController implements B
         Response response = requestRegLogin(user, REGISTRATION_URL);
         logResponse(response, user, descr);
         if (response.getBody().asString().contains("token")) {
-            softAssert.assertTrue(isLoginWGivenCredentialsSuccessful(user, "LOG IN with the same credentials"));
+            softAssert.assertTrue(validateLoginWGivenCredentialsSuccessful(user, "LOG IN with the same credentials"));
         }
         softAssert.assertAll();
     }
