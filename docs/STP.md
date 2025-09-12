@@ -5,7 +5,7 @@
 **Project Name:** Phonebook Testing Authentication Testing
 **Date Created:** 12/08/2025  
 **Version:** v3.0  
-**Responsibilities:** Creation of STP, STD, test execution, STR — Elena Mikhaleva
+**Responsibilities:** creation of STP, STD, test execution, STR — Elena Mikhaleva
 
 ## Test Objectives
 - Validate registration and login APIs

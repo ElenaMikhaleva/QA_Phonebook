@@ -11,6 +11,7 @@ import utils.BaseAPI;
 
 import java.time.LocalDate;
 
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static utils.RandomUtils.genEmail;
 import static utils.RandomUtils.genPassword;
 
@@ -48,8 +49,12 @@ public class LoginRestTests extends AuthenticationController implements BaseAPI 
                 .build();
         Response response = requestRegLogin(user, LOGIN_URL);
         logResponse(response, user, "Log in with credentials");
+        response
+                .then()
+                .statusCode(401)
+                .body(matchesJsonSchemaInClasspath("ErrorMessageDtoSchema.json"))
+                ;
         ErrorMessageDto errorMessageDto = response.body().as(ErrorMessageDto.class);
-        softAssert.assertEquals(response.getStatusCode(), 401, "API_LOG_N_01(), status code");
         softAssert.assertEquals(LocalDate.now().toString(), errorMessageDto.getTimestamp().substring(0, 10), "API_LOG_N_01(), timestamp");
         softAssert.assertEquals(errorMessageDto.getStatus(), 401, "API_LOG_N_01(), status code body");
         softAssert.assertEquals(errorMessageDto.getError(), "Unauthorized", "API_LOG_N_01(), status line body");
@@ -72,6 +77,11 @@ public class LoginRestTests extends AuthenticationController implements BaseAPI 
         user.setPassword(genPassword(12));
         Response response = requestRegLogin(user, LOGIN_URL);
         logResponse(response, user, "Log in with credentials");
+        response
+                .then()
+                .statusCode(401)
+                .body(matchesJsonSchemaInClasspath("ErrorMessageDtoSchema.json"))
+                ;
         ErrorMessageDto errorMessageDto = response.body().as(ErrorMessageDto.class);
         softAssert.assertEquals(response.getStatusCode(), 401, "API_LOG_N_02(), status code");
         softAssert.assertEquals(LocalDate.now().toString(), errorMessageDto.getTimestamp().substring(0, 10), "API_LOG_N_02(), timestamp");

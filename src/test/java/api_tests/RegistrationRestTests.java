@@ -10,6 +10,7 @@ import org.testng.asserts.SoftAssert;
 import utils.BaseAPI;
 import utils.TestNGListener;
 
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static utils.RandomUtils.*;
 
 import java.time.LocalDate;
@@ -50,9 +51,13 @@ public class RegistrationRestTests extends AuthenticationController implements B
                 .password(password)
                 .build();
         Response response = requestRegLogin(user, REGISTRATION_URL);
+        response
+                .then()
+                .statusCode(400)
+                .body(matchesJsonSchemaInClasspath("ErrorMessageDtoSchema.json"))
+                ;
         logResponse(response, user, descr);
         ErrorMessageDto errorMessageDto = response.body().as(ErrorMessageDto.class);
-        softAssert.assertEquals(response.getStatusCode(), 400, "API_REG_N_04(), status code");
         softAssert.assertEquals(LocalDate.now().toString(), errorMessageDto.getTimestamp().substring(0, 10), "API_REG_N_04(), timestamp");
         softAssert.assertEquals(errorMessageDto.getStatus(), 400, "API_REG_N_04(), status code body");
         softAssert.assertEquals(errorMessageDto.getError(), "Bad Request", "API_REG_N_04(), status line body");
@@ -72,13 +77,17 @@ public class RegistrationRestTests extends AuthenticationController implements B
                 .build();
         Response response = requestRegLogin(user, REGISTRATION_URL);
         logResponse(response, user, "first request");
+        response
+                .then()
+                .statusCode(409)
+                .body(matchesJsonSchemaInClasspath("ErrorMessageDtoSchema.json"))
+                ;
         if (passwordVar.equals("newPassword")) {
             user.setPassword(genPassword(12)); // set a new password
         }
         Response response2 = requestRegLogin(user, REGISTRATION_URL);
         logResponse(response2, user, passwordVar);
         ErrorMessageDto errorMessageDto = response2.body().as(ErrorMessageDto.class);
-        softAssert.assertEquals(response2.getStatusCode(), 409, "API_REG_N_05(), status code");
         softAssert.assertEquals(LocalDate.now().toString(), errorMessageDto.getTimestamp().substring(0, 10), "API_REG_N_05(), timestamp");
         softAssert.assertEquals(errorMessageDto.getStatus(), 409, "API_REG_N_05(), status line body");
         softAssert.assertEquals(errorMessageDto.getError(), "Conflict", "API_REG_N_05(), status line body");
