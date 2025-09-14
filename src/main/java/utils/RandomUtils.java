@@ -60,6 +60,17 @@ public class RandomUtils {
         return new String(randomString);
     }
 
+    public static String genLetters(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        char[] randomString = new char[length];
+        int index;
+        for (int i = 0; i<length; i++) {
+            index = random.nextInt(characters.length());
+            randomString[i] = characters.charAt(index);
+        }
+        return new String(randomString);
+    }
+
     public static String genDigits(int length) {
         String characters = "0123456789";
         char[] randomString = new char[length];

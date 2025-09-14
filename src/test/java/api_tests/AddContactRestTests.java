@@ -1,5 +1,6 @@
 package api_tests;
 
+import data_providers.UserDP;
 import dto.Contact;
 import dto.ContactsListDto;
 import dto.ResponseMessageDto;
@@ -74,6 +75,35 @@ public class AddContactRestTests extends ContactController implements BaseAPI {
         softAssert.assertTrue(responseMessageDto.getMessage().contains("Contact was added! ID: "));
         String id = responseMessageDto.getMessage().substring(23, 59);
         if (response2.getStatusCode()==200) {
+            softAssert.assertTrue(validateContactInContacts(id, contact), "Contact is in the list");
+        }
+        softAssert.assertAll();
+    }
+
+    @Test(groups = "str", dataProviderClass = UserDP.class, dataProvider = "validNames")
+    public void API_ADD_P_03_test(String name, String descr) {
+        logger.info("Add contact with valid name, 200 OK");
+
+        Contact contact = Contact.builder()
+                .id(genDigits(3))
+                .name(name)
+                .lastName(genUpperCase(1) + genLowerCase(5))
+                .email(genEmail(14))
+                .phone(genDigits(12))
+                .address(genUpperCase(1) + genLowerCase(5))
+                .description(genUpperCase(1) + genLowerCase(5))
+                .build();
+        Response response = requestCreateContact(contact);
+        logResponseContact(response, contact, descr);
+        response
+                .then()
+                .statusCode(200)
+                .body(matchesJsonSchemaInClasspath("ResponseMessageDtoSchema.json"))
+        ;
+        ResponseMessageDto responseMessageDto = response.body().as(ResponseMessageDto.class);
+        softAssert.assertTrue(responseMessageDto.getMessage().contains("Contact was added! ID: "));
+        String id = responseMessageDto.getMessage().substring(23, 59);
+        if (response.getStatusCode()==200) {
             softAssert.assertTrue(validateContactInContacts(id, contact), "Contact is in the list");
         }
         softAssert.assertAll();

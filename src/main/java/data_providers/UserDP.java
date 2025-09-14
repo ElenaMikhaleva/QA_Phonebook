@@ -91,4 +91,26 @@ public class UserDP {
                 { genEmail(14), genPassword(10)+"\uD83D\uDE08", "[11] emoji" }
         };
     }
+
+    @DataProvider(name = "validNames")
+    public Object[][] API_ADD_P_03_data() {
+        return new Object[][] {
+            { genLowerCase(5), "[1] lower case" },
+            { genUpperCase(5), "[2] upper case" },
+            { genUpperCase(5)+genLowerCase(2), "[3] upper and lower case" },
+            { genLetters(5)+genDigits(2), "[4] with numbers" },
+            { "<b>"+genLetters(5)+"</b>", "[5] with <>" },
+            { "\""+genLetters(5)+"\"", "[6] with \"\"" },
+            { "'"+genLetters(5)+"'", "[7] with ''" },
+            { genLetters(3)+"+"+genLetters(3), "[8] with +" },
+            { genLetters(3)+"&"+genLetters(3), "[9] with ampersand" },
+            { genLetters(3)+","+genLetters(3), "[10] with comma" },
+            { genLetters(3)+"-"+genLetters(3), "[11] with hyphen" },
+            { genLetters(1)+"`"+genLetters(5), "[12] with apostrophe" },
+            { genLetters(3)+"."+genLetters(4), "[13] with dot" },
+            { genLetters(3)+" "+genLetters(3), "[14] with internal whitespace" },
+            { genAnything(5, "אבבּגדהוזחטיכךכּךּלמםנןסעפףפּצץקרששׁשׂת"), "[15] with non-English letters" },
+            { genLetters(1), "[16] 1 character length" }
+        };
+    }
 }

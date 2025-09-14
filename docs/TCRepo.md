@@ -40,7 +40,7 @@ Exploratory sessions are kept in STD, STR.
 | UI_LOG_N_04  | Log in with Rapid Clicking                     | Negative  | UI    | Login        | High-level only | Not Executed                   |
 | API_ADD_P_01 | Add Contact with Valid Data                    | Positive  | API   | Add Contact  | Details below   | Executed 12/09/25              |
 | API_ADD_P_02 | Add Contact with Existing Name                 | Positive  | API   | Add Contact  | Details below   | Executed 12/09/25              |
-| API_ADD_P_03 | Add Contact with Valid Name                    | Positive  | API   | Add Contact  | Details below   | Not Executed                   |
+| API_ADD_P_03 | Add Contact with Valid Name                    | Positive  | API   | Add Contact  | Details below   | Executed 14/09/25              |
 | API_ADD_P_04 | Add Contact with Existing Last Name            | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_P_05 | Add Contact with Valid Last Name               | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_P_06 | Add Contact with Valid Email                   | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
@@ -69,34 +69,6 @@ Exploratory sessions are kept in STD, STR.
 | UI_ADD_P_04  | Add Contact with Copy-Paste Input              | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
 | UI_ADD_N_01  | Add Contact with Missing Fields                | Negative  | UI    | Add Contact  | High-level only | Not Executed                   |
 
-API_ADD_P_03  Add Contact with Valid Name<br>
-- with Number
-- with Special Character <> (<b>Anna</b>)
-- with " ("John")
-- with ' ('John')
-- with + (John+Smith)
-- with apostrophe (O'Connor)
-- with hyphen (Anne-Marie)
-- with dot (Dr.Smith)
-- with ampersand (Jack&Jill)
-- with whitespace (Dr Smith)
-- with 1 symbol
-- non-English (Hebrew)
-API_ADD_P_05  Add Contact with Valid Last Name<br>
-- with Number
-- with Special Character <> (<b>Anna</b>)
-- with " ("John")
-- with ' ('John')
-- with + (John+Smith)
-- with apostrophe (O'Connor)
-- with hyphen (Anne-Marie)
-- with dot (Dr.Smith)
-- with at sign (Jack&Jill)
-- with whitespace (Dr Smith)
-- with 1 symbol
-API_ADD_P_06  Add Contact with Valid Email<br>
-- 1 char before @
-- 1 char after @
 API_ADD_P_08  Add Contact with Valid Address<br>
 - with Number
 - with Special Characters dots (St.Paul)
@@ -521,12 +493,13 @@ API_ADD_P_12 Add Contact with Valid Phone
   7. with '' - 'Frodo'
   8. with + - Frodo+Sam
   9. with ampersand - Frodo&Sam
-  9. with apostrophe - O'Frodo
-  10. with hyphen - Frodo-Maura
-  11. with dot - Sir.Frodo
-  12. with internal whitespace - Mr Frodo
-  13. with non-English letters - פרודו
-  13. 1 character length - F
+  10. with comma - Frodo,Sam
+  11. with hyphen - Frodo-Maura
+  12. with apostrophe - O'Frodo
+  13. with dot - Sir.Frodo
+  14. with internal whitespace - Mr Frodo
+  15. with non-English letters - פרודו
+  16. 1 character length - F
 - **Steps:**<br>
   1. Send POST request with existing name
      ``{

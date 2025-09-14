@@ -45,7 +45,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 | UI_LOG_N_01  | Log in with Unregistered Email                                                      | Automated        | Passed          | -                              |
 | API_ADD_P_01 | Add Contact with Valid Data                                                         | Automated        | Passed          |                                |
 | API_ADD_P_02 | Add Contact with Existing Name                                                      | Automated        | Passed          |                                |
-| API_ADD_P_03 | Add Contact with Valid Name                                                         | Automated        |                 |                                |
+| API_ADD_P_03 | Add Contact with Valid Name                                                         | Automated        | Passed          |                                |
 | API_ADD_P_08 | Add Contact with Valid Address                                                      | Automated        |                 |                                |
 | API_ADD_P_11 | Add Contact without Description                                                     | Automated        |                 |                                |
 | API_ADD_N_01 | Add Contact without Authentication                                                  | Automated        |                 |                                |
