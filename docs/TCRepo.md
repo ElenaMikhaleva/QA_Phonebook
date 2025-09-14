@@ -45,7 +45,7 @@ Exploratory sessions are kept in STD, STR.
 | API_ADD_P_05 | Add Contact with Valid Last Name               | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_P_06 | Add Contact with Valid Email                   | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_P_07 | Add Contact with Existing Address              | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_P_08 | Add Contact with Valid Address                 | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_P_08 | Add Contact with Valid Address                 | Positive  | API   | Add Contact  | High-level only | Executed 14/09/25              |
 | API_ADD_P_09 | Add Contact with Existing Description          | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_P_10 | Add Contact with Valid Description             | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_P_11 | Add Contact without Description                | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
@@ -69,24 +69,7 @@ Exploratory sessions are kept in STD, STR.
 | UI_ADD_P_04  | Add Contact with Copy-Paste Input              | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
 | UI_ADD_N_01  | Add Contact with Missing Fields                | Negative  | UI    | Add Contact  | High-level only | Not Executed                   |
 
-API_ADD_P_08  Add Contact with Valid Address<br>
-- with Number
-- with Special Characters dots (St.Paul)
-- with hyphens (12-14 Main St)
-- with apostrophe (O'Hara Ave)
-- hash (Apt #504)
-- slash (Unit 5/12 Elm Rd)
-- comma (123 King St, Apt 2B)
-- ampersand (Broadway&5th)
-- with ""
-- with ''
-- with () (Suite (North))
-- : (Dock 4: back entrance)
-- ; (Dock 4; back entrance)
-- with 1 symbol
-- with 10 symbols
-- with 15 symbols
-- in Arabic
+
 API_ADD_P_10  Add Contact with Valid Description<br>
 - with numbers
 - with special characters
@@ -509,7 +492,48 @@ API_ADD_P_12 Add Contact with Valid Phone
          "email": "frodo.baggins@shiremail.me",
          "phone": "5550001111",
          "address": "Bag End, Hobbiton, The Shire",
-         "Ring bearer"
+         "description": "Ring bearer"
+       }
+     ``
+- **Expected Result:**
+  1. Response 200 OK
+
+### API_ADD_P_08  Add Contact with Valid Address
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data (address):**
+  1. lower case - bree
+  2. upper case - LONELY MOUNTAIN
+  3. lower and upper case - Treehouse, Mirkwood Forest
+  4. numbers - Guard Post 1, Minas Tirith
+  5. dot - St.Moria
+  6. comma - Cirith Ungol, Mordor
+  7. hyphens - Esgaroth, Long-Lake
+  8. apostrophe - Dwarves’ Quarters, Erebor
+  9. hash - Strider’s Inn Room #12, Bree
+  10. slash - 5/12 Black Gate Plaza, Minas Morgul
+  11. ampersand - White Tower & Steward’s Office, Minas Tirith
+  12. "" - "Mordor"
+  13. '' - 'Misty Mountains'
+  14. () - Cave Behind the Waterfall (Near Dead Marshes)
+  15. : - Isengard: Orthanc Tower
+  16. ; - Riverdall; Mirkwood
+  17. diacritic letters - Barad-dûr
+  18. non-English letters - إيربور
+  19. internal whitespace - Minas Tirith
+  20. one symbol - M
+- **Steps:**<br>
+  1. Send POST request with existing name
+     ``{
+         "id": "1",
+         "name": "Legolas",
+         "lastName": "Greenleaf",
+         "email": "legolas@woodland-realm.el",
+         "phone": "5550005555",
+         "address": "<address from test data>",
+         "description": "Elven prince, excellent archer"
        }
      ``
 - **Expected Result:**

@@ -108,4 +108,34 @@ public class AddContactRestTests extends ContactController implements BaseAPI {
         }
         softAssert.assertAll();
     }
+
+    @Test(groups = "str", dataProviderClass = UserDP.class, dataProvider = "validAddresses")
+    public void API_ADD_P_08_test(String address, String descr) {
+        logger.info("Add contact with valid addresses, 200 OK");
+
+        Contact contact = Contact.builder()
+                .id(genDigits(3))
+                .name(genLetters(5))
+                .lastName(genLetters(5))
+                .email(genEmail(14))
+                .phone(genDigits(12))
+                .address(address)
+                .description(genUpperCase(1) + genLowerCase(5))
+                .build();
+        Response response = requestCreateContact(contact);
+        logResponseContact(response, contact, descr);
+        response
+                .then()
+                .statusCode(200)
+                .body(matchesJsonSchemaInClasspath("ResponseMessageDtoSchema.json"))
+                ;
+        ResponseMessageDto responseMessageDto = response.body().as(ResponseMessageDto.class);
+        softAssert.assertTrue(responseMessageDto.getMessage().contains("Contact was added! ID: "));
+        String id = responseMessageDto.getMessage().substring(23, 59);
+        if (response.getStatusCode()==200) {
+            softAssert.assertTrue(validateContactInContacts(id, contact), "Contact is in the list");
+        }
+        softAssert.assertAll();
+    }
+
 }

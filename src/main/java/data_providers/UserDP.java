@@ -113,4 +113,30 @@ public class UserDP {
             { genLetters(1), "[16] 1 character length" }
         };
     }
+
+    @DataProvider(name = "validAddresses")
+    public Object[][] API_ADD_P_08_data() {
+        return new Object[][] {
+                { genLowerCase(5), "[1] lower case" },
+                { genUpperCase(5), "[2] upper case" },
+                { genUpperCase(3)+genLowerCase(3), "[3] lower and upper case" },
+                { genLetters(5)+genDigits(3), "[4] digits" },
+                { genLetters(3)+ "." +genLetters(3), "[5] dot" },
+                { genLetters(3)+ "," +genLetters(3), "[6] comma" },
+                { genLetters(3) + "-" + genLetters(3), "[7] hyphens" },
+                { genLetters(3) + "`" + genLetters(3), "[8] apostrophe" },
+                { genLetters(3) + "#" + genLetters(3), "[9] hash" },
+                { genLetters(3) + "/" + genLetters(3), "[10] slash" },
+                { genLetters(3) + "&" + genLetters(3), "[11] ampersand" },
+                { "\"" + genLetters(5) + "\"", "[12] quotes \"\"" },
+                { "'" + genLetters(5) + "'", "[13] quotes ''" },
+                { "(" + genLetters(5) + ")", "[14] brackets" },
+                { genLetters(3) + ":" + genLetters(3), "[15] colon" },
+                { genLetters(3) + ";" + genLetters(3), "[16] semicolon" },
+                { genDiacriticString(5), "[17] diacritic letters" },
+                { genAnything(5, "ابتثجحخدذرزسشصضطظعغفقكلمنهويء"), "[18] none-English letters " },
+                { genLetters(3) + " " + genLetters(3), "[19] internal whitespace" },
+                { genLetters(1), "[20] one symbol" }
+        };
+    }
 }
