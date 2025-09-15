@@ -5,79 +5,76 @@ Exploratory sessions are kept in STD, STR.
 
 ## Scenario Test Cases
 
-| ID           | Title                                          | Test Type | Level | Component    | Version         | Status                         |
-|--------------|------------------------------------------------|-----------|-------|--------------|-----------------|--------------------------------|
-| API_REG_P_01 | Register with Valid Credentials                | Positive  | API   | Registration | Details below   | Executed 02/08/25              |
-| API_REG_P_02 | Register with Existing Password                | Positive  | API   | Registration | Details below   | Not Executed                   |
-| API_REG_N_01 | Register with Missing Email                    | Negative  | API   | Registration | Details below   | Executed 02/08/25              |
-| API_REG_N_02 | Register with Missing Password                 | Negative  | API   | Registration | Details below   | Not Executed                   |
-| API_REG_N_03 | Register with Invalid Email                    | Negative  | API   | Registration | Details below   | Executed 17/08/25              |
-| API_REG_N_04 | Register with Invalid Password                 | Negative  | API   | Registration | Details below   | Executed 02/08/25              |
-| API_REG_N_05 | Register with Duplicate Email                  | Negative  | API   | Registration | Details below   | Executed 02/08/25              |
-| API_LOG_P_01 | Log in with Registered Email                   | Positive  | API   | Login        | Details below   | Executed 03/08/25              |
-| API_LOG_N_01 | Log in with Unregistered Email                 | Negative  | API   | Login        | Details below   | Executed 03/08/25              |
-| API_LOG_N_02 | Log in with Wrong Password                     | Negative  | API   | Login        | Details below   | Executed 03/08/25              |
-| API_LOG_N_03 | Log in with Missing Email                      | Negative  | API   | Login        | High-level only | Not Executed                   |
-| API_LOG_N_04 | Log in with Missing Password                   | Negative  | API   | Login        | High-level only | Not Executed                   |
-| UI_NAV_P_01  | Open Home Page from Navigation                 | Positive  | UI    | Navigation   | High-level only | Executed with Navigation Tests |
-| UI_NAV_P_02  | Open About Page from Navigation                | Positive  | UI    | Navigation   | High-level only | Executed with Navigation Tests |
-| UI_NAV_P_03  | Open Login Page from Navigation                | Positive  | UI    | Navigation   | High-level only | Executed with Login Tests      |
-| UI_REG_P_01  | Register with Valid Credentials                | Positive  | UI    | Registration | Details below   | Executed 15/08/25              |
-| UI_REG_P_02  | Register with Copy-Paste                       | Positive  | UI    | Registration | Details below   | Executed 15/08/25              |
-| UI_REG_N_01  | Register with Missing Email                    | Negative  | UI    | Registration | Details below   | Executed 15/08/25              |
-| UI_REG_N_02  | Register with Missing Password                 | Negative  | UI    | Registration | High-level only | Not Executed                   |
-| UI_REG_N_03  | Register with All Empty Fields                 | Negative  | UI    | Registration | Details below   | Executed 15/08/25              |
-| UI_REG_N_04  | Register with Invalid Email                    | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
-| UI_REG_N_05  | Register with Invalid Password                 | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
-| UI_REG_N_06  | Register with Duplicate Email                  | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
-| UI_REG_N_07  | Register with Rapid Clicking                   | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
-| UI_LOG_P_01  | Log in with Valid Credentials                  | Positive  | UI    | Login        | Details below   | Executed 17/08/25              |
-| UI_LOG_P_02  | Log in with with Copy-Paste                    | Positive  | UI    | Login        | High-level only | Not Executed                   |
-| UI_LOG_P_03  | Log in with with Autofill                      | Positive  | UI    | Login        | Details below   | Executed 17/08/25              |
-| UI_LOG_N_01  | Log in with Unregistered Email                 | Negative  | UI    | Login        | Details below   | Executed 17/08/25              |
-| UI_LOG_N_02  | Log in with Missing Email                      | Negative  | UI    | Login        | High-level only | Not Executed                   |
-| UI_LOG_N_03  | Log in with Missing Password                   | Negative  | UI    | Login        | High-level only | Not Executed                   |
-| UI_LOG_N_04  | Log in with Rapid Clicking                     | Negative  | UI    | Login        | High-level only | Not Executed                   |
-| API_ADD_P_01 | Add Contact with Valid Data                    | Positive  | API   | Add Contact  | Details below   | Executed 12/09/25              |
-| API_ADD_P_02 | Add Contact with Existing Name                 | Positive  | API   | Add Contact  | Details below   | Executed 12/09/25              |
-| API_ADD_P_03 | Add Contact with Valid Name                    | Positive  | API   | Add Contact  | Details below   | Executed 14/09/25              |
-| API_ADD_P_04 | Add Contact with Existing Last Name            | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_P_05 | Add Contact with Valid Last Name               | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_P_06 | Add Contact with Valid Email                   | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_P_07 | Add Contact with Existing Address              | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_P_08 | Add Contact with Valid Address                 | Positive  | API   | Add Contact  | High-level only | Executed 14/09/25              |
-| API_ADD_P_09 | Add Contact with Existing Description          | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_P_10 | Add Contact with Valid Description             | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_P_11 | Add Contact without Description                | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_P_12 | Add Contact with Valid Phone                   | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_01 | Add Contact without Authentication             | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_02 | Add Contact with Invalid Token                 | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_03 | Add Contact with Duplicate ID                  | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_04 | Add Contact with Invalid Request Format        | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_05 | Add Contact with Missing Name                  | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_06 | Add Contact with Missing Last Name             | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_07 | Add Contact with Missing Email                 | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_08 | Add Contact with Existing Email                | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_09 | Add Contact with Invalid Email                 | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_10 | Add Contact with Missing Address               | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_11 | Add Contact with Missing Phone                 | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_12 | Add Contact with Existing Phone                | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_13 | Add Contact with Invalid Phone                 | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_P_01  | Add Contact with Valid Data                    | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_P_02  | Add Contact with Data with Non-English Letters | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_P_03  | Add Contact with Special Characters            | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_P_04  | Add Contact with Copy-Paste Input              | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_N_01  | Add Contact with Missing Fields                | Negative  | UI    | Add Contact  | High-level only | Not Executed                   |
+| ID           | Title                                   | Test Type | Level | Component    | Version         | Status                         |
+|--------------|-----------------------------------------|-----------|-------|--------------|-----------------|--------------------------------|
+| API_REG_P_01 | Register with Valid Credentials         | Positive  | API   | Registration | Details below   | Executed 02/08/25              |
+| API_REG_P_02 | Register with Existing Password         | Positive  | API   | Registration | Details below   | Not Executed                   |
+| API_REG_N_01 | Register with Missing Email             | Negative  | API   | Registration | Details below   | Executed 02/08/25              |
+| API_REG_N_02 | Register with Missing Password          | Negative  | API   | Registration | Details below   | Not Executed                   |
+| API_REG_N_03 | Register with Invalid Email             | Negative  | API   | Registration | Details below   | Executed 17/08/25              |
+| API_REG_N_04 | Register with Invalid Password          | Negative  | API   | Registration | Details below   | Executed 02/08/25              |
+| API_REG_N_05 | Register with Duplicate Email           | Negative  | API   | Registration | Details below   | Executed 02/08/25              |
+| API_LOG_P_01 | Log in with Registered Email            | Positive  | API   | Login        | Details below   | Executed 03/08/25              |
+| API_LOG_N_01 | Log in with Unregistered Email          | Negative  | API   | Login        | Details below   | Executed 03/08/25              |
+| API_LOG_N_02 | Log in with Wrong Password              | Negative  | API   | Login        | Details below   | Executed 03/08/25              |
+| API_LOG_N_03 | Log in with Missing Email               | Negative  | API   | Login        | High-level only | Not Executed                   |
+| API_LOG_N_04 | Log in with Missing Password            | Negative  | API   | Login        | High-level only | Not Executed                   |
+| UI_NAV_P_01  | Open Home Page from Navigation          | Positive  | UI    | Navigation   | High-level only | Executed with Navigation Tests |
+| UI_NAV_P_02  | Open About Page from Navigation         | Positive  | UI    | Navigation   | High-level only | Executed with Navigation Tests |
+| UI_NAV_P_03  | Open Login Page from Navigation         | Positive  | UI    | Navigation   | High-level only | Executed with Login Tests      |
+| UI_REG_P_01  | Register with Valid Credentials         | Positive  | UI    | Registration | Details below   | Executed 15/08/25              |
+| UI_REG_P_02  | Register with Copy-Paste                | Positive  | UI    | Registration | Details below   | Executed 15/08/25              |
+| UI_REG_N_01  | Register with Missing Email             | Negative  | UI    | Registration | Details below   | Executed 15/08/25              |
+| UI_REG_N_02  | Register with Missing Password          | Negative  | UI    | Registration | High-level only | Not Executed                   |
+| UI_REG_N_03  | Register with All Empty Fields          | Negative  | UI    | Registration | Details below   | Executed 15/08/25              |
+| UI_REG_N_04  | Register with Invalid Email             | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
+| UI_REG_N_05  | Register with Invalid Password          | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
+| UI_REG_N_06  | Register with Duplicate Email           | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
+| UI_REG_N_07  | Register with Rapid Clicking            | Negative  | UI    | Registration | Details below   | Executed 17/08/25              |
+| UI_LOG_P_01  | Log in with Valid Credentials           | Positive  | UI    | Login        | Details below   | Executed 17/08/25              |
+| UI_LOG_P_02  | Log in with with Copy-Paste             | Positive  | UI    | Login        | High-level only | Not Executed                   |
+| UI_LOG_P_03  | Log in with with Autofill               | Positive  | UI    | Login        | Details below   | Executed 17/08/25              |
+| UI_LOG_N_01  | Log in with Unregistered Email          | Negative  | UI    | Login        | Details below   | Executed 17/08/25              |
+| UI_LOG_N_02  | Log in with Missing Email               | Negative  | UI    | Login        | High-level only | Not Executed                   |
+| UI_LOG_N_03  | Log in with Missing Password            | Negative  | UI    | Login        | High-level only | Not Executed                   |
+| UI_LOG_N_04  | Log in with Rapid Clicking              | Negative  | UI    | Login        | High-level only | Not Executed                   |
+| API_ADD_P_01 | Add Contact with Valid Data             | Positive  | API   | Add Contact  | Details below   | Executed 12/09/25              |
+| API_ADD_P_02 | Add Contact with Existing Name          | Positive  | API   | Add Contact  | Details below   | Executed 12/09/25              |
+| API_ADD_P_03 | Add Contact with Valid Name             | Positive  | API   | Add Contact  | Details below   | Executed 14/09/25              |
+| API_ADD_P_04 | Add Contact with Existing Last Name     | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_P_05 | Add Contact with Valid Last Name        | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_P_06 | Add Contact with Valid Email            | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_P_07 | Add Contact with Existing Address       | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_P_08 | Add Contact with Valid Address          | Positive  | API   | Add Contact  | Details below   | Executed 14/09/25              |
+| API_ADD_P_09 | Add Contact with Existing Description   | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_P_10 | Add Contact with Valid Description      | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_P_11 | Add Contact without Unrequired Fields   | Positive  | API   | Add Contact  | Details below   | Not Executed                   |
+| API_ADD_P_12 | Add Contact with Valid Phone            | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_01 | Add Contact without Authentication      | Negative  | API   | Add Contact  | Details below   | Not Executed                   |
+| API_ADD_N_02 | Add Contact with Invalid Token          | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_03 | Add Contact with Duplicate ID           | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_04 | Add Contact with Invalid Request Format | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_05 | Add Contact with Missing Name           | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_06 | Add Contact with Missing Last Name      | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_07 | Add Contact with Missing Email          | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_08 | Add Contact with Existing Email         | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_09 | Add Contact with Invalid Email          | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_10 | Add Contact with Missing Address        | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_11 | Add Contact with Missing Phone          | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_12 | Add Contact with Existing Phone         | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_13 | Add Contact with Invalid Phone          | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_14 | Add Contact with Invalid Description    | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
+| UI_ADD_P_01  | Add Contact with Valid Data             | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
+| UI_ADD_P_02  | Add Contact with Non-English Letters    | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
+| UI_ADD_P_03  | Add Contact with Special Characters     | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
+| UI_ADD_P_04  | Add Contact with Copy-Paste Input       | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
+| UI_ADD_N_01  | Add Contact with Missing Fields         | Negative  | UI    | Add Contact  | High-level only | Not Executed                   |
 
 
 API_ADD_P_10  Add Contact with Valid Description<br>
 - with numbers
 - with special characters
 - in Hebrew
-API_ADD_P_11  Add Contact without Description<br>
-- with blank descr
-- with null
-- with whitespace instead of descr
 API_ADD_N_05 Add Contact with Missing Name
 - empty
 - null
@@ -100,6 +97,18 @@ API_ADD_N_13  Add Contact with invalid Phone<br>
 API_ADD_P_12 Add Contact with Valid Phone
 - 10 digits (min)
 - 15 digits (max)
+API_ADD_N_14 | Add Contact with Invalid Description
+- no key description
+- null key description
+- invalid type data (int)
+API_ADD_N_02 Add Contact with Invalid Token
+- "invalid"
+- outdated (separate TC?)
+- null?
+UI_ADD_P_02 Add Contact with Data with Non-English Letters 
+- (Hebrew, Arabic, Diacritic, Russian)
+UI_ADD_P_03 Add Contact with Special Characters 
+- (HTML-tags <b>Anna<b>, ", ', +, emoji)
 
 # Detailed Tests
 
@@ -525,7 +534,7 @@ API_ADD_P_12 Add Contact with Valid Phone
   19. internal whitespace - Minas Tirith
   20. one symbol - M
 - **Steps:**<br>
-  1. Send POST request with existing name
+  1. Send POST request
      ``{
          "id": "1",
          "name": "Legolas",
@@ -538,3 +547,50 @@ API_ADD_P_12 Add Contact with Valid Phone
      ``
 - **Expected Result:**
   1. Response 200 OK
+
+### API_ADD_P_11  Add Contact without Unrequired Fields
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data:**
+  1. blank - `{
+         "id": "1",
+         "name": "Gimli",
+         "lastName": "Gloin",
+         "email": "remember@moria.mithril",
+         "phone": "6550005555",
+         "address": "Erebor",
+         "description": ""
+       }`
+  2. whitespace - `{
+         "id": "1",
+         "name": "Gandalf",
+         "lastName": "The White",
+         "email": "follow@vallar.com",
+         "phone": "7550005555",
+         "address": "Middle Earth",
+         "description": " "
+       }`
+- **Steps:**
+  1. Send POST request with data from data set
+- **Expected Result:**
+  1. Response 200 OK
+
+### API_ADD_N_01  Add Contact without Authentication
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Steps:**
+  1. Send POST request without authentication header
+     ``{
+          "id": "1",
+          "name": "Sauron",
+          "lastName": "The Great",
+          "email": "i@am.elf",
+          "phone": "9550005555",
+          "address": "Mordor",
+          "description": "He is lying"
+        }``
+- **Expected Result:**
+  1. Response 400

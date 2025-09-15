@@ -19,50 +19,51 @@ So, every test marked as "Automated" is executed manually and automatically.
 
 ## Scenario Test Cases
 
-| ID           | Title                                                                               | Reason for Inclusion                        |
-|--------------|-------------------------------------------------------------------------------------|---------------------------------------------|
-| API_REG_P_01 | Register with Valid Credentials                                                     | Functional flow                             |
-| API_REG_N_01 | Register with Missing Email                                                         | Functional flow, format errors              |
-| API_REG_N_03 | Register with Invalid Email                                                         | Bug in UI                                   |
-| API_REG_N_04 | Register with Invalid Password                                                      | Functional flow                             |
-| API_REG_N_05 | Register with Duplicate Email                                                       | Functional flow                             |
-| API_LOG_P_01 | Log in with Registered Email                                                        | Functional flow                             |
-| API_LOG_N_01 | Log in with Unregistered Email                                                      | Functional flow                             |
-| API_LOG_N_02 | Log in with Wrong Password                                                          | Functional flow                             |
-| UI_NAV_P_01  | Open Home Page from Navigation                                                      | Execution with EXP_NAV_01                   |
-| UI_NAV_P_02  | Open About Page from Navigation                                                     | Execution with EXP_NAV_01                   |
-| UI_NAV_P_03  | Open Login Page from Navigation                                                     | Execution with UI_LOG_P_01                  |
-| UI_REG_P_01  | Register with Valid Credentials                                                     | Functional flow                             |
-| UI_REG_P_02  | Register with Copy-Paste                                                            | Functional flow                             |
-| UI_REG_N_01  | Register with Missing Email                                                         | Missing of the key field                    |
-| UI_REG_N_03  | Register with All Empty Fields                                                      | Error handling                              |
-| UI_REG_N_04  | Register with Invalid Email                                                         | Field validation on the client side         |
-| UI_REG_N_05  | Register with Invalid Password                                                      | Bugs in API, BUG_REG_API_01, BUG_REG_API_02 |
-| UI_REG_N_06  | Register with Duplicate Email                                                       | Functional flow                             |
-| UI_REG_N_07  | Register with Rapid Clicking                                                        | Preventing duplicate submissions            |
-| UI_LOG_P_01  | Log in with Valid Credentials                                                       | Functional flow                             |
-| UI_LOG_P_03  | Log in with with Autofill                                                           | Functional flow                             |
-| UI_LOG_N_01  | Log in with Unregistered Email                                                      | Error handling                              |
-| API_ADD_P_01 | Add Contact with Valid Data                                                         | Functional flow                             |
-| API_ADD_P_02 | Add Contact with Existing Name                                                      | Functional flow                             |
-| API_ADD_P_03 | Add Contact with Valid Name                                                         | Functional flow                             |
-| API_ADD_P_08 | Add Contact with Valid Address                                                      | Functional flow                             |
-| API_ADD_P_11 | Add Contact without Description                                                     | Common situation                            |
-| API_ADD_N_01 | Add Contact without Authentication                                                  | Security                                    |
-| API_ADD_N_02 | Add Contact with Invalid Token                                                      | Practice                                    |
-| API_ADD_N_13 | Add Contact with Invalid Phone                                                      | Common situation                            |
-| UI_ADD_P_01  | Add Contact with Valid Data                                                         | Functional flow                             |
-| UI_ADD_P_02  | Add Contact with Data with Non-English Letters (Hebrew, Arabic, Diacritic, Russian) | Common situation                            |
-| UI_ADD_P_03  | Add Contact with Special Characters (HTML-tags <b>Anna<b>, ", ', +, emoji)          | Common situation                            |
-| UI_ADD_P_04  | Add Contact with Copy-Paste Input                                                   | Common situation                            |
-| UI_ADD_N_01  | Add Contact with Missing Fields                                                     | Common situation                            |
+| ID           | Title                                          | Reason for Inclusion                        |
+|--------------|------------------------------------------------|---------------------------------------------|
+| API_REG_P_01 | Register with Valid Credentials                | Functional flow                             |
+| API_REG_N_01 | Register with Missing Email                    | Functional flow, format errors              |
+| API_REG_N_03 | Register with Invalid Email                    | Bug in UI                                   |
+| API_REG_N_04 | Register with Invalid Password                 | Functional flow                             |
+| API_REG_N_05 | Register with Duplicate Email                  | Functional flow                             |
+| API_LOG_P_01 | Log in with Registered Email                   | Functional flow                             |
+| API_LOG_N_01 | Log in with Unregistered Email                 | Functional flow                             |
+| API_LOG_N_02 | Log in with Wrong Password                     | Functional flow                             |
+| UI_NAV_P_01  | Open Home Page from Navigation                 | Execution with EXP_NAV_01                   |
+| UI_NAV_P_02  | Open About Page from Navigation                | Execution with EXP_NAV_01                   |
+| UI_NAV_P_03  | Open Login Page from Navigation                | Execution with UI_LOG_P_01                  |
+| UI_REG_P_01  | Register with Valid Credentials                | Functional flow                             |
+| UI_REG_P_02  | Register with Copy-Paste                       | Functional flow                             |
+| UI_REG_N_01  | Register with Missing Email                    | Missing of the key field                    |
+| UI_REG_N_03  | Register with All Empty Fields                 | Error handling                              |
+| UI_REG_N_04  | Register with Invalid Email                    | Field validation on the client side         |
+| UI_REG_N_05  | Register with Invalid Password                 | Bugs in API, BUG_REG_API_01, BUG_REG_API_02 |
+| UI_REG_N_06  | Register with Duplicate Email                  | Functional flow                             |
+| UI_REG_N_07  | Register with Rapid Clicking                   | Preventing duplicate submissions            |
+| UI_LOG_P_01  | Log in with Valid Credentials                  | Functional flow                             |
+| UI_LOG_P_03  | Log in with with Autofill                      | Functional flow                             |
+| UI_LOG_N_01  | Log in with Unregistered Email                 | Error handling                              |
+| API_ADD_P_01 | Add Contact with Valid Data                    | Functional flow                             |
+| API_ADD_P_02 | Add Contact with Existing Name                 | Functional flow                             |
+| API_ADD_P_03 | Add Contact with Valid Name                    | Functional flow                             |
+| API_ADD_P_08 | Add Contact with Valid Address                 | Functional flow                             |
+| API_ADD_P_11 | Add Contact without Unrequired Fields          | Common situation                            |
+| API_ADD_N_01 | Add Contact without Authentication             | Security                                    |
+| API_ADD_N_02 | Add Contact with Invalid Token                 | Practice                                    |
+| API_ADD_N_13 | Add Contact with Invalid Phone                 | Common situation                            |
+| API_ADD_N_14 | Add Contact with Invalid Description           | Practice                                    |
+| UI_ADD_P_01  | Add Contact with Valid Data                    | Functional flow                             |
+| UI_ADD_P_02  | Add Contact with Data with Non-English Letters | Common situation                            |
+| UI_ADD_P_03  | Add Contact with Special Characters            | Common situation                            |
+| UI_ADD_P_04  | Add Contact with Copy-Paste Input              | Common situation                            |
+| UI_ADD_N_01  | Add Contact with Missing Fields                | Common situation                            |
 
 ## Exploratory Sessions
 
 | ID          | Title                                            | Component                                                  | Reason for Inclusion                             |
 |-------------|--------------------------------------------------|------------------------------------------------------------|--------------------------------------------------|
 | EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login                                        | Practice                                         |
-| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login                                        | Practice                                         |
+| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login                                        | No maximum length is given                       |
 | EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login                                        | Edge cases                                       |
 | EXP_AUTH_04 | Authentication with Various Passwords            | Registration, Login                                        | Edge cases, security                             |
 | EXP_AUTH_05 | Authentication API with Invalid Request Format   | Registration, Login                                        | Format errors                                    |

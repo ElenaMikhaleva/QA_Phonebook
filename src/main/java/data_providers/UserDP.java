@@ -139,4 +139,12 @@ public class UserDP {
                 { genLetters(1), "[20] one symbol" }
         };
     }
+
+    @DataProvider(name = "emptyDescription")
+    public Object[][] API_ADD_P_11_data() {
+        return new Object[][] {
+                { "", "[1] blank" },
+                { " ", "[2] whitespace" }
+        };
+    }
 }
