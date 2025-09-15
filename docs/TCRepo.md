@@ -48,9 +48,9 @@ Exploratory sessions are kept in STD, STR.
 | API_ADD_P_08 | Add Contact with Valid Address          | Positive  | API   | Add Contact  | Details below   | Executed 14/09/25              |
 | API_ADD_P_09 | Add Contact with Existing Description   | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_P_10 | Add Contact with Valid Description      | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_P_11 | Add Contact without Unrequired Fields   | Positive  | API   | Add Contact  | Details below   | Not Executed                   |
+| API_ADD_P_11 | Add Contact without Unrequired Fields   | Positive  | API   | Add Contact  | Details below   | Executed 15/09/25              |
 | API_ADD_P_12 | Add Contact with Valid Phone            | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_01 | Add Contact without Authentication      | Negative  | API   | Add Contact  | Details below   | Not Executed                   |
+| API_ADD_N_01 | Add Contact without Authentication      | Negative  | API   | Add Contact  | Details below   | Executed 15/09/25              |
 | API_ADD_N_02 | Add Contact with Invalid Token          | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_N_03 | Add Contact with Duplicate ID           | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_N_04 | Add Contact with Invalid Request Format | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
@@ -593,4 +593,4 @@ UI_ADD_P_03 Add Contact with Special Characters
           "description": "He is lying"
         }``
 - **Expected Result:**
-  1. Response 400
+  1. Response 401
