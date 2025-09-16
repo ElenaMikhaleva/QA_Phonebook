@@ -147,4 +147,18 @@ public class UserDP {
                 { " ", "[2] whitespace" }
         };
     }
+
+    @DataProvider(name = "invalidPhone")
+    public Object[][] API_ADD_N_13_data() {
+        return new Object[][] {
+                { genDigits(11) + genLetters(1), "[1] letters" },
+                { "+" + genDigits(10), "[2] plus " },
+                { "(" + genDigits(3) + ")" + genDigits(6), "[3] brackets" },
+                { genDigits(9), "[4] 9 symbol length" },
+                { genDigits(16), "[5] 16 symbol length" },
+                { " " + genDigits(10), "[6] leading whitespace" },
+                { genDigits(10) + " ", "[7] trailing whitespace" },
+                { genDigits(3) + " " + genDigits(8), "[8] internal whitespace" }
+        };
+    }
 }

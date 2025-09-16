@@ -209,4 +209,33 @@ public class AddContactRestTests extends ContactController implements BaseAPI {
         softAssert.assertTrue(errorMessageDto.getPath().equals("/v1/contacts"), "path");
         softAssert.assertAll();
     }
+
+    @Test(groups = "str", dataProviderClass = UserDP.class, dataProvider = "invalidPhone")
+    public void API_ADD_N_13_test(String phone, String descr) {
+        logger.info("Add contact without description, 400");
+
+        Contact contact = Contact.builder()
+                .id(genDigits(3))
+                .name(genLetters(5))
+                .lastName(genLetters(5))
+                .email(genEmail(14))
+                .phone(phone)
+                .address(genLetters(5))
+                .description(genLetters(5))
+                .build();
+        Response response = requestCreateContact(contact);
+        logResponseContact(response, contact, descr);
+        response
+                .then()
+                .statusCode(400)
+                .body(matchesJsonSchemaInClasspath("ErrorMessageDtoSchema.json"))
+        ;
+        ErrorMessageDto errorMessageDto = response.body().as(ErrorMessageDto.class);
+        softAssert.assertEquals(LocalDate.now().toString(), errorMessageDto.getTimestamp().substring(0, 10), "timestamp");
+        softAssert.assertEquals(errorMessageDto.getStatus(), 400, "status code");
+        softAssert.assertEquals(errorMessageDto.getError(), "Bad Request", "status line");
+        softAssert.assertEquals(errorMessageDto.getMessage().get("message"), "{\"phone\":\"Phone number must contain only digits! And length min 10, max 15!\"}", "message");
+        softAssert.assertTrue(errorMessageDto.getPath().equals("/v1/contacts"), "path");
+        softAssert.assertAll();
+    }
 }
