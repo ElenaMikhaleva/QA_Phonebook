@@ -90,10 +90,6 @@ API_ADD_N_09  Add Contact with Invalid Email<br>
 API_ADD_P_12 Add Contact with Valid Phone
 - 10 digits (min)
 - 15 digits (max)
-API_ADD_N_14 | Add Contact with Invalid Description
-- no key description
-- null key description
-- invalid type data (int)
 UI_ADD_P_02 Add Contact with Data with Non-English Letters 
 - (Hebrew, Arabic, Diacritic, Russian)
 UI_ADD_P_03 Add Contact with Special Characters 
@@ -653,3 +649,59 @@ UI_ADD_P_03 Add Contact with Special Characters
 - **Expected Result:**
   1. Response 400 Bad Request
 
+### API_ADD_N_14 Add Contact with Invalid Description
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data (description):**
+  1. no description: `{
+          "id": "1",
+          "name": "Eowyn",
+          "lastName": "Daughter of Eomund",
+          "email": "for@freedom.gov",
+          "phone": "447900000011",
+          "address": "Edoras"
+        }`
+  2. description null: `{
+          "id": "1",
+          "name": "Eowyn",
+          "lastName": "Daughter of Eomund",
+          "email": "for@freedom.gov",
+          "phone": "447900000011",
+          "address": "Edoras",
+          "description": null
+        }`
+  3. invalid data type: `{
+          "id": "1",
+          "name": "Eowyn",
+          "lastName": "Daughter of Eomund",
+          "email": "for@freedom.gov",
+          "phone": "447900000011",
+          "address": "Edoras",
+          "description": 1234
+        }`
+- **Steps:**
+  1. Send POST request from test data
+- **Expected Result:**
+  1. Response 400 Bad Request
+
+### UI_ADD_P_01 Add Contact with Valid Data
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Steps:**<br>
+  1. Send POST request
+     ``{
+         "id": "1",
+         "name": "Merry",
+         "lastName": "Brandybuck",
+         "email": "merry@buckland.net",
+         "phone": "4479123003",
+         "address": "Brandy Hall, Buckland",
+         "description": "BBF"
+       }
+     ``
+- **Expected Result:**
+  1. Response 200 OK 

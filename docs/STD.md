@@ -116,5 +116,8 @@ Mobile (browser version):
 | UI_LOG_P_01 | yes    | yes     | yes  | yes           |
 | UI_LOG_P_03 | yes    | -       | -    | -             |
 | UI_LOG_N_01 | yes    | yes     | yes  | yes           |
-
-
+| UI_ADD_P_01 | yes    | yes     | yes  | yes           |
+| UI_ADD_P_02 | yes    | -       | -    | -             |
+| UI_ADD_P_03 | yes    | -       | -    | -             |
+| UI_ADD_P_04 | yes    | -       | -    | -             |
+| UI_ADD_N_01 | yes    | yes     | yes  | yes           |

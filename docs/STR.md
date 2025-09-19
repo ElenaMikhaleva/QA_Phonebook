@@ -51,9 +51,9 @@ Focused on testing the Registration and Login, including exploratory testing per
 | API_ADD_N_01  | Add Contact without Authentication             | Automated        | Failed          | BUG_ADD_API_01                 |
 | API_ADD_N_02  | Add Contact with Invalid Token                 | Manual           | Passed          | -                              |
 | API_ADD_N_021 | Add Contact with Outdated Token                | Manual           | Passed          | -                              |
-| API_ADD_N_13  | Add Contact with Invalid Phone                 | Automated        | fix method      |                                |
-| API_ADD_N_14  | Add Contact with Invalid Description           | Automated        |                 |                                |
-| UI_ADD_P_01   | Add Contact with Valid Data                    | Automated        |                 |                                |
+| API_ADD_N_13  | Add Contact with Invalid Phone                 | Automated        | Passed          | -                              |
+| API_ADD_N_14  | Add Contact with Invalid Description           | Manual           | Failed          | BUG_ADD_API_02                 |
+| UI_ADD_P_01   | Add Contact with Valid Data                    | Automated        | finish          |                                |
 | UI_ADD_P_02   | Add Contact with Data with Non-English Letters | Manual           |                 |                                |
 | UI_ADD_P_03   | Add Contact with Special Characters            | Manual           |                 |                                |
 | UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Manual           |                 |                                |
@@ -518,6 +518,37 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. API returns 403 Forbidden
   2. No response body
 - **Attachments:** test_logs/log-20250915T212650.log
+
+## BUG_ADD_API_02 Add contact API accepts invalid data type
+
+- **Severity:** Low
+- **Test ID:** API_ADD_N_14
+- **Environment:** Postman
+- **Component:** Add Contact API
+- **Test Data:**
+  1. boolean description: `{
+      "id": "u-g",
+      "name": "Merry",
+      "lastName": "Brandybuck",
+      "email": "Reece.Howell@gmail.com",
+      "phone": "070371709101",
+      "address": "Brandy Hall, Buckland, The Shire",
+      "description": true
+    }`
+  2. int description: `{
+    "id": "4-c",
+    "name": "Merry",
+    "lastName": "Brandybuck",
+    "email": "Jermaine.Beier@gmail.com",
+    "phone": "070371709101",
+    "address": "Brandy Hall, Buckland, The Shire",
+    "description": 1234
+    }`
+- **Steps:**<br>
+  1. Send JSON with test data
+- **Expected Result:** Error
+- **Actual Result:** 200 OK
+- **Attributes:** src/test/postman/postman_reg_test_run.json
 
 # Test Reports for Exploratory Sessions
 

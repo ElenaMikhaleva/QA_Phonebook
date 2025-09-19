@@ -212,7 +212,7 @@ public class AddContactRestTests extends ContactController implements BaseAPI {
 
     @Test(groups = "str", dataProviderClass = UserDP.class, dataProvider = "invalidPhone")
     public void API_ADD_N_13_test(String phone, String descr) {
-        logger.info("Add contact without description, 400");
+        logger.info("Add contact with invalid phone, 400");
 
         Contact contact = Contact.builder()
                 .id(genDigits(3))
@@ -234,7 +234,7 @@ public class AddContactRestTests extends ContactController implements BaseAPI {
         softAssert.assertEquals(LocalDate.now().toString(), errorMessageDto.getTimestamp().substring(0, 10), "timestamp");
         softAssert.assertEquals(errorMessageDto.getStatus(), 400, "status code");
         softAssert.assertEquals(errorMessageDto.getError(), "Bad Request", "status line");
-        softAssert.assertEquals(errorMessageDto.getMessage().get("message"), "{\"phone\":\"Phone number must contain only digits! And length min 10, max 15!\"}", "message");
+        softAssert.assertEquals(errorMessageDto.getMessage().toString(), "{phone=Phone number must contain only digits! And length min 10, max 15!}", "message");
         softAssert.assertTrue(errorMessageDto.getPath().equals("/v1/contacts"), "path");
         softAssert.assertAll();
     }
