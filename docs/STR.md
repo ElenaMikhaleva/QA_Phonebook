@@ -53,11 +53,12 @@ Focused on testing the Registration and Login, including exploratory testing per
 | API_ADD_N_021 | Add Contact with Outdated Token                | Manual           | Passed          | -                              |
 | API_ADD_N_13  | Add Contact with Invalid Phone                 | Automated        | Passed          | -                              |
 | API_ADD_N_14  | Add Contact with Invalid Description           | Manual           | Failed          | BUG_ADD_API_02                 |
-| UI_ADD_P_01   | Add Contact with Valid Data                    | Automated        | finish          |                                |
-| UI_ADD_P_02   | Add Contact with Data with Non-English Letters | Manual           |                 |                                |
-| UI_ADD_P_03   | Add Contact with Special Characters            | Manual           |                 |                                |
-| UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Manual           |                 |                                |
-| UI_ADD_N_01   | Add Contact with Missing Fields                | Automated        |                 |                                |
+| UI_ADD_P_01   | Add Contact with Valid Data                    | Automated        | Passed          | -                              |
+| UI_ADD_P_02   | Add Contact with Data with Non-English Letters | Manual           | Passed          | -                              |
+| UI_ADD_P_03   | Add Contact with Special Characters            | Manual           | Passed          | -                              |
+| UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Manual           | Passed          | -                              |
+| UI_ADD_N_01   | Add Contact with Empty Required Fields         | Manual           | Failed          | BUG_ADD_UI_01, BUG_ADD_UI_02   |
+| UI_ADD_N_02   | Add Contact with Blank Required Fields         | Manual           | Failed          | BUG_ADD_UI_01, BUG_ADD_UI_02   |
 
 ## Exploratory Tests
 
@@ -549,6 +550,32 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Expected Result:** Error
 - **Actual Result:** 200 OK
 - **Attributes:** src/test/postman/postman_reg_test_run.json
+
+## BUG_ADD_UI_01 No Indication for Missing Fields
+
+- **Severity:** Low
+- **Test ID:** UI_ADD_N_01, UI_ADD_N_02
+- **Environment:** Chrome Desktop
+- **Component:** Add Contact UI
+- **Steps:**
+  1. leave one required field empty (name, last name, email, phone or address)
+  2. fill in other required fields
+  3. click no Save button
+- **Expected Result:** button is displayed differently and is not clickable, message about missing fields
+- **Actual Result:** button is not clickable, but looks the same, no message for Name, Last name
+
+## BUG_ADD_UI_02 Successful Creating Contact without Email
+
+- **Severity:** Medium
+- **Test ID:** UI_ADD_N_01
+- **Environment:** Chrome Desktop
+- **Component:** Add Contact UI
+- **Steps:**
+  1. fill in Name, Last name, Phone, Address
+  2. leave Email field empty
+  3. click no Save button
+- **Expected Result:** contact is not created, error message
+- **Actual Result:** contact is created
 
 # Test Reports for Exploratory Sessions
 

@@ -51,8 +51,8 @@ Exploratory sessions are kept in STD, STR.
 | API_ADD_P_11  | Add Contact without Unrequired Fields   | Positive  | API   | Add Contact  | Details below   | Executed 15/09/25              |
 | API_ADD_P_12  | Add Contact with Valid Phone            | Positive  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_N_01  | Add Contact without Authentication      | Negative  | API   | Add Contact  | Details below   | Executed 15/09/25              |
-| API_ADD_N_02  | Add Contact with Invalid Token          | Negative  | API   | Add Contact  | Details below   | Not Executed                   |
-| API_ADD_N_021 | Add Contact with Outdated Token         | Negative  | API   | Add Contact  | Details below   | Not Executed                   |
+| API_ADD_N_02  | Add Contact with Invalid Token          | Negative  | API   | Add Contact  | Details below   | Executed 19/09/25              |
+| API_ADD_N_021 | Add Contact with Outdated Token         | Negative  | API   | Add Contact  | Details below   | Executed 19/09/25              |
 | API_ADD_N_03  | Add Contact with Duplicate ID           | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_N_04  | Add Contact with Invalid Request Format | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_N_05  | Add Contact with Missing Name           | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
@@ -63,14 +63,16 @@ Exploratory sessions are kept in STD, STR.
 | API_ADD_N_10  | Add Contact with Missing Address        | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_N_11  | Add Contact with Missing Phone          | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
 | API_ADD_N_12  | Add Contact with Existing Phone         | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_13  | Add Contact with Invalid Phone          | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| API_ADD_N_14  | Add Contact with Invalid Description    | Negative  | API   | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_P_01   | Add Contact with Valid Data             | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_P_02   | Add Contact with Non-English Letters    | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_P_03   | Add Contact with Special Characters     | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_P_04   | Add Contact with Copy-Paste Input       | Positive  | UI    | Add Contact  | High-level only | Not Executed                   |
-| UI_ADD_N_01   | Add Contact with Missing Fields         | Negative  | UI    | Add Contact  | High-level only | Not Executed                   |
+| API_ADD_N_13  | Add Contact with Invalid Phone          | Negative  | API   | Add Contact  | Details below   | Executed 19/09/25              |
+| API_ADD_N_14  | Add Contact with Invalid Description    | Negative  | API   | Add Contact  | Details below   | Executed 19/09/25              |
+| UI_ADD_P_01   | Add Contact with Valid Data             | Positive  | UI    | Add Contact  | Details below   | Executed 20/09/25              |
+| UI_ADD_P_02   | Add Contact with Non-English Letters    | Positive  | UI    | Add Contact  | Details below   | Executed 20/09/25              |
+| UI_ADD_P_03   | Add Contact with Special Characters     | Positive  | UI    | Add Contact  | Details below   | Executed 20/09/25              |
+| UI_ADD_P_04   | Add Contact with Copy-Paste Input       | Positive  | UI    | Add Contact  | Details below   | Executed 20/09/25              |
+| UI_ADD_N_01   | Add Contact with Empty Required Fields  | Negative  | UI    | Add Contact  | Details below   | Executed 20/09/25              |
+| UI_ADD_N_02   | Add Contact with Blank Required Fields  | Negative  | UI    | Add Contact  | High-level only | Not Executed                   |
 
+Notes
 
 API_ADD_P_10  Add Contact with Valid Description<br>
 - with numbers
@@ -90,10 +92,6 @@ API_ADD_N_09  Add Contact with Invalid Email<br>
 API_ADD_P_12 Add Contact with Valid Phone
 - 10 digits (min)
 - 15 digits (max)
-UI_ADD_P_02 Add Contact with Data with Non-English Letters 
-- (Hebrew, Arabic, Diacritic, Russian)
-UI_ADD_P_03 Add Contact with Special Characters 
-- (HTML-tags <b>Anna<b>, ", ', +, emoji)
 
 # Detailed Tests
 
@@ -688,20 +686,113 @@ UI_ADD_P_03 Add Contact with Special Characters
 
 ### UI_ADD_P_01 Add Contact with Valid Data
 
-- **Test Type:** API
+- **Test Type:** UI
 - **Component:** Add Contact
-- **Precondition:** user is registered
+- **Precondition:** user is registered, go to Add Contact page
 - **Steps:**<br>
-  1. Send POST request
-     ``{
-         "id": "1",
-         "name": "Merry",
-         "lastName": "Brandybuck",
-         "email": "merry@buckland.net",
-         "phone": "4479123003",
-         "address": "Brandy Hall, Buckland",
-         "description": "BBF"
-       }
-     ``
+  1. add valid Name
+  2. add valid Last name
+  3. add valid Email
+  4. add valid Phone
+  5. add valid Address
+  6. add valid Description
+  7. click on Save button
 - **Expected Result:**
-  1. Response 200 OK 
+  1. Contact is added
+
+### UI_ADD_P_02 Add Contact with Data with Non-English Letters
+
+- **Test Type:** UI
+- **Component:** Add Contact
+- **Precondition:** user is registered, go to Add Contact page
+- **Test data:**
+  1. Russian
+  2. Diacritic
+  3. Hebrew
+  4. Arabic
+- **Steps:**<br>
+  1. add Name from test data
+  2. add Last name from test data
+  3. add valid Email
+  4. add valid Phone
+  5. add Address from test data
+  6. add Description from test data
+  7. click on Save button
+- **Expected Result:**
+  1. Contact is added
+  2. Contact is displayed correctly
+
+### UI_ADD_P_03 Add Contact with Special Characters
+
+- **Test Type:** UI
+- **Component:** Add Contact
+- **Precondition:** user is registered, go to Add Contact page
+- **Test data:**
+  1. HTML-tag (<b></b>)
+  2. ""
+  3. ''
+  4. +
+  5. emoji
+- **Steps:**<br>
+  1. add Name from test data
+  2. add Last name from test data
+  3. add valid Email
+  4. add valid Phone
+  5. add Address from test data
+  6. add Description from test data
+  7. click on Save button
+- **Expected Result:**
+  1. Contact is added
+  2. Contact is displayed correctly
+
+### UI_ADD_P_04 Add Contact with Copy-Paste Input
+
+- **Test Type:** UI
+- **Component:** Add Contact
+- **Precondition:** user is registered, go to Add Contact page
+- **Steps:**<br>
+  1. add Name with copy-paste
+  2. add Last name with copy-paste
+  3. add Email with copy-paste
+  4. add Phone with copy-paste
+  5. add Address with copy-paste
+  6. add Description with copy-paste
+  7. click on Save button
+- **Expected Result:**
+  1. Contact is added
+
+### UI_ADD_N_01 Add Contact with Empty Required Fields
+
+- **Test Type:** UI
+- **Component:** Add Contact
+- **Precondition:** user is registered, go to Add Contact page
+- **Test Data:**
+  1. name
+  2. last name
+  3. email
+  4. phone
+  5. address
+- **Steps:**<br>
+  1. leave field from test data empty
+  2. fill in other fields
+  3. click on Save button
+- **Expected Result:**
+  1. Error message
+
+### UI_ADD_N_01 Add Contact with Empty Required Fields
+
+- **Test Type:** UI
+- **Component:** Add Contact
+- **Precondition:** user is registered, go to Add Contact page
+- **Test Data:**
+  1. name
+  2. last name
+  3. email
+  4. phone
+  5. address
+- **Steps:**<br>
+  1. click on field from test data and leave it empty
+  2. fill in other fields
+  3. click on Save button
+- **Expected Result:**
+  1. Error message

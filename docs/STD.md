@@ -57,7 +57,8 @@ So, every test marked as "Automated" is executed manually and automatically.
 | UI_ADD_P_02   | Add Contact with Data with Non-English Letters | Common situation                            |
 | UI_ADD_P_03   | Add Contact with Special Characters            | Common situation                            |
 | UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Common situation                            |
-| UI_ADD_N_01   | Add Contact with Missing Fields                | Common situation                            |
+| UI_ADD_N_01   | Add Contact with Empty Required Fields         | Common situation                            |
+| UI_ADD_N_02   | Add Contact with Blank Required Fields         | Error handling                              |
 
 ## Exploratory Sessions
 
