@@ -72,26 +72,6 @@ So, every test marked as "Automated" is executed manually and automatically.
 | EXP_NAV_01  | Navigate Using Keyboard                          | Navigation, Registration, Login, All Contacts, Add Contact | Practice                                         |
 | EXP_NAV_02  | Actions Using Old Token                          | Navigation, All Contacts, Add Contact, Update Contact      | Security                                         |
 | EXP_ADD_01  | Add Contact with Given ID                        | Add Contact                                                | It is unclear if ID key is needed in API request |
-| EXP_ADD_02  | Add Contact with Long Data                       | Add Contact                                                | No maximum length is given for fields            |
-| EXP_ADD_03  | Add Contact with Various Data                    | Add Contact                                                | Edge cases                                       |
-
-EXP_ADD_04
-- Name, Last Name, Address, Descr
-  - emoji
-  - whitespaces
-  - control characters
-  - <>\/`=
-- Email
-  - with capitalized letters
-  - without @
-  - with @@
-  - without local part
-  - without domain
-  - with leading whitespace
-  - with trailing whitespace
-  - newline character
-  - tabulation
-  - <>\/`@=
 
 # Test Environment
 

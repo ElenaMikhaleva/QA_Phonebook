@@ -72,8 +72,6 @@ Focused on testing the Registration and Login, including exploratory testing per
 | EXP_NAV_01  | Navigate Using Keyboard                          | -              |
 | EXP_NAV_02  | Actions Using Old Token                          |                |
 | EXP_ADD_01  | Add Contact with Given ID                        | BUG_ADD_API_03 |
-| EXP_ADD_02  | Add Contact with Long Data                       |                |
-| EXP_ADD_03  | Add Contact with Various Data                    |                |
 
 # Summary
 
@@ -86,7 +84,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   - Failed: 15 tests
   - Pass Rate: 61%
 
-- **Exploratory Sessions Planned for Execution:** 10 sessions
+- **Exploratory Sessions Planned for Execution:** 8 sessions
 - Bugs Found During Exploratory Sessions: 4 bugs
 
 ## Bugs
@@ -842,7 +840,6 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## EXP_NAV_02 Actions Using Old Token
 
-- (UI) sign in at 16:02, 21 of September
 - (API) token 16:04, 21 of September: eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoibXIudG9va0BzaGlyZW1haWwubWUiLCJpc3MiOiJSZWd1bGFpdCIsImV4cCI6MTc1OTA1MjY3NCwiaWF0IjoxNzU4NDUyNjc0fQ.XelQ6RIg82AXIjjUoirr9HSng0RuiKs_MgKulxZsyGQ
 
 - **Session goal:** investigate how API handles outdated tokens.
@@ -899,3 +896,4 @@ Focused on testing the Registration and Login, including exploratory testing per
 
   ID in request JSON is required, but not used and not given to the created contact, BUG_ADD_API_03.  
 - **Attachments:** src/test/postman/postman_reg_test_run.json
+
