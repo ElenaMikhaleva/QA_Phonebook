@@ -70,8 +70,8 @@ Focused on testing the Registration and Login, including exploratory testing per
 | EXP_AUTH_04 | Authentication with Various Passwords            | BUG_REG_API_12 |
 | EXP_AUTH_05 | Authentication API with Invalid Request Format   | BUG_REG_API_12 |
 | EXP_NAV_01  | Navigate Using Keyboard                          | -              |
-| EXP_NAV_02  | Actions Using Outdated Token                     |                |
-| EXP_ADD_01  | Add Contact with Given ID                        |                |
+| EXP_NAV_02  | Actions Using Old Token                          |                |
+| EXP_ADD_01  | Add Contact with Given ID                        | BUG_ADD_API_03 |
 | EXP_ADD_02  | Add Contact with Long Data                       |                |
 | EXP_ADD_03  | Add Contact with Various Data                    |                |
 
@@ -79,36 +79,37 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Tests
 
-- **Total Tests Written (Repository):** 31 tests
-- **Tests Planned for Execution:** 22 tests
-- **Tests Executed:** 22 tests
-  - Passed: 11 tests
-  - Failed: 11 tests
-  - Pass Rate: 50%
-- Automated Tests: 11 tests (all tests are executed manually first)
+- **Total Tests Written (Repository):** 64 tests
+- **Tests Planned for Execution:** 38 tests
+- **Tests Executed:** 38 tests
+  - Passed: 23 tests
+  - Failed: 15 tests
+  - Pass Rate: 61%
 
-- **Exploratory Sessions Planned for Execution:** 6 sessions
-- Bugs Found During Exploratory Sessions: 3 bugs
+- **Exploratory Sessions Planned for Execution:** 10 sessions
+- Bugs Found During Exploratory Sessions: 4 bugs
 
 ## Bugs
 
-- **Total Bugs Found:** 26 bugs
+- **Total Bugs Found:** 31 bugs
+- **Severity:**
   - Critical: 1 bug
   - High: 2 bugs
-  - Medium: 18 bugs
-  - Low: 5 bugs
+  - Medium: 21 bugs
+  - Low: 7 bugs
 - **Bugs Density:**
   - Home Page: 1 bug
   - Navigation: 0 bugs
   - Registration: 20 bugs
   - Login: 4 bugs
   - Contact List: 1 bug
+  - Add Contacts: 5 bugs
 
 ## Coverage
 
-- **Requirements Covered by Tests:** 19%
-- **Modules Covered:** Navigation, Registration, Login
-- **Untested Areas:** All Contacts, Add Contact, Delete Contact, Update Contact, Sign out, Security, Interruption Testing
+- **Requirements Covered by Tests:** 42%
+- **Modules Covered:** Navigation, Registration, Login, Add Contact
+- **Untested Areas:** All Contacts, Delete Contact, Update Contact, Sign out, Security, Interruption Testing
 
 **Notes:**
 - The Registration API has critical issues around password validation and email casing that may impact security and user experience. Some requests result in 500 Response.
@@ -551,6 +552,32 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Actual Result:** 200 OK
 - **Attributes:** src/test/postman/postman_reg_test_run.json
 
+## BUG_ADD_API_03 API Create Contact Requires Unneeded ID
+
+- **Severity:** Medium
+- **Test ID:** EXP_ADD_01
+- **Environment:** Postman
+- **Component:** Add Contact API
+- **Test Data:**
+  - String ("v-7")
+  - int (6574)
+  - boolean (true)
+  - existing id ("fc7ddd76-37c1-4c36-a6d3-63f3d22f4fdf")
+- **Steps:**
+  1. Send JSON with test data: `{
+    "id": <id from test data>,
+    "name": "Merry",
+    "lastName": "Brandybuck",
+    "email": "Jermaine.Beier@gmail.com",
+    "phone": "070371709101",
+    "address": "Brandy Hall, Buckland, The Shire",
+    "description": 1234
+    }`
+- **Expected Result:** error for non-String datatypes, ID is given to the contact, existing id returns error
+- **Actual Result:** contact is given new ID, that is sent in response message
+- **Notes:** it is unclear why ID is required in request, if system creates new one based on a pattern. Probably it is better not to require ID in response.
+- **Attributes:** src/test/postman/postman_reg_test_run.json
+
 ## BUG_ADD_UI_01 No Indication for Missing Fields
 
 - **Severity:** Low
@@ -769,12 +796,12 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Time:** 30 minutes
 - **Environment:**
   - Postman for API
- **Test Ideas (Password):**
+- **Test Ideas (Password):**
   1. wrong header (`Content-Type: text/plain`)
   2. no header
   3. no comma in body (`{ "username": "Giovani39@example.com" "password": "P@ssw0rd" }`)
   4. invalid key in body ("email" instead of "username": `{ "email": "Giovani39@example.com", "password": "P@ssw0rd" }`; new "state" key: `{ "username": "elena65748@gmail.com", "password": "P@ssw0rd", "state": "CA" }`)
- **Results:**
+- **Results:**
   
   | Request                                        | Component    | Response                                                                            |
   |------------------------------------------------|--------------|-------------------------------------------------------------------------------------|
@@ -807,8 +834,68 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Test Ideas:**
   - go through header pages and authentication form using Tab and Enter
   - register and log in using Tab, Enter, Shift+Enter, Ctrl+Enter
-**Results:**
+- **Results:**
   - User can go through Header pages, Authentication form, Add Contact form using Tab and Enter. 
   - Cannot open contact card on Contacts Page using keyboard.
   - Expected Behaviour is not documented.
 - **Potential Issues**: keyboard cannot open contact card.
+
+## EXP_NAV_02 Actions Using Old Token
+
+- (UI) sign in at 16:02, 21 of September
+- (API) token 16:04, 21 of September: eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoibXIudG9va0BzaGlyZW1haWwubWUiLCJpc3MiOiJSZWd1bGFpdCIsImV4cCI6MTc1OTA1MjY3NCwiaWF0IjoxNzU4NDUyNjc0fQ.XelQ6RIg82AXIjjUoirr9HSng0RuiKs_MgKulxZsyGQ
+
+- **Session goal:** investigate how API handles outdated tokens.
+- **Scope:**
+  - API Get Contacts 
+  - API Add Contact 
+  - API Update Contact
+- **Time:** overall 1 week
+- **Environment:**
+  - Postman for API
+- **Test Ideas:**
+  1. token 10 minutes old
+  2. token 30 minutes old
+  3. token 1 hour old
+  4. token 1 day old
+  5. token 6 days old
+  6. token 7 days old
+  - **Results:**
+
+    | Token Age | Get Contacts | Add Contact | Update Contact | Delete Contact | Delete All Contacts |
+    |-----------|--------------|-------------|----------------|----------------|---------------------|
+    | 10 min    | Success      | Success     | Success        | Success        | Success             |
+    | 30 min    | Success      | Success     | Success        | Success        | Success             |
+    | 1 hour    | Success      | Success     | Success        | Success        | Success             |
+    | 1 day     |              |             |                |                |                     |
+
+- **Attachments:** src/test/postman/postman_reg_test_run.json
+
+## EXP_ADD_01 Add Contact with Given ID
+
+- **Session goal:** investigate how "id" key changes response.
+- **Scope:**
+  - API Add Contact
+- **Time:** 30 minutes
+- **Environment:**
+  - Postman for API
+- **Test Ideas (id):**
+  1. String
+  2. int
+  3. boolean
+  4. null
+  5. existing id
+  6. no id key
+- **Results:**
+
+  | ID in Request                                   | Status             | ID in Response                       | ID of Created Contact                |
+  |-------------------------------------------------|--------------------|--------------------------------------|--------------------------------------|
+  | String ("v-7")                                  | Contact is created | 5c75d4ae-f9e9-40c7-a6fa-fb0ae1a2c2b3 | 5c75d4ae-f9e9-40c7-a6fa-fb0ae1a2c2b3 |
+  | int (6574)                                      | Contact is created | 4c7c8094-ebfe-4ee3-9d3a-4930b89588b3 | 4c7c8094-ebfe-4ee3-9d3a-4930b89588b3 |
+  | boolean (true)                                  | Contact is created | fc7ddd76-37c1-4c36-a6d3-63f3d22f4fdf | fc7ddd76-37c1-4c36-a6d3-63f3d22f4fdf |
+  | null                                            | Contact is created | 5f4351ba-434a-41cf-a69b-34e12c18a34f | 5f4351ba-434a-41cf-a69b-34e12c18a34f |
+  | exist. ("fc7ddd76-37c1-4c36-a6d3-63f3d22f4fdf") | Contact is created | c6858b90-75fb-4dc4-8e5f-732df578e4e5 | c6858b90-75fb-4dc4-8e5f-732df578e4e5 |
+  | no id key                                       | Contact is created | b5adf0e7-6765-41e9-8321-793989f91451 | b5adf0e7-6765-41e9-8321-793989f91451 |
+
+  ID in request JSON is required, but not used and not given to the created contact, BUG_ADD_API_03.  
+- **Attachments:** src/test/postman/postman_reg_test_run.json

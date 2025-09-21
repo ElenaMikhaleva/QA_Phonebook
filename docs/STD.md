@@ -70,12 +70,12 @@ So, every test marked as "Automated" is executed manually and automatically.
 | EXP_AUTH_04 | Authentication with Various Passwords            | Registration, Login                                        | Edge cases, security                             |
 | EXP_AUTH_05 | Authentication API with Invalid Request Format   | Registration, Login                                        | Format errors                                    |
 | EXP_NAV_01  | Navigate Using Keyboard                          | Navigation, Registration, Login, All Contacts, Add Contact | Practice                                         |
-| EXP_NAV_02  | Actions Using Outdated Token                     | Navigation, All Contacts, Add Contact, Update Contact      | Security                                         |
+| EXP_NAV_02  | Actions Using Old Token                          | Navigation, All Contacts, Add Contact, Update Contact      | Security                                         |
 | EXP_ADD_01  | Add Contact with Given ID                        | Add Contact                                                | It is unclear if ID key is needed in API request |
 | EXP_ADD_02  | Add Contact with Long Data                       | Add Contact                                                | No maximum length is given for fields            |
 | EXP_ADD_03  | Add Contact with Various Data                    | Add Contact                                                | Edge cases                                       |
 
-EXP_ADD_03
+EXP_ADD_04
 - Name, Last Name, Address, Descr
   - emoji
   - whitespaces
