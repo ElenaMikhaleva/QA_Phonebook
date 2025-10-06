@@ -107,7 +107,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 - **Requirements Covered by Tests:** 42%
 - **Modules Covered:** Navigation, Registration, Login, Add Contact
-- **Untested Areas:** All Contacts, Delete Contact, Update Contact, Sign out, Security, Interruption Testing
+- **Untested Areas:** All Contacts, Delete Contact, Update Contact, Sign out, Security Testing
 
 **Notes:**
 - The Registration API has critical issues around password validation and email casing that may impact security and user experience. Some requests result in 500 Response.
