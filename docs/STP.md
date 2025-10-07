@@ -1,11 +1,11 @@
 
 # Overview
 
-**STP Identifier:** STP-v4
-**Project Name:** Phonebook Testing Authentication Testing
-**Date Created:** 12/08/2025  
-**Version:** v4.0  
-**Responsibilities:** creation of STP, STD, test execution, STR — Elena Mikhaleva
+**STP Identifier:** STP-v5<br>
+**Project Name:** Phonebook Testing Authentication Testing<br>
+**Date Created:** 07/10/2025<br>
+**Version:** v5, added Mobile Testing<br>
+**Responsibilities:** creation of STP, STD, test execution, STR — Elena Mikhaleva<br>
 
 ## Test Objectives
 - Validate navigation and page transitions
@@ -14,11 +14,13 @@
 - Validate contact creation and contact list retrieval APIs
 - Validate UI flows for adding and displaying contacts
 - Validate correct integration between UI and API
+- Validate mobile app behavior on various devices, orientations, and network conditions
 - Test cases selected for this cycle prioritize critical scenarios and tests valuable for practice and learning
 
 ## Scope of Testing
 - API Level: validation rules (email format, password complexity, required fields), functional and boundary testing 
 - UI Level: functional flows, error message display, navigation, form validation, security behaviors
+- Mobile Level: layout responsiveness, reliability, synchronization, compatibility, performance
 
 ## Test Case Management
 
@@ -30,7 +32,7 @@
 - Performance, load, and stress testing
 - Test cases outside the selected subset for this cycle
 
-## Testing Type
+## Testing Types
 - Gray-box testing (functional, boundary, and integration testing at API and UI levels)
 
 ## Testing Tools
@@ -54,6 +56,14 @@
 - Selenium Java 4.26.0 – UI automated testing
 - ChromeDriver – Browser driver for Selenium UI tests
 - Chrome DevTools – Browser developer tool for UI inspection, checking network calls manually
+
+### Mobile Testing
+
+- Android Studio Emulator – device emulation
+- Appium – cross-platform mobile automation testing framework
+- ADB (Android Debug Bridge) – device control and logging
+- Chrome DevTools Remote Debugging – Mobile web inspection
+- Physical Devices
 
 ### Test Management
 
@@ -91,6 +101,8 @@
 - Java version 17.0.12
 - IntelliJ IDEA 2025.1.1.1 (Community Edition)
 - Selenium Java 4.26.0
+- Android Studio Emulator
+- Appium
 
 # What will be tested
 - Registration API flow with valid and invalid data
@@ -105,4 +117,7 @@
 - Error handling and validation messages 
 - Secure handling of user data
 - Integration between UI actions and API responses
+- Layout responsiveness of mobile app
+- Synchronization between web and mobile version
+- Compatibility of mobile app with different environments
 - Only test cases selected for this cycle will be executed; others remain documented in the TC Repository for future cycles
