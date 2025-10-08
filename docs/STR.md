@@ -59,19 +59,44 @@ Focused on testing the Registration and Login, including exploratory testing per
 | UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Manual           | Passed        | -                              |
 | UI_ADD_N_01   | Add Contact with Empty Required Fields         | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
+| FUN_SYS_N_01  | Use Website with Interruptions                 |                  |               |                                |
+| FUN_SYS_N_02  | Session Expired                                |                  |               |                                |
+| MOB_REG_P_01  | Register with Valid Credentials                |                  |               |                                |
+| MOB_REG_P_02  | Register with Copy-Paste                       |                  |               |                                |
+| MOB_REG_N_01  | Register with Missing Email                    |                  |               |                                |
+| MOB_REG_N_02  | Register with Invalid Password                 |                  |               |                                |
+| MOB_LOG_P_01  | Log in with Valid Credentials                  |                  |               |                                |
+| MOB_LOG_P_02  | Log in into Account Created on Web on Mobile   |                  |               |                                |
+| MOB_LOG_N_01  | Log in with Unregistered Email                 |                  |               |                                |
+| MOB_ADD_P_01  | Add Contact Using Gesture (Long Press / Swipe) |                  |               |                                |
+| MOB_ADD_P_02  | Add Contact with Non-English Letters           |                  |               |                                |
+| MOB_ADD_P_03  | Add Contact with Special Characters            |                  |               |                                |
+| MOB_SYS_P_01  | Scroll Through Long Contact List               |                  |               |                                |
+| MOB_SYS_P_02  | Multiple Instances Work on Same Data           |                  |               |                                |
+| MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles         |                  |               |                                |
+| MOB_SYS_P_04  | Install App                                    |                  |               |                                |
+| MOB_SYS_P_05  | Rotate device in each screen                   |                  |               |                                |
+| MOB_SYS_P_06  | Reach Main Buttons with One Hand               |                  |               |                                |
+| MOB_SYS_P_07  | App Compatibility Across OS Versions           |                  |               |                                |
+| MOB_SYS_P_08  | App Compatibility Across Devices               |                  |               |                                |
+| MOB_SYS_P_09  | Screen Reader Reads Labels                     |                  |               |                                |
+| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts      |                  |               |                                |
+| MOB_SYS_N_01  | Use App with Interruptions                     |                  |               |                                |
+| MOB_SYS_N_02  | Delete App                                     |                  |               |                                |
 
 ## Exploratory Tests
 
-| ID          | Title                                            | Bug ID         |
-|-------------|--------------------------------------------------|----------------|
-| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | BUG_LOG_API_01 |
-| EXP_AUTH_02 | Authentication with Long Email                   | -              |
-| EXP_AUTH_03 | Authentication with Various Emails               | -              |
-| EXP_AUTH_04 | Authentication with Various Passwords            | BUG_REG_API_12 |
-| EXP_AUTH_05 | Authentication API with Invalid Request Format   | BUG_REG_API_12 |
-| EXP_NAV_01  | Navigate Using Keyboard                          | -              |
-| EXP_NAV_02  | Actions Using Old Token                          |                |
-| EXP_ADD_01  | Add Contact with Given ID                        | BUG_ADD_API_03 |
+| ID          | Title                                            | Performed | Bug ID         |
+|-------------|--------------------------------------------------|-----------|----------------|
+| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Performed | BUG_LOG_API_01 |
+| EXP_AUTH_02 | Authentication with Long Email                   | Performed | -              |
+| EXP_AUTH_03 | Authentication with Various Emails               | Performed | -              |
+| EXP_AUTH_04 | Authentication with Various Passwords            | Performed | BUG_REG_API_12 |
+| EXP_AUTH_05 | Authentication API with Invalid Request Format   | Performed | BUG_REG_API_12 |
+| EXP_NAV_01  | Navigate Using Keyboard                          | Performed | -              |
+| EXP_NAV_02  | User-Only Actions Using Old Token                | Performed | -              |
+| EXP_ADD_01  | Add Contact with Given ID                        | Performed | BUG_ADD_API_03 |
+| EXP_MOB_01  | Monkey Testing                                   |           |                |
 
 # Summary
 
@@ -105,7 +130,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Coverage
 
-- **Requirements Covered by Tests:** 42%
+- **Requirements Covered by Tests:** 44%
 - **Levels Covered:** API, Functional, UI
 - **Modules Covered:** Navigation, Registration, Login, Add Contact
 - **Untested Areas:** All Contacts, Delete Contact, Update Contact, Sign out, Security Testing
@@ -839,7 +864,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   - Expected Behaviour is not documented.
 - **Potential Issues**: keyboard cannot open contact card.
 
-## EXP_NAV_02 Actions Using Old Token
+## EXP_NAV_02 User-Only Actions Using Old Token
 
 - (API) token 16:04, 21 of September: eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoibXIudG9va0BzaGlyZW1haWwubWUiLCJpc3MiOiJSZWd1bGFpdCIsImV4cCI6MTc1OTA1MjY3NCwiaWF0IjoxNzU4NDUyNjc0fQ.XelQ6RIg82AXIjjUoirr9HSng0RuiKs_MgKulxZsyGQ
 

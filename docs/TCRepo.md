@@ -71,6 +71,8 @@ Exploratory sessions are kept in STD, STR.
 | UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Positive  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_N_01   | Add Contact with Empty Required Fields         | Negative  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Negative  | UI              | Add Contact   | High-level only | Not Executed                   |
+| FUN_SYS_N_01  | Use Website with Interruptions                 | Negative  | Functional      | System        | High-level only | Not Executed                   |
+| FUN_SYS_N_02  | Session Expired                                | Negative  | Functional      | System        | High-level only | Not Executed                   |
 | MOB_NAV_P_01  | Open Home Page                                 | Positive  | Mob UI          | Navigation    | High-level only | Not Executed                   |
 | MOB_NAV_P_02  | Open Login Page                                | Positive  | Mob UI          | Navigation    | High-level only | Not Executed                   |
 | MOB_REG_P_01  | Register with Valid Credentials                | Positive  | Mob UI          | Registration  | High-level only | Not Executed                   |
@@ -83,18 +85,44 @@ Exploratory sessions are kept in STD, STR.
 | MOB_ADD_P_01  | Add Contact Using Gesture (Long Press / Swipe) | Positive  | Mob UI          | Add Contact   | High-level only | Not Executed                   |
 | MOB_ADD_P_02  | Add Contact with Non-English Letters           | Positive  | Mob UI          | Add Contact   | High-level only | Not Executed                   |
 | MOB_ADD_P_03  | Add Contact with Special Characters            | Positive  | Mob UI          | Add Contact   | High-level only | Not Executed                   |
-| MOB_CON_P_01  | Scroll Through Long Contact List               | Positive  | Mob UI          | Contacts List | High-level only | Not Executed                   |
-| MOB_CON_P_02  | Contacts Created on Mobile Are Seen on Web     | Positive  | Synchronization | Contacts List | High-level only | Not Executed                   |
-| MOB_CON_P_03  | App Handles Repeated Add/Delete Cycles         | Positive  | Stability       | Contacts List | High-level only | Not Executed                   |
-| MOB_SYS_P_01  | App Installs and Open                          | Positive  | Mob Smoke       | System        | High-level only | Not Executed                   |
-| MOB_SYS_P_02  | App Compatibility Across OS Versions           | Positive  | Compatibility   | System        | High-level only | Not Executed                   |
-| MOB_SYS_P_03  | App Compatibility Across Screen Sizes          | Positive  | Compatibility   | System        | High-level only | Not Executed                   |
-| MOB_SYS_P_04  | Rotate device in each screen                   | Positive  | Compatibility   | System        | High-level only | Not Executed                   |
-| MOB_SYS_P_05  | Reach Main Buttons with One Hand               | Positive  | Mob UI          | System        | High-level only | Not Executed                   |
-| MOB_CON_P_02  | Screen Reader Reads Labels                     | Positive  | Mob UI          | System        | High-level only | Not Executed                   |
-| MOB_SYS_P_06  | Use App Over Different Network Connections     | Positive  | Functions       | System        | High-level only | Not Executed                   |
-| MOB_SYS_P_07  | App Performance When Adding 100+ Contacts      | Positive  | Performance     | System        | High-level only | Not Executed                   |
-| MOB_SYS_N_01  | Use App without Network Connection             | Positive  | Performance     | System        | High-level only | Not Executed                   |
+| MOB_SYS_P_01  | Scroll Through Long Contact List               | Positive  | Mob UI          | Contacts List | High-level only | Not Executed                   |
+| MOB_SYS_P_02  | Multiple Instances Work on Same Data           | Positive  | Synchronization | Contacts List | High-level only | Not Executed                   |
+| MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles         | Positive  | Stability       | Contacts List | High-level only | Not Executed                   |
+| MOB_SYS_P_04  | Install App                                    | Positive  | Mob Smoke       | System        | High-level only | Not Executed                   |
+| MOB_SYS_P_05  | Rotate device in each screen                   | Positive  | Compatibility   | System        | High-level only | Not Executed                   |
+| MOB_SYS_P_06  | Reach Main Buttons with One Hand               | Positive  | Mob UI          | System        | High-level only | Not Executed                   |
+| MOB_SYS_P_07  | App Compatibility Across OS Versions           | Positive  | Compatibility   | System        | High-level only | Not Executed                   |
+| MOB_SYS_P_08  | App Compatibility Across Devices               | Positive  | Compatibility   | System        | High-level only | Not Executed                   |
+| MOB_SYS_P_09  | Screen Reader Reads Labels                     | Positive  | Mob UI          | System        | High-level only | Not Executed                   |
+| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts      | Positive  | Performance     | System        | High-level only | Not Executed                   |
+| MOB_SYS_N_01  | Use App with Interruptions                     | Negative  | Functional      | System        | High-level only | Not Executed                   |
+| MOB_SYS_N_02  | Delete App                                     | Negative  | Functional      | System        | High-level only | Not Executed                   |
+
+Interruption tests MOBILE
+- send an app to the background
+- turn off the screen
+- exit app mid-action (adding contact)
+- rotating the screen
+- different types of connection (3G/4G/5G/WiFi/no connection)
+- incoming call
+- notification
+- connecting with new devices
+- low battery
+- shutdown
+- close app after submitting but before server response
+
+Interruption tests WEB
+- different types of connection (3G/4G/5G/WiFi/no connection)
+- page refresh mid-action (adding contact)
+- browser back/forward
+- tab/window closed mid/action
+- multiple tabs acting on same data
+- form abandoned
+- close browser after submitting but before server response
+
+Multiple Instances Work on Same Data
+- multiple tabs edit the same contact
+- web and device
 
 # Detailed Tests
 

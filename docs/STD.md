@@ -47,31 +47,56 @@ So, every test marked as "Automated" is executed manually and automatically.
 | API_ADD_P_02  | Add Contact with Existing Name                 | Functional flow                             |
 | API_ADD_P_03  | Add Contact with Valid Name                    | Functional flow                             |
 | API_ADD_P_08  | Add Contact with Valid Address                 | Functional flow                             |
-| API_ADD_P_11  | Add Contact without Unrequired Fields          | Common situation                            |
+| API_ADD_P_11  | Add Contact without Unrequired Fields          | Functional flow                             |
 | API_ADD_N_01  | Add Contact without Authentication             | Security                                    |
 | API_ADD_N_02  | Add Contact with Invalid Token                 | Practice                                    |
 | API_ADD_N_021 | Add Contact with Outdated Token                | Practice                                    |
-| API_ADD_N_13  | Add Contact with Invalid Phone                 | Common situation                            |
+| API_ADD_N_13  | Add Contact with Invalid Phone                 | Functional flow                             |
 | API_ADD_N_14  | Add Contact with Invalid Description           | Practice                                    |
 | UI_ADD_P_01   | Add Contact with Valid Data                    | Functional flow                             |
-| UI_ADD_P_02   | Add Contact with Data with Non-English Letters | Common situation                            |
-| UI_ADD_P_03   | Add Contact with Special Characters            | Common situation                            |
-| UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Common situation                            |
-| UI_ADD_N_01   | Add Contact with Empty Required Fields         | Common situation                            |
+| UI_ADD_P_02   | Add Contact with Data with Non-English Letters | Functional flow                             |
+| UI_ADD_P_03   | Add Contact with Special Characters            | Functional flow                             |
+| UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Functional flow                             |
+| UI_ADD_N_01   | Add Contact with Empty Required Fields         | Functional flow                             |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Error handling                              |
+| FUN_SYS_N_01  | Use Website with Interruptions                 | Functional flow                             |
+| FUN_SYS_N_02  | Session Expired                                | Security                                    |
+| MOB_REG_P_01  | Register with Valid Credentials                | Functional flow                             |
+| MOB_REG_P_02  | Register with Copy-Paste                       | Functional flow                             |
+| MOB_REG_N_01  | Register with Missing Email                    | Error handling                              |
+| MOB_REG_N_02  | Register with Invalid Password                 | Functional flow                             |
+| MOB_LOG_P_01  | Log in with Valid Credentials                  | Functional flow                             |
+| MOB_LOG_P_02  | Log in into Account Created on Web on Mobile   | Functional flow                             |
+| MOB_LOG_N_01  | Log in with Unregistered Email                 | Functional flow                             |
+| MOB_ADD_P_01  | Add Contact Using Gesture (Long Press / Swipe) | Functional flow                             |
+| MOB_ADD_P_02  | Add Contact with Non-English Letters           | Unexpected characters                       |
+| MOB_ADD_P_03  | Add Contact with Special Characters            | Unexpected characters                       |
+| MOB_SYS_P_01  | Scroll Through Long Contact List               | Functional flow                             |
+| MOB_SYS_P_02  | Multiple Instances Work on Same Data           | Synchronization                             |
+| MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles         | Performance                                 |
+| MOB_SYS_P_04  | Install App                                    | Smoke                                       |
+| MOB_SYS_P_05  | Rotate device in each screen                   | Functional flow                             |
+| MOB_SYS_P_06  | Reach Main Buttons with One Hand               | Usability                                   |
+| MOB_SYS_P_07  | App Compatibility Across OS Versions           | Usability                                   |
+| MOB_SYS_P_08  | App Compatibility Across Devices               | Usability                                   |
+| MOB_SYS_P_09  | Screen Reader Reads Labels                     | Accessibility                               |
+| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts      | Performance                                 |
+| MOB_SYS_N_01  | Use App with Interruptions                     | Functional flow                             |
+| MOB_SYS_N_02  | Delete App                                     | Functional flow                             |
 
 ## Exploratory Sessions
 
-| ID          | Title                                            | Component                                                  | Reason for Inclusion                             |
-|-------------|--------------------------------------------------|------------------------------------------------------------|--------------------------------------------------|
-| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login                                        | Practice                                         |
-| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login                                        | No maximum length is given                       |
-| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login                                        | Edge cases                                       |
-| EXP_AUTH_04 | Authentication with Various Passwords            | Registration, Login                                        | Edge cases, security                             |
-| EXP_AUTH_05 | Authentication API with Invalid Request Format   | Registration, Login                                        | Format errors                                    |
-| EXP_NAV_01  | Navigate Using Keyboard                          | Navigation, Registration, Login, All Contacts, Add Contact | Practice                                         |
-| EXP_NAV_02  | Actions Using Old Token                          | Navigation, All Contacts, Add Contact, Update Contact      | Security                                         |
-| EXP_ADD_01  | Add Contact with Given ID                        | Add Contact                                                | It is unclear if ID key is needed in API request |
+| ID          | Title                                            | Component           | Reason for Inclusion                             |
+|-------------|--------------------------------------------------|---------------------|--------------------------------------------------|
+| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login | Practice                                         |
+| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login | No maximum length is given                       |
+| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login | Edge cases                                       |
+| EXP_AUTH_04 | Authentication with Various Passwords            | Registration, Login | Edge cases, security                             |
+| EXP_AUTH_05 | Authentication API with Invalid Request Format   | Registration, Login | Format errors                                    |
+| EXP_NAV_01  | Navigate Using Keyboard                          | System              | Practice                                         |
+| EXP_NAV_02  | Actions Using Old Token                          | User-only pages     | Security                                         |
+| EXP_ADD_01  | Add Contact with Given ID                        | Add Contact         | It is unclear if ID key is needed in API request |
+| EXP_MOB_01  | Monkey Testing                                   | System              | Common situation                                 |            
 
 # Test Environment
 
