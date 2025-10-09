@@ -60,7 +60,6 @@ So, every test marked as "Automated" is executed manually and automatically.
 | UI_ADD_N_01   | Add Contact with Empty Required Fields         | Functional flow                             |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Error handling                              |
 | FUN_SYS_N_01  | Use Website with Interruptions                 | Functional flow                             |
-| FUN_SYS_N_02  | Session Expired                                | Security                                    |
 | MOB_REG_P_01  | Register with Valid Credentials                | Functional flow                             |
 | MOB_REG_P_02  | Register with Copy-Paste                       | Functional flow                             |
 | MOB_REG_N_01  | Register with Missing Email                    | Error handling                              |
@@ -105,8 +104,9 @@ Desktop:
 - Mozilla Firefox version 141.0.3
 - Microsoft Edge version 139.0.3405.86 (Official build) (64-bit)
 
-Mobile (browser version):
-- Google Pixel 7 (real device), Chrome Mobile version 139.0.7258.123
+Mobile:
+- real device: Google Pixel 8, Android 15, Chrome Mobile version 139.0.7258.123
+- emulator: Google Pixel 8, Android 15, App version 1.0.0
 
 # Coverage Matrix
 

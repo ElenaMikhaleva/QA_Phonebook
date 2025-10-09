@@ -60,7 +60,6 @@ Focused on testing the Registration and Login, including exploratory testing per
 | UI_ADD_N_01   | Add Contact with Empty Required Fields         | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
 | FUN_SYS_N_01  | Use Website with Interruptions                 |                  |               |                                |
-| FUN_SYS_N_02  | Session Expired                                |                  |               |                                |
 | MOB_REG_P_01  | Register with Valid Credentials                |                  |               |                                |
 | MOB_REG_P_02  | Register with Copy-Paste                       |                  |               |                                |
 | MOB_REG_N_01  | Register with Missing Email                    |                  |               |                                |
@@ -267,6 +266,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Send JSON from test data
 - **Expected Result:** user is not registered
 - **Actual Result:** user is registered
+- **Attachments:** src/test/postman/postman_reg_test_run.json
 
 ## BUG_REG_API_11 Registration API Allows Email without At Sign
 
@@ -279,6 +279,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Send JSON with email without @ ``{ "username": "hjzmdldxwt.com", "password": "Sc7^2F8YRu7K" }``
 - **Expected Result:** user is not registered
 - **Actual Result:** user is registered
+- **Attachments:** src/test/postman/postman_reg_test_run.json
 
 ## BUG_REG_API_12 Registration API returns 500 Error
 
@@ -300,7 +301,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Send JSON with test data
 - **Expected Result:** Response Code < 500
 - **Actual Result:** 500 Internal Server Error
-- **Attributes:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_reg_test_run.json
 
 ## BUG_REG_UI_01 Registration UI Accepts Passwords with Non-English Letters
 
@@ -314,10 +315,9 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Enter email (sauron@blackgate.io)
   2. Enter valid password with English and non-English letters (ЛеголасArrow#1)
   3. Click on Registration Button
-- **Expected Result:**
-  1. User is not registered
-- **Actual Result:**
-  1. User is registered
+- **Expected Result:** user is not registered
+- **Actual Result:** user is registered
+- **Attachments:** video
 
 ## BUG_REG_UI_02 Registration UI Accepts Too Long Password
 
@@ -331,10 +331,9 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Enter email (sauron@orcnet.com)
   2. Enter valid password length 16 characters (P@ssw0rdRightHer)
   3. Click on Registration Button
-- **Expected Result:**
-  1. User is not registered
-- **Actual Result:**
-  1. User is registered
+- **Expected Result:** user is not registered
+- **Actual Result:** user is registered
+- **Attachments:** video
 
 ## BUG_REG_UI_03 Registration Request Is Sent on Negative Registration
 
@@ -359,9 +358,10 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Enter invalid credentials (registered email, no email, no password)
   2. Click on Registration Button
 - **Expected Result:** error message
-  - **Actual result:** 
+- **Actual result:** 
   1. Error message is displayed as popup message
   2. Red message "Registration failed with code 400" above the registration form, that user is not supposed to see
+- **Attachments:** screenshot
 
 ## BUG_REG_UI_05 Frontend Allows Registration with Non-English Letters in Email
 
@@ -412,7 +412,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   2. Click on Registration Button
 - **Expected Result:** error message
 - **Actual Result:** message "Password must contain at least one special symbol from [‘$’,’~’,’-‘,’_’]!" List of characters does not match the requirements.
-- **Artifacts:** src/test/screenshots/BUG_UI_06.png
+- **Attachments:** src/test/screenshots/BUG_UI_06.png
 
 ## BUG_REG_UI_08 Error Message for Duplicate Email Contains Mistake
 
@@ -429,7 +429,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Error message "User already exists" (requirement F3)
 - **Actual Result:**
   1. Error message "User already exist", grammar mistake
-- **Artifacts:**
+- **Attachments:**
   - src/test/screenshots/BUG_UI_07.png
   - test_logs/log-20250817T145357.log
   - test_logs/log-20250817T150058.log
@@ -478,7 +478,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   2. Error message as String "Login or Password incorrect"
 - **Attachments:** test_logs/log-20250803T142445.log
 
-## BUG_LOG_UI_03 Login Request Is Sent on Negative Login
+## BUG_LOG_UI_03 Login Request Is Sent with Negative Login
 
 - **Severity:** Medium
 - **Environment:** Chrome Desktop, Firefox, Edge
@@ -489,6 +489,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   2. Click on Login Button
 - **Expected Result:** user is not logged in
 - **Actual result:** user is not registered, but request is sent to the server
+- **Attachments:** video of the screen
 
 ## BUG_LOG_UI_01 Raw Technical Error Message Is Displayed on Negative Login
 
@@ -499,9 +500,10 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Enter invalid credentials (unregistered email, no email, no password)
   2. Click on Login Button
 - **Expected Result:** error message
-  - **Actual result:**
+- **Actual result:**
   1. Error message is displayed as popup message
   2. Red message "Login failed with code 400" above the registration form, that user is not supposed to see
+- **Attachments:** screenshot
 
 ## BUG_ALL_UI_01 Empty contacts list message is misaligned on non-full window
 
@@ -574,7 +576,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Send JSON with test data
 - **Expected Result:** Error
 - **Actual Result:** 200 OK
-- **Attributes:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_reg_test_run.json
 
 ## BUG_ADD_API_03 API Create Contact Requires Unneeded ID
 
@@ -600,7 +602,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Expected Result:** error for non-String datatypes, ID is given to the contact, existing id returns error
 - **Actual Result:** contact is given new ID, that is sent in response message
 - **Notes:** it is unclear why ID is required in request, if system creates new one based on a pattern. Probably it is better not to require ID in response.
-- **Attributes:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_reg_test_run.json
 
 ## BUG_ADD_UI_01 No Indication for Missing Fields
 
@@ -614,6 +616,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   3. click no Save button
 - **Expected Result:** button is displayed differently and is not clickable, message about missing fields
 - **Actual Result:** button is not clickable, but looks the same, no message for Name, Last name
+- **Attachments:** video of the screen
 
 ## BUG_ADD_UI_02 Successful Creating Contact without Email
 
@@ -627,6 +630,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   3. click no Save button
 - **Expected Result:** contact is not created, error message
 - **Actual Result:** contact is created
+- **Attachments:** video of the screen
 
 # Test Reports for Exploratory Sessions
 

@@ -71,10 +71,9 @@ Exploratory sessions are kept in STD, STR.
 | UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Positive  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_N_01   | Add Contact with Empty Required Fields         | Negative  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Negative  | UI              | Add Contact   | High-level only | Not Executed                   |
-| FUN_SYS_N_01  | Use Website with Interruptions                 | Negative  | Functional      | System        | High-level only | Not Executed                   |
-| FUN_SYS_N_02  | Session Expired                                | Negative  | Functional      | System        | High-level only | Not Executed                   |
-| MOB_NAV_P_01  | Open Home Page                                 | Positive  | Mob UI          | Navigation    | High-level only | Not Executed                   |
-| MOB_NAV_P_02  | Open Login Page                                | Positive  | Mob UI          | Navigation    | High-level only | Not Executed                   |
+| INT_SYS_N_01  | Lost Connection While Filling Add Contact Form | Negative  | Interruption    | System        | High-level only | Not Executed                   |
+| MOB_NAV_P_01  | Open Home Screen                               | Positive  | Mob UI          | Navigation    | High-level only | Not Executed                   |
+| MOB_NAV_P_02  | Open Login Screen                              | Positive  | Mob UI          | Navigation    | High-level only | Not Executed                   |
 | MOB_REG_P_01  | Register with Valid Credentials                | Positive  | Mob UI          | Registration  | High-level only | Not Executed                   |
 | MOB_REG_P_02  | Register with Copy-Paste                       | Positive  | Mob UI          | Registration  | High-level only | Not Executed                   |
 | MOB_REG_N_01  | Register with Missing Email                    | Negative  | Mob UI          | Registration  | High-level only | Not Executed                   |
@@ -111,18 +110,17 @@ Interruption tests MOBILE
 - shutdown
 - close app after submitting but before server response
 
+Multiple Instances Work on Same Data
+- multiple tabs edit the same contact
+- web and device
+
 Interruption tests WEB
-- different types of connection (3G/4G/5G/WiFi/no connection)
 - page refresh mid-action (adding contact)
 - browser back/forward
 - tab/window closed mid/action
 - multiple tabs acting on same data
 - form abandoned
 - close browser after submitting but before server response
-
-Multiple Instances Work on Same Data
-- multiple tabs edit the same contact
-- web and device
 
 # Detailed Tests
 
@@ -827,3 +825,4 @@ Multiple Instances Work on Same Data
   3. click on Save button
 - **Expected Result:**
   1. Error message
+
