@@ -8,7 +8,6 @@ Exploratory sessions are kept in STD, STR.
 | ID            | Title                                          | Test Type | Level           | Component     | Version         | Status                         |
 |---------------|------------------------------------------------|-----------|-----------------|---------------|-----------------|--------------------------------|
 | API_REG_P_01  | Register with Valid Credentials                | Positive  | API             | Registration  | Details below   | Executed 02/08/25              |
-| API_REG_P_02  | Register with Existing Password                | Positive  | API             | Registration  | Details below   | Not Executed                   |
 | API_REG_N_01  | Register with Missing Email                    | Negative  | API             | Registration  | Details below   | Executed 02/08/25              |
 | API_REG_N_02  | Register with Missing Password                 | Negative  | API             | Registration  | Details below   | Not Executed                   |
 | API_REG_N_03  | Register with Invalid Email                    | Negative  | API             | Registration  | Details below   | Executed 17/08/25              |

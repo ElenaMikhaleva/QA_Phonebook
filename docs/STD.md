@@ -19,69 +19,91 @@ So, every test marked as "Automated" is executed manually and automatically.
 
 ## Scenario Test Cases
 
-| ID            | Title                                          | Reason for Inclusion                        |
+| ID            | Title                                          | Notes                                       |
 |---------------|------------------------------------------------|---------------------------------------------|
-| API_REG_P_01  | Register with Valid Credentials                | Functional flow                             |
-| API_REG_N_01  | Register with Missing Email                    | Functional flow, format errors              |
-| API_REG_N_03  | Register with Invalid Email                    | Bug in UI                                   |
-| API_REG_N_04  | Register with Invalid Password                 | Functional flow                             |
-| API_REG_N_05  | Register with Duplicate Email                  | Functional flow                             |
-| API_LOG_P_01  | Log in with Registered Email                   | Functional flow                             |
-| API_LOG_N_01  | Log in with Unregistered Email                 | Functional flow                             |
-| API_LOG_N_02  | Log in with Wrong Password                     | Functional flow                             |
+| API_REG_P_01  | Register with Valid Credentials                |                                             |
+| API_REG_N_01  | Register with Missing Email                    |                                             |
+| API_REG_N_02  | Register with Missing Password                 |                                             |
+| API_REG_N_03  | Register with Invalid Email                    |                                             |
+| API_REG_N_04  | Register with Invalid Password                 |                                             |
+| API_REG_N_05  | Register with Duplicate Email                  |                                             |
+| API_LOG_P_01  | Log in with Registered Email                   |                                             |
+| API_LOG_N_01  | Log in with Unregistered Email                 |                                             |
+| API_LOG_N_02  | Log in with Wrong Password                     |                                             |
+| API_LOG_N_03  | Log in with Missing Email                      |                                             |
+| API_LOG_N_04  | Log in with Missing Password                   |                                             |
 | UI_NAV_P_01   | Open Home Page from Navigation                 | Execution with EXP_NAV_01                   |
 | UI_NAV_P_02   | Open About Page from Navigation                | Execution with EXP_NAV_01                   |
 | UI_NAV_P_03   | Open Login Page from Navigation                | Execution with UI_LOG_P_01                  |
-| UI_REG_P_01   | Register with Valid Credentials                | Functional flow                             |
-| UI_REG_P_02   | Register with Copy-Paste                       | Functional flow                             |
-| UI_REG_N_01   | Register with Missing Email                    | Missing of the key field                    |
-| UI_REG_N_03   | Register with All Empty Fields                 | Error handling                              |
-| UI_REG_N_04   | Register with Invalid Email                    | Field validation on the client side         |
+| UI_REG_P_01   | Register with Valid Credentials                |                                             |
+| UI_REG_P_02   | Register with Copy-Paste                       |                                             |
+| UI_REG_N_01   | Register with Missing Email                    |                                             |
+| UI_REG_N_02   | Register with Missing Password                 |                                             |
+| UI_REG_N_03   | Register with All Empty Fields                 |                                             |
+| UI_REG_N_04   | Register with Invalid Email                    |                                             |
 | UI_REG_N_05   | Register with Invalid Password                 | Bugs in API, BUG_REG_API_01, BUG_REG_API_02 |
-| UI_REG_N_06   | Register with Duplicate Email                  | Functional flow                             |
-| UI_REG_N_07   | Register with Rapid Clicking                   | Preventing duplicate submissions            |
-| UI_LOG_P_01   | Log in with Valid Credentials                  | Functional flow                             |
-| UI_LOG_P_03   | Log in with with Autofill                      | Functional flow                             |
-| UI_LOG_N_01   | Log in with Unregistered Email                 | Error handling                              |
-| API_ADD_P_01  | Add Contact with Valid Data                    | Functional flow                             |
-| API_ADD_P_02  | Add Contact with Existing Name                 | Functional flow                             |
-| API_ADD_P_03  | Add Contact with Valid Name                    | Functional flow                             |
-| API_ADD_P_08  | Add Contact with Valid Address                 | Functional flow                             |
-| API_ADD_P_11  | Add Contact without Unrequired Fields          | Functional flow                             |
-| API_ADD_N_01  | Add Contact without Authentication             | Security                                    |
-| API_ADD_N_02  | Add Contact with Invalid Token                 | Practice                                    |
-| API_ADD_N_021 | Add Contact with Outdated Token                | Practice                                    |
-| API_ADD_N_13  | Add Contact with Invalid Phone                 | Functional flow                             |
-| API_ADD_N_14  | Add Contact with Invalid Description           | Practice                                    |
-| UI_ADD_P_01   | Add Contact with Valid Data                    | Functional flow                             |
-| UI_ADD_P_02   | Add Contact with Data with Non-English Letters | Functional flow                             |
-| UI_ADD_P_03   | Add Contact with Special Characters            | Functional flow                             |
-| UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Functional flow                             |
-| UI_ADD_N_01   | Add Contact with Empty Required Fields         | Functional flow                             |
-| UI_ADD_N_02   | Add Contact with Blank Required Fields         | Error handling                              |
-| FUN_SYS_N_01  | Use Website with Interruptions                 | Functional flow                             |
-| MOB_REG_P_01  | Register with Valid Credentials                | Functional flow                             |
-| MOB_REG_P_02  | Register with Copy-Paste                       | Functional flow                             |
-| MOB_REG_N_01  | Register with Missing Email                    | Error handling                              |
-| MOB_REG_N_02  | Register with Invalid Password                 | Functional flow                             |
-| MOB_LOG_P_01  | Log in with Valid Credentials                  | Functional flow                             |
-| MOB_LOG_P_02  | Log in into Account Created on Web on Mobile   | Functional flow                             |
-| MOB_LOG_N_01  | Log in with Unregistered Email                 | Functional flow                             |
-| MOB_ADD_P_01  | Add Contact Using Gesture (Long Press / Swipe) | Functional flow                             |
-| MOB_ADD_P_02  | Add Contact with Non-English Letters           | Unexpected characters                       |
-| MOB_ADD_P_03  | Add Contact with Special Characters            | Unexpected characters                       |
-| MOB_SYS_P_01  | Scroll Through Long Contact List               | Functional flow                             |
-| MOB_SYS_P_02  | Multiple Instances Work on Same Data           | Synchronization                             |
-| MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles         | Performance                                 |
-| MOB_SYS_P_04  | Install App                                    | Smoke                                       |
-| MOB_SYS_P_05  | Rotate device in each screen                   | Functional flow                             |
-| MOB_SYS_P_06  | Reach Main Buttons with One Hand               | Usability                                   |
-| MOB_SYS_P_07  | App Compatibility Across OS Versions           | Usability                                   |
-| MOB_SYS_P_08  | App Compatibility Across Devices               | Usability                                   |
-| MOB_SYS_P_09  | Screen Reader Reads Labels                     | Accessibility                               |
-| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts      | Performance                                 |
-| MOB_SYS_N_01  | Use App with Interruptions                     | Functional flow                             |
-| MOB_SYS_N_02  | Delete App                                     | Functional flow                             |
+| UI_REG_N_06   | Register with Duplicate Email                  |                                             |
+| UI_REG_N_07   | Register with Rapid Clicking                   |                                             |
+| UI_LOG_P_01   | Log in with Valid Credentials                  |                                             |
+| UI_LOG_P_02   | Log in with with Copy-Paste                    |                                             |
+| UI_LOG_P_03   | Log in with with Autofill                      |                                             |
+| API_ADD_P_04  | Add Contact with Existing Last Name            |                                             |
+| API_ADD_P_05  | Add Contact with Valid Last Name               |                                             |
+| API_ADD_P_06  | Add Contact with Valid Email                   |                                             |
+| API_ADD_P_07  | Add Contact with Existing Address              |                                             |
+| API_ADD_P_08  | Add Contact with Valid Address                 |                                             |
+| API_ADD_P_09  | Add Contact with Existing Description          |                                             |
+| API_ADD_P_10  | Add Contact with Valid Description             |                                             |
+| UI_LOG_N_01   | Log in with Unregistered Email                 |                                             |
+| UI_LOG_N_02   | Log in with Missing Email                      |                                             |
+| UI_LOG_N_03   | Log in with Missing Password                   |                                             |
+| UI_LOG_N_04   | Log in with Rapid Clicking                     |                                             |
+| API_ADD_P_01  | Add Contact with Valid Data                    |                                             |
+| API_ADD_P_02  | Add Contact with Existing Name                 |                                             |
+| API_ADD_P_03  | Add Contact with Valid Name                    |                                             |
+| API_ADD_P_04  | Add Contact with Existing Last Name            |                                             |
+| API_ADD_P_05  | Add Contact with Valid Last Name               |                                             |
+| API_ADD_P_06  | Add Contact with Valid Email                   |                                             |
+| API_ADD_P_07  | Add Contact with Existing Address              |                                             |
+| API_ADD_P_08  | Add Contact with Valid Address                 |                                             |
+| API_ADD_P_09  | Add Contact with Existing Description          |                                             |
+| API_ADD_P_10  | Add Contact with Valid Description             |                                             |
+| API_ADD_P_11  | Add Contact without Unrequired Fields          |                                             |
+| API_ADD_P_12  | Add Contact with Valid Phone                   |                                             |
+| API_ADD_N_01  | Add Contact without Authentication             |                                             |
+| API_ADD_N_02  | Add Contact with Invalid Token                 |                                             |
+| API_ADD_N_021 | Add Contact with Outdated Token                |                                             |
+| API_ADD_N_13  | Add Contact with Invalid Phone                 |                                             |
+| API_ADD_N_14  | Add Contact with Invalid Description           |                                             |
+| UI_ADD_P_01   | Add Contact with Valid Data                    |                                             |
+| UI_ADD_P_02   | Add Contact with Data with Non-English Letters |                                             |
+| UI_ADD_P_03   | Add Contact with Special Characters            |                                             |
+| UI_ADD_P_04   | Add Contact with Copy-Paste Input              |                                             |
+| UI_ADD_N_01   | Add Contact with Empty Required Fields         |                                             |
+| UI_ADD_N_02   | Add Contact with Blank Required Fields         |                                             |
+| INT_SYS_N_01  | Use Website with Interruptions                 |                                             |
+| MOB_REG_P_01  | Register with Valid Credentials                |                                             |
+| MOB_REG_P_02  | Register with Copy-Paste                       |                                             |
+| MOB_REG_N_01  | Register with Missing Email                    |                                             |
+| MOB_REG_N_02  | Register with Invalid Password                 |                                             |
+| MOB_LOG_P_01  | Log in with Valid Credentials                  |                                             |
+| MOB_LOG_P_02  | Log in into Account Created on Web on Mobile   |                                             |
+| MOB_LOG_N_01  | Log in with Unregistered Email                 |                                             |
+| MOB_ADD_P_01  | Add Contact Using Gesture (Long Press / Swipe) |                                             |
+| MOB_ADD_P_02  | Add Contact with Non-English Letters           |                                             |
+| MOB_ADD_P_03  | Add Contact with Special Characters            |                                             |
+| MOB_SYS_P_01  | Scroll Through Long Contact List               |                                             |
+| MOB_SYS_P_02  | Multiple Instances Work on Same Data           |                                             |
+| MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles         |                                             |
+| MOB_SYS_P_04  | Install App                                    |                                             |
+| MOB_SYS_P_05  | Rotate device in each screen                   |                                             |
+| MOB_SYS_P_06  | Reach Main Buttons with One Hand               |                                             |
+| MOB_SYS_P_07  | App Compatibility Across OS Versions           |                                             |
+| MOB_SYS_P_08  | App Compatibility Across Devices               |                                             |
+| MOB_SYS_P_09  | Screen Reader Reads Labels                     |                                             |
+| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts      |                                             |
+| MOB_SYS_N_01  | Use App with Interruptions                     |                                             |
+| MOB_SYS_N_02  | Delete App                                     |                                             |
 
 ## Exploratory Sessions
 
