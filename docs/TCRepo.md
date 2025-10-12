@@ -17,37 +17,37 @@ Exploratory sessions are kept in STD, STR.
 | API_LOG_P_01  | Log in with Registered Email                   | Positive  | API             | Login         | Details below   | Executed 03/08/25              |
 | API_LOG_N_01  | Log in with Unregistered Email                 | Negative  | API             | Login         | Details below   | Executed 03/08/25              |
 | API_LOG_N_02  | Log in with Wrong Password                     | Negative  | API             | Login         | Details below   | Executed 03/08/25              |
-| API_LOG_N_03  | Log in with Missing Email                      | Negative  | API             | Login         | High-level only | Not Executed                   |
-| API_LOG_N_04  | Log in with Missing Password                   | Negative  | API             | Login         | High-level only | Not Executed                   |
+| API_LOG_N_03  | Log in with Missing Email                      | Negative  | API             | Login         | Details below   | Not Executed                   |
+| API_LOG_N_04  | Log in with Missing Password                   | Negative  | API             | Login         | Details below   | Not Executed                   |
 | UI_NAV_P_01   | Open Home Page from Navigation                 | Positive  | UI              | Navigation    | High-level only | Executed with Navigation Tests |
 | UI_NAV_P_02   | Open About Page from Navigation                | Positive  | UI              | Navigation    | High-level only | Executed with Navigation Tests |
 | UI_NAV_P_03   | Open Login Page from Navigation                | Positive  | UI              | Navigation    | High-level only | Executed with Login Tests      |
 | UI_REG_P_01   | Register with Valid Credentials                | Positive  | UI              | Registration  | Details below   | Executed 15/08/25              |
 | UI_REG_P_02   | Register with Copy-Paste                       | Positive  | UI              | Registration  | Details below   | Executed 15/08/25              |
 | UI_REG_N_01   | Register with Missing Email                    | Negative  | UI              | Registration  | Details below   | Executed 15/08/25              |
-| UI_REG_N_02   | Register with Missing Password                 | Negative  | UI              | Registration  | High-level only | Not Executed                   |
+| UI_REG_N_02   | Register with Missing Password                 | Negative  | UI              | Registration  | Details below   | Not Executed                   |
 | UI_REG_N_03   | Register with All Empty Fields                 | Negative  | UI              | Registration  | Details below   | Executed 15/08/25              |
 | UI_REG_N_04   | Register with Invalid Email                    | Negative  | UI              | Registration  | Details below   | Executed 17/08/25              |
 | UI_REG_N_05   | Register with Invalid Password                 | Negative  | UI              | Registration  | Details below   | Executed 17/08/25              |
 | UI_REG_N_06   | Register with Duplicate Email                  | Negative  | UI              | Registration  | Details below   | Executed 17/08/25              |
 | UI_REG_N_07   | Register with Rapid Clicking                   | Negative  | UI              | Registration  | Details below   | Executed 17/08/25              |
 | UI_LOG_P_01   | Log in with Valid Credentials                  | Positive  | UI              | Login         | Details below   | Executed 17/08/25              |
-| UI_LOG_P_02   | Log in with with Copy-Paste                    | Positive  | UI              | Login         | High-level only | Not Executed                   |
+| UI_LOG_P_02   | Log in with with Copy-Paste                    | Positive  | UI              | Login         | Details below   | Not Executed                   |
 | UI_LOG_P_03   | Log in with with Autofill                      | Positive  | UI              | Login         | Details below   | Executed 17/08/25              |
 | UI_LOG_N_01   | Log in with Unregistered Email                 | Negative  | UI              | Login         | Details below   | Executed 17/08/25              |
-| UI_LOG_N_02   | Log in with Missing Email                      | Negative  | UI              | Login         | High-level only | Not Executed                   |
-| UI_LOG_N_03   | Log in with Missing Password                   | Negative  | UI              | Login         | High-level only | Not Executed                   |
-| UI_LOG_N_04   | Log in with Rapid Clicking                     | Negative  | UI              | Login         | High-level only | Not Executed                   |
+| UI_LOG_N_02   | Log in with Missing Email                      | Negative  | UI              | Login         | Details below   | Not Executed                   |
+| UI_LOG_N_03   | Log in with Missing Password                   | Negative  | UI              | Login         | Details below   | Not Executed                   |
+| UI_LOG_N_04   | Log in with Rapid Clicking                     | Negative  | UI              | Login         | Details below   | Not Executed                   |
 | API_ADD_P_01  | Add Contact with Valid Data                    | Positive  | API             | Add Contact   | Details below   | Executed 12/09/25              |
 | API_ADD_P_02  | Add Contact with Existing Name                 | Positive  | API             | Add Contact   | Details below   | Executed 12/09/25              |
 | API_ADD_P_03  | Add Contact with Valid Name                    | Positive  | API             | Add Contact   | Details below   | Executed 14/09/25              |
-| API_ADD_P_04  | Add Contact with Existing Last Name            | Positive  | API             | Add Contact   | High-level only | Not Executed                   |
-| API_ADD_P_05  | Add Contact with Valid Last Name               | Positive  | API             | Add Contact   | High-level only | Not Executed                   |
+| API_ADD_P_04  | Add Contact with Existing Last Name            | Positive  | API             | Add Contact   | Details below   | Not Executed                   |
+| API_ADD_P_05  | Add Contact with Valid Last Name               | Positive  | API             | Add Contact   | Details below   | Not Executed                   |
 | API_ADD_P_06  | Add Contact with Valid Email                   | Positive  | API             | Add Contact   | High-level only | Not Executed                   |
-| API_ADD_P_07  | Add Contact with Existing Address              | Positive  | API             | Add Contact   | High-level only | Not Executed                   |
+| API_ADD_P_07  | Add Contact with Existing Address              | Positive  | API             | Add Contact   | Details below   | Not Executed                   |
 | API_ADD_P_08  | Add Contact with Valid Address                 | Positive  | API             | Add Contact   | Details below   | Executed 14/09/25              |
-| API_ADD_P_09  | Add Contact with Existing Description          | Positive  | API             | Add Contact   | High-level only | Not Executed                   |
-| API_ADD_P_10  | Add Contact with Valid Description             | Positive  | API             | Add Contact   | High-level only | Not Executed                   |
+| API_ADD_P_09  | Add Contact with Existing Description          | Positive  | API             | Add Contact   | Details below   | Not Executed                   |
+| API_ADD_P_10  | Add Contact with Valid Description             | Positive  | API             | Add Contact   | Details below   | Not Executed                   |
 | API_ADD_P_11  | Add Contact without Unrequired Fields          | Positive  | API             | Add Contact   | Details below   | Executed 15/09/25              |
 | API_ADD_P_12  | Add Contact with Valid Phone                   | Positive  | API             | Add Contact   | High-level only | Not Executed                   |
 | API_ADD_N_01  | Add Contact without Authentication             | Negative  | API             | Add Contact   | Details below   | Executed 15/09/25              |
@@ -68,7 +68,7 @@ Exploratory sessions are kept in STD, STR.
 | UI_ADD_P_01   | Add Contact with Valid Data                    | Positive  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_P_02   | Add Contact with Non-English Letters           | Positive  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_P_03   | Add Contact with Special Characters            | Positive  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
-| UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Positive  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
+| UI_ADD_P_04   | Add Contact with Copy-Paste                    | Positive  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_N_01   | Add Contact with Empty Required Fields         | Negative  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Negative  | UI              | Add Contact   | High-level only | Not Executed                   |
 | INT_SYS_N_01  | Lost Connection While Filling Add Contact Form | Negative  | Interruption    | System        | High-level only | Not Executed                   |
@@ -161,11 +161,11 @@ Interruption tests WEB
 
 - **Endpoint:** registration
 - **Preconditions:** user is not registered
-    - **Test Data:**
-        1. ``{ "password": "#2Breakfast!" }`` - without email
-        2. ``{ "username": null, "password": "#2Breakfast!" }`` - invalid data type of email
-        3. ``{ "username": "", "password": "#2Breakfast!" }`` - empty String instead of email
-        4. ``{ "username": " ", "password": "#2Breakfast!" }`` - whitespace instead of email
+- **Test Data:**
+    1. ``{ "password": "#2Breakfast!" }`` - without email
+    2. ``{ "username": null, "password": "#2Breakfast!" }`` - invalid data type of email
+    3. ``{ "username": "", "password": "#2Breakfast!" }`` - empty String instead of email
+    4. ``{ "username": " ", "password": "#2Breakfast!" }`` - whitespace instead of email
 - **Steps:** send POST request for each email
 - **Expected Result:**
     1. API returns 400 (requirement T1, T2, Swagger)
@@ -278,6 +278,34 @@ Interruption tests WEB
     1. API returns 401
     2. Error message
 
+### API_LOG_N_03 Log in with Missing Email
+
+- **Endpoint:** login
+- **Preconditions:** user is registered
+- **Test Data:**
+  1. ``{ "password": "#2Breakfast!" }`` - without email
+  2. ``{ "username": null, "password": "#2Breakfast!" }`` - invalid data type of email
+  3. ``{ "username": "", "password": "#2Breakfast!" }`` - empty String instead of email
+  4. ``{ "username": " ", "password": "#2Breakfast!" }`` - whitespace instead of email
+- **Steps:** send POST request for each email
+- **Expected Result:**
+  1. API returns 400 (requirement T2, Swagger)
+  2. Message '"username": "must not be blank"'.
+
+### API_LOG_N_04 Log in with Missing Password
+
+- **Endpoint:** login
+- **Preconditions:** user is registered
+- **Test Data:**
+  1. ``{ "username": "passwo@example.com" }`` - without password
+  2. ``{ "username": "passnull@example.com", "password": null }`` - invalid data type of password
+  3. ``{ "username": "passempty@example.com", "password": "" }`` - empty String instead of password
+  4. ``{ "username": "passspace@example.com", "password": " " }`` - whitespace instead of password
+- **Steps:** send POST request for each email
+- **Expected Result:**
+  1. API returns 400 (requirement T8, Swagger)
+  2. Message '"password": "must not be blank"'.
+
 ### UI_REG_P_01 Register with Valid Credentials
 
 - **Test Type:** UI
@@ -320,6 +348,23 @@ Interruption tests WEB
   1. Enter email as in test data
   2. Enter valid password
   3. Click on Registration Button
+- **Expected Result:**
+  1. User is not registered
+  2. Error message "Wrong email or password" (requirement F1)
+
+### UI_REG_N_02 Register with Missing Password
+
+- **Test Type:** UI
+- **Component:** Registration
+- **Test Data (password):**
+  1. no password
+  2. blank password
+  3. whitespace
+- **Precondition:** login page is opened
+- **Steps:**<br>
+  1. Enter email as in test data
+  2. Enter valid password
+  3. Click on Login Button
 - **Expected Result:**
   1. User is not registered
   2. Error message "Wrong email or password" (requirement F1)
@@ -417,6 +462,19 @@ Interruption tests WEB
   2. User is redirected to Contacts Page with contacts created with this account
   3. User can click Contacts and Add Buttons in header
 
+### UI_LOG_P_02 Log in with Copy-Paste
+
+- **Test Type:** UI
+- **Component:** Login
+- **Precondition:** authentication page is opened
+- **Steps:**<br>
+  1. Copy valid email from another source
+  2. Paste into email field
+  3. Copy valid password from another source
+  4. Paste into password field
+  5. Click on Login Button
+- **Expected Result:** user is registered successfully
+
 ### UI_LOG_P_03 Log in with Autofill
 
 - **Test Type:** UI
@@ -441,6 +499,54 @@ Interruption tests WEB
 - **Expected Result:**
   1. User is not logged in
   2. Error message "Wrong email or password" (requirement F4)
+
+### UI_LOG_N_02 Log in with Missing Email
+
+- **Test Type:** UI
+- **Component:** Login
+- **Test Data (Email):**
+  1. no email
+  2. blank email
+  3. whitespace
+- **Precondition:** login page is opened
+- **Steps:**<br>
+  1. Enter email as in test data
+  2. Enter valid password
+  3. Click on Login Button
+- **Expected Result:**
+  1. User is not registered
+  2. Error message "Wrong email or password" (requirement F2)
+
+### UI_LOG_N_03 Log in with Missing Password
+
+- **Test Type:** UI
+- **Component:** Login
+- **Test Data (password):**
+  1. no password
+  2. blank password
+  3. whitespace
+- **Precondition:** login page is opened
+- **Steps:**<br>
+  1. Enter password as in test data
+  2. Enter valid password
+  3. Click on Login Button
+- **Expected Result:**
+  1. User is not registered
+  2. Error message "Wrong email or password" (requirement F2)
+
+### UI_LOG_N_04 Log in with Rapid Clicking
+
+- **Test Type:** UI
+- **Component:** Login
+- **Precondition:** login page is opened
+- **Steps:**<br>
+  1. Enter email
+  2. Enter password
+  3. Click on Login Button twice quickly
+- **Expected Result:**
+  1. Only one submission is processed, not multiple requests to the backend
+  2. UI remains stable
+  3. User is logged in
 
 ### API_ADD_P_01 Add Contact with Valid Data
 
@@ -505,7 +611,7 @@ Interruption tests WEB
   15. with non-English letters - פרודו
   16. 1 character length - F
 - **Steps:**<br>
-  1. Send POST request with existing name
+  1. Send POST request with valid name
      ``{
          "id": "1",
          "name": "<name from test data>",
@@ -518,6 +624,86 @@ Interruption tests WEB
      ``
 - **Expected Result:**
   1. Response 200 OK
+
+### API_ADD_P_04 Add Contact with Existing Last Name
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered, at least one contact in account
+- **Steps:**<br>
+  1. Send POST request with existing last name, same as of already created contact
+     ``{
+         "id": "1",
+         "name": "Merry",
+         "lastName": "<name of another contact>",
+         "email": "merry@buckland.net",
+         "phone": "4479123003",
+         "address": "Brandy Hall, Buckland",
+         "description": "BBF"
+       }
+     ``
+- **Expected Result:**
+  1. Response 200 OK
+  2. Contact is added
+
+### API_ADD_P_05 Add Contact with Valid Last Name
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data (last name):**
+  1. lower case - baggins
+  2. upper case - BAGGINS
+  3. upper and lower case - Baggins
+  4. numbers - Baggins3
+  5. with <> - <b>Baggins</b>
+  6. with "" - "Baggins"
+  7. with '' - 'Baggins'
+  8. with + - Baggins+Gamgee
+  9. with ampersand - Baggins&Gamgee
+  10. with comma - Baggins,Gamgee
+  11. with hyphen - Baggins-of-Backend
+  12. with apostrophe - O'Baggins
+  13. with dot - Sir.Baggins
+  14. with internal whitespace - Mr Baggins
+  15. with non-English letters - Бэггинс
+  16. 1 character length - B
+- **Steps:**<br>
+  1. Send POST request with valid last name
+     ``{
+         "id": "1",
+         "name": "Frodo",
+         "lastName": "<String from test data>",
+         "email": "frodo.baggins@shiremail.me",
+         "phone": "5550001111",
+         "address": "Bag End, Hobbiton, The Shire",
+         "description": "Ring bearer"
+       }
+     ``
+- **Expected Result:**
+  1. Response 200 OK
+  2. Contact is added
+
+### API_ADD_P_07 Add Contact with Existing Address
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered, at least one contact in account
+- **Steps:**<br>
+  1. Send POST request with existing address, same as of already created contact
+     ``{
+         "id": "1",
+         "name": "Merry",
+         "lastName": "Brandybuck",
+         "email": "merry@buckland.net",
+         "phone": "4479123003",
+         "address": "<address of another contact>",
+         "description": "BBF"
+       }
+     ``
+- **Expected Result:**
+  1. Response 200 OK
+  2. Contact is added
 
 ### API_ADD_P_08  Add Contact with Valid Address
 
@@ -559,6 +745,65 @@ Interruption tests WEB
      ``
 - **Expected Result:**
   1. Response 200 OK
+
+### API_ADD_P_09 Add Contact with Existing Description
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered, at least one contact in account
+- **Steps:**<br>
+  1. Send POST request with existing description, same as of already created contact
+     ``{
+         "id": "1",
+         "name": "Merry",
+         "lastName": "Brandybuck",
+         "email": "merry@buckland.net",
+         "phone": "4479123003",
+         "address": "Brandy Hall, Buckland",
+         "description": "<description of another contact>"
+       }
+     ``
+- **Expected Result:**
+  1. Response 200 OK
+  2. Contact is added
+
+### API_ADD_P_10 Add Contact with Valid Description
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data (description):**
+  1. lower case - baggins
+  2. upper case - BAGGINS
+  3. upper and lower case - Baggins
+  4. numbers - Baggins3
+  5. with <> - <b>Baggins</b>
+  6. with "" - "Baggins"
+  7. with '' - 'Baggins'
+  8. with + - Baggins+Gamgee
+  9. with ampersand - Baggins&Gamgee
+  10. with comma - Baggins,Gamgee
+  11. with hyphen - Baggins-of-Backend
+  12. with apostrophe - O'Baggins
+  13. with dot - Sir.Baggins
+  14. with internal whitespace - Mr Baggins
+  15. with non-English letters - Бэггинс
+  16. 1 character length - B
+- **Steps:**<br>
+  1. Send POST request with valid last name
+     ``{
+         "id": "1",
+         "name": "Frodo",
+         "lastName": "Baggins",
+         "email": "frodo.baggins@shiremail.me",
+         "phone": "5550001111",
+         "address": "Bag End, Hobbiton, The Shire",
+         "description": "<data set>"
+       }
+     ``
+- **Expected Result:**
+  1. Response 200 OK
+  2. Contact is added
 
 ### API_ADD_P_11  Add Contact without Unrequired Fields
 
@@ -808,21 +1053,5 @@ Interruption tests WEB
 - **Expected Result:**
   1. Error message
 
-### UI_ADD_N_01 Add Contact with Empty Required Fields
 
-- **Test Type:** UI
-- **Component:** Add Contact
-- **Precondition:** user is registered, go to Add Contact page
-- **Test Data:**
-  1. name
-  2. last name
-  3. email
-  4. phone
-  5. address
-- **Steps:**<br>
-  1. click on field from test data and leave it empty
-  2. fill in other fields
-  3. click on Save button
-- **Expected Result:**
-  1. Error message
 
