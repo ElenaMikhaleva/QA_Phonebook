@@ -23,14 +23,14 @@ Focused on testing the Registration and Login, including exploratory testing per
 |---------------|------------------------------------------------|------------------|---------------|--------------------------------|
 | API_REG_P_01  | Register with Valid Credentials                | Automated        | Passed        | -                              |
 | API_REG_N_01  | Register with Missing Email                    | Manual (Postman) | Failed #4     | BUG_REG_API_04                 |
-| API_REG_N_02  | Register with Missing Password                 |                  |               |                                |
+| API_REG_N_02  | Register with Missing Password                 | Manual (Postman) | Passed        | -                              |
 | API_REG_N_03  | Register with Invalid Email                    | Manual (Postman) | Failed #2, #3 | BUG_REG_API_10, BUG_REG_API_11 |
 | API_REG_N_04  | Register with Invalid Password                 | Automated        | Failed #5, #7 | BUG_REG_API_01, BUG_REG_API_02 |
 | API_REG_N_05  | Register with Duplicate Email                  | Automated        | Failed        | BUG_REG_API_03                 |
 | API_LOG_P_01  | Log in with Registered Email                   | Automated        | Passed        | -                              |
 | API_LOG_N_01  | Log in with Unregistered Email                 | Automated        | Failed        | BUG_LOG_API_02                 |
 | API_LOG_N_02  | Log in with Wrong Password                     | Automated        | Failed        | BUG_LOG_API_02                 |
-| API_LOG_N_03  | Log in with Missing Email                      |                  |               |                                |
+| API_LOG_N_03  | Log in with Missing Email                      | Manual           | Failed        | -                              |
 | API_LOG_N_04  | Log in with Missing Password                   |                  |               |                                |
 | UI_NAV_P_01   | Open Home Page from Navigation                 | Manual           | Passed        |                                |
 | UI_NAV_P_02   | Open About Page from Navigation                | Manual           | Passed        |                                |
@@ -74,7 +74,8 @@ Focused on testing the Registration and Login, including exploratory testing per
 | UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Manual           | Passed        | -                              |
 | UI_ADD_N_01   | Add Contact with Empty Required Fields         | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
-| INT_SYS_N_01  | Use Website with Interruptions                 |                  |               |                                |
+| INT_SYS_N_01  | Lost Connection While Filling Forms            | Manual           | Failed        | BUG_SYS_01                     |
+| INT_SYS_N_02  | Page Refreshed While Filling Forms             | Manual           | Passed        | -                              |
 | MOB_REG_P_01  | Register with Valid Credentials                |                  |               |                                |
 | MOB_REG_P_02  | Register with Copy-Paste                       |                  |               |                                |
 | MOB_REG_N_01  | Register with Missing Email                    |                  |               |                                |
@@ -645,6 +646,25 @@ Focused on testing the Registration and Login, including exploratory testing per
   3. click no Save button
 - **Expected Result:** contact is not created, error message
 - **Actual Result:** contact is created
+- **Attachments:** video of the screen
+
+## BUG_SYS_01 Input Data Is Lost If Disabled Internet Connection
+
+- **Severity:** Medium
+- **Test ID:** INT_SYS_N_01
+- **Environment:** Chrome Desktop
+- **Component:** System
+- **Steps:**<br>
+  1. Open https://telranedu.web.app/home
+  2. Navigate to Add Page
+  3. Start filling fields (Name, Last name, Phone)
+  4. Disable WiFi
+- **Expected Result:**
+  1. Error message
+  2. After reconnecting user can continue filling out the form, data is not lost
+- **Actual Result:**
+  1. No error message
+  2. After reconnecting Contacts Page is opened, input data is lost
 - **Attachments:** video of the screen
 
 # Test Reports for Exploratory Sessions

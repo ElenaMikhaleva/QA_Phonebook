@@ -81,7 +81,8 @@ So, every test marked as "Automated" is executed manually and automatically.
 | UI_ADD_P_04   | Add Contact with Copy-Paste Input              |                                             |
 | UI_ADD_N_01   | Add Contact with Empty Required Fields         |                                             |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         |                                             |
-| INT_SYS_N_01  | Use Website with Interruptions                 |                                             |
+| INT_SYS_N_01  | Lost Connection While Filling Forms            |                                             |
+| INT_SYS_N_02  | Page Refreshed While Filling Forms             |                                             |
 | MOB_REG_P_01  | Register with Valid Credentials                |                                             |
 | MOB_REG_P_02  | Register with Copy-Paste                       |                                             |
 | MOB_REG_N_01  | Register with Missing Email                    |                                             |

@@ -16,7 +16,7 @@ Exploratory sessions are kept in STD, STR.
 | API_LOG_P_01  | Log in with Registered Email                   | Positive  | API             | Login         | Details below   | Executed 03/08/25              |
 | API_LOG_N_01  | Log in with Unregistered Email                 | Negative  | API             | Login         | Details below   | Executed 03/08/25              |
 | API_LOG_N_02  | Log in with Wrong Password                     | Negative  | API             | Login         | Details below   | Executed 03/08/25              |
-| API_LOG_N_03  | Log in with Missing Email                      | Negative  | API             | Login         | Details below   | Not Executed                   |
+| API_LOG_N_03  | Log in with Missing Email                      | Negative  | API             | Login         | Details below   | Executed 02/11/25              |
 | API_LOG_N_04  | Log in with Missing Password                   | Negative  | API             | Login         | Details below   | Not Executed                   |
 | UI_NAV_P_01   | Open Home Page from Navigation                 | Positive  | UI              | Navigation    | High-level only | Executed with Navigation Tests |
 | UI_NAV_P_02   | Open About Page from Navigation                | Positive  | UI              | Navigation    | High-level only | Executed with Navigation Tests |
@@ -70,7 +70,8 @@ Exploratory sessions are kept in STD, STR.
 | UI_ADD_P_04   | Add Contact with Copy-Paste                    | Positive  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_N_01   | Add Contact with Empty Required Fields         | Negative  | UI              | Add Contact   | Details below   | Executed 20/09/25              |
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Negative  | UI              | Add Contact   | High-level only | Not Executed                   |
-| INT_SYS_N_01  | Lost Connection While Filling Add Contact Form | Negative  | Interruption    | System        | High-level only | Not Executed                   |
+| INT_SYS_N_01  | Lost Connection While Filling Forms            | Negative  | Interruption    | System        | Details below   | Executed 02/11/25              |
+| INT_SYS_N_02  | Page Refreshed While Filling Forms             | Negative  | Interruption    | System        | Details below   | Executed 02/11/25              |
 | MOB_NAV_P_01  | Open Home Screen                               | Positive  | Mob UI          | Navigation    | High-level only | Not Executed                   |
 | MOB_NAV_P_02  | Open Login Screen                              | Positive  | Mob UI          | Navigation    | High-level only | Not Executed                   |
 | MOB_REG_P_01  | Register with Valid Credentials                | Positive  | Mob UI          | Registration  | High-level only | Not Executed                   |
@@ -114,7 +115,6 @@ Multiple Instances Work on Same Data
 - web and device
 
 Interruption tests WEB
-- page refresh mid-action (adding contact)
 - browser back/forward
 - tab/window closed mid/action
 - multiple tabs acting on same data
@@ -288,7 +288,7 @@ Interruption tests WEB
   4. ``{ "username": " ", "password": "#2Breakfast!" }`` - whitespace instead of email
 - **Steps:** send POST request for each email
 - **Expected Result:**
-  1. API returns 400 (requirement T2, Swagger)
+  1. API returns 401 (requirement T2, Swagger)
   2. Message '"username": "must not be blank"'.
 
 ### API_LOG_N_04 Log in with Missing Password
@@ -1052,5 +1052,29 @@ Interruption tests WEB
 - **Expected Result:**
   1. Error message
 
+### INT_SYS_N_01 Lost Connection While Filling Add Contact Form
 
+- **Test Type:** Interruption
+- **Component:** System
+- **Precondition:** user is logged in
+- **Steps:**<br>
+  1. Open https://telranedu.web.app/home
+  2. Navigate to Add Page
+  3. Start filling fields (Name, Last name, Phone)
+  4. Simulate loss of Internet connection (disable WiFi)
+- **Expected Result:**
+  1. Error message
+  2. After reconnecting user can continue filling out the form, data is not lost
 
+### INT_SYS_N_02 Page Refreshed While Filling Forms
+
+- **Test Type:** Interruption
+- **Component:** System
+- **Precondition:** user is logged in
+- **Steps:**<br>
+  1. Open https://telranedu.web.app/home
+  2. Navigate to Add Page
+  3. Start filling fields (Name, Last name, Phone)
+  4. Refresh the page
+- **Expected Result:**
+  1. Form is empty, without corrupted data
