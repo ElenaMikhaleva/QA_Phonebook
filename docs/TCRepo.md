@@ -17,14 +17,14 @@ Exploratory sessions are kept in STD, STR.
 | API_LOG_N_01  | Log in with Unregistered Email                 | Negative  | API             | Login         | Details below   | Executed 03/08/25              |
 | API_LOG_N_02  | Log in with Wrong Password                     | Negative  | API             | Login         | Details below   | Executed 03/08/25              |
 | API_LOG_N_03  | Log in with Missing Email                      | Negative  | API             | Login         | Details below   | Executed 02/11/25              |
-| API_LOG_N_04  | Log in with Missing Password                   | Negative  | API             | Login         | Details below   | Not Executed                   |
+| API_LOG_N_04  | Log in with Missing Password                   | Negative  | API             | Login         | Details below   | Executed 03/11/25              |
 | UI_NAV_P_01   | Open Home Page from Navigation                 | Positive  | UI              | Navigation    | High-level only | Executed with Navigation Tests |
 | UI_NAV_P_02   | Open About Page from Navigation                | Positive  | UI              | Navigation    | High-level only | Executed with Navigation Tests |
 | UI_NAV_P_03   | Open Login Page from Navigation                | Positive  | UI              | Navigation    | High-level only | Executed with Login Tests      |
 | UI_REG_P_01   | Register with Valid Credentials                | Positive  | UI              | Registration  | Details below   | Executed 15/08/25              |
 | UI_REG_P_02   | Register with Copy-Paste                       | Positive  | UI              | Registration  | Details below   | Executed 15/08/25              |
 | UI_REG_N_01   | Register with Missing Email                    | Negative  | UI              | Registration  | Details below   | Executed 15/08/25              |
-| UI_REG_N_02   | Register with Missing Password                 | Negative  | UI              | Registration  | Details below   | Not Executed                   |
+| UI_REG_N_02   | Register with Missing Password                 | Negative  | UI              | Registration  | Details below   | Executed 03/11/25              |
 | UI_REG_N_03   | Register with All Empty Fields                 | Negative  | UI              | Registration  | Details below   | Executed 15/08/25              |
 | UI_REG_N_04   | Register with Invalid Email                    | Negative  | UI              | Registration  | Details below   | Executed 17/08/25              |
 | UI_REG_N_05   | Register with Invalid Password                 | Negative  | UI              | Registration  | Details below   | Executed 17/08/25              |
@@ -302,7 +302,7 @@ Interruption tests WEB
   4. ``{ "username": "passspace@example.com", "password": " " }`` - whitespace instead of password
 - **Steps:** send POST request for each email
 - **Expected Result:**
-  1. API returns 400 (requirement T8, Swagger)
+  1. API returns 401 (requirement T8, Swagger)
   2. Message '"password": "must not be blank"'.
 
 ### UI_REG_P_01 Register with Valid Credentials
@@ -361,8 +361,8 @@ Interruption tests WEB
   3. whitespace
 - **Precondition:** login page is opened
 - **Steps:**<br>
-  1. Enter email as in test data
-  2. Enter valid password
+  1. Enter email
+  2. Enter password  as in test data
   3. Click on Login Button
 - **Expected Result:**
   1. User is not registered

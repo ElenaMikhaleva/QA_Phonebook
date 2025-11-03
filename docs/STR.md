@@ -30,15 +30,15 @@ Focused on testing the Registration and Login, including exploratory testing per
 | API_LOG_P_01  | Log in with Registered Email                   | Automated        | Passed        | -                              |
 | API_LOG_N_01  | Log in with Unregistered Email                 | Automated        | Failed        | BUG_LOG_API_02                 |
 | API_LOG_N_02  | Log in with Wrong Password                     | Automated        | Failed        | BUG_LOG_API_02                 |
-| API_LOG_N_03  | Log in with Missing Email                      | Manual           | Failed        | -                              |
-| API_LOG_N_04  | Log in with Missing Password                   |                  |               |                                |
-| UI_NAV_P_01   | Open Home Page from Navigation                 | Manual           | Passed        |                                |
-| UI_NAV_P_02   | Open About Page from Navigation                | Manual           | Passed        |                                |
-| UI_NAV_P_03   | Open Login Page from Navigation                | Manual           | Passed        |                                |
+| API_LOG_N_03  | Log in with Missing Email                      | Manual (Postman) | Failed        | -                              |
+| API_LOG_N_04  | Log in with Missing Password                   | Manual (Postman) | Passed        | -                              |
+| UI_NAV_P_01   | Open Home Page from Navigation                 | Manual           | Passed        | -                              |
+| UI_NAV_P_02   | Open About Page from Navigation                | Manual           | Passed        | -                              |
+| UI_NAV_P_03   | Open Login Page from Navigation                | Manual           | Passed        | -                              |
 | UI_REG_P_01   | Register with Valid Credentials                | Automated        | Failed mobile | BUG_HOM_UI_01                  |
 | UI_REG_P_02   | Register with Copy-Paste                       | Manual           | Passed        | -                              |
-| UI_REG_N_01   | Register with Missing Email                    | Manual           | Failed        | BUG_REG_UI_03                  |
-| UI_REG_N_02   | Register with Missing Password                 |                  |               |                                |
+| UI_REG_N_01   | Register with Missing Email                    | Manual           | Failed        | BUG_REG_UI_03, BUG_REG_UI_04   |
+| UI_REG_N_02   | Register with Missing Password                 | Manual           | Failed        | BUG_REG_UI_03, BUG_REG_UI_04   |
 | UI_REG_N_03   | Register with All Empty Fields                 | Manual           | Passed        | -                              |
 | UI_REG_N_04   | Register with Invalid Email                    | Automated        | Failed #2, #3 | BUG_REG_UI_05, BUG_REG_UI_06   |
 | UI_REG_N_05   | Register with Invalid Password                 | Manual           | Failed #5, #7 | BUG_REG_UI_01, BUG_REG_UI_02   |

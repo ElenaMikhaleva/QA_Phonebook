@@ -108,17 +108,17 @@ So, every test marked as "Automated" is executed manually and automatically.
 
 ## Exploratory Sessions
 
-| ID          | Title                                            | Component           | Reason for Inclusion                             |
-|-------------|--------------------------------------------------|---------------------|--------------------------------------------------|
-| EXP_AUTH_01 | Authentication with Capitalized Letters in Email | Registration, Login | Practice                                         |
-| EXP_AUTH_02 | Authentication with Long Email                   | Registration, Login | No maximum length is given                       |
-| EXP_AUTH_03 | Authentication with Various Emails               | Registration, Login | Edge cases                                       |
-| EXP_AUTH_04 | Authentication with Various Passwords            | Registration, Login | Edge cases, security                             |
-| EXP_AUTH_05 | Authentication API with Invalid Request Format   | Registration, Login | Format errors                                    |
-| EXP_NAV_01  | Navigate Using Keyboard                          | System              | Practice                                         |
-| EXP_NAV_02  | Actions Using Old Token                          | User-only pages     | Security                                         |
-| EXP_ADD_01  | Add Contact with Given ID                        | Add Contact         | It is unclear if ID key is needed in API request |
-| EXP_MOB_01  | Monkey Testing                                   | System              | Common situation                                 |            
+| ID          | Title                                            | Notes                                            |
+|-------------|--------------------------------------------------|--------------------------------------------------|
+| EXP_AUTH_01 | Authentication with Capitalized Letters in Email |                                                  |
+| EXP_AUTH_02 | Authentication with Long Email                   | No maximum length is given                       |
+| EXP_AUTH_03 | Authentication with Various Emails               |                                                  |
+| EXP_AUTH_04 | Authentication with Various Passwords            |                                                  |
+| EXP_AUTH_05 | Authentication API with Invalid Request Format   |                                                  |
+| EXP_NAV_01  | Navigate Using Keyboard                          |                                                  |
+| EXP_NAV_02  | Actions Using Old Token                          | User-only pages                                  |
+| EXP_ADD_01  | Add Contact with Given ID                        | It is unclear if ID key is needed in API request |
+| EXP_MOB_01  | Monkey Testing                                   | System                                           |            
 
 # Test Environment
 
