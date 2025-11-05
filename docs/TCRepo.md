@@ -31,17 +31,17 @@ Exploratory sessions are kept in STD, STR.
 | UI_REG_N_06   | Register with Duplicate Email                  | Negative  | UI              | Registration  | Details below   | Executed 17/08/25              |
 | UI_REG_N_07   | Register with Rapid Clicking                   | Negative  | UI              | Registration  | Details below   | Executed 17/08/25              |
 | UI_LOG_P_01   | Log in with Valid Credentials                  | Positive  | UI              | Login         | Details below   | Executed 17/08/25              |
-| UI_LOG_P_02   | Log in with with Copy-Paste                    | Positive  | UI              | Login         | Details below   | Not Executed                   |
+| UI_LOG_P_02   | Log in with with Copy-Paste                    | Positive  | UI              | Login         | Details below   | Executed 05/11/25              |
 | UI_LOG_P_03   | Log in with with Autofill                      | Positive  | UI              | Login         | Details below   | Executed 17/08/25              |
 | UI_LOG_N_01   | Log in with Unregistered Email                 | Negative  | UI              | Login         | Details below   | Executed 17/08/25              |
-| UI_LOG_N_02   | Log in with Missing Email                      | Negative  | UI              | Login         | Details below   | Not Executed                   |
-| UI_LOG_N_03   | Log in with Missing Password                   | Negative  | UI              | Login         | Details below   | Not Executed                   |
-| UI_LOG_N_04   | Log in with Rapid Clicking                     | Negative  | UI              | Login         | Details below   | Not Executed                   |
+| UI_LOG_N_02   | Log in with Missing Email                      | Negative  | UI              | Login         | Details below   | Executed 05/11/25              |
+| UI_LOG_N_03   | Log in with Missing Password                   | Negative  | UI              | Login         | Details below   | Executed 05/11/25              |
+| UI_LOG_N_04   | Log in with Rapid Clicking                     | Negative  | UI              | Login         | Details below   | Executed 05/11/25              |
 | API_ADD_P_01  | Add Contact with Valid Data                    | Positive  | API             | Add Contact   | Details below   | Executed 12/09/25              |
 | API_ADD_P_02  | Add Contact with Existing Name                 | Positive  | API             | Add Contact   | Details below   | Executed 12/09/25              |
 | API_ADD_P_03  | Add Contact with Valid Name                    | Positive  | API             | Add Contact   | Details below   | Executed 14/09/25              |
-| API_ADD_P_04  | Add Contact with Existing Last Name            | Positive  | API             | Add Contact   | Details below   | Not Executed                   |
-| API_ADD_P_05  | Add Contact with Valid Last Name               | Positive  | API             | Add Contact   | Details below   | Not Executed                   |
+| API_ADD_P_04  | Add Contact with Existing Last Name            | Positive  | API             | Add Contact   | Details below   | Executed 05/11/25              |
+| API_ADD_P_05  | Add Contact with Valid Last Name               | Positive  | API             | Add Contact   | Details below   | Executed 05/11/25              |
 | API_ADD_P_06  | Add Contact with Valid Email                   | Positive  | API             | Add Contact   | High-level only | Not Executed                   |
 | API_ADD_P_07  | Add Contact with Existing Address              | Positive  | API             | Add Contact   | Details below   | Not Executed                   |
 | API_ADD_P_08  | Add Contact with Valid Address                 | Positive  | API             | Add Contact   | Details below   | Executed 14/09/25              |
@@ -654,7 +654,7 @@ Interruption tests WEB
   1. lower case - baggins
   2. upper case - BAGGINS
   3. upper and lower case - Baggins
-  4. numbers - Baggins3
+  4. numbers - 333
   5. with <> - <b>Baggins</b>
   6. with "" - "Baggins"
   7. with '' - 'Baggins'

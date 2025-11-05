@@ -45,17 +45,17 @@ Focused on testing the Registration and Login, including exploratory testing per
 | UI_REG_N_06   | Register with Duplicate Email                  | Automated        | Failed        | BUG_REG_UI_08                  |
 | UI_REG_N_07   | Register with Rapid Clicking                   | Manual           | Passed        | -                              |
 | UI_LOG_P_01   | Log in with Valid Credentials                  | Automated        | Passed        | -                              |
-| UI_LOG_P_02   | Log in with with Copy-Paste                    |                  |               |                                |
+| UI_LOG_P_02   | Log in with with Copy-Paste                    | Manual           | Passed        | -                              |
 | UI_LOG_P_03   | Log in with with Autofill                      | Manual           | Passed        | -                              |
 | UI_LOG_N_01   | Log in with Unregistered Email                 | Automated        | Passed        | -                              |
-| UI_LOG_N_02   | Log in with Missing Email                      |                  |               |                                |
-| UI_LOG_N_03   | Log in with Missing Password                   |                  |               |                                |
-| UI_LOG_N_04   | Log in with Rapid Clicking                     |                  |               |                                |
+| UI_LOG_N_02   | Log in with Missing Email                      | Manual           | Failed        | BUG_LOG_UI_01, BUG_LOG_UI_03   |
+| UI_LOG_N_03   | Log in with Missing Password                   | Manual           | Failed        | BUG_LOG_UI_01, BUG_LOG_UI_03   |
+| UI_LOG_N_04   | Log in with Rapid Clicking                     | Manual           | Passed        | -                              |
 | API_ADD_P_01  | Add Contact with Valid Data                    | Automated        | Passed        | -                              |
 | API_ADD_P_02  | Add Contact with Existing Name                 | Automated        | Passed        | -                              |
 | API_ADD_P_03  | Add Contact with Valid Name                    | Automated        | Passed        | -                              |
-| API_ADD_P_04  | Add Contact with Existing Last Name            |                  |               |                                |
-| API_ADD_P_05  | Add Contact with Valid Last Name               |                  |               |                                |
+| API_ADD_P_04  | Add Contact with Existing Last Name            | Manual (Postman) | Passed        | -                              |
+| API_ADD_P_05  | Add Contact with Valid Last Name               | Manual (Postman) | Passed        | -                              |
 | API_ADD_P_06  | Add Contact with Valid Email                   |                  |               |                                |
 | API_ADD_P_07  | Add Contact with Existing Address              |                  |               |                                |
 | API_ADD_P_08  | Add Contact with Valid Address                 | Automated        | Passed        | -                              |
@@ -117,12 +117,12 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Tests
 
-- **Total Tests Written (Repository):** 64 tests
-- **Tests Planned for Execution:** 38 tests
-- **Tests Executed:** 38 tests
-  - Passed: 23 tests
-  - Failed: 15 tests
-  - Pass Rate: 61%
+- **Total Tests Written (Repository):** 89 tests
+- **Tests Planned for Execution:** 89 tests
+- **Tests Executed:** 50 tests
+  - Passed: 31 tests
+  - Failed: 19 tests
+  - Pass Rate: 62%
 
 - **Exploratory Sessions Planned for Execution:** 8 sessions
 - Bugs Found During Exploratory Sessions: 4 bugs
@@ -145,7 +145,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Coverage
 
-- **Requirements Covered by Tests:** 44%
+- **Requirements Covered by Tests:** 47%
 - **Levels Covered:** API, Functional, UI
 - **Modules Covered:** Navigation, Registration, Login, Add Contact
 - **Untested Areas:** All Contacts, Delete Contact, Update Contact, Sign out, Security Testing
@@ -494,19 +494,6 @@ Focused on testing the Registration and Login, including exploratory testing per
   2. Error message as String "Login or Password incorrect"
 - **Attachments:** test_logs/log-20250803T142445.log
 
-## BUG_LOG_UI_03 Login Request Is Sent with Negative Login
-
-- **Severity:** Medium
-- **Environment:** Chrome Desktop, Firefox, Edge
-- **Component:** Login UI
-- **Precondition:** login page is opened
-- **Steps:**
-  1. Enter invalid credentials (unregistered email, no email, no password)
-  2. Click on Login Button
-- **Expected Result:** user is not logged in
-- **Actual result:** user is not registered, but request is sent to the server
-- **Attachments:** video of the screen
-
 ## BUG_LOG_UI_01 Raw Technical Error Message Is Displayed on Negative Login
 
 - **Severity:** Medium
@@ -520,6 +507,19 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Error message is displayed as popup message
   2. Red message "Login failed with code 400" above the registration form, that user is not supposed to see
 - **Attachments:** screenshot
+
+## BUG_LOG_UI_03 Login Request Is Sent with Negative Login
+
+- **Severity:** Medium
+- **Environment:** Chrome Desktop, Firefox, Edge
+- **Component:** Login UI
+- **Precondition:** login page is opened
+- **Steps:**
+  1. Enter invalid credentials (unregistered email, no email, no password)
+  2. Click on Login Button
+- **Expected Result:** user is not logged in
+- **Actual result:** user is not registered, but request is sent to the server
+- **Attachments:** video of the screen
 
 ## BUG_ALL_UI_01 Empty contacts list message is misaligned on non-full window
 
