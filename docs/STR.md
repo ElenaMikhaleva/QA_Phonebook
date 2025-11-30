@@ -56,16 +56,17 @@ Focused on testing the Registration and Login, including exploratory testing per
 | API_ADD_P_03  | Add Contact with Valid Name                    | Automated        | Passed        | -                              |
 | API_ADD_P_04  | Add Contact with Existing Last Name            | Manual (Postman) | Passed        | -                              |
 | API_ADD_P_05  | Add Contact with Valid Last Name               | Manual (Postman) | Passed        | -                              |
-| API_ADD_P_06  | Add Contact with Valid Email                   |                  |               |                                |
-| API_ADD_P_07  | Add Contact with Existing Address              |                  |               |                                |
+| API_ADD_P_06  | Add Contact with Valid Email                   | Manual (Postman) | Passed        | -                              |
+| API_ADD_P_07  | Add Contact with Existing Address              | Manual (Postman) | Passed        | -                              |
 | API_ADD_P_08  | Add Contact with Valid Address                 | Automated        | Passed        | -                              |
-| API_ADD_P_09  | Add Contact with Existing Description          |                  |               |                                |
-| API_ADD_P_10  | Add Contact with Valid Description             |                  |               |                                |
+| API_ADD_P_09  | Add Contact with Existing Description          | Manual (Postman) | Passed        | -                              |
+| API_ADD_P_10  | Add Contact with Valid Description             | Manual (Postman) | Passed        | -                              |
 | API_ADD_P_11  | Add Contact without Unrequired Fields          | Automated        | Passed        | -                              |
-| API_ADD_P_12  | Add Contact with Valid Phone                   |                  |               |                                |
+| API_ADD_P_12  | Add Contact with Valid Phone                   | Manual (Postman) | Passed        | -                              |
 | API_ADD_N_01  | Add Contact without Authentication             | Automated        | Failed        | BUG_ADD_API_01                 |
 | API_ADD_N_02  | Add Contact with Invalid Token                 | Manual           | Passed        | -                              |
 | API_ADD_N_021 | Add Contact with Outdated Token                | Manual           | Passed        | -                              |
+| API_ADD_N_12  | Add Contact with Existing Phone                | Manual           | Passed        | BUG_ADD_API_04                 |
 | API_ADD_N_13  | Add Contact with Invalid Phone                 | Automated        | Passed        | -                              |
 | API_ADD_N_14  | Add Contact with Invalid Description           | Manual           | Failed        | BUG_ADD_API_02                 |
 | UI_ADD_P_01   | Add Contact with Valid Data                    | Automated        | Passed        | -                              |
@@ -76,9 +77,10 @@ Focused on testing the Registration and Login, including exploratory testing per
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
 | INT_SYS_N_01  | Lost Connection While Filling Forms            | Manual           | Failed        | BUG_SYS_01                     |
 | INT_SYS_N_02  | Page Refreshed While Filling Forms             | Manual           | Passed        | -                              |
-| MOB_REG_P_01  | Register with Valid Credentials                |                  |               |                                |
-| MOB_REG_P_02  | Register with Copy-Paste                       |                  |               |                                |
-| MOB_REG_N_01  | Register with Missing Email                    |                  |               |                                |
+| MOB_NAV_P_01  | Open Home Screen                               | Manual           | Passed        | -                              |
+| MOB_NAV_P_02  | Open Login Screen                              | Manual           | Passed        | -                              |
+| MOB_REG_P_01  | Register with Valid Credentials                | Manual           | Passed        | -                              |
+| MOB_REG_N_01  | Register with Missing Email                    | Manual           | Failed        | BUG_REG_MOB_01                 |
 | MOB_REG_N_02  | Register with Invalid Password                 |                  |               |                                |
 | MOB_LOG_P_01  | Log in with Valid Credentials                  |                  |               |                                |
 | MOB_LOG_P_02  | Log in into Account Created on Web on Mobile   |                  |               |                                |
@@ -119,21 +121,22 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 - **Total Tests Written (Repository):** 89 tests
 - **Tests Planned for Execution:** 89 tests
-- **Tests Executed:** 50 tests
-  - Passed: 31 tests
-  - Failed: 19 tests
-  - Pass Rate: 62%
+- **Tests Executed:** 56 tests
+  - Passed: 36 tests
+  - Failed: 20 tests
+  - Pass Rate: 63%
 
-- **Exploratory Sessions Planned for Execution:** 8 sessions
+- **Exploratory Sessions Planned for Execution:** 9 sessions
+- **Performed Exploratory Sessions:** 8 sessions
 - Bugs Found During Exploratory Sessions: 4 bugs
 
 ## Bugs
 
-- **Total Bugs Found:** 31 bugs
+- **Total Bugs Found:** 33 bugs
 - **Severity:**
   - Critical: 1 bug
   - High: 2 bugs
-  - Medium: 21 bugs
+  - Medium: 23 bugs
   - Low: 7 bugs
 - **Bugs Density:**
   - Home Page: 1 bug
@@ -141,14 +144,14 @@ Focused on testing the Registration and Login, including exploratory testing per
   - Registration: 20 bugs
   - Login: 4 bugs
   - Contact List: 1 bug
-  - Add Contacts: 5 bugs
+  - Add Contacts: 6 bugs
 
 ## Coverage
 
-- **Requirements Covered by Tests:** 47%
+- **Requirements Covered by Tests:** 85%
 - **Levels Covered:** API, Functional, UI
-- **Modules Covered:** Navigation, Registration, Login, Add Contact
-- **Untested Areas:** All Contacts, Delete Contact, Update Contact, Sign out, Security Testing
+- **Modules Covered:** Navigation, Registration, Login, All Contacts, Add Contact
+- **Untested Areas:** Delete Contact, Sign out
 
 **Notes:**
 - The Registration API has critical issues around password validation and email casing that may impact security and user experience. Some requests result in 500 Response.
@@ -156,7 +159,8 @@ Focused on testing the Registration and Login, including exploratory testing per
 - Some functional and validation requirements are not fully defined, leading to ambiguity in expected behavior.
 
 # Test Artifacts
-- **Test Cases and Data:** docs/STD.md
+- **STD:** docs/STD.md
+- **Test Cases:** docs/TCRepo.md
 - **Test Scripts:**
   - src/test/java/api_tests/RegistrationRestTests.java
   - src/test/java/api_tests/LoginRestTests.java
@@ -174,7 +178,7 @@ Focused on testing the Registration and Login, including exploratory testing per
     - test_logs/log-20250911T202458.log
     - test_logs/log-20250915T212650.log
   - Postman Runs:
-    - src/test/postman/postman_reg_test_run.json
+    - src/test/postman/postman_test_run.json.json
 
 # Bug Reports
 
@@ -266,7 +270,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Actual Result:**
   1. API returns 400
   2. No message in the body of JSON
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_test_run.json.json
 
 ## BUG_REG_API_10 Registration API Allows Non-English Letters in Email
 
@@ -282,7 +286,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Send JSON from test data
 - **Expected Result:** user is not registered
 - **Actual Result:** user is registered
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_test_run.json.json
 
 ## BUG_REG_API_11 Registration API Allows Email without At Sign
 
@@ -295,7 +299,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Send JSON with email without @ ``{ "username": "hjzmdldxwt.com", "password": "Sc7^2F8YRu7K" }``
 - **Expected Result:** user is not registered
 - **Actual Result:** user is registered
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_test_run.json.json
 
 ## BUG_REG_API_12 Registration API returns 500 Error
 
@@ -317,7 +321,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Send JSON with test data
 - **Expected Result:** Response Code < 500
 - **Actual Result:** 500 Internal Server Error
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_test_run.json.json
 
 ## BUG_REG_UI_01 Registration UI Accepts Passwords with Non-English Letters
 
@@ -368,7 +372,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 ## BUG_REG_UI_04 Raw Technical Error Message Is Displayed on Negative Registration
 
 - **Severity:** Medium
-- **Environment:** Chrome Desktop, Firefox, Edge, Chrome Mobile
+- **Environment:** Chrome Desktop, Firefox, Edge, Chrome Mobile, Native App
 - **Component:** Registration UI
 - **Steps:**
   1. Enter invalid credentials (registered email, no email, no password)
@@ -376,8 +380,9 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Expected Result:** error message
 - **Actual result:** 
   1. Error message is displayed as popup message
-  2. Red message "Registration failed with code 400" above the registration form, that user is not supposed to see
-- **Attachments:** screenshot
+  2. In browser red message "Registration failed with code 400" above the registration form, that user is not supposed to see
+  3. In native app message "{username=must not be blank}"
+- **Attachments:** screenshots
 
 ## BUG_REG_UI_05 Frontend Allows Registration with Non-English Letters in Email
 
@@ -450,6 +455,21 @@ Focused on testing the Registration and Login, including exploratory testing per
   - test_logs/log-20250817T145357.log
   - test_logs/log-20250817T150058.log
   - test_logs/log-20250817T150148.log
+
+## BUG_REG_MOB_01 App Crashes When Entering Whitespace in Email Registration
+
+- **Severity:** Critical
+- **Environment:** Native App Android
+- **Component:** Registration UI
+- **Test ID:** MOB_REG_N_01
+- **Steps:**<br>
+  1. Open the app
+  2. Enter whitespace in email field
+  3. Enter password (Password$1)
+  4. Tap on Registration Button
+- **Expected Result:** error message
+- **Actual Result:** the app crashes
+- **Attachments:** screen recording, log
 
 ## BUG_LOG_API_01 Login API Fails with Uppercase Letters in Email
 
@@ -592,9 +612,9 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. Send JSON with test data
 - **Expected Result:** Error
 - **Actual Result:** 200 OK
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_test_run.json.json
 
-## BUG_ADD_API_03 API Create Contact Requires Unneeded ID
+## BUG_ADD_API_03 API Creating Contact Requires Unneeded ID
 
 - **Severity:** Medium
 - **Test ID:** EXP_ADD_01
@@ -618,7 +638,28 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Expected Result:** error for non-String datatypes, ID is given to the contact, existing id returns error
 - **Actual Result:** contact is given new ID, that is sent in response message
 - **Notes:** it is unclear why ID is required in request, if system creates new one based on a pattern. Probably it is better not to require ID in response.
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_test_run.json.json
+
+## BUG_ADD_API_04 User Can Create Contact with Existing Phone
+
+- **Severity:** Medium
+- **Test ID:** API_ADD_N_12
+- **Environment:** Postman
+- **Component:** Add Contact API
+- **Preconditions:** user is registered, at least one contact is created
+- **Steps:**
+  1. Send JSON with test data: `{
+    "id": "1",
+    "name": "Merry",
+    "lastName": "Brandybuck",
+    "email": "Jermaine.Beier@gmail.com",
+    "phone": "<existing phone>",
+    "address": "Brandy Hall, Buckland, The Shire",
+    "description": 1234
+    }`
+- **Expected Result:** error 409 Conflict, contact is not added
+- **Actual Result:** response 200 OK, contact is added
+- **Attachments:** src/test/postman/postman_test_run.json.json
 
 ## BUG_ADD_UI_01 No Indication for Missing Fields
 
@@ -847,7 +888,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   - requirements state that one of listed special characters (@$#^&*!) is required in password
     special characters (`'"\/<>;`) can lead to SQL injection, JSON injection, HTML injection, or Cross-Site Scripting (XSS) if input is not properly sanitized or escaped.
 - **Attachments:**
-  - src/test/postman/postman_reg_test_run.json
+  - src/test/postman/postman_test_run.json.json
   - test_logs/log-20250911T202458.log
 
 ## EXP_AUTH_05 Authentication with Invalid Request Format
@@ -882,7 +923,7 @@ Focused on testing the Registration and Login, including exploratory testing per
   | Unexpected Key in Body                         | Login        | 400 Bad Request, message "Wrong format Credential Object"                           |
 
   Registration API returns server error for some requests (BUG_REG_API_12)
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_test_run.json.json
 
 ## EXP_NAV_01 Navigate Using Keyboard
 
@@ -931,7 +972,7 @@ Focused on testing the Registration and Login, including exploratory testing per
     | 1 hour    | Success      | Success     | Success        | Success        | Success             |
     | 1 day     |              |             |                |                |                     |
 
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_test_run.json.json
 
 ## EXP_ADD_01 Add Contact with Given ID
 
@@ -960,5 +1001,5 @@ Focused on testing the Registration and Login, including exploratory testing per
   | no id key                                       | Contact is created | b5adf0e7-6765-41e9-8321-793989f91451 | b5adf0e7-6765-41e9-8321-793989f91451 |
 
   ID in request JSON is required, but not used and not given to the created contact, BUG_ADD_API_03.  
-- **Attachments:** src/test/postman/postman_reg_test_run.json
+- **Attachments:** src/test/postman/postman_test_run.json.json
 

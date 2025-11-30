@@ -86,9 +86,9 @@
 
 ## Schedule
 1. Planning: 12/09/2025
-2. Test Design: 20/09/2025
-3. First Test Session: 30/09/2025
-4. Reports & Delivery: 15/10/2025
+2. Test Design: 20/10/2025
+3. First Test Session: 21/10/2025
+4. Reports & Delivery: 30/12/2025
 
 ## Risks
 - Incomplete product requirements

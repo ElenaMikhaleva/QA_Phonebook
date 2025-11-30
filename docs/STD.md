@@ -73,6 +73,7 @@ So, every test marked as "Automated" is executed manually and automatically.
 | API_ADD_N_01  | Add Contact without Authentication             |                                             |
 | API_ADD_N_02  | Add Contact with Invalid Token                 |                                             |
 | API_ADD_N_021 | Add Contact with Outdated Token                |                                             |
+| API_ADD_N_12  | Add Contact with Existing Phone                |                                             |
 | API_ADD_N_13  | Add Contact with Invalid Phone                 |                                             |
 | API_ADD_N_14  | Add Contact with Invalid Description           |                                             |
 | UI_ADD_P_01   | Add Contact with Valid Data                    |                                             |
@@ -83,8 +84,9 @@ So, every test marked as "Automated" is executed manually and automatically.
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         |                                             |
 | INT_SYS_N_01  | Lost Connection While Filling Forms            |                                             |
 | INT_SYS_N_02  | Page Refreshed While Filling Forms             |                                             |
+| MOB_NAV_P_01  | Open Home Screen                               | Execution with MOB_REG_P_01                 |
+| MOB_NAV_P_02  | Open Login Screen                              | Execution with MOB_REG_P_01                 |
 | MOB_REG_P_01  | Register with Valid Credentials                |                                             |
-| MOB_REG_P_02  | Register with Copy-Paste                       |                                             |
 | MOB_REG_N_01  | Register with Missing Email                    |                                             |
 | MOB_REG_N_02  | Register with Invalid Password                 |                                             |
 | MOB_LOG_P_01  | Log in with Valid Credentials                  |                                             |
@@ -128,7 +130,6 @@ Desktop:
 - Microsoft Edge version 139.0.3405.86 (Official build) (64-bit)
 
 Mobile:
-- real device: Google Pixel 8, Android 15, Chrome Mobile version 139.0.7258.123
 - emulator: Google Pixel 8, Android 15, App version 1.0.0
 
 # Coverage Matrix
