@@ -19,87 +19,85 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Scenario Test Cases
 
-| ID            | Title                                          | Automation       | Status        | Bug ID                         |
-|---------------|------------------------------------------------|------------------|---------------|--------------------------------|
-| API_REG_P_01  | Register with Valid Credentials                | Automated        | Passed        | -                              |
-| API_REG_N_01  | Register with Missing Email                    | Manual (Postman) | Failed #4     | BUG_REG_API_04                 |
-| API_REG_N_02  | Register with Missing Password                 | Manual (Postman) | Passed        | -                              |
-| API_REG_N_03  | Register with Invalid Email                    | Manual (Postman) | Failed #2, #3 | BUG_REG_API_10, BUG_REG_API_11 |
-| API_REG_N_04  | Register with Invalid Password                 | Automated        | Failed #5, #7 | BUG_REG_API_01, BUG_REG_API_02 |
-| API_REG_N_05  | Register with Duplicate Email                  | Automated        | Failed        | BUG_REG_API_03                 |
-| API_LOG_P_01  | Log in with Registered Email                   | Automated        | Passed        | -                              |
-| API_LOG_N_01  | Log in with Unregistered Email                 | Automated        | Failed        | BUG_LOG_API_02                 |
-| API_LOG_N_02  | Log in with Wrong Password                     | Automated        | Failed        | BUG_LOG_API_02                 |
-| API_LOG_N_03  | Log in with Missing Email                      | Manual (Postman) | Failed        | -                              |
-| API_LOG_N_04  | Log in with Missing Password                   | Manual (Postman) | Passed        | -                              |
-| UI_NAV_P_01   | Open Home Page from Navigation                 | Manual           | Passed        | -                              |
-| UI_NAV_P_02   | Open About Page from Navigation                | Manual           | Passed        | -                              |
-| UI_NAV_P_03   | Open Login Page from Navigation                | Manual           | Passed        | -                              |
-| UI_REG_P_01   | Register with Valid Credentials                | Automated        | Failed mobile | BUG_HOM_UI_01                  |
-| UI_REG_P_02   | Register with Copy-Paste                       | Manual           | Passed        | -                              |
-| UI_REG_N_01   | Register with Missing Email                    | Manual           | Failed        | BUG_REG_UI_03, BUG_REG_UI_04   |
-| UI_REG_N_02   | Register with Missing Password                 | Manual           | Failed        | BUG_REG_UI_03, BUG_REG_UI_04   |
-| UI_REG_N_03   | Register with All Empty Fields                 | Manual           | Passed        | -                              |
-| UI_REG_N_04   | Register with Invalid Email                    | Automated        | Failed #2, #3 | BUG_REG_UI_05, BUG_REG_UI_06   |
-| UI_REG_N_05   | Register with Invalid Password                 | Manual           | Failed #5, #7 | BUG_REG_UI_01, BUG_REG_UI_02   |
-| UI_REG_N_06   | Register with Duplicate Email                  | Automated        | Failed        | BUG_REG_UI_08                  |
-| UI_REG_N_07   | Register with Rapid Clicking                   | Manual           | Passed        | -                              |
-| UI_LOG_P_01   | Log in with Valid Credentials                  | Automated        | Passed        | -                              |
-| UI_LOG_P_02   | Log in with with Copy-Paste                    | Manual           | Passed        | -                              |
-| UI_LOG_P_03   | Log in with with Autofill                      | Manual           | Passed        | -                              |
-| UI_LOG_N_01   | Log in with Unregistered Email                 | Automated        | Passed        | -                              |
-| UI_LOG_N_02   | Log in with Missing Email                      | Manual           | Failed        | BUG_LOG_UI_01, BUG_LOG_UI_03   |
-| UI_LOG_N_03   | Log in with Missing Password                   | Manual           | Failed        | BUG_LOG_UI_01, BUG_LOG_UI_03   |
-| UI_LOG_N_04   | Log in with Rapid Clicking                     | Manual           | Passed        | -                              |
-| API_ADD_P_01  | Add Contact with Valid Data                    | Automated        | Passed        | -                              |
-| API_ADD_P_02  | Add Contact with Existing Name                 | Automated        | Passed        | -                              |
-| API_ADD_P_03  | Add Contact with Valid Name                    | Automated        | Passed        | -                              |
-| API_ADD_P_04  | Add Contact with Existing Last Name            | Manual (Postman) | Passed        | -                              |
-| API_ADD_P_05  | Add Contact with Valid Last Name               | Manual (Postman) | Passed        | -                              |
-| API_ADD_P_06  | Add Contact with Valid Email                   | Manual (Postman) | Passed        | -                              |
-| API_ADD_P_07  | Add Contact with Existing Address              | Manual (Postman) | Passed        | -                              |
-| API_ADD_P_08  | Add Contact with Valid Address                 | Automated        | Passed        | -                              |
-| API_ADD_P_09  | Add Contact with Existing Description          | Manual (Postman) | Passed        | -                              |
-| API_ADD_P_10  | Add Contact with Valid Description             | Manual (Postman) | Passed        | -                              |
-| API_ADD_P_11  | Add Contact without Unrequired Fields          | Automated        | Passed        | -                              |
-| API_ADD_P_12  | Add Contact with Valid Phone                   | Manual (Postman) | Passed        | -                              |
-| API_ADD_N_01  | Add Contact without Authentication             | Automated        | Failed        | BUG_ADD_API_01                 |
-| API_ADD_N_02  | Add Contact with Invalid Token                 | Manual           | Passed        | -                              |
-| API_ADD_N_021 | Add Contact with Outdated Token                | Manual           | Passed        | -                              |
-| API_ADD_N_12  | Add Contact with Existing Phone                | Manual           | Passed        | BUG_ADD_API_04                 |
-| API_ADD_N_13  | Add Contact with Invalid Phone                 | Automated        | Passed        | -                              |
-| API_ADD_N_14  | Add Contact with Invalid Description           | Manual           | Failed        | BUG_ADD_API_02                 |
-| UI_ADD_P_01   | Add Contact with Valid Data                    | Automated        | Passed        | -                              |
-| UI_ADD_P_02   | Add Contact with Data with Non-English Letters | Manual           | Passed        | -                              |
-| UI_ADD_P_03   | Add Contact with Special Characters            | Manual           | Passed        | -                              |
-| UI_ADD_P_04   | Add Contact with Copy-Paste Input              | Manual           | Passed        | -                              |
-| UI_ADD_N_01   | Add Contact with Empty Required Fields         | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
-| UI_ADD_N_02   | Add Contact with Blank Required Fields         | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
-| INT_SYS_N_01  | Lost Connection While Filling Forms            | Manual           | Failed        | BUG_SYS_01                     |
-| INT_SYS_N_02  | Page Refreshed While Filling Forms             | Manual           | Passed        | -                              |
-| MOB_NAV_P_01  | Open Home Screen                               | Manual           | Passed        | -                              |
-| MOB_NAV_P_02  | Open Login Screen                              | Manual           | Passed        | -                              |
-| MOB_REG_P_01  | Register with Valid Credentials                | Manual           | Passed        | -                              |
-| MOB_REG_N_01  | Register with Missing Email                    | Manual           | Failed        | BUG_REG_MOB_01                 |
-| MOB_REG_N_02  | Register with Invalid Password                 |                  |               |                                |
-| MOB_LOG_P_01  | Log in with Valid Credentials                  |                  |               |                                |
-| MOB_LOG_P_02  | Log in into Account Created on Web on Mobile   |                  |               |                                |
-| MOB_LOG_N_01  | Log in with Unregistered Email                 |                  |               |                                |
-| MOB_ADD_P_01  | Add Contact Using Gesture (Long Press / Swipe) |                  |               |                                |
-| MOB_ADD_P_02  | Add Contact with Non-English Letters           |                  |               |                                |
-| MOB_ADD_P_03  | Add Contact with Special Characters            |                  |               |                                |
-| MOB_SYS_P_01  | Scroll Through Long Contact List               |                  |               |                                |
-| MOB_SYS_P_02  | Multiple Instances Work on Same Data           |                  |               |                                |
-| MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles         |                  |               |                                |
-| MOB_SYS_P_04  | Install App                                    |                  |               |                                |
-| MOB_SYS_P_05  | Rotate device in each screen                   |                  |               |                                |
-| MOB_SYS_P_06  | Reach Main Buttons with One Hand               |                  |               |                                |
-| MOB_SYS_P_07  | App Compatibility Across OS Versions           |                  |               |                                |
-| MOB_SYS_P_08  | App Compatibility Across Devices               |                  |               |                                |
-| MOB_SYS_P_09  | Screen Reader Reads Labels                     |                  |               |                                |
-| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts      |                  |               |                                |
-| MOB_SYS_N_01  | Use App with Interruptions                     |                  |               |                                |
-| MOB_SYS_N_02  | Delete App                                     |                  |               |                                |
+| ID            | Title                                                  | Automation       | Status        | Bug ID                         |
+|---------------|--------------------------------------------------------|------------------|---------------|--------------------------------|
+| API_REG_P_01  | Register with Valid Credentials                        | Automated        | Passed        | -                              |
+| API_REG_N_01  | Register with Missing Email                            | Manual (Postman) | Failed #4     | BUG_REG_API_04                 |
+| API_REG_N_02  | Register with Missing Password                         | Manual (Postman) | Passed        | -                              |
+| API_REG_N_03  | Register with Invalid Email                            | Manual (Postman) | Failed #2, #3 | BUG_REG_API_10, BUG_REG_API_11 |
+| API_REG_N_04  | Register with Invalid Password                         | Automated        | Failed #5, #7 | BUG_REG_API_01, BUG_REG_API_02 |
+| API_REG_N_05  | Register with Duplicate Email                          | Automated        | Failed        | BUG_REG_API_03                 |
+| API_LOG_P_01  | Log in with Registered Email                           | Automated        | Passed        | -                              |
+| API_LOG_N_01  | Log in with Unregistered Email                         | Automated        | Failed        | BUG_LOG_API_02                 |
+| API_LOG_N_02  | Log in with Wrong Password                             | Automated        | Failed        | BUG_LOG_API_02                 |
+| API_LOG_N_03  | Log in with Missing Email                              | Manual (Postman) | Failed        | -                              |
+| API_LOG_N_04  | Log in with Missing Password                           | Manual (Postman) | Passed        | -                              |
+| UI_NAV_P_01   | Open Home Page from Navigation                         | Manual           | Passed        | -                              |
+| UI_NAV_P_02   | Open About Page from Navigation                        | Manual           | Passed        | -                              |
+| UI_NAV_P_03   | Open Login Page from Navigation                        | Manual           | Passed        | -                              |
+| UI_REG_P_01   | Register with Valid Credentials                        | Automated        | Failed mobile | BUG_HOM_UI_01                  |
+| UI_REG_P_02   | Register with Copy-Paste                               | Manual           | Passed        | -                              |
+| UI_REG_N_01   | Register with Missing Email                            | Manual           | Failed        | BUG_REG_UI_03, BUG_REG_UI_04   |
+| UI_REG_N_02   | Register with Missing Password                         | Manual           | Failed        | BUG_REG_UI_03, BUG_REG_UI_04   |
+| UI_REG_N_03   | Register with All Empty Fields                         | Manual           | Passed        | -                              |
+| UI_REG_N_04   | Register with Invalid Email                            | Automated        | Failed #2, #3 | BUG_REG_UI_05, BUG_REG_UI_06   |
+| UI_REG_N_05   | Register with Invalid Password                         | Manual           | Failed #5, #7 | BUG_REG_UI_01, BUG_REG_UI_02   |
+| UI_REG_N_06   | Register with Duplicate Email                          | Automated        | Failed        | BUG_REG_UI_08                  |
+| UI_REG_N_07   | Register with Rapid Clicking                           | Manual           | Passed        | -                              |
+| UI_LOG_P_01   | Log in with Valid Credentials                          | Automated        | Passed        | -                              |
+| UI_LOG_P_02   | Log in with with Copy-Paste                            | Manual           | Passed        | -                              |
+| UI_LOG_P_03   | Log in with with Autofill                              | Manual           | Passed        | -                              |
+| UI_LOG_N_01   | Log in with Unregistered Email                         | Automated        | Passed        | -                              |
+| UI_LOG_N_02   | Log in with Missing Email                              | Manual           | Failed        | BUG_LOG_UI_01, BUG_LOG_UI_03   |
+| UI_LOG_N_03   | Log in with Missing Password                           | Manual           | Failed        | BUG_LOG_UI_01, BUG_LOG_UI_03   |
+| UI_LOG_N_04   | Log in with Rapid Clicking                             | Manual           | Passed        | -                              |
+| API_ADD_P_01  | Add Contact with Valid Data                            | Automated        | Passed        | -                              |
+| API_ADD_P_02  | Add Contact with Existing Name                         | Automated        | Passed        | -                              |
+| API_ADD_P_03  | Add Contact with Valid Name                            | Automated        | Passed        | -                              |
+| API_ADD_P_04  | Add Contact with Existing Last Name                    | Manual (Postman) | Passed        | -                              |
+| API_ADD_P_05  | Add Contact with Valid Last Name                       | Manual (Postman) | Passed        | -                              |
+| API_ADD_P_06  | Add Contact with Valid Email                           | Manual (Postman) | Passed        | -                              |
+| API_ADD_P_07  | Add Contact with Existing Address                      | Manual (Postman) | Passed        | -                              |
+| API_ADD_P_08  | Add Contact with Valid Address                         | Automated        | Passed        | -                              |
+| API_ADD_P_09  | Add Contact with Existing Description                  | Manual (Postman) | Passed        | -                              |
+| API_ADD_P_10  | Add Contact with Valid Description                     | Manual (Postman) | Passed        | -                              |
+| API_ADD_P_11  | Add Contact without Unrequired Fields                  | Automated        | Passed        | -                              |
+| API_ADD_P_12  | Add Contact with Valid Phone                           | Manual (Postman) | Passed        | -                              |
+| API_ADD_N_01  | Add Contact without Authentication                     | Automated        | Failed        | BUG_ADD_API_01                 |
+| API_ADD_N_02  | Add Contact with Invalid Token                         | Manual           | Passed        | -                              |
+| API_ADD_N_021 | Add Contact with Outdated Token                        | Manual           | Passed        | -                              |
+| API_ADD_N_12  | Add Contact with Existing Phone                        | Manual           | Passed        | BUG_ADD_API_04                 |
+| API_ADD_N_13  | Add Contact with Invalid Phone                         | Automated        | Passed        | -                              |
+| API_ADD_N_14  | Add Contact with Invalid Description                   | Manual           | Failed        | BUG_ADD_API_02                 |
+| UI_ADD_P_01   | Add Contact with Valid Data                            | Automated        | Passed        | -                              |
+| UI_ADD_P_02   | Add Contact with Data with Non-English Letters         | Manual           | Passed        | -                              |
+| UI_ADD_P_03   | Add Contact with Special Characters                    | Manual           | Passed        | -                              |
+| UI_ADD_P_04   | Add Contact with Copy-Paste Input                      | Manual           | Passed        | -                              |
+| UI_ADD_N_01   | Add Contact with Empty Required Fields                 | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
+| UI_ADD_N_02   | Add Contact with Blank Required Fields                 | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
+| INT_SYS_N_01  | Lost Connection While Filling Forms                    | Manual           | Failed        | BUG_SYS_01                     |
+| INT_SYS_N_02  | Page Refreshed While Filling Forms                     | Manual           | Passed        | -                              |
+| MOB_NAV_P_01  | Open Home Screen                                       | Manual           | Passed        | -                              |
+| MOB_NAV_P_02  | Open Login Screen                                      | Manual           | Passed        | -                              |
+| MOB_REG_P_01  | Register with Valid Credentials                        | Manual           | Passed        | -                              |
+| MOB_REG_N_01  | Register with Missing Email                            | Manual           | Failed        | BUG_REG_MOB_01                 |
+| MOB_REG_N_02  | Register with Invalid Password                         | Manual           | Failed        | BUG_REG_UI_04                  |
+| MOB_LOG_P_01  | Log in with Valid Credentials                          | Manual           | Passed        | -                              |
+| MOB_LOG_P_02  | Log in into Account Created on Web on Mobile           | Manual           | Passed        | -                              |
+| MOB_LOG_N_01  | Log in with Unregistered Email                         | Manual           | Passed        | -                              |
+| MOB_ADD_P_02  | Add Contact with Non-English Letters in Allowed fields | Manual           | Passed        | -                              |
+| MOB_ADD_P_03  | Add Contact with Special Characters in Allowed fields  | Manual           | Passed        | -                              |
+| MOB_SYS_P_02  | Multiple Instances Work on Same Data                   |                  |               |                                |
+| MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles                 |                  |               |                                |
+| MOB_SYS_P_04  | Install App                                            |                  |               |                                |
+| MOB_SYS_P_05  | Rotate device in each screen                           |                  |               |                                |
+| MOB_SYS_P_06  | Reach Main Buttons with One Hand                       |                  |               |                                |
+| MOB_SYS_P_07  | App Compatibility Across OS Versions                   |                  |               |                                |
+| MOB_SYS_P_08  | App Compatibility Across Devices                       |                  |               |                                |
+| MOB_SYS_P_09  | Screen Reader Reads Labels                             |                  |               |                                |
+| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts              |                  |               |                                |
+| MOB_SYS_N_01  | Use App with Interruptions                             |                  |               |                                |
+| MOB_SYS_N_02  | Delete App                                             |                  |               |                                |
 
 ## Exploratory Tests
 
@@ -707,6 +705,8 @@ Focused on testing the Registration and Login, including exploratory testing per
   1. No error message
   2. After reconnecting Contacts Page is opened, input data is lost
 - **Attachments:** video of the screen
+
+
 
 # Test Reports for Exploratory Sessions
 
