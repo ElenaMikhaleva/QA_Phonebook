@@ -77,6 +77,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 | UI_ADD_N_02   | Add Contact with Blank Required Fields                 | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
 | INT_SYS_N_01  | Lost Connection While Filling Forms                    | Manual           | Failed        | BUG_SYS_01                     |
 | INT_SYS_N_02  | Page Refreshed While Filling Forms                     | Manual           | Passed        | -                              |
+| MOB_SYS_P_04  | Install App                                            | Manual           | Passed        | -                              |
 | MOB_NAV_P_01  | Open Home Screen                                       | Manual           | Passed        | -                              |
 | MOB_NAV_P_02  | Open Login Screen                                      | Manual           | Passed        | -                              |
 | MOB_REG_P_01  | Register with Valid Credentials                        | Manual           | Passed        | -                              |
@@ -87,12 +88,9 @@ Focused on testing the Registration and Login, including exploratory testing per
 | MOB_LOG_N_01  | Log in with Unregistered Email                         | Manual           | Passed        | -                              |
 | MOB_ADD_P_02  | Add Contact with Non-English Letters in Allowed fields | Manual           | Passed        | -                              |
 | MOB_ADD_P_03  | Add Contact with Special Characters in Allowed fields  | Manual           | Passed        | -                              |
-| MOB_SYS_P_02  | Multiple Instances Work on Same Data                   |                  |               |                                |
-| MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles                 |                  |               |                                |
-| MOB_SYS_P_04  | Install App                                            |                  |               |                                |
-| MOB_SYS_P_05  | Rotate device in each screen                           |                  |               |                                |
-| MOB_SYS_P_06  | Reach Main Buttons with One Hand                       |                  |               |                                |
-| MOB_SYS_P_07  | App Compatibility Across OS Versions                   |                  |               |                                |
+| MOB_SYS_P_02  | Multiple Instances Work on Same Data                   | Manual           | Passed        | -                              |
+| MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles                 | Manual           | Passed        | -                              |
+| MOB_SYS_P_05  | Rotate device in each screen                           | Manual           | Passed        | -                              |
 | MOB_SYS_P_08  | App Compatibility Across Devices                       |                  |               |                                |
 | MOB_SYS_P_09  | Screen Reader Reads Labels                             |                  |               |                                |
 | MOB_SYS_P_10  | App Performance When Adding 100+ Contacts              |                  |               |                                |
@@ -553,6 +551,20 @@ Focused on testing the Registration and Login, including exploratory testing per
 - **Expected Result:** the empty list message is vertically and horizontally centered.
 - **Actual result:** "Add new by clicking on Add in NavBar!" is aligned to the right.
 - **Attachments:** src/test/screenshots/BUG_UI_01.png
+
+## BUG_ALL_MOB_01 No button to return to the list of contacts from contact page
+
+- **Severity:** Medium
+- **Test ID:** exploratory testing
+- **Environment:** Native App Android
+- **Component:** Contact Details Page
+- **Preconditions:** user is logged in, contact is created
+- **Steps:**
+  1. Open Contacts List Page
+  2. Tap on Contact
+- **Expected Result:** button to return to Contacts List Page
+- **Actual result:** no button to return
+- **Attachments:** screenshot
 
 ## BUG_ADD_API_01 Wrong Code for Adding Contact without Authentication
 
