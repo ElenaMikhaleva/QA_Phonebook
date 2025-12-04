@@ -77,6 +77,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 | UI_ADD_N_02   | Add Contact with Blank Required Fields                 | Manual           | Failed        | BUG_ADD_UI_01, BUG_ADD_UI_02   |
 | INT_SYS_N_01  | Lost Connection While Filling Forms                    | Manual           | Failed        | BUG_SYS_01                     |
 | INT_SYS_N_02  | Page Refreshed While Filling Forms                     | Manual           | Passed        | -                              |
+| INT_SYS_N_03  | Behavior with Browser Back and Forward Buttons         | Manual           | Failed        | BUG_SYS_02                     |
 | MOB_SYS_P_04  | Install App                                            | Manual           | Passed        | -                              |
 | MOB_NAV_P_01  | Open Home Screen                                       | Manual           | Passed        | -                              |
 | MOB_NAV_P_02  | Open Login Screen                                      | Manual           | Passed        | -                              |
@@ -92,9 +93,13 @@ Focused on testing the Registration and Login, including exploratory testing per
 | MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles                 | Manual           | Passed        | -                              |
 | MOB_SYS_P_05  | Rotate device in each screen                           | Manual           | Passed        | -                              |
 | MOB_SYS_P_08  | App Compatibility Across Devices                       | Manual           | Passed        | -                              |
-| MOB_SYS_P_09  | Screen Reader Reads Labels                             |                  |               |                                |
-| MOB_SYS_N_01  | Use App with Interruptions                             |                  |               |                                |
-| MOB_SYS_N_02  | Delete App                                             |                  |               |                                |
+| MOB_SYS_P_09  | Behavior With Different Network Types                  | Manual           | Passed        | -                              | 
+| MOB_SYS_N_01  | Send App to Background                                 | Manual           | Passed        | -                              |
+| MOB_SYS_N_02  | Turn off the Screen Mid-Action                         | Manual           | Passed        | -                              |
+| MOB_SYS_N_03  | Lost Connection Mid-Action                             | Manual           | Passed        | -                              |
+| MOB_SYS_N_04  | Low battery                                            | Manual           | Passed        | -                              |
+|               | Delete App                                             |                  |               |                                |
+| MOB_ACC_P_01  | Screen Reader Reads Labels                             | Manual           | Failed        | BUG_ACC_01                     |
 
 ## Exploratory Tests
 
@@ -717,7 +722,38 @@ Focused on testing the Registration and Login, including exploratory testing per
   2. After reconnecting Contacts Page is opened, input data is lost
 - **Attachments:** video of the screen
 
+## BUG_SYS_02 User Cannot return to the site with Forward Browser Button
 
+- **Severity:** Medium
+- **Test ID:** INT_SYS_N_03
+- **Environment:** Chrome Desktop
+- **Component:** System
+- **Precondition:** browser is opened
+- **Steps:**<br>
+  1. Open https://telranedu.web.app/home
+  2. Click on Back browser button
+  3. Click on Forward browser button
+- **Expected Result:** user can return to the website with Forward browser button
+- **Actual Result:** Forward button is disabled
+- **Attachments:** screen recording
+
+## BUG_ACC_01 Phone is read as large number with TalkBack enabled
+
+- **Severity:** Medium
+- **Test ID:** MOB_ACC_P_01
+- **Environment:** Native App
+- **Component:** Contacts List Page, Contact Details Page
+- **Preconditions:** user is logged in, at least one contact is added
+- **Steps:**<br>
+  1. Enable TalkBack
+  2. Open Contacts List Page
+  3. Navigate to a contact
+  4. Wait until phone number is read
+  5. Open a contact
+  6. Navigate to phone number
+- **Expected Result:** phone is read after "Phone" word, it's read as integers
+- **Actual Result:** no "Phone" word, read as large number
+- **Attachments:** screen recording
 
 # Test Reports for Exploratory Sessions
 

@@ -72,6 +72,7 @@ Exploratory sessions are kept in STD, STR.
 | UI_ADD_N_02   | Add Contact with Blank Required Fields                 | Negative  | UI              | Add Contact  | High-level only | Not Executed      |
 | INT_SYS_N_01  | Lost Connection While Filling Forms                    | Negative  | Interruption    | System       | Details below   | Executed 02/11/25 |
 | INT_SYS_N_02  | Page Refreshed While Filling Forms                     | Negative  | Interruption    | System       | Details below   | Executed 02/11/25 |
+| INT_SYS_N_03  | Behavior with Browser Back and Forward Buttons         | Negative  | Interruption    | System       | Details below   | Executed 02/11/25 |
 | MOB_SYS_P_04  | Install App                                            | Positive  | Mob Smoke       | System       | Details below   | Executed 03/12/25 |
 | MOB_NAV_P_01  | Open Home Screen                                       | Positive  | Mob UI          | Navigation   | High-level only | Executed 30/11/25 |
 | MOB_NAV_P_02  | Open Login Screen                                      | Positive  | Mob UI          | Navigation   | High-level only | Executed 30/11/25 |
@@ -87,29 +88,22 @@ Exploratory sessions are kept in STD, STR.
 | MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles                 | Positive  | Stability       | System       | Details below   | Executed 03/12/25 |
 | MOB_SYS_P_05  | Rotate device in each screen                           | Positive  | Compatibility   | System       | Details below   | Executed 03/12/25 |
 | MOB_SYS_P_08  | App Compatibility Across Devices                       | Positive  | Compatibility   | System       | Details below   | Executed 04/12/25 |
-| MOB_SYS_P_09  | Screen Reader Reads Labels                             | Positive  | Mob UI          | System       | High-level only | Not Executed      |
-| MOB_SYS_N_01  | Use App with Interruptions                             | Negative  | Functional      | System       | High-level only | Not Executed      |
-| MOB_SYS_N_02  | Delete App                                             | Negative  | Functional      | System       | High-level only | Not Executed      |
+| MOB_SYS_P_09  | Behavior With Different Network Types                  | Positive  | Compatibility   | System       | Details below   | Executed 04/12/25 |
+| MOB_SYS_N_01  | Send App to Background Mid-Action                      | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
+| MOB_SYS_N_02  | Turn off the Screen Mid-Action                         | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
+| MOB_SYS_N_03  | Lost Connection Mid-Action                             | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
+| MOB_SYS_N_04  | Low battery                                            | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
+|               | Delete App                                             | Negative  | Functional      | System       | High-level only | Not Executed      |
+| MOB_ACC_P_01  | Screen Reader Reads Labels                             | Positive  | Mob UI          | System       | Details below   | Executed 04/12/25 |
 
 Interruption tests MOBILE
-- send an app to the background
-- turn off the screen
-- exit app mid-action (adding contact)
-- rotating the screen
-- different types of connection (3G/4G/5G/WiFi/no connection)
 - incoming call
 - notification
 - connecting with new devices
-- low battery
-- shutdown
-- close app after submitting but before server response
 
 Interruption tests WEB
-- browser back/forward
 - tab/window closed mid/action
-- multiple tabs acting on same data
 - form abandoned
-- close browser after submitting but before server response
 
 # Detailed Tests
 
@@ -1138,6 +1132,23 @@ Interruption tests WEB
 - **Expected Result:**
   1. Form is empty, without corrupted data
 
+### INT_SYS_N_03 Behavior with Browser Back and Forward Buttons
+
+- **Test Type:** Interruption
+- **Component:** System
+- **Precondition:** browser is opened
+- **Steps:**<br>
+  1. Open https://telranedu.web.app/home
+  2. Click on Back browser button
+  3. Click on Forward browser button
+  4. Log in
+  5. Open contact
+  6. Click on Back browser button
+  7. Click on Forward browser button
+- **Expected Result:**
+  - user can return to login page with Forward button (step 3)
+  - user use Back/Forward buttons on the website
+
 ### MOB_REG_P_01 Register with Valid Credentials
 
 - **Test Type:** Mobile UI
@@ -1369,3 +1380,120 @@ Interruption tests WEB
   22. Swipe right to delete contact 
   23. Tap on Yes
 - **Expected Result:** screens displayed correctly and functions work on all devices
+
+### MOB_SYS_P_09 Behavior With Different Network Types
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Steps:**<br>
+  1. Connect to Wi-Fi
+  2. Open the app
+  3. Log in
+  4. Create contact
+  5. Disable Wi-Fi
+  6. Set network type 5G
+  7. Open contact 
+  8. Edit contact
+  9. Set network type 4G
+  10. Open contact
+  11. Remove contact
+  12. Set network type 3G
+  13. Create contact
+  14. Log out
+  15. Log in
+- **Expected Result:** all operations succeed without or with minimum delay. If there is a delay, app shows loading indicator
+
+### MOB_SYS_N_01 Send App to Background
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Preconditions:** app is opened, user is logged in
+- **Steps:**<br>
+  1. Tap on +
+  2. Enter name
+  3. Enter last name
+  4. Press the Home button on the phone
+  5. Wait 30 seconds
+  6. Reopen app
+- **Expected Result:** data is not lost
+
+### MOB_SYS_N_02 Turn off the Screen Mid-Action
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Preconditions:** app is opened, user is logged in
+- **Steps:**<br>
+  1. Tap on +
+  2. Enter name
+  3. Enter last name
+  4. Turn off the screen
+  5. Wait 30 seconds
+  6. Turn on the screen
+- **Expected Result:** data is not lost
+
+### MOB_SYS_N_03 Lost Connection Mid-Action
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Preconditions:** app is opened, user is logged in
+- **Steps:**<br>
+  1. Enter contact info
+  2. Turn on airplane mode
+  3. Tap on Create
+  4. Turn off airplane mode, wait until phone is reconnected
+  5. Tap on Create
+- **Expected Result:**
+  - user cannot create contact without connection
+  - user stays on the same screen after tapping Create without connection
+  - data is not lost
+  - user can create contact after reconnecting
+
+### MOB_SYS_N_04 Low battery
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Preconditions:** app is opened
+- **Steps:**<br>
+  1. Log in
+  2. Decrease the battery level to 20%
+  3. Create a contact
+  4. Decrease the battery level to 10%
+  5. Edit a contact
+  6. Decrease the battery level to 5%
+  7. Create a contact
+  8. Decrease the battery level to 1% (device shuts down)
+  9. Set charging
+  10. Reopen the app
+- **Expected Result:** App continues working normally, after shutting down can be opened again
+
+### MOB_ACC_P_01 Screen Reader Reads Labels
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Preconditions:** 
+  - TalkBack is enabled
+  - the app is opened
+- **Steps:**<br>
+  1. Check how all the inscriptions and input fields are read on the Login Page
+  2. Enter credentials
+  3. Navigate to Register button 
+  4. Check how all the inscriptions and input fields are read on empty Contacts List Page 
+  5. Navigate to three dots, check how options are read 
+  6. Navigate to Log out button
+  7. Enter credentials
+  8. Navigate to Login button
+  9. Check how all the inscriptions and input fields are read on Add Contact Page
+  10. Enter contact info
+  11. Navigate to Create button
+  12. Check how all the inscriptions and input fields are read on Contacts List Page
+  13. Navigate to a contact button
+  14. Check how all the inscriptions and input fields are read on Contacts Details Page
+  15. Swipe left with two fingers
+  16. Check how all the inscriptions and input fields are read on Update Contact Page
+  17. Navigate to Save button
+  18. Swipe right with two fingers
+  19. Check how all the inscriptions and input fields are read on Confirm Deleting Message 
+  20. Navigate to Yes
+- **Expected Result:** 
+  - all inscriptions and input fields are read correctly
+  - touches with enabled TalkBack work correctly

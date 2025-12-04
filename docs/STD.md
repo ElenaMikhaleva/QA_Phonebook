@@ -84,6 +84,7 @@ So, every test marked as "Automated" is executed manually and automatically.
 | UI_ADD_N_02   | Add Contact with Blank Required Fields         |                                             |
 | INT_SYS_N_01  | Lost Connection While Filling Forms            |                                             |
 | INT_SYS_N_02  | Page Refreshed While Filling Forms             |                                             |
+| INT_SYS_N_03  | Behavior with Browser Back and Forward Buttons |                                             |
 | MOB_NAV_P_01  | Open Home Screen                               | Execution with MOB_REG_P_01                 |
 | MOB_NAV_P_02  | Open Login Screen                              | Execution with MOB_REG_P_01                 |
 | MOB_REG_P_01  | Register with Valid Credentials                |                                             |
@@ -103,10 +104,13 @@ So, every test marked as "Automated" is executed manually and automatically.
 | MOB_SYS_P_06  | Reach Main Buttons with One Hand               |                                             |
 | MOB_SYS_P_07  | App Compatibility Across OS Versions           |                                             |
 | MOB_SYS_P_08  | App Compatibility Across Devices               |                                             |
-| MOB_SYS_P_09  | Screen Reader Reads Labels                     |                                             |
-| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts      |                                             |
-| MOB_SYS_N_01  | Use App with Interruptions                     |                                             |
-| MOB_SYS_N_02  | Delete App                                     |                                             |
+| MOB_SYS_P_09  | Behavior With Different Network Types          |                                             |
+| MOB_SYS_N_01  | Send App to Background                         |                                             |
+| MOB_SYS_N_02  | Turn off the Screen Mid-Action                 |                                             |
+| MOB_SYS_N_03  | Lost Connection Mid-Action                     |                                             |
+| MOB_SYS_N_04  | Low battery                                    |                                             |
+|               | Delete App                                     |                                             |
+| MOB_ACC_P_01  | Screen Reader Reads Labels                     |                                             |
 
 ## Exploratory Sessions
 
@@ -130,7 +134,9 @@ Desktop:
 - Microsoft Edge version 139.0.3405.86 (Official build) (64-bit)
 
 Mobile:
-- emulator: Google Pixel 8, Android 15, App version 1.0.0
+- emulator: Google Pixel 8, Android 15
+- emulator: Small Phone, 4.65 inch, Android 11
+- emulator: Google Pixel 9 Pro XL, 6.8 inch, Android 16
 
 # Coverage Matrix
 
