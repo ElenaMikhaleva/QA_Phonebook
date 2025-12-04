@@ -91,9 +91,8 @@ Focused on testing the Registration and Login, including exploratory testing per
 | MOB_SYS_P_02  | Multiple Instances Work on Same Data                   | Manual           | Passed        | -                              |
 | MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles                 | Manual           | Passed        | -                              |
 | MOB_SYS_P_05  | Rotate device in each screen                           | Manual           | Passed        | -                              |
-| MOB_SYS_P_08  | App Compatibility Across Devices                       |                  |               |                                |
+| MOB_SYS_P_08  | App Compatibility Across Devices                       | Manual           | Passed        | -                              |
 | MOB_SYS_P_09  | Screen Reader Reads Labels                             |                  |               |                                |
-| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts              |                  |               |                                |
 | MOB_SYS_N_01  | Use App with Interruptions                             |                  |               |                                |
 | MOB_SYS_N_02  | Delete App                                             |                  |               |                                |
 

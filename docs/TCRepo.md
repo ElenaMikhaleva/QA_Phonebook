@@ -86,9 +86,8 @@ Exploratory sessions are kept in STD, STR.
 | MOB_SYS_P_02  | Multiple Instances Work on Same Data                   | Positive  | Synchronization | System       | Details below   | Executed 03/12/25 |
 | MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles                 | Positive  | Stability       | System       | Details below   | Executed 03/12/25 |
 | MOB_SYS_P_05  | Rotate device in each screen                           | Positive  | Compatibility   | System       | Details below   | Executed 03/12/25 |
-| MOB_SYS_P_08  | App Compatibility Across Devices                       | Positive  | Compatibility   | System       | High-level only | Not Executed      |
+| MOB_SYS_P_08  | App Compatibility Across Devices                       | Positive  | Compatibility   | System       | Details below   | Executed 04/12/25 |
 | MOB_SYS_P_09  | Screen Reader Reads Labels                             | Positive  | Mob UI          | System       | High-level only | Not Executed      |
-| MOB_SYS_P_10  | App Performance When Adding 100+ Contacts              | Positive  | Performance     | System       | High-level only | Not Executed      |
 | MOB_SYS_N_01  | Use App with Interruptions                             | Negative  | Functional      | System       | High-level only | Not Executed      |
 | MOB_SYS_N_02  | Delete App                                             | Negative  | Functional      | System       | High-level only | Not Executed      |
 
@@ -1336,3 +1335,37 @@ Interruption tests WEB
   11. Tap on another contact
   12. Rotate device
 - **Expected Result:** each screen is displayed and opened correctly in all modes
+
+### MOB_SYS_P_08 App Compatibility Across Devices
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Emulators:**
+  - Small Phone, 4.65 inch, Android 11
+  - Pixel 8, 6.17 inch, Android 15
+  - Pixel 9 Pro XL, 6.8 inch, Android 16
+- **Steps:**<br>
+  1. Install the app on the device
+  2. Launch the app
+  3. Enter email
+  4. Enter password
+  5. Tap on Register
+  6. Tap on three dots 
+  7. Tap to log out
+  8. Enter email
+  9. Enter password
+  10. Tap on Login 
+  11. Tap on + 
+  12. Enter name 
+  13. Enter last name 
+  14. Enter email 
+  15. Enter phone 
+  16. Enter address 
+  17. Enter description 
+  18. Tap on Create 
+  19. Swipe left to edit contact 
+  20. Edit info 
+  21. Tap on Save 
+  22. Swipe right to delete contact 
+  23. Tap on Yes
+- **Expected Result:** screens displayed correctly and functions work on all devices
