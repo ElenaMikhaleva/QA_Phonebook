@@ -66,6 +66,16 @@ Focused on testing the Registration and Login, including exploratory testing per
 | API_ADD_N_01  | Add Contact without Authentication                     | Automated        | Failed        | BUG_ADD_API_01                 |
 | API_ADD_N_02  | Add Contact with Invalid Token                         | Manual           | Passed        | -                              |
 | API_ADD_N_021 | Add Contact with Outdated Token                        | Manual           | Passed        | -                              |
+| API_ADD_N_04  | Add Contact with Invalid Request Format                | Manual (Postman) | Failed        | BUG_ADD_API_05                 |
+| API_ADD_N_041 | Add Contact with Invalid Content-Type Header           | Manual (Postman) | Failed        | BUG_ADD_API_05                 |
+| API_ADD_N_042 | Add Contact with Invalid Cache-Control Header          | Manual (Postman) | Passed        | -                              |
+| API_ADD_N_05  | Add Contact with Missing Name                          | Manual (Postman) | Passed        | -                              |
+| API_ADD_N_06  | Add Contact with Missing Last Name                     | Manual (Postman) | Passed        | -                              |
+| API_ADD_N_07  | Add Contact with Missing Email                         | Manual (Postman) | Passed        | -                              |
+| API_ADD_N_08  | Add Contact with Existing Email                        | Manual (Postman) | Passed        | -                              |
+| API_ADD_N_09  | Add Contact with Invalid Email                         | Manual (Postman) | Failed        | BUG_ADD_API_06                 |
+| API_ADD_N_10  | Add Contact with Missing Address                       | Manual (Postman) | Passed        | -                              |
+| API_ADD_N_11  | Add Contact with Missing Phone                         | Manual (Postman) | Passed        | -                              |
 | API_ADD_N_12  | Add Contact with Existing Phone                        | Manual           | Passed        | BUG_ADD_API_04                 |
 | API_ADD_N_13  | Add Contact with Invalid Phone                         | Automated        | Passed        | -                              |
 | API_ADD_N_14  | Add Contact with Invalid Description                   | Manual           | Failed        | BUG_ADD_API_02                 |
@@ -98,7 +108,6 @@ Focused on testing the Registration and Login, including exploratory testing per
 | MOB_SYS_N_02  | Turn off the Screen Mid-Action                         | Manual           | Passed        | -                              |
 | MOB_SYS_N_03  | Lost Connection Mid-Action                             | Manual           | Passed        | -                              |
 | MOB_SYS_N_04  | Low battery                                            | Manual           | Passed        | -                              |
-|               | Delete App                                             |                  |               |                                |
 | MOB_ACC_P_01  | Screen Reader Reads Labels                             | Manual           | Failed        | BUG_ACC_01                     |
 
 ## Exploratory Tests
@@ -113,7 +122,6 @@ Focused on testing the Registration and Login, including exploratory testing per
 | EXP_NAV_01  | Navigate Using Keyboard                          | Performed | -              |
 | EXP_NAV_02  | User-Only Actions Using Old Token                | Performed | -              |
 | EXP_ADD_01  | Add Contact with Given ID                        | Performed | BUG_ADD_API_03 |
-| EXP_MOB_01  | Monkey Testing                                   |           |                |
 
 # Summary
 
@@ -673,6 +681,46 @@ Focused on testing the Registration and Login, including exploratory testing per
     }`
 - **Expected Result:** error 409 Conflict, contact is not added
 - **Actual Result:** response 200 OK, contact is added
+- **Attachments:** src/test/postman/postman_test_run.json.json
+
+## BUG_ADD_API_05 Add Contact API returns 500 Error
+
+- **Severity:** High
+- **Test ID:** API_ADD_N_04, API_ADD_N_041
+- **Environment:** Postman
+- **Component:** Registration API
+- **Test Data:**
+  1. JSON with no comma in body ``{
+  "id": "3-m"
+  "name": "Merry"
+  "lastName": "Brandybuck"
+  "email": "Bernhard6@yahoo.com"
+  "phone": "070371709101"
+  "address": "Brandy Hall, Buckland, The Shire"
+  "description": ""
+}``
+  2. no Content-Type header
+  3. header `Content-Type: text/plain` with JSON in body
+  4. header `Content-Type: text/plain`, plain text "not a json" in body
+- **Steps:**<br>
+  1. Send request with test data
+- **Expected Result:** Response Code < 500
+- **Actual Result:** 500 Internal Server Error
+- **Attachments:** src/test/postman/postman_test_run.json.json
+
+## BUG_ADD_API_06 Contact Can Be Added With Invalid Email
+
+- **Severity:** Medium
+- **Test ID:** API_ADD_N_09
+- **Environment:** Postman
+- **Component:** Add Contact API
+- **Test Data:**
+  1. почта@example.com - contains Cyrillic characters 
+  2. pïppiñtŏk@example.com - contains diacritic characters
+- **Steps:**<br>
+  1. Send request with test data
+- **Expected Result:** Response Code 400, contact is not added
+- **Actual Result:** Response Code 200 OK, contact is added
 - **Attachments:** src/test/postman/postman_test_run.json.json
 
 ## BUG_ADD_UI_01 No Indication for Missing Fields

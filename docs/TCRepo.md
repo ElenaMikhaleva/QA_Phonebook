@@ -9,7 +9,7 @@ Exploratory sessions are kept in STD, STR.
 |---------------|--------------------------------------------------------|-----------|-----------------|--------------|-----------------|-------------------|
 | API_REG_P_01  | Register with Valid Credentials                        | Positive  | API             | Registration | Details below   | Executed 02/08/25 |
 | API_REG_N_01  | Register with Missing Email                            | Negative  | API             | Registration | Details below   | Executed 02/08/25 |
-| API_REG_N_02  | Register with Missing Password                         | Negative  | API             | Registration | Details below   | Not Executed      |
+| API_REG_N_02  | Register with Missing Password                         | Negative  | API             | Registration | Details below   | Executed 09/12/25 |
 | API_REG_N_03  | Register with Invalid Email                            | Negative  | API             | Registration | Details below   | Executed 17/08/25 |
 | API_REG_N_04  | Register with Invalid Password                         | Negative  | API             | Registration | Details below   | Executed 02/08/25 |
 | API_REG_N_05  | Register with Duplicate Email                          | Negative  | API             | Registration | Details below   | Executed 02/08/25 |
@@ -52,15 +52,16 @@ Exploratory sessions are kept in STD, STR.
 | API_ADD_N_01  | Add Contact without Authentication                     | Negative  | API             | Add Contact  | Details below   | Executed 15/09/25 |
 | API_ADD_N_02  | Add Contact with Invalid Token                         | Negative  | API             | Add Contact  | Details below   | Executed 19/09/25 |
 | API_ADD_N_021 | Add Contact with Outdated Token                        | Negative  | API             | Add Contact  | Details below   | Executed 19/09/25 |
-| API_ADD_N_03  | Add Contact with Duplicate ID                          | Negative  | API             | Add Contact  | High-level only | Not Executed      |
-| API_ADD_N_04  | Add Contact with Invalid Request Format                | Negative  | API             | Add Contact  | High-level only | Not Executed      |
-| API_ADD_N_05  | Add Contact with Missing Name                          | Negative  | API             | Add Contact  | High-level only | Not Executed      |
-| API_ADD_N_06  | Add Contact with Missing Last Name                     | Negative  | API             | Add Contact  | High-level only | Not Executed      |
-| API_ADD_N_07  | Add Contact with Missing Email                         | Negative  | API             | Add Contact  | High-level only | Not Executed      |
-| API_ADD_N_08  | Add Contact with Existing Email                        | Negative  | API             | Add Contact  | High-level only | Not Executed      |
-| API_ADD_N_09  | Add Contact with Invalid Email                         | Negative  | API             | Add Contact  | High-level only | Not Executed      |
-| API_ADD_N_10  | Add Contact with Missing Address                       | Negative  | API             | Add Contact  | High-level only | Not Executed      |
-| API_ADD_N_11  | Add Contact with Missing Phone                         | Negative  | API             | Add Contact  | High-level only | Not Executed      |
+| API_ADD_N_04  | Add Contact with Invalid Request Format                | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
+| API_ADD_N_041 | Add Contact with Invalid Content-Type Header           | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
+| API_ADD_N_042 | Add Contact with Invalid Cache-Control Header          | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
+| API_ADD_N_05  | Add Contact with Missing Name                          | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
+| API_ADD_N_06  | Add Contact with Missing Last Name                     | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
+| API_ADD_N_07  | Add Contact with Missing Email                         | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
+| API_ADD_N_08  | Add Contact with Existing Email                        | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
+| API_ADD_N_09  | Add Contact with Invalid Email                         | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
+| API_ADD_N_10  | Add Contact with Missing Address                       | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
+| API_ADD_N_11  | Add Contact with Missing Phone                         | Negative  | API             | Add Contact  | Details below   | Executed 09/12/25 |
 | API_ADD_N_12  | Add Contact with Existing Phone                        | Negative  | API             | Add Contact  | Details below   | Executed 30/11/25 |
 | API_ADD_N_13  | Add Contact with Invalid Phone                         | Negative  | API             | Add Contact  | Details below   | Executed 19/09/25 |
 | API_ADD_N_14  | Add Contact with Invalid Description                   | Negative  | API             | Add Contact  | Details below   | Executed 19/09/25 |
@@ -69,7 +70,7 @@ Exploratory sessions are kept in STD, STR.
 | UI_ADD_P_03   | Add Contact with Special Characters                    | Positive  | UI              | Add Contact  | Details below   | Executed 20/09/25 |
 | UI_ADD_P_04   | Add Contact with Copy-Paste                            | Positive  | UI              | Add Contact  | Details below   | Executed 20/09/25 |
 | UI_ADD_N_01   | Add Contact with Empty Required Fields                 | Negative  | UI              | Add Contact  | Details below   | Executed 20/09/25 |
-| UI_ADD_N_02   | Add Contact with Blank Required Fields                 | Negative  | UI              | Add Contact  | High-level only | Not Executed      |
+| UI_ADD_N_02   | Add Contact with Blank Required Fields                 | Negative  | UI              | Add Contact  | Details below   | Executed 20/09/25 |
 | INT_SYS_N_01  | Lost Connection While Filling Forms                    | Negative  | Interruption    | System       | Details below   | Executed 02/11/25 |
 | INT_SYS_N_02  | Page Refreshed While Filling Forms                     | Negative  | Interruption    | System       | Details below   | Executed 02/11/25 |
 | INT_SYS_N_03  | Behavior with Browser Back and Forward Buttons         | Negative  | Interruption    | System       | Details below   | Executed 02/11/25 |
@@ -93,17 +94,8 @@ Exploratory sessions are kept in STD, STR.
 | MOB_SYS_N_02  | Turn off the Screen Mid-Action                         | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
 | MOB_SYS_N_03  | Lost Connection Mid-Action                             | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
 | MOB_SYS_N_04  | Low battery                                            | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
-|               | Delete App                                             | Negative  | Functional      | System       | High-level only | Not Executed      |
+| MOB_SYS_N_05  | Delete App                                             | Negative  | Installability  | System       | High-level only | Not Executed      |
 | MOB_ACC_P_01  | Screen Reader Reads Labels                             | Positive  | Mob UI          | System       | Details below   | Executed 04/12/25 |
-
-Interruption tests MOBILE
-- incoming call
-- notification
-- connecting with new devices
-
-Interruption tests WEB
-- tab/window closed mid/action
-- form abandoned
 
 # Detailed Tests
 
@@ -924,6 +916,284 @@ Interruption tests WEB
        }``
 - **Expected Result:**
   1. Response 401 Unauthorized
+
+### API_ADD_N_04 Add Contact with Invalid Request Format
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Test Data:**
+  1. without commas: ``{
+           "id": "1"
+           "name": "Witch King"
+           "lastName": "of Angmar"
+           "email": "for@dark.lord"
+           "phone": "1250005555"
+           "address": "Mordor"
+           "description": "Will not fall by the hand of man."
+       }``
+  2. with unknown key: ``{
+     "id": "1",
+     "name": "Witch King",
+     "lastName": "of Angmar",
+     "email": "for@dark.lord",
+     "phone": "1250005555",
+     "workPhone": "1264437543"
+     "address": "Mordor",
+     "description": "Will not fall by the hand of man."
+     }``
+- **Steps:**
+  1. Send POST request in invalid format from test data
+- **Expected Result:**
+  1. Response 400
+
+### API_ADD_N_041 Add Contact with Invalid Content-Type Header
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Test Data:**
+  1. no Content-Type header
+  2. header `Content-Type: text/plain`, JSON in body
+  3. header `Content-Type: text/plain`, plain text "not a json" in body
+- **Expected Result:**
+  1. Response 400
+
+### API_ADD_N_042 Add Contact with Invalid Cache-Control Header
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Test Data:**
+  1. no Cache-Control header
+  2. header `Cache-Control: max-age`, without maximum age
+  3. header `Cache-Control: no-cache, max-age`
+- **Expected Result:**
+  1. Response 400
+
+### API_ADD_N_05 Add Contact with Missing Name 
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data:**
+  1. no key: `{
+          "id": "1",
+          "lastName": "Son of Arathorn",
+          "email": "aragorn@ranger.gov",
+          "phone": "1234567890",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+  2. empty value: `{
+          "id": "1",
+          "name": "",
+          "lastName": "Son of Arathorn",
+          "email": "aragorn@ranger.gov",
+          "phone": "1234567890",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+  3. whitespace: `{
+          "id": "1",
+          "name": " ",
+          "lastName": "Son of Arathorn",
+          "email": "aragorn@ranger.gov",
+          "phone": "1234567890",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+- **Steps:**
+  1. Send POST request with test data
+- **Expected Result:**
+  1. Response 400 Bad Request
+  2. Contact is not added
+
+### API_ADD_N_06 Add Contact with Missing Last Name
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data:**
+  1. no key: `{
+          "id": "1",
+          "name": "Aragorn",
+          "email": "aragorn@ranger.gov",
+          "phone": "1234567890",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+  2. empty value: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "",
+          "email": "aragorn@ranger.gov",
+          "phone": "1234567890",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+  3. whitespace: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": " ",
+          "email": "aragorn@ranger.gov",
+          "phone": "1234567890",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+- **Steps:**
+  1. Send POST request with test data
+- **Expected Result:**
+  1. Response 400 Bad Request
+  2. Contact is not added
+
+### API_ADD_N_07 Add Contact with Missing Email
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data:**
+  1. no key: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "Son of Arathorn",
+          "phone": "1234567890",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+  2. empty value: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "Son of Arathorn",
+          "email": "",
+          "phone": "1234567890",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+  3. whitespace: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "Son of Arathorn",
+          "email": " ",
+          "phone": "1234567890",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+- **Steps:**
+  1. Send POST request with test data
+- **Expected Result:**
+  1. Response 400 Bad Request
+  2. Contact is not added
+
+### API_ADD_N_08 Add Contact with Existing Email  
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered, at least one contact is created 
+- **Steps:**
+  1. Send POST request:
+     `{
+           "id": "1",
+           "name": "Aragorn",
+           "lastName": "Son of Arathorn",
+           "email": "<email of another contact>",
+           "phone": "1234567890",
+           "address": "The Throne Room, Gondor",
+           "description": "The King"
+         }`
+- **Expected Result:**
+  1. Response 400 Bad Request
+  2. Contact is not added
+
+### API_ADD_N_09 Add Contact with Invalid Email
+
+- **Endpoint:** Add Contact
+- **Preconditions:** user not registered
+- **Test Data (Email):**
+  1. woatsignexample.com - without @
+  2. two@atsigns@example.com - with two @
+  3. @example.com - no symbols before @
+  4. nodomain@ - no symbols after @
+  5. почта@example.com - contains Cyrillic characters
+  6. pïppiñtŏk@example.com - contains diacritic characters
+- **Steps:** send POST request
+  ``{ "username": "<email>", "password": "#2Breakfast!" }``
+- **Expected Result:**
+  1. API returns 400
+  2. Contact is not added
+
+### API_ADD_N_10 Add Contact with Missing Address
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data:**
+  1. no key: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "Son of Arathorn",
+          "email": "ranger@gondor.king",
+          "phone": "1234567890",
+          "description": "The King"
+        }`
+  2. empty value: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "Son of Arathorn",
+          "email": "ranger@gondor.king",
+          "phone": "1234567890",
+          "address": "",
+          "description": "The King"
+        }`
+  3. whitespace: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "Son of Arathorn",
+          "email": "ranger@gondor.king",
+          "phone": "1234567890",
+          "address": " ",
+          "description": "The King"
+        }`
+- **Steps:**
+  1. Send POST request with test data
+- **Expected Result:**
+  1. Response 400 Bad Request
+  2. Contact is not added
+
+### API_ADD_N_11 Add Contact with Missing Phone
+
+- **Test Type:** API
+- **Component:** Add Contact
+- **Precondition:** user is registered
+- **Test Data:**
+  1. no key: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "Son of Arathorn",
+          "email": "ranger@gondor.king",
+          "address": "The Throne Room, Gondor",
+          "description": "The King"
+        }`
+  2. empty value: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "Son of Arathorn",
+          "email": "ranger@gondor.king",
+          "phone": "",
+          "address": "",
+          "description": "The King"
+        }`
+  3. whitespace: `{
+          "id": "1",
+          "name": "Aragorn",
+          "lastName": "Son of Arathorn",
+          "email": "ranger@gondor.king",
+          "phone": " ",
+          "address": " ",
+          "description": "The King"
+        }`
+- **Steps:**
+  1. Send POST request with test data
+- **Expected Result:**
+  1. Response 400 Bad Request
+  2. Contact is not added
 
 ### API_ADD_N_12 Add Contact with Existing Phone
 

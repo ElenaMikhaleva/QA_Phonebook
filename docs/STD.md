@@ -73,6 +73,9 @@ So, every test marked as "Automated" is executed manually and automatically.
 | API_ADD_N_01  | Add Contact without Authentication             |                                             |
 | API_ADD_N_02  | Add Contact with Invalid Token                 |                                             |
 | API_ADD_N_021 | Add Contact with Outdated Token                |                                             |
+| API_ADD_N_04  | Add Contact with Invalid Request Format        |                                             |
+| API_ADD_N_041 | Add Contact with Invalid Content-Type Header   |                                             |
+| API_ADD_N_042 | Add Contact with Invalid Cache-Control Header  |                                             |
 | API_ADD_N_12  | Add Contact with Existing Phone                |                                             |
 | API_ADD_N_13  | Add Contact with Invalid Phone                 |                                             |
 | API_ADD_N_14  | Add Contact with Invalid Description           |                                             |
@@ -109,7 +112,6 @@ So, every test marked as "Automated" is executed manually and automatically.
 | MOB_SYS_N_02  | Turn off the Screen Mid-Action                 |                                             |
 | MOB_SYS_N_03  | Lost Connection Mid-Action                     |                                             |
 | MOB_SYS_N_04  | Low battery                                    |                                             |
-|               | Delete App                                     |                                             |
 | MOB_ACC_P_01  | Screen Reader Reads Labels                     |                                             |
 
 ## Exploratory Sessions
