@@ -161,7 +161,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Coverage
 
-- **Requirements Covered by Tests:** 90%
+- **Requirements Covered by Tests:** 93%
 - **Levels Covered:** API, Functional, UI
 - **Modules Covered:** Navigation, Registration, Login, All Contacts, Add Contact
 - **Untested Areas:** Delete Contact, Sign out
