@@ -74,7 +74,8 @@ Exploratory sessions are kept in STD, STR.
 | INT_SYS_N_01  | Lost Connection While Filling Forms                    | Negative  | Interruption    | System       | Details below   | Executed 02/11/25 |
 | INT_SYS_N_02  | Page Refreshed While Filling Forms                     | Negative  | Interruption    | System       | Details below   | Executed 02/11/25 |
 | INT_SYS_N_03  | Behavior with Browser Back and Forward Buttons         | Negative  | Interruption    | System       | Details below   | Executed 02/11/25 |
-| MOB_SYS_P_04  | Install App                                            | Positive  | Mob Smoke       | System       | Details below   | Executed 03/12/25 |
+| MOB_SYS_P_04  | Install the App                                        | Positive  | Installability  | System       | Details below   | Executed 03/12/25 |
+| MOB_SYS_P_041 | Reinstall the App                                      | Positive  | Installability  | System       | Details below   | Executed 10/12/25 |
 | MOB_NAV_P_01  | Open Home Screen                                       | Positive  | Mob UI          | Navigation   | High-level only | Executed 30/11/25 |
 | MOB_NAV_P_02  | Open Login Screen                                      | Positive  | Mob UI          | Navigation   | High-level only | Executed 30/11/25 |
 | MOB_REG_P_01  | Register with Valid Credentials                        | Positive  | Mob UI          | Registration | Details below   | Executed 30/11/25 |
@@ -94,7 +95,9 @@ Exploratory sessions are kept in STD, STR.
 | MOB_SYS_N_02  | Turn off the Screen Mid-Action                         | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
 | MOB_SYS_N_03  | Lost Connection Mid-Action                             | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
 | MOB_SYS_N_04  | Low battery                                            | Negative  | Interruption    | System       | Details below   | Executed 04/12/25 |
-| MOB_SYS_N_05  | Delete App                                             | Negative  | Installability  | System       | High-level only | Not Executed      |
+| MOB_SYS_N_05  | Delete the App from Home Screen                        | Negative  | Installability  | System       | Details below   | Executed 10/12/25 |
+| MOB_SYS_N_06  | Delete the App from Settings                           | Positive  | Installability  | System       | Details below   | Executed 10/12/25 |
+| MOB_SYS_N_07  | Delete the App While Running                           | Negative  | Installability  | System       | Details below   | Executed 10/12/25 |
 | MOB_ACC_P_01  | Screen Reader Reads Labels                             | Positive  | Mob UI          | System       | Details below   | Executed 04/12/25 |
 
 # Detailed Tests
@@ -1588,10 +1591,20 @@ Exploratory sessions are kept in STD, STR.
   11. Repeat 10 times
 - **Expected Result:** cycle is handled correctly
 
-### MOB_SYS_P_04 Install App
+### MOB_SYS_P_04 Install the App
 
 - **Test Type:** Mobile
 - **Component:** System
+- **Steps:**<br>
+  1. Install file contact-android.apk
+  2. Open the app from menu
+- **Expected Result:** app is installed and opened correctly
+
+### MOB_SYS_P_041 Reinstall the App
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Preconditions:** app was installed and deleted
 - **Steps:**<br>
   1. Install file contact-android.apk
   2. Open the app from menu
@@ -1767,3 +1780,46 @@ Exploratory sessions are kept in STD, STR.
 - **Expected Result:** 
   - all inscriptions and input fields are read correctly
   - touches with enabled TalkBack work correctly
+
+### MOB_SYS_N_05 Delete App from Home Screen
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Preconditions:** app is installed and is on Home Screen
+- **Steps:**<br>
+  1. Long-press the app icon on Home Screen
+  2. Move to Uninstall
+  3. Tap on OK
+- **Expected result:**
+  1. App is removed from Home Screen
+  2. App is not in Apps Menu
+  3. App is not in Settings → Apps
+  4. Storage is freed
+
+### MOB_SYS_N_06 Delete the App from Settings
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Preconditions:** app is installed
+- **Steps:**<br>
+  1. Tap on Settings
+  2. Tap on Apps 
+  3. Tap on the app
+  4. Tap on Uninstall 
+  5. Tap on OK
+- **Expected result:**
+  1. App is not in Apps Menu
+  2. App is not in Settings → Apps
+  3. Storage is freed
+
+### MOB_SYS_N_07 Delete the App While Running
+
+- **Test Type:** Mobile
+- **Component:** System
+- **Preconditions:** app is installed
+- **Steps:**<br>
+  1. Open the app
+  2. Uninstall from Home Screen or Settings
+- **Expected result:**
+  1. App is uninstalled
+  2. No crash, reboot

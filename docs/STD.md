@@ -102,7 +102,8 @@ So, every test marked as "Automated" is executed manually and automatically.
 | MOB_SYS_P_01  | Scroll Through Long Contact List               |                                             |
 | MOB_SYS_P_02  | Multiple Instances Work on Same Data           |                                             |
 | MOB_SYS_P_03  | App Handles Repeated Add/Delete Cycles         |                                             |
-| MOB_SYS_P_04  | Install App                                    |                                             |
+| MOB_SYS_P_04  | Install the App                                |                                             |
+| MOB_SYS_P_041 | Reinstall the App                              |                                             |
 | MOB_SYS_P_05  | Rotate device in each screen                   |                                             |
 | MOB_SYS_P_06  | Reach Main Buttons with One Hand               |                                             |
 | MOB_SYS_P_07  | App Compatibility Across OS Versions           |                                             |
@@ -112,6 +113,9 @@ So, every test marked as "Automated" is executed manually and automatically.
 | MOB_SYS_N_02  | Turn off the Screen Mid-Action                 |                                             |
 | MOB_SYS_N_03  | Lost Connection Mid-Action                     |                                             |
 | MOB_SYS_N_04  | Low battery                                    |                                             |
+| MOB_SYS_N_05  | Delete App from Home Screen                    |                                             |
+| MOB_SYS_N_06  | Delete the App from Settings                   |                                             |
+| MOB_SYS_N_07  | Delete the App While Running                   |                                             |
 | MOB_ACC_P_01  | Screen Reader Reads Labels                     |                                             |
 
 ## Exploratory Sessions

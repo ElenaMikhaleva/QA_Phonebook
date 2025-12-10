@@ -89,6 +89,7 @@ Focused on testing the Registration and Login, including exploratory testing per
 | INT_SYS_N_02  | Page Refreshed While Filling Forms                     | Manual           | Passed        | -                              |
 | INT_SYS_N_03  | Behavior with Browser Back and Forward Buttons         | Manual           | Failed        | BUG_SYS_02                     |
 | MOB_SYS_P_04  | Install App                                            | Manual           | Passed        | -                              |
+| MOB_SYS_P_041 | Reinstall the App                                      | Manual           | Passed        | -                              |
 | MOB_NAV_P_01  | Open Home Screen                                       | Manual           | Passed        | -                              |
 | MOB_NAV_P_02  | Open Login Screen                                      | Manual           | Passed        | -                              |
 | MOB_REG_P_01  | Register with Valid Credentials                        | Manual           | Passed        | -                              |
@@ -108,6 +109,9 @@ Focused on testing the Registration and Login, including exploratory testing per
 | MOB_SYS_N_02  | Turn off the Screen Mid-Action                         | Manual           | Passed        | -                              |
 | MOB_SYS_N_03  | Lost Connection Mid-Action                             | Manual           | Passed        | -                              |
 | MOB_SYS_N_04  | Low battery                                            | Manual           | Passed        | -                              |
+| MOB_SYS_N_05  | Delete App from Home Screen                            | Manual           | Passed        | -                              |
+| MOB_SYS_N_06  | Delete the App from Settings                           | Manual           | Passed        | -                              |
+| MOB_SYS_N_07  | Delete the App While Running                           | Manual           | Passed        | -                              |
 | MOB_ACC_P_01  | Screen Reader Reads Labels                             | Manual           | Failed        | BUG_ACC_01                     |
 
 ## Exploratory Tests
@@ -127,36 +131,37 @@ Focused on testing the Registration and Login, including exploratory testing per
 
 ## Tests
 
-- **Total Tests Written (Repository):** 89 tests
-- **Tests Planned for Execution:** 89 tests
-- **Tests Executed:** 56 tests
-  - Passed: 36 tests
-  - Failed: 20 tests
-  - Pass Rate: 63%
+- **Total Tests Written (Repository):** 92 tests
+- **Tests Planned for Execution:** 92 tests
+- **Tests Executed:** 92 tests
+  - Passed: 65 tests
+  - Failed: 27 tests
+  - Pass Rate: 71%
 
 - **Exploratory Sessions Planned for Execution:** 9 sessions
-- **Performed Exploratory Sessions:** 8 sessions
+- **Performed Exploratory Sessions:** 9 sessions
 - Bugs Found During Exploratory Sessions: 4 bugs
 
 ## Bugs
 
-- **Total Bugs Found:** 33 bugs
+- **Total Bugs Found:** 39 bugs
 - **Severity:**
-  - Critical: 1 bug
-  - High: 2 bugs
-  - Medium: 23 bugs
+  - Critical: 2 bugs
+  - High: 3 bugs
+  - Medium: 27 bugs
   - Low: 7 bugs
 - **Bugs Density:**
+  - Whole System: 1 bug
   - Home Page: 1 bug
   - Navigation: 0 bugs
-  - Registration: 20 bugs
+  - Registration: 22 bugs
   - Login: 4 bugs
-  - Contact List: 1 bug
-  - Add Contacts: 6 bugs
+  - Contact List: 2 bug
+  - Add Contacts: 8 bugs
 
 ## Coverage
 
-- **Requirements Covered by Tests:** 85%
+- **Requirements Covered by Tests:** 90%
 - **Levels Covered:** API, Functional, UI
 - **Modules Covered:** Navigation, Registration, Login, All Contacts, Add Contact
 - **Untested Areas:** Delete Contact, Sign out
