@@ -2,7 +2,7 @@
 # Overview
 
 **STP Identifier:** STP-v5<br>
-**Project Name:** Phonebook Testing Authentication Testing<br>
+**Project Name:** Phonebook Testing<br>
 **Date Created:** 07/10/2025<br>
 **Version:** v5, added Mobile Testing<br>
 **Responsibilities:** creation of STP, STD, test execution, STR — Elena Mikhaleva<br>
